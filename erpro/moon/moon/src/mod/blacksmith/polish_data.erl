@@ -1,0 +1,4505 @@
+%%----------------------------------------------------
+%% 装备洗炼 武器注灵数据相关 
+%% @author shawnoyc@163.com
+%%----------------------------------------------------
+
+-module(polish_data).
+-export([
+        get/1
+       ,get_starlist/1
+       ,get_polish_stone/1
+       ,get_ratio/1
+       ,get_star_ratio/3
+    ]
+).
+
+-include("item.hrl").
+%% {可取属性数, [{属性名, 类型, 最小值, 最大值, 概率} | ... ]}
+
+get_ratio(1) -> 1;
+get_ratio(2) -> 2.5;
+get_ratio(3) -> 4;
+get_ratio(4) -> 5.5;
+get_ratio(5) -> 7;
+get_ratio(6) -> 8.5;
+get_ratio(7) -> 10;
+get_ratio(8) -> 11.5;
+get_ratio(9) -> 13;
+get_ratio(10) -> 15.
+
+
+get_starlist(0) ->
+	 [10];
+get_starlist(1) ->
+	 [5, 10];
+get_starlist(2) ->
+	 [1, 5, 10];
+get_starlist(3) ->
+	 [1, 3, 7, 10];
+get_starlist(4) ->
+	 [2, 4, 6, 8, 10];
+get_starlist(5) ->
+	 [1, 3, 5, 7, 9, 10];
+get_starlist(6) ->
+	 [1, 3, 5, 7, 8, 9, 10];
+get_starlist(7) ->
+	 [1, 3, 4, 5, 7, 8, 9, 10];
+get_starlist(8) ->
+	 [1, 3, 4, 5, 6, 7, 8, 9, 10];
+get_starlist(9) ->
+	 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+get_starlist(_Range) ->
+	[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
+
+get_polish_stone(?quality_green) ->
+	[27000];
+get_polish_stone(?quality_blue) ->
+	[27001];
+get_polish_stone(?quality_purple) ->
+	[27002];
+get_polish_stone(?quality_orange) ->
+	[27003];
+get_polish_stone(?quality_golden) ->
+	[27004];
+get_polish_stone(_Quality) ->
+	false.
+
+%% 获取对应星级的概率
+get_star_ratio(1,?attr_hp_max, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(1,?attr_hp_max, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(1,?attr_hp_max, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(1,?attr_hp_max, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(1,?attr_dmg, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(1,?attr_dmg, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(1,?attr_dmg, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(1,?attr_dmg, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(1,?attr_hitrate, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(1,?attr_hitrate, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(1,?attr_hitrate, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(1,?attr_hitrate, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(1,?attr_evasion, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(1,?attr_evasion, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(1,?attr_evasion, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(1,?attr_evasion, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(1,?attr_dmg_magic, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(1,?attr_dmg_magic, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(1,?attr_dmg_magic, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(1,?attr_dmg_magic, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(1,?attr_skill_lev, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(1,?attr_skill_lev, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(1,?attr_skill_lev, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(1,?attr_skill_lev, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(2,?attr_hp_max, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(2,?attr_hp_max, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(2,?attr_hp_max, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(2,?attr_hp_max, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(2,?attr_dmg, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(2,?attr_dmg, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(2,?attr_dmg, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(2,?attr_dmg, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(2,?attr_hitrate, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(2,?attr_hitrate, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(2,?attr_hitrate, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(2,?attr_hitrate, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(2,?attr_evasion, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(2,?attr_evasion, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(2,?attr_evasion, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(2,?attr_evasion, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(2,?attr_dmg_magic, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(2,?attr_dmg_magic, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(2,?attr_dmg_magic, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(2,?attr_dmg_magic, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(2,?attr_skill_lev, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(2,?attr_skill_lev, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(2,?attr_skill_lev, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(2,?attr_skill_lev, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(2,?attr_critrate, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(2,?attr_critrate, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(2,?attr_critrate, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(2,?attr_critrate, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(3,?attr_hp_max, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(3,?attr_hp_max, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(3,?attr_hp_max, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(3,?attr_hp_max, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(3,?attr_dmg, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(3,?attr_dmg, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(3,?attr_dmg, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(3,?attr_dmg, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(3,?attr_hitrate, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(3,?attr_hitrate, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(3,?attr_hitrate, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(3,?attr_hitrate, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(3,?attr_evasion, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(3,?attr_evasion, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(3,?attr_evasion, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(3,?attr_evasion, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(3,?attr_dmg_magic, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(3,?attr_dmg_magic, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(3,?attr_dmg_magic, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(3,?attr_dmg_magic, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(3,?attr_skill_lev, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(3,?attr_skill_lev, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(3,?attr_skill_lev, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(3,?attr_skill_lev, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(3,?attr_js, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(3,?attr_js, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(3,?attr_js, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(3,?attr_js, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(4,?attr_hp_max, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(4,?attr_hp_max, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(4,?attr_hp_max, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(4,?attr_hp_max, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(4,?attr_dmg, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(4,?attr_dmg, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(4,?attr_dmg, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(4,?attr_dmg, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(4,?attr_hitrate, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(4,?attr_hitrate, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(4,?attr_hitrate, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(4,?attr_hitrate, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(4,?attr_evasion, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(4,?attr_evasion, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(4,?attr_evasion, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(4,?attr_evasion, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(4,?attr_dmg_magic, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(4,?attr_dmg_magic, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(4,?attr_dmg_magic, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(4,?attr_dmg_magic, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(4,?attr_skill_lev, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(4,?attr_skill_lev, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(4,?attr_skill_lev, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(4,?attr_skill_lev, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(5,?attr_hp_max, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(5,?attr_hp_max, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(5,?attr_hp_max, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(5,?attr_hp_max, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(5,?attr_dmg, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(5,?attr_dmg, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(5,?attr_dmg, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(5,?attr_dmg, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(5,?attr_hitrate, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(5,?attr_hitrate, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(5,?attr_hitrate, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(5,?attr_hitrate, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(5,?attr_evasion, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(5,?attr_evasion, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(5,?attr_evasion, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(5,?attr_evasion, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(5,?attr_dmg_magic, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(5,?attr_dmg_magic, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(5,?attr_dmg_magic, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(5,?attr_dmg_magic, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(5,?attr_skill_lev, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(5,?attr_skill_lev, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(5,?attr_skill_lev, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(5,?attr_skill_lev, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(5,?attr_defence, 1) ->
+    [1752,1652,1552,1451,1351,1151,551,240,180,120];
+get_star_ratio(5,?attr_defence, 2) ->
+    [1770,1670,1571,1471,1371,1171,571,180,135,90];
+get_star_ratio(5,?attr_defence, 3) ->
+    [1778,1677,1577,1477,1377,1177,577,160,120,80];
+get_star_ratio(5,?attr_defence, 4) ->
+    [1783,1683,1583,1484,1384,1184,584,140,105,70];
+get_star_ratio(_, _, _) -> [1700, 1600, 1500, 1400, 1300, 1100, 500, 400, 300, 200].
+
+get(10092)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10277)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10462)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10647)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10832)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11017)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11202)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10093)  ->
+	{1, [{?attr_defence,0,[3,30],25},{?attr_hp_max,0,[10,99],25},{?attr_evasion,1,[1,5],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[8,74],20}]};	
+get(10278)  ->
+	{1, [{?attr_defence,0,[6,51],25},{?attr_hp_max,0,[15,149],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[12,111],20}]};	
+get(10463)  ->
+	{1, [{?attr_defence,0,[8,73],25},{?attr_hp_max,0,[20,199],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[15,147],20}]};	
+get(10648)  ->
+	{1, [{?attr_defence,0,[10,96],25},{?attr_hp_max,0,[25,248],25},{?attr_evasion,1,[2,13],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[19,183],20}]};	
+get(10833)  ->
+	{1, [{?attr_defence,0,[12,119],15},{?attr_hp_max,0,[30,298],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[22,220],20}]};	
+get(11018)  ->
+	{1, [{?attr_defence,0,[15,144],15},{?attr_hp_max,0,[35,348],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[26,256],20}]};	
+get(11203)  ->
+	{1, [{?attr_defence,0,[17,170],15},{?attr_hp_max,0,[40,398],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[30,292],20}]};	
+get(10094)  ->
+	{2, [{?attr_defence,0,[4,37],25},{?attr_hp_max,0,[13,123],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[10,93],20}]};	
+get(10279)  ->
+	{2, [{?attr_defence,0,[7,64],25},{?attr_hp_max,0,[19,186],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[14,138],20}]};	
+get(10464)  ->
+	{2, [{?attr_defence,0,[10,91],25},{?attr_hp_max,0,[25,248],25},{?attr_evasion,1,[2,13],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[19,183],20}]};	
+get(10649)  ->
+	{2, [{?attr_defence,0,[12,119],25},{?attr_hp_max,0,[31,310],25},{?attr_evasion,1,[2,16],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[23,229],20}]};	
+get(10834)  ->
+	{2, [{?attr_defence,0,[15,149],15},{?attr_hp_max,0,[38,373],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[28,274],20}]};	
+get(11019)  ->
+	{2, [{?attr_defence,0,[18,180],15},{?attr_hp_max,0,[44,435],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[32,320],20}]};	
+get(11204)  ->
+	{2, [{?attr_defence,0,[22,213],15},{?attr_hp_max,0,[50,497],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[37,365],20}]};	
+get(10095)  ->
+	{3, [{?attr_defence,0,[5,45],25},{?attr_hp_max,0,[15,148],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[12,111],20}]};	
+get(10280)  ->
+	{3, [{?attr_defence,0,[8,76],25},{?attr_hp_max,0,[23,223],25},{?attr_evasion,1,[2,11],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[17,166],20}]};	
+get(10465)  ->
+	{3, [{?attr_defence,0,[11,109],25},{?attr_hp_max,0,[30,298],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[22,220],20}]};	
+get(10650)  ->
+	{3, [{?attr_defence,0,[15,143],25},{?attr_hp_max,0,[38,372],25},{?attr_evasion,1,[2,19],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[28,275],20}]};	
+get(10835)  ->
+	{3, [{?attr_defence,0,[18,178],15},{?attr_hp_max,0,[45,447],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[33,329],20}]};	
+get(11020)  ->
+	{3, [{?attr_defence,0,[22,215],15},{?attr_hp_max,0,[53,522],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[39,383],20}]};	
+get(11205)  ->
+	{3, [{?attr_defence,0,[26,255],15},{?attr_hp_max,0,[60,597],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[44,438],20}]};	
+get(10096)  ->
+	{3, [{?attr_defence,0,[6,60],25},{?attr_hp_max,0,[20,197],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[15,148],20}]};	
+get(10281)  ->
+	{3, [{?attr_defence,0,[11,101],25},{?attr_hp_max,0,[30,297],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[23,221],20}]};	
+get(10466)  ->
+	{3, [{?attr_defence,0,[15,145],25},{?attr_hp_max,0,[40,397],25},{?attr_evasion,1,[2,20],10},{?attr_tenacity,0,[2,13],20},{?attr_mp_max,0,[30,293],20}]};	
+get(10651)  ->
+	{3, [{?attr_defence,0,[20,191],25},{?attr_hp_max,0,[50,496],25},{?attr_evasion,1,[3,25],10},{?attr_tenacity,0,[2,16],20},{?attr_mp_max,0,[37,366],20}]};	
+get(10836)  ->
+	{3, [{?attr_defence,0,[24,238],15},{?attr_hp_max,0,[60,596],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[44,439],20}]};	
+get(11021)  ->
+	{3, [{?attr_defence,0,[29,287],15},{?attr_hp_max,0,[70,696],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[52,511],20}]};	
+get(11206)  ->
+	{3, [{?attr_defence,0,[34,340],15},{?attr_hp_max,0,[80,795],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,24],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[59,584],20}]};	
+get(10172)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10357)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10542)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10727)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10912)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11097)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11282)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10173)  ->
+	{1, [{?attr_defence,0,[4,33],15},{?attr_hp_max,0,[11,110],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[9,84],6},{?attr_rst_wood,0,[9,84],6},{?attr_rst_water,0,[9,84],6},{?attr_rst_fire,0,[9,84],6},{?attr_rst_earth,0,[9,84],6},{?attr_mp_max,0,[9,83],20}]};	
+get(10358)  ->
+	{1, [{?attr_defence,0,[6,57],15},{?attr_hp_max,0,[17,165],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[15,150],6},{?attr_rst_wood,0,[15,150],6},{?attr_rst_water,0,[15,150],6},{?attr_rst_fire,0,[15,150],6},{?attr_rst_earth,0,[15,150],6},{?attr_mp_max,0,[13,123],20}]};	
+get(10543)  ->
+	{1, [{?attr_defence,0,[9,81],15},{?attr_hp_max,0,[23,221],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[17,163],20}]};	
+get(10728)  ->
+	{1, [{?attr_defence,0,[11,106],15},{?attr_hp_max,0,[28,276],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[31,310],6},{?attr_rst_wood,0,[31,310],6},{?attr_rst_water,0,[31,310],6},{?attr_rst_fire,0,[31,310],6},{?attr_rst_earth,0,[31,310],6},{?attr_mp_max,0,[21,204],20}]};	
+get(10913)  ->
+	{1, [{?attr_defence,0,[14,132],15},{?attr_hp_max,0,[34,331],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[42,412],6},{?attr_rst_wood,0,[42,412],6},{?attr_rst_water,0,[42,412],6},{?attr_rst_fire,0,[42,412],6},{?attr_rst_earth,0,[42,412],6},{?attr_mp_max,0,[25,244],20}]};	
+get(11098)  ->
+	{1, [{?attr_defence,0,[16,160],15},{?attr_hp_max,0,[39,387],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[55,546],6},{?attr_rst_wood,0,[55,546],6},{?attr_rst_water,0,[55,546],6},{?attr_rst_fire,0,[55,546],6},{?attr_rst_earth,0,[55,546],6},{?attr_mp_max,0,[29,284],20}]};	
+get(11283)  ->
+	{1, [{?attr_defence,0,[19,189],15},{?attr_hp_max,0,[45,442],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[74,737],6},{?attr_rst_wood,0,[74,737],6},{?attr_rst_water,0,[74,737],6},{?attr_rst_fire,0,[74,737],6},{?attr_rst_earth,0,[74,737],6},{?attr_mp_max,0,[33,325],20}]};	
+get(10174)  ->
+	{2, [{?attr_defence,0,[5,42],15},{?attr_hp_max,0,[14,137],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[11,104],6},{?attr_rst_wood,0,[11,104],6},{?attr_rst_water,0,[11,104],6},{?attr_rst_fire,0,[11,104],6},{?attr_rst_earth,0,[11,104],6},{?attr_mp_max,0,[11,103],20}]};	
+get(10359)  ->
+	{2, [{?attr_defence,0,[8,71],15},{?attr_hp_max,0,[21,206],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[19,187],6},{?attr_rst_wood,0,[19,187],6},{?attr_rst_water,0,[19,187],6},{?attr_rst_fire,0,[19,187],6},{?attr_rst_earth,0,[19,187],6},{?attr_mp_max,0,[16,154],20}]};	
+get(10544)  ->
+	{2, [{?attr_defence,0,[11,101],15},{?attr_hp_max,0,[28,276],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[28,279],6},{?attr_rst_wood,0,[28,279],6},{?attr_rst_water,0,[28,279],6},{?attr_rst_fire,0,[28,279],6},{?attr_rst_earth,0,[28,279],6},{?attr_mp_max,0,[21,204],20}]};	
+get(10729)  ->
+	{2, [{?attr_defence,0,[14,133],15},{?attr_hp_max,0,[35,345],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[39,387],6},{?attr_rst_wood,0,[39,387],6},{?attr_rst_water,0,[39,387],6},{?attr_rst_fire,0,[39,387],6},{?attr_rst_earth,0,[39,387],6},{?attr_mp_max,0,[26,254],20}]};	
+get(10914)  ->
+	{2, [{?attr_defence,0,[17,165],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[52,515],6},{?attr_rst_wood,0,[52,515],6},{?attr_rst_water,0,[52,515],6},{?attr_rst_fire,0,[52,515],6},{?attr_rst_earth,0,[52,515],6},{?attr_mp_max,0,[31,305],20}]};	
+get(11099)  ->
+	{2, [{?attr_defence,0,[20,199],15},{?attr_hp_max,0,[49,483],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[69,682],6},{?attr_rst_wood,0,[69,682],6},{?attr_rst_water,0,[69,682],6},{?attr_rst_fire,0,[69,682],6},{?attr_rst_earth,0,[69,682],6},{?attr_mp_max,0,[36,355],20}]};	
+get(11284)  ->
+	{2, [{?attr_defence,0,[24,237],15},{?attr_hp_max,0,[56,552],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[93,921],6},{?attr_rst_wood,0,[93,921],6},{?attr_rst_water,0,[93,921],6},{?attr_rst_fire,0,[93,921],6},{?attr_rst_earth,0,[93,921],6},{?attr_mp_max,0,[41,406],20}]};	
+get(10175)  ->
+	{3, [{?attr_defence,0,[5,50],15},{?attr_hp_max,0,[17,164],15},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,125],6},{?attr_rst_wood,0,[13,125],6},{?attr_rst_water,0,[13,125],6},{?attr_rst_fire,0,[13,125],6},{?attr_rst_earth,0,[13,125],6},{?attr_mp_max,0,[13,124],20}]};	
+get(10360)  ->
+	{3, [{?attr_defence,0,[9,85],15},{?attr_hp_max,0,[25,247],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[19,184],20}]};	
+get(10545)  ->
+	{3, [{?attr_defence,0,[13,121],15},{?attr_hp_max,0,[34,331],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[34,335],6},{?attr_rst_wood,0,[34,335],6},{?attr_rst_water,0,[34,335],6},{?attr_rst_fire,0,[34,335],6},{?attr_rst_earth,0,[34,335],6},{?attr_mp_max,0,[25,244],20}]};	
+get(10730)  ->
+	{3, [{?attr_defence,0,[16,159],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[47,464],6},{?attr_rst_wood,0,[47,464],6},{?attr_rst_water,0,[47,464],6},{?attr_rst_fire,0,[47,464],6},{?attr_rst_earth,0,[47,464],6},{?attr_mp_max,0,[31,305],20}]};	
+get(10915)  ->
+	{3, [{?attr_defence,0,[20,198],15},{?attr_hp_max,0,[50,497],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[62,618],6},{?attr_rst_wood,0,[62,618],6},{?attr_rst_water,0,[62,618],6},{?attr_rst_fire,0,[62,618],6},{?attr_rst_earth,0,[62,618],6},{?attr_mp_max,0,[37,366],20}]};	
+get(11100)  ->
+	{3, [{?attr_defence,0,[24,239],15},{?attr_hp_max,0,[58,580],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[82,819],6},{?attr_rst_wood,0,[82,819],6},{?attr_rst_water,0,[82,819],6},{?attr_rst_fire,0,[82,819],6},{?attr_rst_earth,0,[82,819],6},{?attr_mp_max,0,[43,426],20}]};	
+get(11285)  ->
+	{3, [{?attr_defence,0,[29,284],15},{?attr_hp_max,0,[67,663],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[111,1105],6},{?attr_rst_wood,0,[111,1105],6},{?attr_rst_water,0,[111,1105],6},{?attr_rst_fire,0,[111,1105],6},{?attr_rst_earth,0,[111,1105],6},{?attr_mp_max,0,[49,487],20}]};	
+get(10176)  ->
+	{3, [{?attr_defence,0,[7,66],15},{?attr_hp_max,0,[22,219],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[17,165],20}]};	
+get(10361)  ->
+	{3, [{?attr_defence,0,[12,113],15},{?attr_hp_max,0,[33,330],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[30,299],6},{?attr_rst_wood,0,[30,299],6},{?attr_rst_water,0,[30,299],6},{?attr_rst_fire,0,[30,299],6},{?attr_rst_earth,0,[30,299],6},{?attr_mp_max,0,[25,245],20}]};	
+get(10546)  ->
+	{3, [{?attr_defence,0,[17,162],15},{?attr_hp_max,0,[45,441],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[45,447],6},{?attr_rst_wood,0,[45,447],6},{?attr_rst_water,0,[45,447],6},{?attr_rst_fire,0,[45,447],6},{?attr_rst_earth,0,[45,447],6},{?attr_mp_max,0,[33,326],20}]};	
+get(10731)  ->
+	{3, [{?attr_defence,0,[22,212],15},{?attr_hp_max,0,[56,551],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[62,619],6},{?attr_rst_wood,0,[62,619],6},{?attr_rst_water,0,[62,619],6},{?attr_rst_fire,0,[62,619],6},{?attr_rst_earth,0,[62,619],6},{?attr_mp_max,0,[41,407],20}]};	
+get(10916)  ->
+	{3, [{?attr_defence,0,[27,264],15},{?attr_hp_max,0,[67,662],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[83,823],6},{?attr_rst_wood,0,[83,823],6},{?attr_rst_water,0,[83,823],6},{?attr_rst_fire,0,[83,823],6},{?attr_rst_earth,0,[83,823],6},{?attr_mp_max,0,[49,487],20}]};	
+get(11101)  ->
+	{3, [{?attr_defence,0,[32,319],15},{?attr_hp_max,0,[78,773],15},{?attr_evasion,1,[4,39],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[110,1091],6},{?attr_rst_wood,0,[110,1091],6},{?attr_rst_water,0,[110,1091],6},{?attr_rst_fire,0,[110,1091],6},{?attr_rst_earth,0,[110,1091],6},{?attr_mp_max,0,[57,568],20}]};	
+get(11286)  ->
+	{3, [{?attr_defence,0,[38,378],15},{?attr_hp_max,0,[89,884],15},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,27],15},{?attr_rst_metal,0,[148,1473],6},{?attr_rst_wood,0,[148,1473],6},{?attr_rst_water,0,[148,1473],6},{?attr_rst_fire,0,[148,1473],6},{?attr_rst_earth,0,[148,1473],6},{?attr_mp_max,0,[65,649],20}]};	
+get(10067)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10252)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10437)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10622)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10807)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10992)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11177)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10068)  ->
+	{1, [{?attr_defence,0,[3,25],20},{?attr_hp_max,0,[9,82],20},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[2,12],10},{?attr_mp_max,0,[7,62],25}]};	
+get(10253)  ->
+	{1, [{?attr_defence,0,[5,43],20},{?attr_hp_max,0,[13,124],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,18],10},{?attr_mp_max,0,[10,92],25}]};	
+get(10438)  ->
+	{1, [{?attr_defence,0,[7,61],20},{?attr_hp_max,0,[17,166],20},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[3,24],10},{?attr_mp_max,0,[13,122],25}]};	
+get(10623)  ->
+	{1, [{?attr_defence,0,[8,80],20},{?attr_hp_max,0,[21,207],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[3,29],10},{?attr_mp_max,0,[16,153],25}]};	
+get(10808)  ->
+	{1, [{?attr_defence,0,[10,99],20},{?attr_hp_max,0,[25,249],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,35],10},{?attr_mp_max,0,[19,183],25}]};	
+get(10993)  ->
+	{1, [{?attr_defence,0,[12,120],20},{?attr_hp_max,0,[29,290],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[5,41],10},{?attr_mp_max,0,[22,213],25}]};	
+get(11178)  ->
+	{1, [{?attr_defence,0,[15,142],20},{?attr_hp_max,0,[34,332],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[5,47],10},{?attr_mp_max,0,[25,244],25}]};	
+get(10069)  ->
+	{2, [{?attr_defence,0,[4,31],20},{?attr_hp_max,0,[11,103],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,15],10},{?attr_mp_max,0,[8,78],25}]};	
+get(10254)  ->
+	{2, [{?attr_defence,0,[6,53],20},{?attr_hp_max,0,[16,155],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[3,22],10},{?attr_mp_max,0,[12,115],25}]};	
+get(10439)  ->
+	{2, [{?attr_defence,0,[8,76],20},{?attr_hp_max,0,[21,207],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[3,30],10},{?attr_mp_max,0,[16,153],25}]};	
+get(10624)  ->
+	{2, [{?attr_defence,0,[10,100],20},{?attr_hp_max,0,[26,259],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[4,37],10},{?attr_mp_max,0,[20,191],25}]};	
+get(10809)  ->
+	{2, [{?attr_defence,0,[13,124],20},{?attr_hp_max,0,[32,311],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[5,44],10},{?attr_mp_max,0,[23,229],25}]};	
+get(10994)  ->
+	{2, [{?attr_defence,0,[15,150],20},{?attr_hp_max,0,[37,363],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[6,51],10},{?attr_mp_max,0,[27,266],25}]};	
+get(11179)  ->
+	{2, [{?attr_defence,0,[18,178],20},{?attr_hp_max,0,[42,414],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[6,58],10},{?attr_mp_max,0,[31,304],25}]};	
+get(10070)  ->
+	{3, [{?attr_defence,0,[4,37],20},{?attr_hp_max,0,[13,123],20},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[2,18],10},{?attr_mp_max,0,[10,93],25}]};	
+get(10255)  ->
+	{3, [{?attr_defence,0,[7,64],20},{?attr_hp_max,0,[19,186],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[3,27],10},{?attr_mp_max,0,[14,138],25}]};	
+get(10440)  ->
+	{3, [{?attr_defence,0,[10,91],20},{?attr_hp_max,0,[25,248],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,35],10},{?attr_mp_max,0,[19,183],25}]};	
+get(10625)  ->
+	{3, [{?attr_defence,0,[12,119],20},{?attr_hp_max,0,[31,310],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[5,44],10},{?attr_mp_max,0,[23,229],25}]};	
+get(10810)  ->
+	{3, [{?attr_defence,0,[15,149],20},{?attr_hp_max,0,[38,373],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[6,53],10},{?attr_mp_max,0,[28,274],25}]};	
+get(10995)  ->
+	{3, [{?attr_defence,0,[18,180],20},{?attr_hp_max,0,[44,435],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[7,61],10},{?attr_mp_max,0,[32,320],25}]};	
+get(11180)  ->
+	{3, [{?attr_defence,0,[22,213],20},{?attr_hp_max,0,[50,497],20},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[7,70],10},{?attr_mp_max,0,[37,365],25}]};	
+get(10071)  ->
+	{3, [{?attr_defence,0,[5,50],20},{?attr_hp_max,0,[17,164],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[3,24],10},{?attr_mp_max,0,[13,124],25}]};	
+get(10256)  ->
+	{3, [{?attr_defence,0,[9,85],20},{?attr_hp_max,0,[25,247],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,35],10},{?attr_mp_max,0,[19,184],25}]};	
+get(10441)  ->
+	{3, [{?attr_defence,0,[13,121],20},{?attr_hp_max,0,[34,331],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[5,47],10},{?attr_mp_max,0,[25,244],25}]};	
+get(10626)  ->
+	{3, [{?attr_defence,0,[16,159],20},{?attr_hp_max,0,[42,414],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[6,58],10},{?attr_mp_max,0,[31,305],25}]};	
+get(10811)  ->
+	{3, [{?attr_defence,0,[20,198],20},{?attr_hp_max,0,[50,497],20},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[7,70],10},{?attr_mp_max,0,[37,366],25}]};	
+get(10996)  ->
+	{3, [{?attr_defence,0,[24,239],20},{?attr_hp_max,0,[58,580],20},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,18],20},{?attr_js,0,[9,81],10},{?attr_mp_max,0,[43,426],25}]};	
+get(11181)  ->
+	{3, [{?attr_defence,0,[29,284],20},{?attr_hp_max,0,[67,663],20},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,20],20},{?attr_js,0,[10,93],10},{?attr_mp_max,0,[49,487],25}]};	
+get(10042)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10227)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10412)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10597)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10782)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10967)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11152)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10043)  ->
+	{1, [{?attr_defence,0,[3,24],20},{?attr_hp_max,0,[8,77],20},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[1,8],10},{?attr_mp_max,0,[6,58],25}]};	
+get(10228)  ->
+	{1, [{?attr_defence,0,[4,40],20},{?attr_hp_max,0,[12,116],20},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,12],10},{?attr_mp_max,0,[9,86],25}]};	
+get(10413)  ->
+	{1, [{?attr_defence,0,[6,57],20},{?attr_hp_max,0,[16,155],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[2,16],10},{?attr_mp_max,0,[12,114],25}]};	
+get(10598)  ->
+	{1, [{?attr_defence,0,[8,75],20},{?attr_hp_max,0,[20,193],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[2,20],10},{?attr_mp_max,0,[15,143],25}]};	
+get(10783)  ->
+	{1, [{?attr_defence,0,[10,93],20},{?attr_hp_max,0,[24,232],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[3,24],10},{?attr_mp_max,0,[18,171],25}]};	
+get(10968)  ->
+	{1, [{?attr_defence,0,[12,112],20},{?attr_hp_max,0,[28,271],20},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[3,27],10},{?attr_mp_max,0,[20,199],25}]};	
+get(11153)  ->
+	{1, [{?attr_defence,0,[14,133],20},{?attr_hp_max,0,[31,310],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[4,31],10},{?attr_mp_max,0,[23,227],25}]};	
+get(10044)  ->
+	{2, [{?attr_defence,0,[3,29],20},{?attr_hp_max,0,[10,96],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[1,10],10},{?attr_mp_max,0,[8,72],25}]};	
+get(10229)  ->
+	{2, [{?attr_defence,0,[5,50],20},{?attr_hp_max,0,[15,144],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[2,15],10},{?attr_mp_max,0,[11,108],25}]};	
+get(10414)  ->
+	{2, [{?attr_defence,0,[8,71],20},{?attr_hp_max,0,[20,193],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[2,20],10},{?attr_mp_max,0,[15,143],25}]};	
+get(10599)  ->
+	{2, [{?attr_defence,0,[10,93],20},{?attr_hp_max,0,[25,242],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[3,25],10},{?attr_mp_max,0,[18,178],25}]};	
+get(10784)  ->
+	{2, [{?attr_defence,0,[12,116],20},{?attr_hp_max,0,[29,290],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[3,29],10},{?attr_mp_max,0,[22,213],25}]};	
+get(10969)  ->
+	{2, [{?attr_defence,0,[14,140],20},{?attr_hp_max,0,[34,339],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[4,34],10},{?attr_mp_max,0,[25,249],25}]};	
+get(11154)  ->
+	{2, [{?attr_defence,0,[17,166],20},{?attr_hp_max,0,[39,387],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[4,39],10},{?attr_mp_max,0,[29,284],25}]};	
+get(10045)  ->
+	{3, [{?attr_defence,0,[4,35],20},{?attr_hp_max,0,[12,115],20},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,12],10},{?attr_mp_max,0,[9,87],25}]};	
+get(10230)  ->
+	{3, [{?attr_defence,0,[6,59],20},{?attr_hp_max,0,[18,173],20},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[2,18],10},{?attr_mp_max,0,[13,129],25}]};	
+get(10415)  ->
+	{3, [{?attr_defence,0,[9,85],20},{?attr_hp_max,0,[24,232],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[3,24],10},{?attr_mp_max,0,[18,171],25}]};	
+get(10600)  ->
+	{3, [{?attr_defence,0,[12,112],20},{?attr_hp_max,0,[29,290],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[3,29],10},{?attr_mp_max,0,[22,214],25}]};	
+get(10785)  ->
+	{3, [{?attr_defence,0,[14,139],20},{?attr_hp_max,0,[35,348],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[4,35],10},{?attr_mp_max,0,[26,256],25}]};	
+get(10970)  ->
+	{3, [{?attr_defence,0,[17,168],20},{?attr_hp_max,0,[41,406],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[5,41],10},{?attr_mp_max,0,[30,298],25}]};	
+get(11155)  ->
+	{3, [{?attr_defence,0,[20,199],20},{?attr_hp_max,0,[47,464],20},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[5,47],10},{?attr_mp_max,0,[35,341],25}]};	
+get(10046)  ->
+	{3, [{?attr_defence,0,[5,47],20},{?attr_hp_max,0,[16,153],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[2,16],10},{?attr_mp_max,0,[12,116],25}]};	
+get(10231)  ->
+	{3, [{?attr_defence,0,[8,79],20},{?attr_hp_max,0,[24,231],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[3,24],10},{?attr_mp_max,0,[18,172],25}]};	
+get(10416)  ->
+	{3, [{?attr_defence,0,[12,113],20},{?attr_hp_max,0,[31,309],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[4,31],10},{?attr_mp_max,0,[23,228],25}]};	
+get(10601)  ->
+	{3, [{?attr_defence,0,[15,149],20},{?attr_hp_max,0,[39,386],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[4,39],10},{?attr_mp_max,0,[29,285],25}]};	
+get(10786)  ->
+	{3, [{?attr_defence,0,[19,185],20},{?attr_hp_max,0,[47,464],20},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[5,47],10},{?attr_mp_max,0,[35,341],25}]};	
+get(10971)  ->
+	{3, [{?attr_defence,0,[23,223],20},{?attr_hp_max,0,[55,541],20},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[6,54],10},{?attr_mp_max,0,[40,398],25}]};	
+get(11156)  ->
+	{3, [{?attr_defence,0,[27,265],20},{?attr_hp_max,0,[62,619],20},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[7,62],10},{?attr_mp_max,0,[46,454],25}]};	
+get(10142)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10327)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10512)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10697)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10882)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11067)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11252)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10143)  ->
+	{1, [{?attr_defence,0,[3,28],25},{?attr_hp_max,0,[10,93],25},{?attr_evasion,1,[1,5],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[7,70],20}]};	
+get(10328)  ->
+	{1, [{?attr_defence,0,[5,48],25},{?attr_hp_max,0,[14,140],25},{?attr_evasion,1,[1,7],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[11,105],20}]};	
+get(10513)  ->
+	{1, [{?attr_defence,0,[7,69],25},{?attr_hp_max,0,[19,188],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[14,139],20}]};	
+get(10698)  ->
+	{1, [{?attr_defence,0,[9,90],25},{?attr_hp_max,0,[24,235],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[18,173],20}]};	
+get(10883)  ->
+	{1, [{?attr_defence,0,[12,113],15},{?attr_hp_max,0,[29,282],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[21,207],20}]};	
+get(11068)  ->
+	{1, [{?attr_defence,0,[14,136],15},{?attr_hp_max,0,[33,329],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[25,242],20}]};	
+get(11253)  ->
+	{1, [{?attr_defence,0,[17,161],15},{?attr_hp_max,0,[38,376],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[28,276],20}]};	
+get(10144)  ->
+	{2, [{?attr_defence,0,[4,35],25},{?attr_hp_max,0,[12,116],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[9,88],20}]};	
+get(10329)  ->
+	{2, [{?attr_defence,0,[6,60],25},{?attr_hp_max,0,[18,175],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[14,131],20}]};	
+get(10514)  ->
+	{2, [{?attr_defence,0,[9,86],25},{?attr_hp_max,0,[24,234],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[18,173],20}]};	
+get(10699)  ->
+	{2, [{?attr_defence,0,[12,113],25},{?attr_hp_max,0,[30,293],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[22,216],20}]};	
+get(10884)  ->
+	{2, [{?attr_defence,0,[15,141],15},{?attr_hp_max,0,[36,352],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[26,259],20}]};	
+get(11069)  ->
+	{2, [{?attr_defence,0,[17,170],15},{?attr_hp_max,0,[42,411],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[31,302],20}]};	
+get(11254)  ->
+	{2, [{?attr_defence,0,[21,201],15},{?attr_hp_max,0,[47,470],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[35,345],20}]};	
+get(10145)  ->
+	{3, [{?attr_defence,0,[5,42],25},{?attr_hp_max,0,[14,140],25},{?attr_evasion,1,[1,7],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[11,105],20}]};	
+get(10330)  ->
+	{3, [{?attr_defence,0,[8,72],25},{?attr_hp_max,0,[21,210],25},{?attr_evasion,1,[2,11],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[16,157],20}]};	
+get(10515)  ->
+	{3, [{?attr_defence,0,[11,103],25},{?attr_hp_max,0,[29,281],25},{?attr_evasion,1,[2,14],10},{?attr_tenacity,0,[1,9],20},{?attr_mp_max,0,[21,208],20}]};	
+get(10700)  ->
+	{3, [{?attr_defence,0,[14,135],25},{?attr_hp_max,0,[36,352],25},{?attr_evasion,1,[2,18],10},{?attr_tenacity,0,[2,11],20},{?attr_mp_max,0,[26,259],20}]};	
+get(10885)  ->
+	{3, [{?attr_defence,0,[17,169],15},{?attr_hp_max,0,[43,422],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[32,311],20}]};	
+get(11070)  ->
+	{3, [{?attr_defence,0,[21,203],15},{?attr_hp_max,0,[50,493],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[37,362],20}]};	
+get(11255)  ->
+	{3, [{?attr_defence,0,[25,241],15},{?attr_hp_max,0,[57,564],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[42,414],20}]};	
+get(10146)  ->
+	{3, [{?attr_defence,0,[6,56],25},{?attr_hp_max,0,[19,186],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[14,140],20}]};	
+get(10331)  ->
+	{3, [{?attr_defence,0,[10,96],25},{?attr_hp_max,0,[28,280],25},{?attr_evasion,1,[2,14],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[21,209],20}]};	
+get(10516)  ->
+	{3, [{?attr_defence,0,[14,137],25},{?attr_hp_max,0,[38,375],25},{?attr_evasion,1,[2,19],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[28,277],20}]};	
+get(10701)  ->
+	{3, [{?attr_defence,0,[18,180],25},{?attr_hp_max,0,[47,469],25},{?attr_evasion,1,[3,24],10},{?attr_tenacity,0,[2,15],20},{?attr_mp_max,0,[35,346],20}]};	
+get(10886)  ->
+	{3, [{?attr_defence,0,[23,225],15},{?attr_hp_max,0,[57,563],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[42,414],20}]};	
+get(11071)  ->
+	{3, [{?attr_defence,0,[28,271],15},{?attr_hp_max,0,[66,657],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,20],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[49,483],20}]};	
+get(11256)  ->
+	{3, [{?attr_defence,0,[33,322],15},{?attr_hp_max,0,[76,751],15},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[3,23],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[56,551],20}]};	
+get(10117)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10302)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10487)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10672)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10857)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11042)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11227)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10118)  ->
+	{1, [{?attr_defence,0,[3,27],15},{?attr_hp_max,0,[9,88],15},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,3],15},{?attr_rst_metal,0,[5,45],6},{?attr_rst_wood,0,[5,45],6},{?attr_rst_water,0,[5,45],6},{?attr_rst_fire,0,[5,45],6},{?attr_rst_earth,0,[5,45],6},{?attr_mp_max,0,[7,66],20}]};	
+get(10303)  ->
+	{1, [{?attr_defence,0,[5,45],15},{?attr_hp_max,0,[14,132],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[9,81],6},{?attr_rst_wood,0,[9,81],6},{?attr_rst_water,0,[9,81],6},{?attr_rst_fire,0,[9,81],6},{?attr_rst_earth,0,[9,81],6},{?attr_mp_max,0,[10,98],20}]};	
+get(10488)  ->
+	{1, [{?attr_defence,0,[7,65],15},{?attr_hp_max,0,[18,177],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[14,131],20}]};	
+get(10673)  ->
+	{1, [{?attr_defence,0,[9,85],15},{?attr_hp_max,0,[23,221],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[17,163],20}]};	
+get(10858)  ->
+	{1, [{?attr_defence,0,[11,106],15},{?attr_hp_max,0,[27,265],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[23,222],6},{?attr_rst_wood,0,[23,222],6},{?attr_rst_water,0,[23,222],6},{?attr_rst_fire,0,[23,222],6},{?attr_rst_earth,0,[23,222],6},{?attr_mp_max,0,[20,195],20}]};	
+get(11043)  ->
+	{1, [{?attr_defence,0,[13,128],15},{?attr_hp_max,0,[31,310],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,10],15},{?attr_rst_metal,0,[30,294],6},{?attr_rst_wood,0,[30,294],6},{?attr_rst_water,0,[30,294],6},{?attr_rst_fire,0,[30,294],6},{?attr_rst_earth,0,[30,294],6},{?attr_mp_max,0,[23,227],20}]};	
+get(11228)  ->
+	{1, [{?attr_defence,0,[16,152],15},{?attr_hp_max,0,[36,354],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[40,397],6},{?attr_rst_wood,0,[40,397],6},{?attr_rst_water,0,[40,397],6},{?attr_rst_fire,0,[40,397],6},{?attr_rst_earth,0,[40,397],6},{?attr_mp_max,0,[26,260],20}]};	
+get(10119)  ->
+	{2, [{?attr_defence,0,[4,33],15},{?attr_hp_max,0,[11,110],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[6,56],6},{?attr_rst_wood,0,[6,56],6},{?attr_rst_water,0,[6,56],6},{?attr_rst_fire,0,[6,56],6},{?attr_rst_earth,0,[6,56],6},{?attr_mp_max,0,[9,83],20}]};	
+get(10304)  ->
+	{2, [{?attr_defence,0,[6,57],15},{?attr_hp_max,0,[17,165],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[11,101],6},{?attr_rst_wood,0,[11,101],6},{?attr_rst_water,0,[11,101],6},{?attr_rst_fire,0,[11,101],6},{?attr_rst_earth,0,[11,101],6},{?attr_mp_max,0,[13,123],20}]};	
+get(10489)  ->
+	{2, [{?attr_defence,0,[9,81],15},{?attr_hp_max,0,[23,221],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[16,151],6},{?attr_rst_wood,0,[16,151],6},{?attr_rst_water,0,[16,151],6},{?attr_rst_fire,0,[16,151],6},{?attr_rst_earth,0,[16,151],6},{?attr_mp_max,0,[17,163],20}]};	
+get(10674)  ->
+	{2, [{?attr_defence,0,[11,106],15},{?attr_hp_max,0,[28,276],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[21,209],6},{?attr_rst_wood,0,[21,209],6},{?attr_rst_water,0,[21,209],6},{?attr_rst_fire,0,[21,209],6},{?attr_rst_earth,0,[21,209],6},{?attr_mp_max,0,[21,204],20}]};	
+get(10859)  ->
+	{2, [{?attr_defence,0,[14,132],15},{?attr_hp_max,0,[34,331],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[28,277],6},{?attr_rst_wood,0,[28,277],6},{?attr_rst_water,0,[28,277],6},{?attr_rst_fire,0,[28,277],6},{?attr_rst_earth,0,[28,277],6},{?attr_mp_max,0,[25,244],20}]};	
+get(11044)  ->
+	{2, [{?attr_defence,0,[16,160],15},{?attr_hp_max,0,[39,387],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[37,368],6},{?attr_rst_wood,0,[37,368],6},{?attr_rst_water,0,[37,368],6},{?attr_rst_fire,0,[37,368],6},{?attr_rst_earth,0,[37,368],6},{?attr_mp_max,0,[29,284],20}]};	
+get(11229)  ->
+	{2, [{?attr_defence,0,[19,189],15},{?attr_hp_max,0,[45,442],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[50,496],6},{?attr_rst_wood,0,[50,496],6},{?attr_rst_water,0,[50,496],6},{?attr_rst_fire,0,[50,496],6},{?attr_rst_earth,0,[50,496],6},{?attr_mp_max,0,[33,325],20}]};	
+get(10120)  ->
+	{3, [{?attr_defence,0,[4,40],15},{?attr_hp_max,0,[14,131],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[7,68],6},{?attr_rst_wood,0,[7,68],6},{?attr_rst_water,0,[7,68],6},{?attr_rst_fire,0,[7,68],6},{?attr_rst_earth,0,[7,68],6},{?attr_mp_max,0,[10,99],20}]};	
+get(10305)  ->
+	{3, [{?attr_defence,0,[7,68],15},{?attr_hp_max,0,[20,198],15},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[15,147],20}]};	
+get(10490)  ->
+	{3, [{?attr_defence,0,[10,97],15},{?attr_hp_max,0,[27,265],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[19,181],6},{?attr_rst_wood,0,[19,181],6},{?attr_rst_water,0,[19,181],6},{?attr_rst_fire,0,[19,181],6},{?attr_rst_earth,0,[19,181],6},{?attr_mp_max,0,[20,196],20}]};	
+get(10675)  ->
+	{3, [{?attr_defence,0,[13,127],15},{?attr_hp_max,0,[34,331],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[25,250],6},{?attr_rst_wood,0,[25,250],6},{?attr_rst_water,0,[25,250],6},{?attr_rst_fire,0,[25,250],6},{?attr_rst_earth,0,[25,250],6},{?attr_mp_max,0,[25,244],20}]};	
+get(10860)  ->
+	{3, [{?attr_defence,0,[16,159],15},{?attr_hp_max,0,[40,398],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[34,333],6},{?attr_rst_wood,0,[34,333],6},{?attr_rst_water,0,[34,333],6},{?attr_rst_fire,0,[34,333],6},{?attr_rst_earth,0,[34,333],6},{?attr_mp_max,0,[30,293],20}]};	
+get(11045)  ->
+	{3, [{?attr_defence,0,[20,192],15},{?attr_hp_max,0,[47,464],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[45,441],6},{?attr_rst_wood,0,[45,441],6},{?attr_rst_water,0,[45,441],6},{?attr_rst_fire,0,[45,441],6},{?attr_rst_earth,0,[45,441],6},{?attr_mp_max,0,[35,341],20}]};	
+get(11230)  ->
+	{3, [{?attr_defence,0,[23,227],15},{?attr_hp_max,0,[53,530],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[60,595],6},{?attr_rst_wood,0,[60,595],6},{?attr_rst_water,0,[60,595],6},{?attr_rst_fire,0,[60,595],6},{?attr_rst_earth,0,[60,595],6},{?attr_mp_max,0,[39,389],20}]};	
+get(10121)  ->
+	{3, [{?attr_defence,0,[6,53],15},{?attr_hp_max,0,[18,175],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[9,90],6},{?attr_rst_wood,0,[9,90],6},{?attr_rst_water,0,[9,90],6},{?attr_rst_fire,0,[9,90],6},{?attr_rst_earth,0,[9,90],6},{?attr_mp_max,0,[14,132],20}]};	
+get(10306)  ->
+	{3, [{?attr_defence,0,[9,90],15},{?attr_hp_max,0,[27,264],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[17,161],6},{?attr_rst_wood,0,[17,161],6},{?attr_rst_water,0,[17,161],6},{?attr_rst_fire,0,[17,161],6},{?attr_rst_earth,0,[17,161],6},{?attr_mp_max,0,[20,196],20}]};	
+get(10491)  ->
+	{3, [{?attr_defence,0,[13,129],15},{?attr_hp_max,0,[36,353],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[25,241],6},{?attr_rst_wood,0,[25,241],6},{?attr_rst_water,0,[25,241],6},{?attr_rst_fire,0,[25,241],6},{?attr_rst_earth,0,[25,241],6},{?attr_mp_max,0,[27,261],20}]};	
+get(10676)  ->
+	{3, [{?attr_defence,0,[17,170],15},{?attr_hp_max,0,[45,441],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[34,334],6},{?attr_rst_wood,0,[34,334],6},{?attr_rst_water,0,[34,334],6},{?attr_rst_fire,0,[34,334],6},{?attr_rst_earth,0,[34,334],6},{?attr_mp_max,0,[33,326],20}]};	
+get(10861)  ->
+	{3, [{?attr_defence,0,[22,211],15},{?attr_hp_max,0,[53,530],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[45,444],6},{?attr_rst_wood,0,[45,444],6},{?attr_rst_water,0,[45,444],6},{?attr_rst_fire,0,[45,444],6},{?attr_rst_earth,0,[45,444],6},{?attr_mp_max,0,[39,390],20}]};	
+get(11046)  ->
+	{3, [{?attr_defence,0,[26,255],15},{?attr_hp_max,0,[62,619],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[59,588],6},{?attr_rst_wood,0,[59,588],6},{?attr_rst_water,0,[59,588],6},{?attr_rst_fire,0,[59,588],6},{?attr_rst_earth,0,[59,588],6},{?attr_mp_max,0,[46,454],20}]};	
+get(11231)  ->
+	{3, [{?attr_defence,0,[31,303],15},{?attr_hp_max,0,[71,707],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,22],15},{?attr_rst_metal,0,[80,793],6},{?attr_rst_wood,0,[80,793],6},{?attr_rst_water,0,[80,793],6},{?attr_rst_fire,0,[80,793],6},{?attr_rst_earth,0,[80,793],6},{?attr_mp_max,0,[52,519],20}]};	
+get(10102)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10287)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10472)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10657)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10842)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11027)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11212)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10103)  ->
+	{1, [{?attr_defence,0,[3,23],25},{?attr_hp_max,0,[10,91],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[10,98],20}]};	
+get(10288)  ->
+	{1, [{?attr_defence,0,[4,37],25},{?attr_hp_max,0,[14,137],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[15,145],20}]};	
+get(10473)  ->
+	{1, [{?attr_defence,0,[6,53],25},{?attr_hp_max,0,[19,183],25},{?attr_evasion,1,[2,13],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[20,193],20}]};	
+get(10658)  ->
+	{1, [{?attr_defence,0,[7,70],25},{?attr_hp_max,0,[23,229],25},{?attr_evasion,1,[2,16],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[25,241],20}]};	
+get(10843)  ->
+	{1, [{?attr_defence,0,[9,87],15},{?attr_hp_max,0,[28,276],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[29,289],20}]};	
+get(11028)  ->
+	{1, [{?attr_defence,0,[11,105],15},{?attr_hp_max,0,[33,322],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[34,337],20}]};	
+get(11213)  ->
+	{1, [{?attr_defence,0,[13,126],15},{?attr_hp_max,0,[37,368],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[39,385],20}]};	
+get(10104)  ->
+	{2, [{?attr_defence,0,[3,28],25},{?attr_hp_max,0,[12,114],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[13,123],20}]};	
+get(10289)  ->
+	{2, [{?attr_defence,0,[5,47],25},{?attr_hp_max,0,[18,172],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[19,182],20}]};	
+get(10474)  ->
+	{2, [{?attr_defence,0,[7,66],25},{?attr_hp_max,0,[23,229],25},{?attr_evasion,1,[2,16],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[25,241],20}]};	
+get(10659)  ->
+	{2, [{?attr_defence,0,[9,87],25},{?attr_hp_max,0,[29,287],25},{?attr_evasion,1,[2,20],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[31,301],20}]};	
+get(10844)  ->
+	{2, [{?attr_defence,0,[11,109],15},{?attr_hp_max,0,[35,344],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[37,362],20}]};	
+get(11029)  ->
+	{2, [{?attr_defence,0,[14,132],15},{?attr_hp_max,0,[41,402],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[43,421],20}]};	
+get(11214)  ->
+	{2, [{?attr_defence,0,[16,157],15},{?attr_hp_max,0,[46,460],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[49,481],20}]};	
+get(10105)  ->
+	{3, [{?attr_defence,0,[4,34],25},{?attr_hp_max,0,[14,137],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[15,147],20}]};	
+get(10290)  ->
+	{3, [{?attr_defence,0,[6,56],25},{?attr_hp_max,0,[21,206],25},{?attr_evasion,1,[2,14],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[22,218],20}]};	
+get(10475)  ->
+	{3, [{?attr_defence,0,[8,80],25},{?attr_hp_max,0,[28,275],25},{?attr_evasion,1,[2,19],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[29,289],20}]};	
+get(10660)  ->
+	{3, [{?attr_defence,0,[11,104],25},{?attr_hp_max,0,[35,344],25},{?attr_evasion,1,[3,23],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[37,361],20}]};	
+get(10845)  ->
+	{3, [{?attr_defence,0,[13,130],15},{?attr_hp_max,0,[42,413],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[44,434],20}]};	
+get(11030)  ->
+	{3, [{?attr_defence,0,[16,158],15},{?attr_hp_max,0,[49,482],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[51,505],20}]};	
+get(11215)  ->
+	{3, [{?attr_defence,0,[19,188],15},{?attr_hp_max,0,[56,551],15},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[58,577],20}]};	
+get(10106)  ->
+	{3, [{?attr_defence,0,[5,45],25},{?attr_hp_max,0,[19,182],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[20,196],20}]};	
+get(10291)  ->
+	{3, [{?attr_defence,0,[8,74],25},{?attr_hp_max,0,[28,274],25},{?attr_evasion,1,[2,19],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[29,290],20}]};	
+get(10476)  ->
+	{3, [{?attr_defence,0,[11,106],25},{?attr_hp_max,0,[37,366],25},{?attr_evasion,1,[3,25],10},{?attr_tenacity,0,[2,13],20},{?attr_mp_max,0,[39,386],20}]};	
+get(10661)  ->
+	{3, [{?attr_defence,0,[14,139],25},{?attr_hp_max,0,[46,458],25},{?attr_evasion,1,[4,31],10},{?attr_tenacity,0,[2,16],20},{?attr_mp_max,0,[49,482],20}]};	
+get(10846)  ->
+	{3, [{?attr_defence,0,[18,173],15},{?attr_hp_max,0,[56,551],15},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[58,578],20}]};	
+get(11031)  ->
+	{3, [{?attr_defence,0,[21,210],15},{?attr_hp_max,0,[65,643],15},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[68,674],20}]};	
+get(11216)  ->
+	{3, [{?attr_defence,0,[26,251],15},{?attr_hp_max,0,[74,735],15},{?attr_evasion,1,[5,50],5},{?attr_tenacity,0,[3,24],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[77,770],20}]};	
+get(10182)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10367)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10552)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10737)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10922)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11107)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11292)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10183)  ->
+	{1, [{?attr_defence,0,[3,25],15},{?attr_hp_max,0,[11,101],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[9,84],6},{?attr_rst_wood,0,[9,84],6},{?attr_rst_water,0,[9,84],6},{?attr_rst_fire,0,[9,84],6},{?attr_rst_earth,0,[9,84],6},{?attr_mp_max,0,[11,109],20}]};	
+get(10368)  ->
+	{1, [{?attr_defence,0,[5,41],15},{?attr_hp_max,0,[16,153],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[15,150],6},{?attr_rst_wood,0,[15,150],6},{?attr_rst_water,0,[15,150],6},{?attr_rst_fire,0,[15,150],6},{?attr_rst_earth,0,[15,150],6},{?attr_mp_max,0,[17,162],20}]};	
+get(10553)  ->
+	{1, [{?attr_defence,0,[6,59],15},{?attr_hp_max,0,[21,204],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[22,215],20}]};	
+get(10738)  ->
+	{1, [{?attr_defence,0,[8,77],15},{?attr_hp_max,0,[26,255],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[31,310],6},{?attr_rst_wood,0,[31,310],6},{?attr_rst_water,0,[31,310],6},{?attr_rst_fire,0,[31,310],6},{?attr_rst_earth,0,[31,310],6},{?attr_mp_max,0,[27,268],20}]};	
+get(10923)  ->
+	{1, [{?attr_defence,0,[10,97],15},{?attr_hp_max,0,[31,306],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[42,412],6},{?attr_rst_wood,0,[42,412],6},{?attr_rst_water,0,[42,412],6},{?attr_rst_fire,0,[42,412],6},{?attr_rst_earth,0,[42,412],6},{?attr_mp_max,0,[33,321],20}]};	
+get(11108)  ->
+	{1, [{?attr_defence,0,[12,117],15},{?attr_hp_max,0,[36,357],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[55,546],6},{?attr_rst_wood,0,[55,546],6},{?attr_rst_water,0,[55,546],6},{?attr_rst_fire,0,[55,546],6},{?attr_rst_earth,0,[55,546],6},{?attr_mp_max,0,[38,374],20}]};	
+get(11293)  ->
+	{1, [{?attr_defence,0,[14,140],15},{?attr_hp_max,0,[41,409],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[74,737],6},{?attr_rst_wood,0,[74,737],6},{?attr_rst_water,0,[74,737],6},{?attr_rst_fire,0,[74,737],6},{?attr_rst_earth,0,[74,737],6},{?attr_mp_max,0,[43,428],20}]};	
+get(10184)  ->
+	{2, [{?attr_defence,0,[4,31],15},{?attr_hp_max,0,[13,127],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[11,104],6},{?attr_rst_wood,0,[11,104],6},{?attr_rst_water,0,[11,104],6},{?attr_rst_fire,0,[11,104],6},{?attr_rst_earth,0,[11,104],6},{?attr_mp_max,0,[14,136],20}]};	
+get(10369)  ->
+	{2, [{?attr_defence,0,[6,52],15},{?attr_hp_max,0,[20,191],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[19,187],6},{?attr_rst_wood,0,[19,187],6},{?attr_rst_water,0,[19,187],6},{?attr_rst_fire,0,[19,187],6},{?attr_rst_earth,0,[19,187],6},{?attr_mp_max,0,[21,202],20}]};	
+get(10554)  ->
+	{2, [{?attr_defence,0,[8,74],15},{?attr_hp_max,0,[26,254],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[28,279],6},{?attr_rst_wood,0,[28,279],6},{?attr_rst_water,0,[28,279],6},{?attr_rst_fire,0,[28,279],6},{?attr_rst_earth,0,[28,279],6},{?attr_mp_max,0,[27,268],20}]};	
+get(10739)  ->
+	{2, [{?attr_defence,0,[10,97],15},{?attr_hp_max,0,[32,319],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[39,387],6},{?attr_rst_wood,0,[39,387],6},{?attr_rst_water,0,[39,387],6},{?attr_rst_fire,0,[39,387],6},{?attr_rst_earth,0,[39,387],6},{?attr_mp_max,0,[34,335],20}]};	
+get(10924)  ->
+	{2, [{?attr_defence,0,[13,121],15},{?attr_hp_max,0,[39,383],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[52,515],6},{?attr_rst_wood,0,[52,515],6},{?attr_rst_water,0,[52,515],6},{?attr_rst_fire,0,[52,515],6},{?attr_rst_earth,0,[52,515],6},{?attr_mp_max,0,[41,402],20}]};	
+get(11109)  ->
+	{2, [{?attr_defence,0,[15,146],15},{?attr_hp_max,0,[45,447],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[69,682],6},{?attr_rst_wood,0,[69,682],6},{?attr_rst_water,0,[69,682],6},{?attr_rst_fire,0,[69,682],6},{?attr_rst_earth,0,[69,682],6},{?attr_mp_max,0,[47,468],20}]};	
+get(11294)  ->
+	{2, [{?attr_defence,0,[18,174],15},{?attr_hp_max,0,[52,511],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[93,921],6},{?attr_rst_wood,0,[93,921],6},{?attr_rst_water,0,[93,921],6},{?attr_rst_fire,0,[93,921],6},{?attr_rst_earth,0,[93,921],6},{?attr_mp_max,0,[54,535],20}]};	
+get(10185)  ->
+	{3, [{?attr_defence,0,[4,37],15},{?attr_hp_max,0,[16,152],15},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,125],6},{?attr_rst_wood,0,[13,125],6},{?attr_rst_water,0,[13,125],6},{?attr_rst_fire,0,[13,125],6},{?attr_rst_earth,0,[13,125],6},{?attr_mp_max,0,[17,163],20}]};	
+get(10370)  ->
+	{3, [{?attr_defence,0,[7,62],15},{?attr_hp_max,0,[23,229],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[25,242],20}]};	
+get(10555)  ->
+	{3, [{?attr_defence,0,[9,88],15},{?attr_hp_max,0,[31,305],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[34,335],6},{?attr_rst_wood,0,[34,335],6},{?attr_rst_water,0,[34,335],6},{?attr_rst_fire,0,[34,335],6},{?attr_rst_earth,0,[34,335],6},{?attr_mp_max,0,[33,322],20}]};	
+get(10740)  ->
+	{3, [{?attr_defence,0,[12,116],15},{?attr_hp_max,0,[39,382],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[47,464],6},{?attr_rst_wood,0,[47,464],6},{?attr_rst_water,0,[47,464],6},{?attr_rst_fire,0,[47,464],6},{?attr_rst_earth,0,[47,464],6},{?attr_mp_max,0,[41,402],20}]};	
+get(10925)  ->
+	{3, [{?attr_defence,0,[15,145],15},{?attr_hp_max,0,[46,459],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[62,618],6},{?attr_rst_wood,0,[62,618],6},{?attr_rst_water,0,[62,618],6},{?attr_rst_fire,0,[62,618],6},{?attr_rst_earth,0,[62,618],6},{?attr_mp_max,0,[49,482],20}]};	
+get(11110)  ->
+	{3, [{?attr_defence,0,[18,175],15},{?attr_hp_max,0,[54,536],15},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[82,819],6},{?attr_rst_wood,0,[82,819],6},{?attr_rst_water,0,[82,819],6},{?attr_rst_fire,0,[82,819],6},{?attr_rst_earth,0,[82,819],6},{?attr_mp_max,0,[57,561],20}]};	
+get(11295)  ->
+	{3, [{?attr_defence,0,[21,209],15},{?attr_hp_max,0,[62,613],15},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[111,1105],6},{?attr_rst_wood,0,[111,1105],6},{?attr_rst_water,0,[111,1105],6},{?attr_rst_fire,0,[111,1105],6},{?attr_rst_earth,0,[111,1105],6},{?attr_mp_max,0,[65,641],20}]};	
+get(10186)  ->
+	{3, [{?attr_defence,0,[5,50],15},{?attr_hp_max,0,[21,202],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[22,218],20}]};	
+get(10371)  ->
+	{3, [{?attr_defence,0,[9,82],15},{?attr_hp_max,0,[31,305],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[30,299],6},{?attr_rst_wood,0,[30,299],6},{?attr_rst_water,0,[30,299],6},{?attr_rst_fire,0,[30,299],6},{?attr_rst_earth,0,[30,299],6},{?attr_mp_max,0,[33,323],20}]};	
+get(10556)  ->
+	{3, [{?attr_defence,0,[12,118],15},{?attr_hp_max,0,[41,407],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[45,447],6},{?attr_rst_wood,0,[45,447],6},{?attr_rst_water,0,[45,447],6},{?attr_rst_fire,0,[45,447],6},{?attr_rst_earth,0,[45,447],6},{?attr_mp_max,0,[43,429],20}]};	
+get(10741)  ->
+	{3, [{?attr_defence,0,[16,154],15},{?attr_hp_max,0,[51,509],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[62,619],6},{?attr_rst_wood,0,[62,619],6},{?attr_rst_water,0,[62,619],6},{?attr_rst_fire,0,[62,619],6},{?attr_rst_earth,0,[62,619],6},{?attr_mp_max,0,[54,535],20}]};	
+get(10926)  ->
+	{3, [{?attr_defence,0,[20,193],15},{?attr_hp_max,0,[62,612],15},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[83,823],6},{?attr_rst_wood,0,[83,823],6},{?attr_rst_water,0,[83,823],6},{?attr_rst_fire,0,[83,823],6},{?attr_rst_earth,0,[83,823],6},{?attr_mp_max,0,[65,642],20}]};	
+get(11111)  ->
+	{3, [{?attr_defence,0,[24,234],15},{?attr_hp_max,0,[72,714],15},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[110,1091],6},{?attr_rst_wood,0,[110,1091],6},{?attr_rst_water,0,[110,1091],6},{?attr_rst_fire,0,[110,1091],6},{?attr_rst_earth,0,[110,1091],6},{?attr_mp_max,0,[75,748],20}]};	
+get(11296)  ->
+	{3, [{?attr_defence,0,[28,279],15},{?attr_hp_max,0,[82,817],15},{?attr_evasion,1,[6,55],5},{?attr_tenacity,0,[3,27],15},{?attr_rst_metal,0,[148,1473],6},{?attr_rst_wood,0,[148,1473],6},{?attr_rst_water,0,[148,1473],6},{?attr_rst_fire,0,[148,1473],6},{?attr_rst_earth,0,[148,1473],6},{?attr_mp_max,0,[86,855],20}]};	
+get(10077)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10262)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10447)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10632)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10817)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11002)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11187)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10078)  ->
+	{1, [{?attr_defence,0,[2,19],20},{?attr_hp_max,0,[8,76],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[2,17],10},{?attr_mp_max,0,[9,82],25}]};	
+get(10263)  ->
+	{1, [{?attr_defence,0,[4,31],20},{?attr_hp_max,0,[12,115],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[3,25],10},{?attr_mp_max,0,[13,121],25}]};	
+get(10448)  ->
+	{1, [{?attr_defence,0,[5,44],20},{?attr_hp_max,0,[16,153],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[4,33],10},{?attr_mp_max,0,[17,161],25}]};	
+get(10633)  ->
+	{1, [{?attr_defence,0,[6,58],20},{?attr_hp_max,0,[20,191],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[5,42],10},{?attr_mp_max,0,[21,201],25}]};	
+get(10818)  ->
+	{1, [{?attr_defence,0,[8,73],20},{?attr_hp_max,0,[23,230],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[5,50],10},{?attr_mp_max,0,[25,241],25}]};	
+get(11003)  ->
+	{1, [{?attr_defence,0,[9,88],20},{?attr_hp_max,0,[27,268],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[6,58],10},{?attr_mp_max,0,[29,281],25}]};	
+get(11188)  ->
+	{1, [{?attr_defence,0,[11,105],20},{?attr_hp_max,0,[31,307],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[7,66],10},{?attr_mp_max,0,[33,321],25}]};	
+get(10079)  ->
+	{2, [{?attr_defence,0,[3,24],20},{?attr_hp_max,0,[10,95],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[3,21],10},{?attr_mp_max,0,[11,102],25}]};	
+get(10264)  ->
+	{2, [{?attr_defence,0,[4,39],20},{?attr_hp_max,0,[15,143],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[4,31],10},{?attr_mp_max,0,[16,151],25}]};	
+get(10449)  ->
+	{2, [{?attr_defence,0,[6,55],20},{?attr_hp_max,0,[20,191],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[5,42],10},{?attr_mp_max,0,[21,201],25}]};	
+get(10634)  ->
+	{2, [{?attr_defence,0,[8,73],20},{?attr_hp_max,0,[24,239],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[6,52],10},{?attr_mp_max,0,[26,251],25}]};	
+get(10819)  ->
+	{2, [{?attr_defence,0,[10,91],20},{?attr_hp_max,0,[29,287],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[7,62],10},{?attr_mp_max,0,[31,301],25}]};	
+get(11004)  ->
+	{2, [{?attr_defence,0,[11,110],20},{?attr_hp_max,0,[34,335],20},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[8,72],10},{?attr_mp_max,0,[36,351],25}]};	
+get(11189)  ->
+	{2, [{?attr_defence,0,[14,131],20},{?attr_hp_max,0,[39,383],20},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[9,83],10},{?attr_mp_max,0,[41,401],25}]};	
+get(10080)  ->
+	{3, [{?attr_defence,0,[3,28],20},{?attr_hp_max,0,[12,114],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[3,25],10},{?attr_mp_max,0,[13,123],25}]};	
+get(10265)  ->
+	{3, [{?attr_defence,0,[5,47],20},{?attr_hp_max,0,[18,172],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[4,38],10},{?attr_mp_max,0,[19,182],25}]};	
+get(10450)  ->
+	{3, [{?attr_defence,0,[7,66],20},{?attr_hp_max,0,[23,229],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[5,50],10},{?attr_mp_max,0,[25,241],25}]};	
+get(10635)  ->
+	{3, [{?attr_defence,0,[9,87],20},{?attr_hp_max,0,[29,287],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[7,62],10},{?attr_mp_max,0,[31,301],25}]};	
+get(10820)  ->
+	{3, [{?attr_defence,0,[11,109],20},{?attr_hp_max,0,[35,344],20},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[8,74],10},{?attr_mp_max,0,[37,362],25}]};	
+get(11005)  ->
+	{3, [{?attr_defence,0,[14,132],20},{?attr_hp_max,0,[41,402],20},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[9,87],10},{?attr_mp_max,0,[43,421],25}]};	
+get(11190)  ->
+	{3, [{?attr_defence,0,[16,157],20},{?attr_hp_max,0,[46,460],20},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[10,99],10},{?attr_mp_max,0,[49,481],25}]};	
+get(10081)  ->
+	{3, [{?attr_defence,0,[4,37],20},{?attr_hp_max,0,[16,152],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[4,34],10},{?attr_mp_max,0,[17,163],25}]};	
+get(10266)  ->
+	{3, [{?attr_defence,0,[7,62],20},{?attr_hp_max,0,[23,229],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[5,50],10},{?attr_mp_max,0,[25,242],25}]};	
+get(10451)  ->
+	{3, [{?attr_defence,0,[9,88],20},{?attr_hp_max,0,[31,305],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[7,66],10},{?attr_mp_max,0,[33,322],25}]};	
+get(10636)  ->
+	{3, [{?attr_defence,0,[12,116],20},{?attr_hp_max,0,[39,382],20},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[9,83],10},{?attr_mp_max,0,[41,402],25}]};	
+get(10821)  ->
+	{3, [{?attr_defence,0,[15,145],20},{?attr_hp_max,0,[46,459],20},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[10,99],10},{?attr_mp_max,0,[49,482],25}]};	
+get(11006)  ->
+	{3, [{?attr_defence,0,[18,175],20},{?attr_hp_max,0,[54,536],20},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[2,18],20},{?attr_js,0,[12,115],10},{?attr_mp_max,0,[57,561],25}]};	
+get(11191)  ->
+	{3, [{?attr_defence,0,[21,209],20},{?attr_hp_max,0,[62,613],20},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[2,20],20},{?attr_js,0,[14,132],10},{?attr_mp_max,0,[65,641],25}]};	
+get(10052)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10237)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10422)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10607)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10792)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10977)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11162)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10053)  ->
+	{1, [{?attr_defence,0,[2,18],20},{?attr_hp_max,0,[8,71],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[2,12],10},{?attr_mp_max,0,[8,76],25}]};	
+get(10238)  ->
+	{1, [{?attr_defence,0,[3,29],20},{?attr_hp_max,0,[11,107],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,17],10},{?attr_mp_max,0,[12,113],25}]};	
+get(10423)  ->
+	{1, [{?attr_defence,0,[5,41],20},{?attr_hp_max,0,[15,143],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[3,22],10},{?attr_mp_max,0,[15,150],25}]};	
+get(10608)  ->
+	{1, [{?attr_defence,0,[6,54],20},{?attr_hp_max,0,[18,179],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[3,28],10},{?attr_mp_max,0,[19,188],25}]};	
+get(10793)  ->
+	{1, [{?attr_defence,0,[7,68],20},{?attr_hp_max,0,[22,214],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,33],10},{?attr_mp_max,0,[23,225],25}]};	
+get(10978)  ->
+	{1, [{?attr_defence,0,[9,82],20},{?attr_hp_max,0,[25,250],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[4,39],10},{?attr_mp_max,0,[27,262],25}]};	
+get(11163)  ->
+	{1, [{?attr_defence,0,[10,98],20},{?attr_hp_max,0,[29,286],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[5,44],10},{?attr_mp_max,0,[30,300],25}]};	
+get(10054)  ->
+	{2, [{?attr_defence,0,[3,22],20},{?attr_hp_max,0,[9,89],20},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,14],10},{?attr_mp_max,0,[10,95],25}]};	
+get(10239)  ->
+	{2, [{?attr_defence,0,[4,36],20},{?attr_hp_max,0,[14,134],20},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[3,21],10},{?attr_mp_max,0,[15,141],25}]};	
+get(10424)  ->
+	{2, [{?attr_defence,0,[6,52],20},{?attr_hp_max,0,[18,178],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[3,28],10},{?attr_mp_max,0,[19,188],25}]};	
+get(10609)  ->
+	{2, [{?attr_defence,0,[7,68],20},{?attr_hp_max,0,[23,223],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,35],10},{?attr_mp_max,0,[24,234],25}]};	
+get(10794)  ->
+	{2, [{?attr_defence,0,[9,85],20},{?attr_hp_max,0,[27,268],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[5,42],10},{?attr_mp_max,0,[29,281],25}]};	
+get(10979)  ->
+	{2, [{?attr_defence,0,[11,102],20},{?attr_hp_max,0,[32,313],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[5,48],10},{?attr_mp_max,0,[33,328],25}]};	
+get(11164)  ->
+	{2, [{?attr_defence,0,[13,122],20},{?attr_hp_max,0,[36,358],20},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[6,55],10},{?attr_mp_max,0,[38,374],25}]};	
+get(10055)  ->
+	{3, [{?attr_defence,0,[3,26],20},{?attr_hp_max,0,[11,107],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,17],10},{?attr_mp_max,0,[12,114],25}]};	
+get(10240)  ->
+	{3, [{?attr_defence,0,[5,44],20},{?attr_hp_max,0,[16,160],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[3,25],10},{?attr_mp_max,0,[17,170],25}]};	
+get(10425)  ->
+	{3, [{?attr_defence,0,[7,62],20},{?attr_hp_max,0,[22,214],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,33],10},{?attr_mp_max,0,[23,225],25}]};	
+get(10610)  ->
+	{3, [{?attr_defence,0,[9,81],20},{?attr_hp_max,0,[27,268],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[5,42],10},{?attr_mp_max,0,[29,281],25}]};	
+get(10795)  ->
+	{3, [{?attr_defence,0,[11,101],20},{?attr_hp_max,0,[33,321],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[5,50],10},{?attr_mp_max,0,[34,337],25}]};	
+get(10980)  ->
+	{3, [{?attr_defence,0,[13,123],20},{?attr_hp_max,0,[38,375],20},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[6,58],10},{?attr_mp_max,0,[40,393],25}]};	
+get(11165)  ->
+	{3, [{?attr_defence,0,[15,146],20},{?attr_hp_max,0,[43,429],20},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[7,66],10},{?attr_mp_max,0,[45,449],25}]};	
+get(10056)  ->
+	{3, [{?attr_defence,0,[4,35],20},{?attr_hp_max,0,[15,142],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[3,23],10},{?attr_mp_max,0,[16,152],25}]};	
+get(10241)  ->
+	{3, [{?attr_defence,0,[6,58],20},{?attr_hp_max,0,[22,214],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,33],10},{?attr_mp_max,0,[23,226],25}]};	
+get(10426)  ->
+	{3, [{?attr_defence,0,[9,82],20},{?attr_hp_max,0,[29,285],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[5,44],10},{?attr_mp_max,0,[30,300],25}]};	
+get(10611)  ->
+	{3, [{?attr_defence,0,[11,108],20},{?attr_hp_max,0,[36,357],20},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[6,55],10},{?attr_mp_max,0,[38,375],25}]};	
+get(10796)  ->
+	{3, [{?attr_defence,0,[14,135],20},{?attr_hp_max,0,[43,428],20},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[7,66],10},{?attr_mp_max,0,[45,450],25}]};	
+get(10981)  ->
+	{3, [{?attr_defence,0,[17,164],20},{?attr_hp_max,0,[50,500],20},{?attr_evasion,1,[4,34],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[8,77],10},{?attr_mp_max,0,[53,524],25}]};	
+get(11166)  ->
+	{3, [{?attr_defence,0,[20,195],20},{?attr_hp_max,0,[58,572],20},{?attr_evasion,1,[4,39],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[9,88],10},{?attr_mp_max,0,[60,599],25}]};	
+get(10152)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10337)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10522)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10707)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10892)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11077)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11262)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10153)  ->
+	{1, [{?attr_defence,0,[3,21],25},{?attr_hp_max,0,[9,86],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[10,93],20}]};	
+get(10338)  ->
+	{1, [{?attr_defence,0,[4,35],25},{?attr_hp_max,0,[13,130],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[14,137],20}]};	
+get(10523)  ->
+	{1, [{?attr_defence,0,[5,50],25},{?attr_hp_max,0,[18,173],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[19,182],20}]};	
+get(10708)  ->
+	{1, [{?attr_defence,0,[7,66],25},{?attr_hp_max,0,[22,217],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[23,228],20}]};	
+get(10893)  ->
+	{1, [{?attr_defence,0,[9,82],15},{?attr_hp_max,0,[26,260],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[1,9],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[28,273],20}]};	
+get(11078)  ->
+	{1, [{?attr_defence,0,[10,100],15},{?attr_hp_max,0,[31,304],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[32,318],20}]};	
+get(11263)  ->
+	{1, [{?attr_defence,0,[12,119],15},{?attr_hp_max,0,[35,347],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[37,364],20}]};	
+get(10154)  ->
+	{2, [{?attr_defence,0,[3,27],25},{?attr_hp_max,0,[11,108],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[12,116],20}]};	
+get(10339)  ->
+	{2, [{?attr_defence,0,[5,44],25},{?attr_hp_max,0,[17,162],25},{?attr_evasion,1,[2,11],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[18,172],20}]};	
+get(10524)  ->
+	{2, [{?attr_defence,0,[7,63],25},{?attr_hp_max,0,[22,216],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[23,228],20}]};	
+get(10709)  ->
+	{2, [{?attr_defence,0,[9,82],25},{?attr_hp_max,0,[28,271],25},{?attr_evasion,1,[2,19],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[29,285],20}]};	
+get(10894)  ->
+	{2, [{?attr_defence,0,[11,103],15},{?attr_hp_max,0,[33,325],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[35,341],20}]};	
+get(11079)  ->
+	{2, [{?attr_defence,0,[13,124],15},{?attr_hp_max,0,[38,380],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[40,398],20}]};	
+get(11264)  ->
+	{2, [{?attr_defence,0,[15,148],15},{?attr_hp_max,0,[44,434],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[46,454],20}]};	
+get(10155)  ->
+	{3, [{?attr_defence,0,[4,32],25},{?attr_hp_max,0,[13,129],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[14,139],20}]};	
+get(10340)  ->
+	{3, [{?attr_defence,0,[6,53],25},{?attr_hp_max,0,[20,195],25},{?attr_evasion,1,[2,13],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[21,206],20}]};	
+get(10525)  ->
+	{3, [{?attr_defence,0,[8,75],25},{?attr_hp_max,0,[26,260],25},{?attr_evasion,1,[2,18],10},{?attr_tenacity,0,[1,9],20},{?attr_mp_max,0,[28,273],20}]};	
+get(10710)  ->
+	{3, [{?attr_defence,0,[10,98],25},{?attr_hp_max,0,[33,325],25},{?attr_evasion,1,[3,22],10},{?attr_tenacity,0,[2,11],20},{?attr_mp_max,0,[35,341],20}]};	
+get(10895)  ->
+	{3, [{?attr_defence,0,[13,123],15},{?attr_hp_max,0,[39,390],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[41,410],20}]};	
+get(11080)  ->
+	{3, [{?attr_defence,0,[15,149],15},{?attr_hp_max,0,[46,456],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[48,477],20}]};	
+get(11265)  ->
+	{3, [{?attr_defence,0,[18,178],15},{?attr_hp_max,0,[53,521],15},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[55,545],20}]};	
+get(10156)  ->
+	{3, [{?attr_defence,0,[5,42],25},{?attr_hp_max,0,[18,172],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[19,185],20}]};	
+get(10341)  ->
+	{3, [{?attr_defence,0,[7,70],25},{?attr_hp_max,0,[26,259],25},{?attr_evasion,1,[2,18],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[28,274],20}]};	
+get(10526)  ->
+	{3, [{?attr_defence,0,[10,100],25},{?attr_hp_max,0,[35,346],25},{?attr_evasion,1,[3,24],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[37,364],20}]};	
+get(10711)  ->
+	{3, [{?attr_defence,0,[14,131],25},{?attr_hp_max,0,[44,433],25},{?attr_evasion,1,[3,29],10},{?attr_tenacity,0,[2,15],20},{?attr_mp_max,0,[46,455],20}]};	
+get(10896)  ->
+	{3, [{?attr_defence,0,[17,164],15},{?attr_hp_max,0,[52,520],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[55,546],20}]};	
+get(11081)  ->
+	{3, [{?attr_defence,0,[20,199],15},{?attr_hp_max,0,[61,607],15},{?attr_evasion,1,[5,41],5},{?attr_tenacity,0,[2,20],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[64,636],20}]};	
+get(11266)  ->
+	{3, [{?attr_defence,0,[24,237],15},{?attr_hp_max,0,[70,694],15},{?attr_evasion,1,[5,47],5},{?attr_tenacity,0,[3,23],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[73,727],20}]};	
+get(10127)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10312)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10497)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10682)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10867)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11052)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11237)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10128)  ->
+	{1, [{?attr_defence,0,[2,20],15},{?attr_hp_max,0,[9,81],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,3],15},{?attr_rst_metal,0,[5,45],6},{?attr_rst_wood,0,[5,45],6},{?attr_rst_water,0,[5,45],6},{?attr_rst_fire,0,[5,45],6},{?attr_rst_earth,0,[5,45],6},{?attr_mp_max,0,[9,87],20}]};	
+get(10313)  ->
+	{1, [{?attr_defence,0,[4,33],15},{?attr_hp_max,0,[13,122],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[9,81],6},{?attr_rst_wood,0,[9,81],6},{?attr_rst_water,0,[9,81],6},{?attr_rst_fire,0,[9,81],6},{?attr_rst_earth,0,[9,81],6},{?attr_mp_max,0,[13,129],20}]};	
+get(10498)  ->
+	{1, [{?attr_defence,0,[5,47],15},{?attr_hp_max,0,[17,163],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[18,172],20}]};	
+get(10683)  ->
+	{1, [{?attr_defence,0,[7,62],15},{?attr_hp_max,0,[21,204],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[22,214],20}]};	
+get(10868)  ->
+	{1, [{?attr_defence,0,[8,77],15},{?attr_hp_max,0,[25,245],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[23,222],6},{?attr_rst_wood,0,[23,222],6},{?attr_rst_water,0,[23,222],6},{?attr_rst_fire,0,[23,222],6},{?attr_rst_earth,0,[23,222],6},{?attr_mp_max,0,[26,257],20}]};	
+get(11053)  ->
+	{1, [{?attr_defence,0,[10,94],15},{?attr_hp_max,0,[29,286],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[1,10],15},{?attr_rst_metal,0,[30,294],6},{?attr_rst_wood,0,[30,294],6},{?attr_rst_water,0,[30,294],6},{?attr_rst_fire,0,[30,294],6},{?attr_rst_earth,0,[30,294],6},{?attr_mp_max,0,[30,300],20}]};	
+get(11238)  ->
+	{1, [{?attr_defence,0,[12,112],15},{?attr_hp_max,0,[33,327],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[40,397],6},{?attr_rst_wood,0,[40,397],6},{?attr_rst_water,0,[40,397],6},{?attr_rst_fire,0,[40,397],6},{?attr_rst_earth,0,[40,397],6},{?attr_mp_max,0,[35,342],20}]};	
+get(10129)  ->
+	{2, [{?attr_defence,0,[3,25],15},{?attr_hp_max,0,[11,101],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[6,56],6},{?attr_rst_wood,0,[6,56],6},{?attr_rst_water,0,[6,56],6},{?attr_rst_fire,0,[6,56],6},{?attr_rst_earth,0,[6,56],6},{?attr_mp_max,0,[11,109],20}]};	
+get(10314)  ->
+	{2, [{?attr_defence,0,[5,41],15},{?attr_hp_max,0,[16,153],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[11,101],6},{?attr_rst_wood,0,[11,101],6},{?attr_rst_water,0,[11,101],6},{?attr_rst_fire,0,[11,101],6},{?attr_rst_earth,0,[11,101],6},{?attr_mp_max,0,[17,162],20}]};	
+get(10499)  ->
+	{2, [{?attr_defence,0,[6,59],15},{?attr_hp_max,0,[21,204],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[16,151],6},{?attr_rst_wood,0,[16,151],6},{?attr_rst_water,0,[16,151],6},{?attr_rst_fire,0,[16,151],6},{?attr_rst_earth,0,[16,151],6},{?attr_mp_max,0,[22,215],20}]};	
+get(10684)  ->
+	{2, [{?attr_defence,0,[8,77],15},{?attr_hp_max,0,[26,255],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[21,209],6},{?attr_rst_wood,0,[21,209],6},{?attr_rst_water,0,[21,209],6},{?attr_rst_fire,0,[21,209],6},{?attr_rst_earth,0,[21,209],6},{?attr_mp_max,0,[27,268],20}]};	
+get(10869)  ->
+	{2, [{?attr_defence,0,[10,97],15},{?attr_hp_max,0,[31,306],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[28,277],6},{?attr_rst_wood,0,[28,277],6},{?attr_rst_water,0,[28,277],6},{?attr_rst_fire,0,[28,277],6},{?attr_rst_earth,0,[28,277],6},{?attr_mp_max,0,[33,321],20}]};	
+get(11054)  ->
+	{2, [{?attr_defence,0,[12,117],15},{?attr_hp_max,0,[36,357],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[37,368],6},{?attr_rst_wood,0,[37,368],6},{?attr_rst_water,0,[37,368],6},{?attr_rst_fire,0,[37,368],6},{?attr_rst_earth,0,[37,368],6},{?attr_mp_max,0,[38,374],20}]};	
+get(11239)  ->
+	{2, [{?attr_defence,0,[14,140],15},{?attr_hp_max,0,[41,409],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[50,496],6},{?attr_rst_wood,0,[50,496],6},{?attr_rst_water,0,[50,496],6},{?attr_rst_fire,0,[50,496],6},{?attr_rst_earth,0,[50,496],6},{?attr_mp_max,0,[43,428],20}]};	
+get(10130)  ->
+	{3, [{?attr_defence,0,[3,30],15},{?attr_hp_max,0,[13,122],15},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[7,68],6},{?attr_rst_wood,0,[7,68],6},{?attr_rst_water,0,[7,68],6},{?attr_rst_fire,0,[7,68],6},{?attr_rst_earth,0,[7,68],6},{?attr_mp_max,0,[14,131],20}]};	
+get(10315)  ->
+	{3, [{?attr_defence,0,[5,50],15},{?attr_hp_max,0,[19,183],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[20,194],20}]};	
+get(10500)  ->
+	{3, [{?attr_defence,0,[8,71],15},{?attr_hp_max,0,[25,244],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[19,181],6},{?attr_rst_wood,0,[19,181],6},{?attr_rst_water,0,[19,181],6},{?attr_rst_fire,0,[19,181],6},{?attr_rst_earth,0,[19,181],6},{?attr_mp_max,0,[26,257],20}]};	
+get(10685)  ->
+	{3, [{?attr_defence,0,[10,93],15},{?attr_hp_max,0,[31,306],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[25,250],6},{?attr_rst_wood,0,[25,250],6},{?attr_rst_water,0,[25,250],6},{?attr_rst_fire,0,[25,250],6},{?attr_rst_earth,0,[25,250],6},{?attr_mp_max,0,[33,321],20}]};	
+get(10870)  ->
+	{3, [{?attr_defence,0,[12,116],15},{?attr_hp_max,0,[37,367],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[34,333],6},{?attr_rst_wood,0,[34,333],6},{?attr_rst_water,0,[34,333],6},{?attr_rst_fire,0,[34,333],6},{?attr_rst_earth,0,[34,333],6},{?attr_mp_max,0,[39,386],20}]};	
+get(11055)  ->
+	{3, [{?attr_defence,0,[14,140],15},{?attr_hp_max,0,[43,429],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[45,441],6},{?attr_rst_wood,0,[45,441],6},{?attr_rst_water,0,[45,441],6},{?attr_rst_fire,0,[45,441],6},{?attr_rst_earth,0,[45,441],6},{?attr_mp_max,0,[45,449],20}]};	
+get(11240)  ->
+	{3, [{?attr_defence,0,[17,167],15},{?attr_hp_max,0,[49,490],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[60,595],6},{?attr_rst_wood,0,[60,595],6},{?attr_rst_water,0,[60,595],6},{?attr_rst_fire,0,[60,595],6},{?attr_rst_earth,0,[60,595],6},{?attr_mp_max,0,[52,513],20}]};	
+get(10131)  ->
+	{3, [{?attr_defence,0,[4,40],15},{?attr_hp_max,0,[17,162],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[9,90],6},{?attr_rst_wood,0,[9,90],6},{?attr_rst_water,0,[9,90],6},{?attr_rst_fire,0,[9,90],6},{?attr_rst_earth,0,[9,90],6},{?attr_mp_max,0,[18,174],20}]};	
+get(10316)  ->
+	{3, [{?attr_defence,0,[7,66],15},{?attr_hp_max,0,[25,244],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[17,161],6},{?attr_rst_wood,0,[17,161],6},{?attr_rst_water,0,[17,161],6},{?attr_rst_fire,0,[17,161],6},{?attr_rst_earth,0,[17,161],6},{?attr_mp_max,0,[26,258],20}]};	
+get(10501)  ->
+	{3, [{?attr_defence,0,[10,94],15},{?attr_hp_max,0,[33,326],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[25,241],6},{?attr_rst_wood,0,[25,241],6},{?attr_rst_water,0,[25,241],6},{?attr_rst_fire,0,[25,241],6},{?attr_rst_earth,0,[25,241],6},{?attr_mp_max,0,[35,343],20}]};	
+get(10686)  ->
+	{3, [{?attr_defence,0,[13,123],15},{?attr_hp_max,0,[41,408],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[34,334],6},{?attr_rst_wood,0,[34,334],6},{?attr_rst_water,0,[34,334],6},{?attr_rst_fire,0,[34,334],6},{?attr_rst_earth,0,[34,334],6},{?attr_mp_max,0,[43,428],20}]};	
+get(10871)  ->
+	{3, [{?attr_defence,0,[16,154],15},{?attr_hp_max,0,[49,490],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[45,444],6},{?attr_rst_wood,0,[45,444],6},{?attr_rst_water,0,[45,444],6},{?attr_rst_fire,0,[45,444],6},{?attr_rst_earth,0,[45,444],6},{?attr_mp_max,0,[52,514],20}]};	
+get(11056)  ->
+	{3, [{?attr_defence,0,[19,187],15},{?attr_hp_max,0,[58,571],15},{?attr_evasion,1,[4,39],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[59,588],6},{?attr_rst_wood,0,[59,588],6},{?attr_rst_water,0,[59,588],6},{?attr_rst_fire,0,[59,588],6},{?attr_rst_earth,0,[59,588],6},{?attr_mp_max,0,[60,599],20}]};	
+get(11241)  ->
+	{3, [{?attr_defence,0,[23,223],15},{?attr_hp_max,0,[66,653],15},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,22],15},{?attr_rst_metal,0,[80,793],6},{?attr_rst_wood,0,[80,793],6},{?attr_rst_water,0,[80,793],6},{?attr_rst_fire,0,[80,793],6},{?attr_rst_earth,0,[80,793],6},{?attr_mp_max,0,[69,684],20}]};	
+get(10107)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10292)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10477)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10662)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10847)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11032)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11217)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10108)  ->
+	{1, [{?attr_defence,0,[2,17],25},{?attr_hp_max,0,[10,92],25},{?attr_evasion,1,[1,5],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[14,133],20}]};	
+get(10293)  ->
+	{1, [{?attr_defence,0,[3,27],25},{?attr_hp_max,0,[14,138],25},{?attr_evasion,1,[1,7],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[20,198],20}]};	
+get(10478)  ->
+	{1, [{?attr_defence,0,[4,38],25},{?attr_hp_max,0,[19,184],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[27,263],20}]};	
+get(10663)  ->
+	{1, [{?attr_defence,0,[5,50],25},{?attr_hp_max,0,[23,230],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[33,328],20}]};	
+get(10848)  ->
+	{1, [{?attr_defence,0,[7,63],15},{?attr_hp_max,0,[28,276],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[40,393],20}]};	
+get(11033)  ->
+	{1, [{?attr_defence,0,[8,78],15},{?attr_hp_max,0,[33,323],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[46,458],20}]};	
+get(11218)  ->
+	{1, [{?attr_defence,0,[10,95],15},{?attr_hp_max,0,[37,369],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[53,523],20}]};	
+get(10109)  ->
+	{2, [{?attr_defence,0,[3,21],25},{?attr_hp_max,0,[12,114],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[17,166],20}]};	
+get(10294)  ->
+	{2, [{?attr_defence,0,[4,33],25},{?attr_hp_max,0,[18,172],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[25,247],20}]};	
+get(10479)  ->
+	{2, [{?attr_defence,0,[5,47],25},{?attr_hp_max,0,[23,230],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[33,328],20}]};	
+get(10664)  ->
+	{2, [{?attr_defence,0,[7,62],25},{?attr_hp_max,0,[29,288],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[41,410],20}]};	
+get(10849)  ->
+	{2, [{?attr_defence,0,[8,79],15},{?attr_hp_max,0,[35,345],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[50,491],20}]};	
+get(11034)  ->
+	{2, [{?attr_defence,0,[10,97],15},{?attr_hp_max,0,[41,404],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[58,572],20}]};	
+get(11219)  ->
+	{2, [{?attr_defence,0,[12,118],15},{?attr_hp_max,0,[47,461],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[66,654],20}]};	
+get(10110)  ->
+	{3, [{?attr_defence,0,[3,25],25},{?attr_hp_max,0,[14,137],25},{?attr_evasion,1,[1,7],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[20,199],20}]};	
+get(10295)  ->
+	{3, [{?attr_defence,0,[4,40],25},{?attr_hp_max,0,[21,206],25},{?attr_evasion,1,[2,11],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[30,297],20}]};	
+get(10480)  ->
+	{3, [{?attr_defence,0,[6,57],25},{?attr_hp_max,0,[28,276],25},{?attr_evasion,1,[2,14],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[40,394],20}]};	
+get(10665)  ->
+	{3, [{?attr_defence,0,[8,75],25},{?attr_hp_max,0,[35,345],25},{?attr_evasion,1,[2,18],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[50,492],20}]};	
+get(10850)  ->
+	{3, [{?attr_defence,0,[10,95],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[59,589],20}]};	
+get(11035)  ->
+	{3, [{?attr_defence,0,[12,116],15},{?attr_hp_max,0,[49,484],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[69,687],20}]};	
+get(11220)  ->
+	{3, [{?attr_defence,0,[15,142],15},{?attr_hp_max,0,[56,554],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[79,785],20}]};	
+get(10111)  ->
+	{3, [{?attr_defence,0,[4,33],25},{?attr_hp_max,0,[19,183],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[27,265],20}]};	
+get(10296)  ->
+	{3, [{?attr_defence,0,[6,53],25},{?attr_hp_max,0,[28,275],25},{?attr_evasion,1,[2,14],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[40,395],20}]};	
+get(10481)  ->
+	{3, [{?attr_defence,0,[8,76],25},{?attr_hp_max,0,[37,368],25},{?attr_evasion,1,[2,19],10},{?attr_tenacity,0,[2,13],20},{?attr_mp_max,0,[53,525],20}]};	
+get(10666)  ->
+	{3, [{?attr_defence,0,[10,100],25},{?attr_hp_max,0,[46,460],25},{?attr_evasion,1,[3,23],10},{?attr_tenacity,0,[2,16],20},{?attr_mp_max,0,[66,656],20}]};	
+get(10851)  ->
+	{3, [{?attr_defence,0,[13,126],15},{?attr_hp_max,0,[56,552],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[79,786],20}]};	
+get(11036)  ->
+	{3, [{?attr_defence,0,[16,155],15},{?attr_hp_max,0,[65,646],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[92,916],20}]};	
+get(11221)  ->
+	{3, [{?attr_defence,0,[19,189],15},{?attr_hp_max,0,[74,738],15},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,24],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[105,1046],20}]};	
+get(10187)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10372)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10557)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10742)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10927)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11112)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11297)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10188)  ->
+	{1, [{?attr_defence,0,[2,19],15},{?attr_hp_max,0,[11,102],15},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[9,84],6},{?attr_rst_wood,0,[9,84],6},{?attr_rst_water,0,[9,84],6},{?attr_rst_fire,0,[9,84],6},{?attr_rst_earth,0,[9,84],6},{?attr_mp_max,0,[15,148],20}]};	
+get(10373)  ->
+	{1, [{?attr_defence,0,[3,30],15},{?attr_hp_max,0,[16,153],15},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[15,150],6},{?attr_rst_wood,0,[15,150],6},{?attr_rst_water,0,[15,150],6},{?attr_rst_fire,0,[15,150],6},{?attr_rst_earth,0,[15,150],6},{?attr_mp_max,0,[22,220],20}]};	
+get(10558)  ->
+	{1, [{?attr_defence,0,[5,42],15},{?attr_hp_max,0,[21,205],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[30,292],20}]};	
+get(10743)  ->
+	{1, [{?attr_defence,0,[6,56],15},{?attr_hp_max,0,[26,256],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[31,310],6},{?attr_rst_wood,0,[31,310],6},{?attr_rst_water,0,[31,310],6},{?attr_rst_fire,0,[31,310],6},{?attr_rst_earth,0,[31,310],6},{?attr_mp_max,0,[37,364],20}]};	
+get(10928)  ->
+	{1, [{?attr_defence,0,[7,70],15},{?attr_hp_max,0,[31,307],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[42,412],6},{?attr_rst_wood,0,[42,412],6},{?attr_rst_water,0,[42,412],6},{?attr_rst_fire,0,[42,412],6},{?attr_rst_earth,0,[42,412],6},{?attr_mp_max,0,[44,437],20}]};	
+get(11113)  ->
+	{1, [{?attr_defence,0,[9,86],15},{?attr_hp_max,0,[36,359],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[55,546],6},{?attr_rst_wood,0,[55,546],6},{?attr_rst_water,0,[55,546],6},{?attr_rst_fire,0,[55,546],6},{?attr_rst_earth,0,[55,546],6},{?attr_mp_max,0,[51,509],20}]};	
+get(11298)  ->
+	{1, [{?attr_defence,0,[11,105],15},{?attr_hp_max,0,[41,410],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[74,737],6},{?attr_rst_wood,0,[74,737],6},{?attr_rst_water,0,[74,737],6},{?attr_rst_fire,0,[74,737],6},{?attr_rst_earth,0,[74,737],6},{?attr_mp_max,0,[59,581],20}]};	
+get(10189)  ->
+	{2, [{?attr_defence,0,[3,23],15},{?attr_hp_max,0,[13,127],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[11,104],6},{?attr_rst_wood,0,[11,104],6},{?attr_rst_water,0,[11,104],6},{?attr_rst_fire,0,[11,104],6},{?attr_rst_earth,0,[11,104],6},{?attr_mp_max,0,[19,184],20}]};	
+get(10374)  ->
+	{2, [{?attr_defence,0,[4,37],15},{?attr_hp_max,0,[20,191],15},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[19,187],6},{?attr_rst_wood,0,[19,187],6},{?attr_rst_water,0,[19,187],6},{?attr_rst_fire,0,[19,187],6},{?attr_rst_earth,0,[19,187],6},{?attr_mp_max,0,[28,275],20}]};	
+get(10559)  ->
+	{2, [{?attr_defence,0,[6,53],15},{?attr_hp_max,0,[26,256],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[28,279],6},{?attr_rst_wood,0,[28,279],6},{?attr_rst_water,0,[28,279],6},{?attr_rst_fire,0,[28,279],6},{?attr_rst_earth,0,[28,279],6},{?attr_mp_max,0,[37,365],20}]};	
+get(10744)  ->
+	{2, [{?attr_defence,0,[7,69],15},{?attr_hp_max,0,[32,320],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[39,387],6},{?attr_rst_wood,0,[39,387],6},{?attr_rst_water,0,[39,387],6},{?attr_rst_fire,0,[39,387],6},{?attr_rst_earth,0,[39,387],6},{?attr_mp_max,0,[46,455],20}]};	
+get(10929)  ->
+	{2, [{?attr_defence,0,[9,88],15},{?attr_hp_max,0,[39,384],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[52,515],6},{?attr_rst_wood,0,[52,515],6},{?attr_rst_water,0,[52,515],6},{?attr_rst_fire,0,[52,515],6},{?attr_rst_earth,0,[52,515],6},{?attr_mp_max,0,[55,546],20}]};	
+get(11114)  ->
+	{2, [{?attr_defence,0,[11,108],15},{?attr_hp_max,0,[45,449],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[69,682],6},{?attr_rst_wood,0,[69,682],6},{?attr_rst_water,0,[69,682],6},{?attr_rst_fire,0,[69,682],6},{?attr_rst_earth,0,[69,682],6},{?attr_mp_max,0,[64,636],20}]};	
+get(11299)  ->
+	{2, [{?attr_defence,0,[14,131],15},{?attr_hp_max,0,[52,513],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[93,921],6},{?attr_rst_wood,0,[93,921],6},{?attr_rst_water,0,[93,921],6},{?attr_rst_fire,0,[93,921],6},{?attr_rst_earth,0,[93,921],6},{?attr_mp_max,0,[73,727],20}]};	
+get(10190)  ->
+	{3, [{?attr_defence,0,[3,28],15},{?attr_hp_max,0,[16,152],15},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,125],6},{?attr_rst_wood,0,[13,125],6},{?attr_rst_water,0,[13,125],6},{?attr_rst_fire,0,[13,125],6},{?attr_rst_earth,0,[13,125],6},{?attr_mp_max,0,[23,221],20}]};	
+get(10375)  ->
+	{3, [{?attr_defence,0,[5,44],15},{?attr_hp_max,0,[23,229],15},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[33,329],20}]};	
+get(10560)  ->
+	{3, [{?attr_defence,0,[7,63],15},{?attr_hp_max,0,[31,307],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[34,335],6},{?attr_rst_wood,0,[34,335],6},{?attr_rst_water,0,[34,335],6},{?attr_rst_fire,0,[34,335],6},{?attr_rst_earth,0,[34,335],6},{?attr_mp_max,0,[44,438],20}]};	
+get(10745)  ->
+	{3, [{?attr_defence,0,[9,83],15},{?attr_hp_max,0,[39,384],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[47,464],6},{?attr_rst_wood,0,[47,464],6},{?attr_rst_water,0,[47,464],6},{?attr_rst_fire,0,[47,464],6},{?attr_rst_earth,0,[47,464],6},{?attr_mp_max,0,[55,546],20}]};	
+get(10930)  ->
+	{3, [{?attr_defence,0,[11,105],15},{?attr_hp_max,0,[46,460],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[62,618],6},{?attr_rst_wood,0,[62,618],6},{?attr_rst_water,0,[62,618],6},{?attr_rst_fire,0,[62,618],6},{?attr_rst_earth,0,[62,618],6},{?attr_mp_max,0,[66,655],20}]};	
+get(11115)  ->
+	{3, [{?attr_defence,0,[13,129],15},{?attr_hp_max,0,[54,538],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[82,819],6},{?attr_rst_wood,0,[82,819],6},{?attr_rst_water,0,[82,819],6},{?attr_rst_fire,0,[82,819],6},{?attr_rst_earth,0,[82,819],6},{?attr_mp_max,0,[77,763],20}]};	
+get(11300)  ->
+	{3, [{?attr_defence,0,[16,158],15},{?attr_hp_max,0,[62,615],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[111,1105],6},{?attr_rst_wood,0,[111,1105],6},{?attr_rst_water,0,[111,1105],6},{?attr_rst_fire,0,[111,1105],6},{?attr_rst_earth,0,[111,1105],6},{?attr_mp_max,0,[88,872],20}]};	
+get(10191)  ->
+	{3, [{?attr_defence,0,[4,37],15},{?attr_hp_max,0,[21,203],15},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[30,295],20}]};	
+get(10376)  ->
+	{3, [{?attr_defence,0,[6,59],15},{?attr_hp_max,0,[31,306],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[30,299],6},{?attr_rst_wood,0,[30,299],6},{?attr_rst_water,0,[30,299],6},{?attr_rst_fire,0,[30,299],6},{?attr_rst_earth,0,[30,299],6},{?attr_mp_max,0,[44,439],20}]};	
+get(10561)  ->
+	{3, [{?attr_defence,0,[9,84],15},{?attr_hp_max,0,[41,409],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[45,447],6},{?attr_rst_wood,0,[45,447],6},{?attr_rst_water,0,[45,447],6},{?attr_rst_fire,0,[45,447],6},{?attr_rst_earth,0,[45,447],6},{?attr_mp_max,0,[59,583],20}]};	
+get(10746)  ->
+	{3, [{?attr_defence,0,[12,111],15},{?attr_hp_max,0,[52,511],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[62,619],6},{?attr_rst_wood,0,[62,619],6},{?attr_rst_water,0,[62,619],6},{?attr_rst_fire,0,[62,619],6},{?attr_rst_earth,0,[62,619],6},{?attr_mp_max,0,[73,728],20}]};	
+get(10931)  ->
+	{3, [{?attr_defence,0,[14,140],15},{?attr_hp_max,0,[62,614],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[83,823],6},{?attr_rst_wood,0,[83,823],6},{?attr_rst_water,0,[83,823],6},{?attr_rst_fire,0,[83,823],6},{?attr_rst_earth,0,[83,823],6},{?attr_mp_max,0,[88,873],20}]};	
+get(11116)  ->
+	{3, [{?attr_defence,0,[18,172],15},{?attr_hp_max,0,[72,717],15},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[110,1091],6},{?attr_rst_wood,0,[110,1091],6},{?attr_rst_water,0,[110,1091],6},{?attr_rst_fire,0,[110,1091],6},{?attr_rst_earth,0,[110,1091],6},{?attr_mp_max,0,[102,1017],20}]};	
+get(11301)  ->
+	{3, [{?attr_defence,0,[21,210],15},{?attr_hp_max,0,[82,820],15},{?attr_evasion,1,[5,41],5},{?attr_tenacity,0,[3,27],15},{?attr_rst_metal,0,[148,1473],6},{?attr_rst_wood,0,[148,1473],6},{?attr_rst_water,0,[148,1473],6},{?attr_rst_fire,0,[148,1473],6},{?attr_rst_earth,0,[148,1473],6},{?attr_mp_max,0,[117,1162],20}]};	
+get(10082)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10267)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10452)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10637)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10822)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(11007)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(11192)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10083)  ->
+	{1, [{?attr_defence,0,[2,14],20},{?attr_hp_max,0,[8,76],25},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[3,24],5},{?attr_mp_max,0,[12,111],25}]};	
+get(10268)  ->
+	{1, [{?attr_defence,0,[3,22],20},{?attr_hp_max,0,[12,115],25},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[4,36],5},{?attr_mp_max,0,[17,165],25}]};	
+get(10453)  ->
+	{1, [{?attr_defence,0,[4,32],20},{?attr_hp_max,0,[16,154],25},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[5,48],5},{?attr_mp_max,0,[22,219],25}]};	
+get(10638)  ->
+	{1, [{?attr_defence,0,[5,42],20},{?attr_hp_max,0,[20,192],25},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[6,60],5},{?attr_mp_max,0,[28,273],25}]};	
+get(10823)  ->
+	{1, [{?attr_defence,0,[6,53],20},{?attr_hp_max,0,[23,230],25},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[8,71],5},{?attr_mp_max,0,[33,328],25}]};	
+get(11008)  ->
+	{1, [{?attr_defence,0,[7,65],20},{?attr_hp_max,0,[27,269],25},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[9,83],5},{?attr_mp_max,0,[39,382],25}]};	
+get(11193)  ->
+	{1, [{?attr_defence,0,[8,79],20},{?attr_hp_max,0,[31,308],25},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[10,95],5},{?attr_mp_max,0,[44,436],25}]};	
+get(10084)  ->
+	{2, [{?attr_defence,0,[2,18],20},{?attr_hp_max,0,[10,95],25},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[3,30],5},{?attr_mp_max,0,[14,138],25}]};	
+get(10269)  ->
+	{2, [{?attr_defence,0,[3,28],20},{?attr_hp_max,0,[15,144],25},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[5,45],5},{?attr_mp_max,0,[21,206],25}]};	
+get(10454)  ->
+	{2, [{?attr_defence,0,[4,40],20},{?attr_hp_max,0,[20,192],25},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[6,60],5},{?attr_mp_max,0,[28,274],25}]};	
+get(10639)  ->
+	{2, [{?attr_defence,0,[6,52],20},{?attr_hp_max,0,[24,240],25},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[8,74],5},{?attr_mp_max,0,[35,342],25}]};	
+get(10824)  ->
+	{2, [{?attr_defence,0,[7,66],20},{?attr_hp_max,0,[29,288],25},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[9,89],5},{?attr_mp_max,0,[41,409],25}]};	
+get(11009)  ->
+	{2, [{?attr_defence,0,[9,81],20},{?attr_hp_max,0,[34,337],25},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[11,104],5},{?attr_mp_max,0,[48,477],25}]};	
+get(11194)  ->
+	{2, [{?attr_defence,0,[10,99],20},{?attr_hp_max,0,[39,385],25},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[12,119],5},{?attr_mp_max,0,[55,545],25}]};	
+get(10085)  ->
+	{3, [{?attr_defence,0,[3,21],20},{?attr_hp_max,0,[12,114],25},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[4,36],5},{?attr_mp_max,0,[17,166],25}]};	
+get(10270)  ->
+	{3, [{?attr_defence,0,[4,33],20},{?attr_hp_max,0,[18,172],25},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[6,54],5},{?attr_mp_max,0,[25,247],25}]};	
+get(10455)  ->
+	{3, [{?attr_defence,0,[5,47],20},{?attr_hp_max,0,[23,230],25},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[8,72],5},{?attr_mp_max,0,[33,328],25}]};	
+get(10640)  ->
+	{3, [{?attr_defence,0,[7,62],20},{?attr_hp_max,0,[29,288],25},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[9,89],5},{?attr_mp_max,0,[41,410],25}]};	
+get(10825)  ->
+	{3, [{?attr_defence,0,[8,79],20},{?attr_hp_max,0,[35,345],25},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[11,107],5},{?attr_mp_max,0,[50,491],25}]};	
+get(11010)  ->
+	{3, [{?attr_defence,0,[10,97],20},{?attr_hp_max,0,[41,404],25},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[13,124],5},{?attr_mp_max,0,[58,572],25}]};	
+get(11195)  ->
+	{3, [{?attr_defence,0,[12,118],20},{?attr_hp_max,0,[47,461],25},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[15,142],5},{?attr_mp_max,0,[66,654],25}]};	
+get(10086)  ->
+	{3, [{?attr_defence,0,[3,28],20},{?attr_hp_max,0,[16,152],25},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[5,48],5},{?attr_mp_max,0,[23,221],25}]};	
+get(10271)  ->
+	{3, [{?attr_defence,0,[5,44],20},{?attr_hp_max,0,[23,229],25},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[8,72],5},{?attr_mp_max,0,[33,329],25}]};	
+get(10456)  ->
+	{3, [{?attr_defence,0,[7,63],20},{?attr_hp_max,0,[31,307],25},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[10,95],5},{?attr_mp_max,0,[44,438],25}]};	
+get(10641)  ->
+	{3, [{?attr_defence,0,[9,83],20},{?attr_hp_max,0,[39,384],25},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[12,119],5},{?attr_mp_max,0,[55,546],25}]};	
+get(10826)  ->
+	{3, [{?attr_defence,0,[11,105],20},{?attr_hp_max,0,[46,460],25},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[15,142],5},{?attr_mp_max,0,[66,655],25}]};	
+get(11011)  ->
+	{3, [{?attr_defence,0,[13,129],20},{?attr_hp_max,0,[54,538],25},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,18],20},{?attr_js,0,[17,166],5},{?attr_mp_max,0,[77,763],25}]};	
+get(11196)  ->
+	{3, [{?attr_defence,0,[16,158],20},{?attr_hp_max,0,[62,615],25},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,20],20},{?attr_js,0,[19,189],5},{?attr_mp_max,0,[88,872],25}]};	
+get(10057)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10242)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10427)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10612)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10797)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10982)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(11167)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(10058)  ->
+	{1, [{?attr_defence,0,[2,13],20},{?attr_hp_max,0,[8,71],25},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[2,16],5},{?attr_mp_max,0,[11,103],25}]};	
+get(10243)  ->
+	{1, [{?attr_defence,0,[3,21],20},{?attr_hp_max,0,[11,107],25},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[3,24],5},{?attr_mp_max,0,[16,154],25}]};	
+get(10428)  ->
+	{1, [{?attr_defence,0,[3,30],20},{?attr_hp_max,0,[15,143],25},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[4,32],5},{?attr_mp_max,0,[21,205],25}]};	
+get(10613)  ->
+	{1, [{?attr_defence,0,[4,39],20},{?attr_hp_max,0,[18,179],25},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[4,40],5},{?attr_mp_max,0,[26,255],25}]};	
+get(10798)  ->
+	{1, [{?attr_defence,0,[5,49],20},{?attr_hp_max,0,[22,215],25},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[5,48],5},{?attr_mp_max,0,[31,306],25}]};	
+get(10983)  ->
+	{1, [{?attr_defence,0,[7,61],20},{?attr_hp_max,0,[26,251],25},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[6,56],5},{?attr_mp_max,0,[36,356],25}]};	
+get(11168)  ->
+	{1, [{?attr_defence,0,[8,74],20},{?attr_hp_max,0,[29,287],25},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[7,63],5},{?attr_mp_max,0,[41,407],25}]};	
+get(10059)  ->
+	{2, [{?attr_defence,0,[2,17],20},{?attr_hp_max,0,[9,89],25},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,20],5},{?attr_mp_max,0,[13,129],25}]};	
+get(10244)  ->
+	{2, [{?attr_defence,0,[3,26],20},{?attr_hp_max,0,[14,134],25},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[3,30],5},{?attr_mp_max,0,[20,192],25}]};	
+get(10429)  ->
+	{2, [{?attr_defence,0,[4,37],20},{?attr_hp_max,0,[18,179],25},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[4,40],5},{?attr_mp_max,0,[26,256],25}]};	
+get(10614)  ->
+	{2, [{?attr_defence,0,[5,49],20},{?attr_hp_max,0,[23,224],25},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[5,50],5},{?attr_mp_max,0,[32,319],25}]};	
+get(10799)  ->
+	{2, [{?attr_defence,0,[7,61],20},{?attr_hp_max,0,[27,269],25},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[6,60],5},{?attr_mp_max,0,[39,382],25}]};	
+get(10984)  ->
+	{2, [{?attr_defence,0,[8,76],20},{?attr_hp_max,0,[32,314],25},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[7,69],5},{?attr_mp_max,0,[45,445],25}]};	
+get(11169)  ->
+	{2, [{?attr_defence,0,[10,92],20},{?attr_hp_max,0,[36,359],25},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[8,79],5},{?attr_mp_max,0,[51,509],25}]};	
+get(10060)  ->
+	{3, [{?attr_defence,0,[2,20],20},{?attr_hp_max,0,[11,107],25},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[3,24],5},{?attr_mp_max,0,[16,155],25}]};	
+get(10245)  ->
+	{3, [{?attr_defence,0,[4,31],20},{?attr_hp_max,0,[17,161],25},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[4,36],5},{?attr_mp_max,0,[24,231],25}]};	
+get(10430)  ->
+	{3, [{?attr_defence,0,[5,44],20},{?attr_hp_max,0,[22,215],25},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[5,48],5},{?attr_mp_max,0,[31,307],25}]};	
+get(10615)  ->
+	{3, [{?attr_defence,0,[6,58],20},{?attr_hp_max,0,[27,269],25},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[6,60],5},{?attr_mp_max,0,[39,383],25}]};	
+get(10800)  ->
+	{3, [{?attr_defence,0,[8,74],20},{?attr_hp_max,0,[33,322],25},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[8,71],5},{?attr_mp_max,0,[46,458],25}]};	
+get(10985)  ->
+	{3, [{?attr_defence,0,[10,91],20},{?attr_hp_max,0,[38,377],25},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[9,83],5},{?attr_mp_max,0,[54,534],25}]};	
+get(11170)  ->
+	{3, [{?attr_defence,0,[11,110],20},{?attr_hp_max,0,[44,431],25},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[10,95],5},{?attr_mp_max,0,[61,610],25}]};	
+get(10061)  ->
+	{3, [{?attr_defence,0,[3,26],20},{?attr_hp_max,0,[15,142],25},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[4,32],5},{?attr_mp_max,0,[21,206],25}]};	
+get(10246)  ->
+	{3, [{?attr_defence,0,[5,41],20},{?attr_hp_max,0,[22,214],25},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[5,48],5},{?attr_mp_max,0,[31,307],25}]};	
+get(10431)  ->
+	{3, [{?attr_defence,0,[6,59],20},{?attr_hp_max,0,[29,286],25},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[7,64],5},{?attr_mp_max,0,[41,409],25}]};	
+get(10616)  ->
+	{3, [{?attr_defence,0,[8,78],20},{?attr_hp_max,0,[36,358],25},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[8,79],5},{?attr_mp_max,0,[51,510],25}]};	
+get(10801)  ->
+	{3, [{?attr_defence,0,[10,98],20},{?attr_hp_max,0,[43,430],25},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[10,95],5},{?attr_mp_max,0,[62,611],25}]};	
+get(10986)  ->
+	{3, [{?attr_defence,0,[13,121],20},{?attr_hp_max,0,[51,502],25},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[12,111],5},{?attr_mp_max,0,[72,712],25}]};	
+get(11171)  ->
+	{3, [{?attr_defence,0,[15,147],20},{?attr_hp_max,0,[58,574],25},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[13,126],5},{?attr_mp_max,0,[82,814],25}]};	
+get(10157)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10342)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10527)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10712)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10897)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11082)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11267)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10158)  ->
+	{1, [{?attr_defence,0,[2,16],25},{?attr_hp_max,0,[9,87],25},{?attr_evasion,1,[1,5],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[13,126],20}]};	
+get(10343)  ->
+	{1, [{?attr_defence,0,[3,25],25},{?attr_hp_max,0,[13,130],25},{?attr_evasion,1,[1,7],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[19,187],20}]};	
+get(10528)  ->
+	{1, [{?attr_defence,0,[4,36],25},{?attr_hp_max,0,[18,174],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[25,248],20}]};	
+get(10713)  ->
+	{1, [{?attr_defence,0,[5,47],25},{?attr_hp_max,0,[22,218],25},{?attr_evasion,1,[2,11],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[31,310],20}]};	
+get(10898)  ->
+	{1, [{?attr_defence,0,[6,60],15},{?attr_hp_max,0,[27,261],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[38,371],20}]};	
+get(11083)  ->
+	{1, [{?attr_defence,0,[8,73],15},{?attr_hp_max,0,[31,305],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[44,433],20}]};	
+get(11268)  ->
+	{1, [{?attr_defence,0,[9,90],15},{?attr_hp_max,0,[35,349],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[50,494],20}]};	
+get(10159)  ->
+	{2, [{?attr_defence,0,[2,20],25},{?attr_hp_max,0,[11,108],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[16,157],20}]};	
+get(10344)  ->
+	{2, [{?attr_defence,0,[4,32],25},{?attr_hp_max,0,[17,163],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[24,233],20}]};	
+get(10529)  ->
+	{2, [{?attr_defence,0,[5,45],25},{?attr_hp_max,0,[22,217],25},{?attr_evasion,1,[2,11],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[31,310],20}]};	
+get(10714)  ->
+	{2, [{?attr_defence,0,[6,59],25},{?attr_hp_max,0,[28,272],25},{?attr_evasion,1,[2,14],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[39,387],20}]};	
+get(10899)  ->
+	{2, [{?attr_defence,0,[8,74],15},{?attr_hp_max,0,[33,326],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[47,464],20}]};	
+get(11084)  ->
+	{2, [{?attr_defence,0,[10,92],15},{?attr_hp_max,0,[39,381],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[55,541],20}]};	
+get(11269)  ->
+	{2, [{?attr_defence,0,[12,112],15},{?attr_hp_max,0,[44,436],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[62,618],20}]};	
+get(10160)  ->
+	{3, [{?attr_defence,0,[3,24],25},{?attr_hp_max,0,[13,130],25},{?attr_evasion,1,[1,7],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[19,188],20}]};	
+get(10345)  ->
+	{3, [{?attr_defence,0,[4,38],25},{?attr_hp_max,0,[20,195],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[28,280],20}]};	
+get(10530)  ->
+	{3, [{?attr_defence,0,[6,54],25},{?attr_hp_max,0,[27,261],25},{?attr_evasion,1,[2,13],10},{?attr_tenacity,0,[1,9],20},{?attr_mp_max,0,[38,372],20}]};	
+get(10715)  ->
+	{3, [{?attr_defence,0,[8,71],25},{?attr_hp_max,0,[33,326],25},{?attr_evasion,1,[2,17],10},{?attr_tenacity,0,[2,11],20},{?attr_mp_max,0,[47,465],20}]};	
+get(10900)  ->
+	{3, [{?attr_defence,0,[9,89],15},{?attr_hp_max,0,[40,391],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[56,557],20}]};	
+get(11085)  ->
+	{3, [{?attr_defence,0,[11,110],15},{?attr_hp_max,0,[46,458],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[65,649],20}]};	
+get(11270)  ->
+	{3, [{?attr_defence,0,[14,134],15},{?attr_hp_max,0,[53,523],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[75,741],20}]};	
+get(10161)  ->
+	{3, [{?attr_defence,0,[4,32],25},{?attr_hp_max,0,[18,173],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[26,251],20}]};	
+get(10346)  ->
+	{3, [{?attr_defence,0,[5,50],25},{?attr_hp_max,0,[26,260],25},{?attr_evasion,1,[2,13],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[38,373],20}]};	
+get(10531)  ->
+	{3, [{?attr_defence,0,[8,71],25},{?attr_hp_max,0,[35,347],25},{?attr_evasion,1,[2,18],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[50,496],20}]};	
+get(10716)  ->
+	{3, [{?attr_defence,0,[10,94],25},{?attr_hp_max,0,[44,435],25},{?attr_evasion,1,[3,22],10},{?attr_tenacity,0,[2,15],20},{?attr_mp_max,0,[62,619],20}]};	
+get(10901)  ->
+	{3, [{?attr_defence,0,[12,119],15},{?attr_hp_max,0,[53,522],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[75,742],20}]};	
+get(11086)  ->
+	{3, [{?attr_defence,0,[15,146],15},{?attr_hp_max,0,[61,610],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,20],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[87,865],20}]};	
+get(11271)  ->
+	{3, [{?attr_defence,0,[18,179],15},{?attr_hp_max,0,[70,697],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,23],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[99,988],20}]};	
+get(10132)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10317)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10502)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10687)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10872)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11057)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11242)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10133)  ->
+	{1, [{?attr_defence,0,[2,15],15},{?attr_hp_max,0,[9,82],15},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,3],15},{?attr_rst_metal,0,[5,45],6},{?attr_rst_wood,0,[5,45],6},{?attr_rst_water,0,[5,45],6},{?attr_rst_fire,0,[5,45],6},{?attr_rst_earth,0,[5,45],6},{?attr_mp_max,0,[12,118],20}]};	
+get(10318)  ->
+	{1, [{?attr_defence,0,[3,24],15},{?attr_hp_max,0,[13,123],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[9,81],6},{?attr_rst_wood,0,[9,81],6},{?attr_rst_water,0,[9,81],6},{?attr_rst_fire,0,[9,81],6},{?attr_rst_earth,0,[9,81],6},{?attr_mp_max,0,[18,176],20}]};	
+get(10503)  ->
+	{1, [{?attr_defence,0,[4,34],15},{?attr_hp_max,0,[17,164],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[24,234],20}]};	
+get(10688)  ->
+	{1, [{?attr_defence,0,[5,45],15},{?attr_hp_max,0,[21,205],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[30,292],20}]};	
+get(10873)  ->
+	{1, [{?attr_defence,0,[6,56],15},{?attr_hp_max,0,[25,246],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[23,222],6},{?attr_rst_wood,0,[23,222],6},{?attr_rst_water,0,[23,222],6},{?attr_rst_fire,0,[23,222],6},{?attr_rst_earth,0,[23,222],6},{?attr_mp_max,0,[35,349],20}]};	
+get(11058)  ->
+	{1, [{?attr_defence,0,[7,69],15},{?attr_hp_max,0,[29,287],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,10],15},{?attr_rst_metal,0,[30,294],6},{?attr_rst_wood,0,[30,294],6},{?attr_rst_water,0,[30,294],6},{?attr_rst_fire,0,[30,294],6},{?attr_rst_earth,0,[30,294],6},{?attr_mp_max,0,[41,407],20}]};	
+get(11243)  ->
+	{1, [{?attr_defence,0,[9,84],15},{?attr_hp_max,0,[33,328],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[40,397],6},{?attr_rst_wood,0,[40,397],6},{?attr_rst_water,0,[40,397],6},{?attr_rst_fire,0,[40,397],6},{?attr_rst_earth,0,[40,397],6},{?attr_mp_max,0,[47,465],20}]};	
+get(10134)  ->
+	{2, [{?attr_defence,0,[2,19],15},{?attr_hp_max,0,[11,102],15},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[6,56],6},{?attr_rst_wood,0,[6,56],6},{?attr_rst_water,0,[6,56],6},{?attr_rst_fire,0,[6,56],6},{?attr_rst_earth,0,[6,56],6},{?attr_mp_max,0,[15,148],20}]};	
+get(10319)  ->
+	{2, [{?attr_defence,0,[3,30],15},{?attr_hp_max,0,[16,153],15},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[11,101],6},{?attr_rst_wood,0,[11,101],6},{?attr_rst_water,0,[11,101],6},{?attr_rst_fire,0,[11,101],6},{?attr_rst_earth,0,[11,101],6},{?attr_mp_max,0,[22,220],20}]};	
+get(10504)  ->
+	{2, [{?attr_defence,0,[5,42],15},{?attr_hp_max,0,[21,205],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[16,151],6},{?attr_rst_wood,0,[16,151],6},{?attr_rst_water,0,[16,151],6},{?attr_rst_fire,0,[16,151],6},{?attr_rst_earth,0,[16,151],6},{?attr_mp_max,0,[30,292],20}]};	
+get(10689)  ->
+	{2, [{?attr_defence,0,[6,56],15},{?attr_hp_max,0,[26,256],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[21,209],6},{?attr_rst_wood,0,[21,209],6},{?attr_rst_water,0,[21,209],6},{?attr_rst_fire,0,[21,209],6},{?attr_rst_earth,0,[21,209],6},{?attr_mp_max,0,[37,364],20}]};	
+get(10874)  ->
+	{2, [{?attr_defence,0,[7,70],15},{?attr_hp_max,0,[31,307],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[28,277],6},{?attr_rst_wood,0,[28,277],6},{?attr_rst_water,0,[28,277],6},{?attr_rst_fire,0,[28,277],6},{?attr_rst_earth,0,[28,277],6},{?attr_mp_max,0,[44,437],20}]};	
+get(11059)  ->
+	{2, [{?attr_defence,0,[9,86],15},{?attr_hp_max,0,[36,359],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[37,368],6},{?attr_rst_wood,0,[37,368],6},{?attr_rst_water,0,[37,368],6},{?attr_rst_fire,0,[37,368],6},{?attr_rst_earth,0,[37,368],6},{?attr_mp_max,0,[51,509],20}]};	
+get(11244)  ->
+	{2, [{?attr_defence,0,[11,105],15},{?attr_hp_max,0,[41,410],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[50,496],6},{?attr_rst_wood,0,[50,496],6},{?attr_rst_water,0,[50,496],6},{?attr_rst_fire,0,[50,496],6},{?attr_rst_earth,0,[50,496],6},{?attr_mp_max,0,[59,581],20}]};	
+get(10135)  ->
+	{3, [{?attr_defence,0,[3,22],15},{?attr_hp_max,0,[13,122],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[7,68],6},{?attr_rst_wood,0,[7,68],6},{?attr_rst_water,0,[7,68],6},{?attr_rst_fire,0,[7,68],6},{?attr_rst_earth,0,[7,68],6},{?attr_mp_max,0,[18,177],20}]};	
+get(10320)  ->
+	{3, [{?attr_defence,0,[4,36],15},{?attr_hp_max,0,[19,184],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[27,264],20}]};	
+get(10505)  ->
+	{3, [{?attr_defence,0,[6,51],15},{?attr_hp_max,0,[25,245],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[19,181],6},{?attr_rst_wood,0,[19,181],6},{?attr_rst_water,0,[19,181],6},{?attr_rst_fire,0,[19,181],6},{?attr_rst_earth,0,[19,181],6},{?attr_mp_max,0,[35,350],20}]};	
+get(10690)  ->
+	{3, [{?attr_defence,0,[7,67],15},{?attr_hp_max,0,[31,307],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[25,250],6},{?attr_rst_wood,0,[25,250],6},{?attr_rst_water,0,[25,250],6},{?attr_rst_fire,0,[25,250],6},{?attr_rst_earth,0,[25,250],6},{?attr_mp_max,0,[44,437],20}]};	
+get(10875)  ->
+	{3, [{?attr_defence,0,[9,84],15},{?attr_hp_max,0,[37,368],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[34,333],6},{?attr_rst_wood,0,[34,333],6},{?attr_rst_water,0,[34,333],6},{?attr_rst_fire,0,[34,333],6},{?attr_rst_earth,0,[34,333],6},{?attr_mp_max,0,[53,524],20}]};	
+get(11060)  ->
+	{3, [{?attr_defence,0,[11,103],15},{?attr_hp_max,0,[44,431],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[45,441],6},{?attr_rst_wood,0,[45,441],6},{?attr_rst_water,0,[45,441],6},{?attr_rst_fire,0,[45,441],6},{?attr_rst_earth,0,[45,441],6},{?attr_mp_max,0,[62,611],20}]};	
+get(11245)  ->
+	{3, [{?attr_defence,0,[13,126],15},{?attr_hp_max,0,[50,492],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[60,595],6},{?attr_rst_wood,0,[60,595],6},{?attr_rst_water,0,[60,595],6},{?attr_rst_fire,0,[60,595],6},{?attr_rst_earth,0,[60,595],6},{?attr_mp_max,0,[70,698],20}]};	
+get(10136)  ->
+	{3, [{?attr_defence,0,[3,30],15},{?attr_hp_max,0,[17,163],15},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[9,90],6},{?attr_rst_wood,0,[9,90],6},{?attr_rst_water,0,[9,90],6},{?attr_rst_fire,0,[9,90],6},{?attr_rst_earth,0,[9,90],6},{?attr_mp_max,0,[24,236],20}]};	
+get(10321)  ->
+	{3, [{?attr_defence,0,[5,47],15},{?attr_hp_max,0,[25,245],15},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[17,161],6},{?attr_rst_wood,0,[17,161],6},{?attr_rst_water,0,[17,161],6},{?attr_rst_fire,0,[17,161],6},{?attr_rst_earth,0,[17,161],6},{?attr_mp_max,0,[36,351],20}]};	
+get(10506)  ->
+	{3, [{?attr_defence,0,[7,67],15},{?attr_hp_max,0,[33,327],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[25,241],6},{?attr_rst_wood,0,[25,241],6},{?attr_rst_water,0,[25,241],6},{?attr_rst_fire,0,[25,241],6},{?attr_rst_earth,0,[25,241],6},{?attr_mp_max,0,[47,467],20}]};	
+get(10691)  ->
+	{3, [{?attr_defence,0,[9,89],15},{?attr_hp_max,0,[41,409],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[34,334],6},{?attr_rst_wood,0,[34,334],6},{?attr_rst_water,0,[34,334],6},{?attr_rst_fire,0,[34,334],6},{?attr_rst_earth,0,[34,334],6},{?attr_mp_max,0,[59,583],20}]};	
+get(10876)  ->
+	{3, [{?attr_defence,0,[12,112],15},{?attr_hp_max,0,[50,491],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[45,444],6},{?attr_rst_wood,0,[45,444],6},{?attr_rst_water,0,[45,444],6},{?attr_rst_fire,0,[45,444],6},{?attr_rst_earth,0,[45,444],6},{?attr_mp_max,0,[70,698],20}]};	
+get(11061)  ->
+	{3, [{?attr_defence,0,[14,138],15},{?attr_hp_max,0,[58,574],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[59,588],6},{?attr_rst_wood,0,[59,588],6},{?attr_rst_water,0,[59,588],6},{?attr_rst_fire,0,[59,588],6},{?attr_rst_earth,0,[59,588],6},{?attr_mp_max,0,[82,814],20}]};	
+get(11246)  ->
+	{3, [{?attr_defence,0,[17,168],15},{?attr_hp_max,0,[66,656],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[3,22],15},{?attr_rst_metal,0,[80,793],6},{?attr_rst_wood,0,[80,793],6},{?attr_rst_water,0,[80,793],6},{?attr_rst_fire,0,[80,793],6},{?attr_rst_earth,0,[80,793],6},{?attr_mp_max,0,[93,930],20}]};	
+get(10112)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10297)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10482)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10667)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10852)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11037)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11222)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10113)  ->
+	{1, [{?attr_defence,0,[3,30],25},{?attr_hp_max,0,[9,82],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[11,110],20}]};	
+get(10298)  ->
+	{1, [{?attr_defence,0,[6,51],25},{?attr_hp_max,0,[13,124],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[17,163],20}]};	
+get(10483)  ->
+	{1, [{?attr_defence,0,[8,73],25},{?attr_hp_max,0,[17,165],25},{?attr_evasion,1,[2,11],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[22,217],20}]};	
+get(10668)  ->
+	{1, [{?attr_defence,0,[10,96],25},{?attr_hp_max,0,[21,207],25},{?attr_evasion,1,[2,14],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[27,270],20}]};	
+get(10853)  ->
+	{1, [{?attr_defence,0,[12,119],15},{?attr_hp_max,0,[25,248],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[33,324],20}]};	
+get(11038)  ->
+	{1, [{?attr_defence,0,[15,144],15},{?attr_hp_max,0,[29,290],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[38,377],20}]};	
+get(11223)  ->
+	{1, [{?attr_defence,0,[17,170],15},{?attr_hp_max,0,[34,331],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[44,431],20}]};	
+get(10114)  ->
+	{2, [{?attr_defence,0,[4,37],25},{?attr_hp_max,0,[11,103],25},{?attr_evasion,1,[1,7],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[14,137],20}]};	
+get(10299)  ->
+	{2, [{?attr_defence,0,[7,64],25},{?attr_hp_max,0,[16,155],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[21,204],20}]};	
+get(10484)  ->
+	{2, [{?attr_defence,0,[10,91],25},{?attr_hp_max,0,[21,207],25},{?attr_evasion,1,[2,14],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[28,271],20}]};	
+get(10669)  ->
+	{2, [{?attr_defence,0,[12,119],25},{?attr_hp_max,0,[26,258],25},{?attr_evasion,1,[2,17],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[34,338],20}]};	
+get(10854)  ->
+	{2, [{?attr_defence,0,[15,149],15},{?attr_hp_max,0,[31,310],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[41,405],20}]};	
+get(11039)  ->
+	{2, [{?attr_defence,0,[18,180],15},{?attr_hp_max,0,[37,362],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[48,472],20}]};	
+get(11224)  ->
+	{2, [{?attr_defence,0,[22,213],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[54,539],20}]};	
+get(10115)  ->
+	{3, [{?attr_defence,0,[5,45],25},{?attr_hp_max,0,[13,123],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[17,164],20}]};	
+get(10300)  ->
+	{3, [{?attr_defence,0,[8,76],25},{?attr_hp_max,0,[19,185],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[25,245],20}]};	
+get(10485)  ->
+	{3, [{?attr_defence,0,[11,109],25},{?attr_hp_max,0,[25,248],25},{?attr_evasion,1,[2,16],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[33,325],20}]};	
+get(10670)  ->
+	{3, [{?attr_defence,0,[15,143],25},{?attr_hp_max,0,[31,310],25},{?attr_evasion,1,[2,20],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[41,405],20}]};	
+get(10855)  ->
+	{3, [{?attr_defence,0,[18,178],15},{?attr_hp_max,0,[38,372],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[49,486],20}]};	
+get(11040)  ->
+	{3, [{?attr_defence,0,[22,215],15},{?attr_hp_max,0,[44,434],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[57,566],20}]};	
+get(11225)  ->
+	{3, [{?attr_defence,0,[26,255],15},{?attr_hp_max,0,[50,497],15},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[65,646],20}]};	
+get(10116)  ->
+	{3, [{?attr_defence,0,[6,60],25},{?attr_hp_max,0,[17,164],25},{?attr_evasion,1,[2,11],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[22,219],20}]};	
+get(10301)  ->
+	{3, [{?attr_defence,0,[11,101],25},{?attr_hp_max,0,[25,247],25},{?attr_evasion,1,[2,16],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[33,326],20}]};	
+get(10486)  ->
+	{3, [{?attr_defence,0,[15,145],25},{?attr_hp_max,0,[33,330],25},{?attr_evasion,1,[3,21],10},{?attr_tenacity,0,[2,13],20},{?attr_mp_max,0,[44,433],20}]};	
+get(10671)  ->
+	{3, [{?attr_defence,0,[20,191],25},{?attr_hp_max,0,[42,413],25},{?attr_evasion,1,[3,27],10},{?attr_tenacity,0,[2,16],20},{?attr_mp_max,0,[54,540],20}]};	
+get(10856)  ->
+	{3, [{?attr_defence,0,[24,238],15},{?attr_hp_max,0,[50,496],15},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[65,647],20}]};	
+get(11041)  ->
+	{3, [{?attr_defence,0,[29,287],15},{?attr_hp_max,0,[58,579],15},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[76,754],20}]};	
+get(11226)  ->
+	{3, [{?attr_defence,0,[34,340],15},{?attr_hp_max,0,[67,662],15},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[3,24],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[87,862],20}]};	
+get(10192)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10377)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10562)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10747)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10932)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11117)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11302)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10193)  ->
+	{1, [{?attr_defence,0,[4,33],15},{?attr_hp_max,0,[10,91],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[9,84],6},{?attr_rst_wood,0,[9,84],6},{?attr_rst_water,0,[9,84],6},{?attr_rst_fire,0,[9,84],6},{?attr_rst_earth,0,[9,84],6},{?attr_mp_max,0,[13,122],20}]};	
+get(10378)  ->
+	{1, [{?attr_defence,0,[6,57],15},{?attr_hp_max,0,[14,137],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[15,150],6},{?attr_rst_wood,0,[15,150],6},{?attr_rst_water,0,[15,150],6},{?attr_rst_fire,0,[15,150],6},{?attr_rst_earth,0,[15,150],6},{?attr_mp_max,0,[19,181],20}]};	
+get(10563)  ->
+	{1, [{?attr_defence,0,[9,81],15},{?attr_hp_max,0,[19,184],15},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[25,241],20}]};	
+get(10748)  ->
+	{1, [{?attr_defence,0,[11,106],15},{?attr_hp_max,0,[23,230],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[31,310],6},{?attr_rst_wood,0,[31,310],6},{?attr_rst_water,0,[31,310],6},{?attr_rst_fire,0,[31,310],6},{?attr_rst_earth,0,[31,310],6},{?attr_mp_max,0,[30,300],20}]};	
+get(10933)  ->
+	{1, [{?attr_defence,0,[14,132],15},{?attr_hp_max,0,[28,276],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[42,412],6},{?attr_rst_wood,0,[42,412],6},{?attr_rst_water,0,[42,412],6},{?attr_rst_fire,0,[42,412],6},{?attr_rst_earth,0,[42,412],6},{?attr_mp_max,0,[36,360],20}]};	
+get(11118)  ->
+	{1, [{?attr_defence,0,[16,160],15},{?attr_hp_max,0,[33,322],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[55,546],6},{?attr_rst_wood,0,[55,546],6},{?attr_rst_water,0,[55,546],6},{?attr_rst_fire,0,[55,546],6},{?attr_rst_earth,0,[55,546],6},{?attr_mp_max,0,[42,419],20}]};	
+get(11303)  ->
+	{1, [{?attr_defence,0,[19,189],15},{?attr_hp_max,0,[37,368],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[74,737],6},{?attr_rst_wood,0,[74,737],6},{?attr_rst_water,0,[74,737],6},{?attr_rst_fire,0,[74,737],6},{?attr_rst_earth,0,[74,737],6},{?attr_mp_max,0,[48,479],20}]};	
+get(10194)  ->
+	{2, [{?attr_defence,0,[5,42],15},{?attr_hp_max,0,[12,114],15},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[11,104],6},{?attr_rst_wood,0,[11,104],6},{?attr_rst_water,0,[11,104],6},{?attr_rst_fire,0,[11,104],6},{?attr_rst_earth,0,[11,104],6},{?attr_mp_max,0,[16,152],20}]};	
+get(10379)  ->
+	{2, [{?attr_defence,0,[8,71],15},{?attr_hp_max,0,[18,172],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[19,187],6},{?attr_rst_wood,0,[19,187],6},{?attr_rst_water,0,[19,187],6},{?attr_rst_fire,0,[19,187],6},{?attr_rst_earth,0,[19,187],6},{?attr_mp_max,0,[23,227],20}]};	
+get(10564)  ->
+	{2, [{?attr_defence,0,[11,101],15},{?attr_hp_max,0,[23,230],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[28,279],6},{?attr_rst_wood,0,[28,279],6},{?attr_rst_water,0,[28,279],6},{?attr_rst_fire,0,[28,279],6},{?attr_rst_earth,0,[28,279],6},{?attr_mp_max,0,[31,301],20}]};	
+get(10749)  ->
+	{2, [{?attr_defence,0,[14,133],15},{?attr_hp_max,0,[29,287],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[39,387],6},{?attr_rst_wood,0,[39,387],6},{?attr_rst_water,0,[39,387],6},{?attr_rst_fire,0,[39,387],6},{?attr_rst_earth,0,[39,387],6},{?attr_mp_max,0,[38,375],20}]};	
+get(10934)  ->
+	{2, [{?attr_defence,0,[17,165],15},{?attr_hp_max,0,[35,345],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[52,515],6},{?attr_rst_wood,0,[52,515],6},{?attr_rst_water,0,[52,515],6},{?attr_rst_fire,0,[52,515],6},{?attr_rst_earth,0,[52,515],6},{?attr_mp_max,0,[45,450],20}]};	
+get(11119)  ->
+	{2, [{?attr_defence,0,[20,199],15},{?attr_hp_max,0,[41,402],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[69,682],6},{?attr_rst_wood,0,[69,682],6},{?attr_rst_water,0,[69,682],6},{?attr_rst_fire,0,[69,682],6},{?attr_rst_earth,0,[69,682],6},{?attr_mp_max,0,[53,524],20}]};	
+get(11304)  ->
+	{2, [{?attr_defence,0,[24,237],15},{?attr_hp_max,0,[46,460],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[93,921],6},{?attr_rst_wood,0,[93,921],6},{?attr_rst_water,0,[93,921],6},{?attr_rst_fire,0,[93,921],6},{?attr_rst_earth,0,[93,921],6},{?attr_mp_max,0,[60,599],20}]};	
+get(10195)  ->
+	{3, [{?attr_defence,0,[5,50],15},{?attr_hp_max,0,[14,137],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,125],6},{?attr_rst_wood,0,[13,125],6},{?attr_rst_water,0,[13,125],6},{?attr_rst_fire,0,[13,125],6},{?attr_rst_earth,0,[13,125],6},{?attr_mp_max,0,[19,183],20}]};	
+get(10380)  ->
+	{3, [{?attr_defence,0,[9,85],15},{?attr_hp_max,0,[21,206],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[28,272],20}]};	
+get(10565)  ->
+	{3, [{?attr_defence,0,[13,121],15},{?attr_hp_max,0,[28,275],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[34,335],6},{?attr_rst_wood,0,[34,335],6},{?attr_rst_water,0,[34,335],6},{?attr_rst_fire,0,[34,335],6},{?attr_rst_earth,0,[34,335],6},{?attr_mp_max,0,[37,361],20}]};	
+get(10750)  ->
+	{3, [{?attr_defence,0,[16,159],15},{?attr_hp_max,0,[35,344],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[47,464],6},{?attr_rst_wood,0,[47,464],6},{?attr_rst_water,0,[47,464],6},{?attr_rst_fire,0,[47,464],6},{?attr_rst_earth,0,[47,464],6},{?attr_mp_max,0,[45,450],20}]};	
+get(10935)  ->
+	{3, [{?attr_defence,0,[20,198],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[62,618],6},{?attr_rst_wood,0,[62,618],6},{?attr_rst_water,0,[62,618],6},{?attr_rst_fire,0,[62,618],6},{?attr_rst_earth,0,[62,618],6},{?attr_mp_max,0,[54,540],20}]};	
+get(11120)  ->
+	{3, [{?attr_defence,0,[24,239],15},{?attr_hp_max,0,[49,482],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[82,819],6},{?attr_rst_wood,0,[82,819],6},{?attr_rst_water,0,[82,819],6},{?attr_rst_fire,0,[82,819],6},{?attr_rst_earth,0,[82,819],6},{?attr_mp_max,0,[63,629],20}]};	
+get(11305)  ->
+	{3, [{?attr_defence,0,[29,284],15},{?attr_hp_max,0,[56,552],15},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[111,1105],6},{?attr_rst_wood,0,[111,1105],6},{?attr_rst_water,0,[111,1105],6},{?attr_rst_fire,0,[111,1105],6},{?attr_rst_earth,0,[111,1105],6},{?attr_mp_max,0,[72,718],20}]};	
+get(10196)  ->
+	{3, [{?attr_defence,0,[7,66],15},{?attr_hp_max,0,[19,182],15},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[25,243],20}]};	
+get(10381)  ->
+	{3, [{?attr_defence,0,[12,113],15},{?attr_hp_max,0,[28,274],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[30,299],6},{?attr_rst_wood,0,[30,299],6},{?attr_rst_water,0,[30,299],6},{?attr_rst_fire,0,[30,299],6},{?attr_rst_earth,0,[30,299],6},{?attr_mp_max,0,[37,362],20}]};	
+get(10566)  ->
+	{3, [{?attr_defence,0,[17,162],15},{?attr_hp_max,0,[37,367],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[45,447],6},{?attr_rst_wood,0,[45,447],6},{?attr_rst_water,0,[45,447],6},{?attr_rst_fire,0,[45,447],6},{?attr_rst_earth,0,[45,447],6},{?attr_mp_max,0,[49,481],20}]};	
+get(10751)  ->
+	{3, [{?attr_defence,0,[22,212],15},{?attr_hp_max,0,[46,459],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[62,619],6},{?attr_rst_wood,0,[62,619],6},{?attr_rst_water,0,[62,619],6},{?attr_rst_fire,0,[62,619],6},{?attr_rst_earth,0,[62,619],6},{?attr_mp_max,0,[60,600],20}]};	
+get(10936)  ->
+	{3, [{?attr_defence,0,[27,264],15},{?attr_hp_max,0,[56,551],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[83,823],6},{?attr_rst_wood,0,[83,823],6},{?attr_rst_water,0,[83,823],6},{?attr_rst_fire,0,[83,823],6},{?attr_rst_earth,0,[83,823],6},{?attr_mp_max,0,[72,719],20}]};	
+get(11121)  ->
+	{3, [{?attr_defence,0,[32,319],15},{?attr_hp_max,0,[65,643],15},{?attr_evasion,1,[5,41],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[110,1091],6},{?attr_rst_wood,0,[110,1091],6},{?attr_rst_water,0,[110,1091],6},{?attr_rst_fire,0,[110,1091],6},{?attr_rst_earth,0,[110,1091],6},{?attr_mp_max,0,[84,838],20}]};	
+get(11306)  ->
+	{3, [{?attr_defence,0,[38,378],15},{?attr_hp_max,0,[74,735],15},{?attr_evasion,1,[5,47],5},{?attr_tenacity,0,[3,27],15},{?attr_rst_metal,0,[148,1473],6},{?attr_rst_wood,0,[148,1473],6},{?attr_rst_water,0,[148,1473],6},{?attr_rst_fire,0,[148,1473],6},{?attr_rst_earth,0,[148,1473],6},{?attr_mp_max,0,[96,957],20}]};	
+get(10087)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10272)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10457)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10642)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10827)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11012)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11197)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10088)  ->
+	{1, [{?attr_defence,0,[3,25],20},{?attr_hp_max,0,[7,69],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[2,20],10},{?attr_mp_max,0,[10,92],25}]};	
+get(10273)  ->
+	{1, [{?attr_defence,0,[5,43],20},{?attr_hp_max,0,[11,103],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[3,29],10},{?attr_mp_max,0,[14,136],25}]};	
+get(10458)  ->
+	{1, [{?attr_defence,0,[7,61],20},{?attr_hp_max,0,[14,138],20},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[4,38],10},{?attr_mp_max,0,[19,181],25}]};	
+get(10643)  ->
+	{1, [{?attr_defence,0,[8,80],20},{?attr_hp_max,0,[18,172],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[5,48],10},{?attr_mp_max,0,[23,225],25}]};	
+get(10828)  ->
+	{1, [{?attr_defence,0,[10,99],20},{?attr_hp_max,0,[21,207],20},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[6,57],10},{?attr_mp_max,0,[27,270],25}]};	
+get(11013)  ->
+	{1, [{?attr_defence,0,[12,120],20},{?attr_hp_max,0,[25,241],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[7,66],10},{?attr_mp_max,0,[32,315],25}]};	
+get(11198)  ->
+	{1, [{?attr_defence,0,[15,142],20},{?attr_hp_max,0,[28,276],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[8,76],10},{?attr_mp_max,0,[36,359],25}]};	
+get(10089)  ->
+	{2, [{?attr_defence,0,[4,31],20},{?attr_hp_max,0,[9,86],20},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[3,24],10},{?attr_mp_max,0,[12,114],25}]};	
+get(10274)  ->
+	{2, [{?attr_defence,0,[6,53],20},{?attr_hp_max,0,[13,129],20},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[4,36],10},{?attr_mp_max,0,[17,170],25}]};	
+get(10459)  ->
+	{2, [{?attr_defence,0,[8,76],20},{?attr_hp_max,0,[18,172],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[5,48],10},{?attr_mp_max,0,[23,226],25}]};	
+get(10644)  ->
+	{2, [{?attr_defence,0,[10,100],20},{?attr_hp_max,0,[22,215],20},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[6,59],10},{?attr_mp_max,0,[29,282],25}]};	
+get(10829)  ->
+	{2, [{?attr_defence,0,[13,124],20},{?attr_hp_max,0,[26,259],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[8,71],10},{?attr_mp_max,0,[34,337],25}]};	
+get(11014)  ->
+	{2, [{?attr_defence,0,[15,150],20},{?attr_hp_max,0,[31,302],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[9,83],10},{?attr_mp_max,0,[40,393],25}]};	
+get(11199)  ->
+	{2, [{?attr_defence,0,[18,178],20},{?attr_hp_max,0,[35,345],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[10,95],10},{?attr_mp_max,0,[45,449],25}]};	
+get(10090)  ->
+	{3, [{?attr_defence,0,[4,37],20},{?attr_hp_max,0,[11,103],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[3,29],10},{?attr_mp_max,0,[14,137],25}]};	
+get(10275)  ->
+	{3, [{?attr_defence,0,[7,64],20},{?attr_hp_max,0,[16,155],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[5,43],10},{?attr_mp_max,0,[21,204],25}]};	
+get(10460)  ->
+	{3, [{?attr_defence,0,[10,91],20},{?attr_hp_max,0,[21,207],20},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[6,57],10},{?attr_mp_max,0,[28,271],25}]};	
+get(10645)  ->
+	{3, [{?attr_defence,0,[12,119],20},{?attr_hp_max,0,[26,258],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[8,71],10},{?attr_mp_max,0,[34,338],25}]};	
+get(10830)  ->
+	{3, [{?attr_defence,0,[15,149],20},{?attr_hp_max,0,[31,310],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[9,85],10},{?attr_mp_max,0,[41,405],25}]};	
+get(11015)  ->
+	{3, [{?attr_defence,0,[18,180],20},{?attr_hp_max,0,[37,362],20},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[10,99],10},{?attr_mp_max,0,[48,472],25}]};	
+get(11200)  ->
+	{3, [{?attr_defence,0,[22,213],20},{?attr_hp_max,0,[42,414],20},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[12,113],10},{?attr_mp_max,0,[54,539],25}]};	
+get(10091)  ->
+	{3, [{?attr_defence,0,[5,50],20},{?attr_hp_max,0,[14,137],20},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[4,39],10},{?attr_mp_max,0,[19,183],25}]};	
+get(10276)  ->
+	{3, [{?attr_defence,0,[9,85],20},{?attr_hp_max,0,[21,206],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[6,57],10},{?attr_mp_max,0,[28,272],25}]};	
+get(10461)  ->
+	{3, [{?attr_defence,0,[13,121],20},{?attr_hp_max,0,[28,275],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[8,76],10},{?attr_mp_max,0,[37,361],25}]};	
+get(10646)  ->
+	{3, [{?attr_defence,0,[16,159],20},{?attr_hp_max,0,[35,344],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[10,95],10},{?attr_mp_max,0,[45,450],25}]};	
+get(10831)  ->
+	{3, [{?attr_defence,0,[20,198],20},{?attr_hp_max,0,[42,414],20},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[12,113],10},{?attr_mp_max,0,[54,540],25}]};	
+get(11016)  ->
+	{3, [{?attr_defence,0,[24,239],20},{?attr_hp_max,0,[49,482],20},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,18],20},{?attr_js,0,[14,132],10},{?attr_mp_max,0,[63,629],25}]};	
+get(11201)  ->
+	{3, [{?attr_defence,0,[29,284],20},{?attr_hp_max,0,[56,552],20},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[2,20],20},{?attr_js,0,[16,151],10},{?attr_mp_max,0,[72,718],25}]};	
+get(10062)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10247)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10432)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10617)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10802)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10987)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11172)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10063)  ->
+	{1, [{?attr_defence,0,[3,24],20},{?attr_hp_max,0,[7,64],20},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[2,13],10},{?attr_mp_max,0,[9,85],25}]};	
+get(10248)  ->
+	{1, [{?attr_defence,0,[4,40],20},{?attr_hp_max,0,[10,96],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,19],10},{?attr_mp_max,0,[13,127],25}]};	
+get(10433)  ->
+	{1, [{?attr_defence,0,[6,57],20},{?attr_hp_max,0,[13,129],20},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[3,26],10},{?attr_mp_max,0,[17,169],25}]};	
+get(10618)  ->
+	{1, [{?attr_defence,0,[8,75],20},{?attr_hp_max,0,[17,161],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[4,32],10},{?attr_mp_max,0,[21,210],25}]};	
+get(10803)  ->
+	{1, [{?attr_defence,0,[10,93],20},{?attr_hp_max,0,[20,193],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,38],10},{?attr_mp_max,0,[26,252],25}]};	
+get(10988)  ->
+	{1, [{?attr_defence,0,[12,112],20},{?attr_hp_max,0,[23,225],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[5,44],10},{?attr_mp_max,0,[30,294],25}]};	
+get(11173)  ->
+	{1, [{?attr_defence,0,[14,133],20},{?attr_hp_max,0,[26,258],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[6,51],10},{?attr_mp_max,0,[34,335],25}]};	
+get(10064)  ->
+	{2, [{?attr_defence,0,[3,29],20},{?attr_hp_max,0,[8,80],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,16],10},{?attr_mp_max,0,[11,107],25}]};	
+get(10249)  ->
+	{2, [{?attr_defence,0,[5,50],20},{?attr_hp_max,0,[12,120],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[3,24],10},{?attr_mp_max,0,[16,159],25}]};	
+get(10434)  ->
+	{2, [{?attr_defence,0,[8,71],20},{?attr_hp_max,0,[17,161],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[4,32],10},{?attr_mp_max,0,[22,211],25}]};	
+get(10619)  ->
+	{2, [{?attr_defence,0,[10,93],20},{?attr_hp_max,0,[21,201],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,40],10},{?attr_mp_max,0,[27,263],25}]};	
+get(10804)  ->
+	{2, [{?attr_defence,0,[12,116],20},{?attr_hp_max,0,[25,241],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[5,48],10},{?attr_mp_max,0,[32,315],25}]};	
+get(10989)  ->
+	{2, [{?attr_defence,0,[14,140],20},{?attr_hp_max,0,[29,282],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[6,55],10},{?attr_mp_max,0,[37,367],25}]};	
+get(11174)  ->
+	{2, [{?attr_defence,0,[17,166],20},{?attr_hp_max,0,[33,322],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[7,63],10},{?attr_mp_max,0,[42,419],25}]};	
+get(10065)  ->
+	{3, [{?attr_defence,0,[4,35],20},{?attr_hp_max,0,[10,96],20},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,20],10},{?attr_mp_max,0,[13,128],25}]};	
+get(10250)  ->
+	{3, [{?attr_defence,0,[6,59],20},{?attr_hp_max,0,[15,144],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[3,29],10},{?attr_mp_max,0,[19,190],25}]};	
+get(10435)  ->
+	{3, [{?attr_defence,0,[9,85],20},{?attr_hp_max,0,[20,193],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,38],10},{?attr_mp_max,0,[26,253],25}]};	
+get(10620)  ->
+	{3, [{?attr_defence,0,[12,112],20},{?attr_hp_max,0,[25,241],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[5,48],10},{?attr_mp_max,0,[32,315],25}]};	
+get(10805)  ->
+	{3, [{?attr_defence,0,[14,139],20},{?attr_hp_max,0,[29,290],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[6,57],10},{?attr_mp_max,0,[38,378],25}]};	
+get(10990)  ->
+	{3, [{?attr_defence,0,[17,168],20},{?attr_hp_max,0,[34,338],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[7,66],10},{?attr_mp_max,0,[44,440],25}]};	
+get(11175)  ->
+	{3, [{?attr_defence,0,[20,199],20},{?attr_hp_max,0,[39,386],20},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[8,76],10},{?attr_mp_max,0,[51,503],25}]};	
+get(10066)  ->
+	{3, [{?attr_defence,0,[5,47],20},{?attr_hp_max,0,[13,128],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[3,26],10},{?attr_mp_max,0,[17,170],25}]};	
+get(10251)  ->
+	{3, [{?attr_defence,0,[8,79],20},{?attr_hp_max,0,[20,192],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[4,38],10},{?attr_mp_max,0,[26,254],25}]};	
+get(10436)  ->
+	{3, [{?attr_defence,0,[12,113],20},{?attr_hp_max,0,[26,257],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[6,51],10},{?attr_mp_max,0,[34,337],25}]};	
+get(10621)  ->
+	{3, [{?attr_defence,0,[15,149],20},{?attr_hp_max,0,[33,321],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[7,63],10},{?attr_mp_max,0,[42,420],25}]};	
+get(10806)  ->
+	{3, [{?attr_defence,0,[19,185],20},{?attr_hp_max,0,[39,386],20},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[8,76],10},{?attr_mp_max,0,[51,504],25}]};	
+get(10991)  ->
+	{3, [{?attr_defence,0,[23,223],20},{?attr_hp_max,0,[45,450],20},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[9,88],10},{?attr_mp_max,0,[59,587],25}]};	
+get(11176)  ->
+	{3, [{?attr_defence,0,[27,265],20},{?attr_hp_max,0,[52,515],20},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[11,101],10},{?attr_mp_max,0,[67,670],25}]};	
+get(10162)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10347)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10532)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10717)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10902)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11087)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11272)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10163)  ->
+	{1, [{?attr_defence,0,[3,28],25},{?attr_hp_max,0,[8,78],25},{?attr_evasion,1,[1,5],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[11,104],20}]};	
+get(10348)  ->
+	{1, [{?attr_defence,0,[5,48],25},{?attr_hp_max,0,[12,117],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[16,154],20}]};	
+get(10533)  ->
+	{1, [{?attr_defence,0,[7,69],25},{?attr_hp_max,0,[16,156],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[21,205],20}]};	
+get(10718)  ->
+	{1, [{?attr_defence,0,[9,90],25},{?attr_hp_max,0,[20,195],25},{?attr_evasion,1,[2,13],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[26,255],20}]};	
+get(10903)  ->
+	{1, [{?attr_defence,0,[12,113],15},{?attr_hp_max,0,[24,235],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,9],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[31,306],20}]};	
+get(11088)  ->
+	{1, [{?attr_defence,0,[14,136],15},{?attr_hp_max,0,[28,273],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[36,356],20}]};	
+get(11273)  ->
+	{1, [{?attr_defence,0,[17,161],15},{?attr_hp_max,0,[32,313],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[41,407],20}]};	
+get(10164)  ->
+	{2, [{?attr_defence,0,[4,35],25},{?attr_hp_max,0,[10,97],25},{?attr_evasion,1,[1,7],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[13,129],20}]};	
+get(10349)  ->
+	{2, [{?attr_defence,0,[6,60],25},{?attr_hp_max,0,[15,146],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[20,193],20}]};	
+get(10534)  ->
+	{2, [{?attr_defence,0,[9,86],25},{?attr_hp_max,0,[20,195],25},{?attr_evasion,1,[2,13],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[26,256],20}]};	
+get(10719)  ->
+	{2, [{?attr_defence,0,[12,113],25},{?attr_hp_max,0,[25,244],25},{?attr_evasion,1,[2,16],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[32,319],20}]};	
+get(10904)  ->
+	{2, [{?attr_defence,0,[15,141],15},{?attr_hp_max,0,[30,293],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[39,382],20}]};	
+get(11089)  ->
+	{2, [{?attr_defence,0,[17,170],15},{?attr_hp_max,0,[35,342],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[45,445],20}]};	
+get(11274)  ->
+	{2, [{?attr_defence,0,[21,201],15},{?attr_hp_max,0,[40,391],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[51,509],20}]};	
+get(10165)  ->
+	{3, [{?attr_defence,0,[5,42],25},{?attr_hp_max,0,[12,116],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[16,155],20}]};	
+get(10350)  ->
+	{3, [{?attr_defence,0,[8,72],25},{?attr_hp_max,0,[18,175],25},{?attr_evasion,1,[2,11],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[24,231],20}]};	
+get(10535)  ->
+	{3, [{?attr_defence,0,[11,103],25},{?attr_hp_max,0,[24,234],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[1,9],20},{?attr_mp_max,0,[31,307],20}]};	
+get(10720)  ->
+	{3, [{?attr_defence,0,[14,135],25},{?attr_hp_max,0,[30,293],25},{?attr_evasion,1,[2,19],10},{?attr_tenacity,0,[2,11],20},{?attr_mp_max,0,[39,383],20}]};	
+get(10905)  ->
+	{3, [{?attr_defence,0,[17,169],15},{?attr_hp_max,0,[36,352],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[46,459],20}]};	
+get(11090)  ->
+	{3, [{?attr_defence,0,[21,203],15},{?attr_hp_max,0,[41,410],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[54,534],20}]};	
+get(11275)  ->
+	{3, [{?attr_defence,0,[25,241],15},{?attr_hp_max,0,[47,469],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[62,611],20}]};	
+get(10166)  ->
+	{3, [{?attr_defence,0,[6,56],25},{?attr_hp_max,0,[16,155],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[21,207],20}]};	
+get(10351)  ->
+	{3, [{?attr_defence,0,[10,96],25},{?attr_hp_max,0,[24,233],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[31,308],20}]};	
+get(10536)  ->
+	{3, [{?attr_defence,0,[14,137],25},{?attr_hp_max,0,[32,312],25},{?attr_evasion,1,[2,20],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[41,409],20}]};	
+get(10721)  ->
+	{3, [{?attr_defence,0,[18,180],25},{?attr_hp_max,0,[39,390],25},{?attr_evasion,1,[3,25],10},{?attr_tenacity,0,[2,15],20},{?attr_mp_max,0,[51,510],20}]};	
+get(10906)  ->
+	{3, [{?attr_defence,0,[23,225],15},{?attr_hp_max,0,[47,469],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[62,611],20}]};	
+get(11091)  ->
+	{3, [{?attr_defence,0,[28,271],15},{?attr_hp_max,0,[55,546],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[2,20],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[72,712],20}]};	
+get(11276)  ->
+	{3, [{?attr_defence,0,[33,322],15},{?attr_hp_max,0,[63,625],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,23],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[82,814],20}]};	
+get(10137)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10322)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10507)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10692)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10877)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11062)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11247)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10138)  ->
+	{1, [{?attr_defence,0,[3,27],15},{?attr_hp_max,0,[8,73],15},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,3],15},{?attr_rst_metal,0,[5,45],6},{?attr_rst_wood,0,[5,45],6},{?attr_rst_water,0,[5,45],6},{?attr_rst_fire,0,[5,45],6},{?attr_rst_earth,0,[5,45],6},{?attr_mp_max,0,[10,98],20}]};	
+get(10323)  ->
+	{1, [{?attr_defence,0,[5,45],15},{?attr_hp_max,0,[11,110],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[9,81],6},{?attr_rst_wood,0,[9,81],6},{?attr_rst_water,0,[9,81],6},{?attr_rst_fire,0,[9,81],6},{?attr_rst_earth,0,[9,81],6},{?attr_mp_max,0,[15,145],20}]};	
+get(10508)  ->
+	{1, [{?attr_defence,0,[7,65],15},{?attr_hp_max,0,[15,147],15},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[20,193],20}]};	
+get(10693)  ->
+	{1, [{?attr_defence,0,[9,85],15},{?attr_hp_max,0,[19,184],15},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[24,240],20}]};	
+get(10878)  ->
+	{1, [{?attr_defence,0,[11,106],15},{?attr_hp_max,0,[23,221],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[23,222],6},{?attr_rst_wood,0,[23,222],6},{?attr_rst_water,0,[23,222],6},{?attr_rst_fire,0,[23,222],6},{?attr_rst_earth,0,[23,222],6},{?attr_mp_max,0,[29,288],20}]};	
+get(11063)  ->
+	{1, [{?attr_defence,0,[13,128],15},{?attr_hp_max,0,[26,257],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[1,10],15},{?attr_rst_metal,0,[30,294],6},{?attr_rst_wood,0,[30,294],6},{?attr_rst_water,0,[30,294],6},{?attr_rst_fire,0,[30,294],6},{?attr_rst_earth,0,[30,294],6},{?attr_mp_max,0,[34,336],20}]};	
+get(11248)  ->
+	{1, [{?attr_defence,0,[16,152],15},{?attr_hp_max,0,[30,294],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[40,397],6},{?attr_rst_wood,0,[40,397],6},{?attr_rst_water,0,[40,397],6},{?attr_rst_fire,0,[40,397],6},{?attr_rst_earth,0,[40,397],6},{?attr_mp_max,0,[39,383],20}]};	
+get(10139)  ->
+	{2, [{?attr_defence,0,[4,33],15},{?attr_hp_max,0,[10,91],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[6,56],6},{?attr_rst_wood,0,[6,56],6},{?attr_rst_water,0,[6,56],6},{?attr_rst_fire,0,[6,56],6},{?attr_rst_earth,0,[6,56],6},{?attr_mp_max,0,[13,122],20}]};	
+get(10324)  ->
+	{2, [{?attr_defence,0,[6,57],15},{?attr_hp_max,0,[14,137],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[11,101],6},{?attr_rst_wood,0,[11,101],6},{?attr_rst_water,0,[11,101],6},{?attr_rst_fire,0,[11,101],6},{?attr_rst_earth,0,[11,101],6},{?attr_mp_max,0,[19,181],20}]};	
+get(10509)  ->
+	{2, [{?attr_defence,0,[9,81],15},{?attr_hp_max,0,[19,184],15},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[16,151],6},{?attr_rst_wood,0,[16,151],6},{?attr_rst_water,0,[16,151],6},{?attr_rst_fire,0,[16,151],6},{?attr_rst_earth,0,[16,151],6},{?attr_mp_max,0,[25,241],20}]};	
+get(10694)  ->
+	{2, [{?attr_defence,0,[11,106],15},{?attr_hp_max,0,[23,230],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[21,209],6},{?attr_rst_wood,0,[21,209],6},{?attr_rst_water,0,[21,209],6},{?attr_rst_fire,0,[21,209],6},{?attr_rst_earth,0,[21,209],6},{?attr_mp_max,0,[30,300],20}]};	
+get(10879)  ->
+	{2, [{?attr_defence,0,[14,132],15},{?attr_hp_max,0,[28,276],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[28,277],6},{?attr_rst_wood,0,[28,277],6},{?attr_rst_water,0,[28,277],6},{?attr_rst_fire,0,[28,277],6},{?attr_rst_earth,0,[28,277],6},{?attr_mp_max,0,[36,360],20}]};	
+get(11064)  ->
+	{2, [{?attr_defence,0,[16,160],15},{?attr_hp_max,0,[33,322],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[37,368],6},{?attr_rst_wood,0,[37,368],6},{?attr_rst_water,0,[37,368],6},{?attr_rst_fire,0,[37,368],6},{?attr_rst_earth,0,[37,368],6},{?attr_mp_max,0,[42,419],20}]};	
+get(11249)  ->
+	{2, [{?attr_defence,0,[19,189],15},{?attr_hp_max,0,[37,368],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[50,496],6},{?attr_rst_wood,0,[50,496],6},{?attr_rst_water,0,[50,496],6},{?attr_rst_fire,0,[50,496],6},{?attr_rst_earth,0,[50,496],6},{?attr_mp_max,0,[48,479],20}]};	
+get(10140)  ->
+	{3, [{?attr_defence,0,[4,40],15},{?attr_hp_max,0,[11,110],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[7,68],6},{?attr_rst_wood,0,[7,68],6},{?attr_rst_water,0,[7,68],6},{?attr_rst_fire,0,[7,68],6},{?attr_rst_earth,0,[7,68],6},{?attr_mp_max,0,[15,146],20}]};	
+get(10325)  ->
+	{3, [{?attr_defence,0,[7,68],15},{?attr_hp_max,0,[17,165],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[22,217],20}]};	
+get(10510)  ->
+	{3, [{?attr_defence,0,[10,97],15},{?attr_hp_max,0,[22,220],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[19,181],6},{?attr_rst_wood,0,[19,181],6},{?attr_rst_water,0,[19,181],6},{?attr_rst_fire,0,[19,181],6},{?attr_rst_earth,0,[19,181],6},{?attr_mp_max,0,[29,289],20}]};	
+get(10695)  ->
+	{3, [{?attr_defence,0,[13,127],15},{?attr_hp_max,0,[28,275],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[25,250],6},{?attr_rst_wood,0,[25,250],6},{?attr_rst_water,0,[25,250],6},{?attr_rst_fire,0,[25,250],6},{?attr_rst_earth,0,[25,250],6},{?attr_mp_max,0,[36,360],20}]};	
+get(10880)  ->
+	{3, [{?attr_defence,0,[16,159],15},{?attr_hp_max,0,[34,331],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[34,333],6},{?attr_rst_wood,0,[34,333],6},{?attr_rst_water,0,[34,333],6},{?attr_rst_fire,0,[34,333],6},{?attr_rst_earth,0,[34,333],6},{?attr_mp_max,0,[44,432],20}]};	
+get(11065)  ->
+	{3, [{?attr_defence,0,[20,192],15},{?attr_hp_max,0,[39,386],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[45,441],6},{?attr_rst_wood,0,[45,441],6},{?attr_rst_water,0,[45,441],6},{?attr_rst_fire,0,[45,441],6},{?attr_rst_earth,0,[45,441],6},{?attr_mp_max,0,[51,503],20}]};	
+get(11250)  ->
+	{3, [{?attr_defence,0,[23,227],15},{?attr_hp_max,0,[45,441],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[60,595],6},{?attr_rst_wood,0,[60,595],6},{?attr_rst_water,0,[60,595],6},{?attr_rst_fire,0,[60,595],6},{?attr_rst_earth,0,[60,595],6},{?attr_mp_max,0,[58,575],20}]};	
+get(10141)  ->
+	{3, [{?attr_defence,0,[6,53],15},{?attr_hp_max,0,[15,146],15},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[9,90],6},{?attr_rst_wood,0,[9,90],6},{?attr_rst_water,0,[9,90],6},{?attr_rst_fire,0,[9,90],6},{?attr_rst_earth,0,[9,90],6},{?attr_mp_max,0,[20,195],20}]};	
+get(10326)  ->
+	{3, [{?attr_defence,0,[9,90],15},{?attr_hp_max,0,[22,220],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[17,161],6},{?attr_rst_wood,0,[17,161],6},{?attr_rst_water,0,[17,161],6},{?attr_rst_fire,0,[17,161],6},{?attr_rst_earth,0,[17,161],6},{?attr_mp_max,0,[29,290],20}]};	
+get(10511)  ->
+	{3, [{?attr_defence,0,[13,129],15},{?attr_hp_max,0,[30,294],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[25,241],6},{?attr_rst_wood,0,[25,241],6},{?attr_rst_water,0,[25,241],6},{?attr_rst_fire,0,[25,241],6},{?attr_rst_earth,0,[25,241],6},{?attr_mp_max,0,[39,385],20}]};	
+get(10696)  ->
+	{3, [{?attr_defence,0,[17,170],15},{?attr_hp_max,0,[37,367],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[34,334],6},{?attr_rst_wood,0,[34,334],6},{?attr_rst_water,0,[34,334],6},{?attr_rst_fire,0,[34,334],6},{?attr_rst_earth,0,[34,334],6},{?attr_mp_max,0,[48,480],20}]};	
+get(10881)  ->
+	{3, [{?attr_defence,0,[22,211],15},{?attr_hp_max,0,[45,441],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[45,444],6},{?attr_rst_wood,0,[45,444],6},{?attr_rst_water,0,[45,444],6},{?attr_rst_fire,0,[45,444],6},{?attr_rst_earth,0,[45,444],6},{?attr_mp_max,0,[58,575],20}]};	
+get(11066)  ->
+	{3, [{?attr_defence,0,[26,255],15},{?attr_hp_max,0,[52,514],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[59,588],6},{?attr_rst_wood,0,[59,588],6},{?attr_rst_water,0,[59,588],6},{?attr_rst_fire,0,[59,588],6},{?attr_rst_earth,0,[59,588],6},{?attr_mp_max,0,[68,671],20}]};	
+get(11251)  ->
+	{3, [{?attr_defence,0,[31,303],15},{?attr_hp_max,0,[59,588],15},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[3,22],15},{?attr_rst_metal,0,[80,793],6},{?attr_rst_wood,0,[80,793],6},{?attr_rst_water,0,[80,793],6},{?attr_rst_fire,0,[80,793],6},{?attr_rst_earth,0,[80,793],6},{?attr_mp_max,0,[77,766],20}]};	
+get(10097)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10282)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10467)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10652)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10837)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11022)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11207)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10098)  ->
+	{1, [{?attr_defence,0,[5,44],25},{?attr_hp_max,0,[13,124],25},{?attr_evasion,1,[1,4],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[6,51],20}]};	
+get(10283)  ->
+	{1, [{?attr_defence,0,[8,77],25},{?attr_hp_max,0,[19,186],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[8,76],20}]};	
+get(10468)  ->
+	{1, [{?attr_defence,0,[12,112],25},{?attr_hp_max,0,[25,249],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[11,101],20}]};	
+get(10653)  ->
+	{1, [{?attr_defence,0,[15,147],25},{?attr_hp_max,0,[32,312],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[13,126],20}]};	
+get(10838)  ->
+	{1, [{?attr_defence,0,[19,184],15},{?attr_hp_max,0,[38,375],15},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[15,150],20}]};	
+get(11023)  ->
+	{1, [{?attr_defence,0,[23,221],15},{?attr_hp_max,0,[44,437],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[18,175],20}]};	
+get(11208)  ->
+	{1, [{?attr_defence,0,[27,261],15},{?attr_hp_max,0,[50,500],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[20,200],20}]};	
+get(10099)  ->
+	{2, [{?attr_defence,0,[6,55],25},{?attr_hp_max,0,[16,155],25},{?attr_evasion,1,[1,5],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[7,64],20}]};	
+get(10284)  ->
+	{2, [{?attr_defence,0,[10,97],25},{?attr_hp_max,0,[24,233],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[10,95],20}]};	
+get(10469)  ->
+	{2, [{?attr_defence,0,[14,140],25},{?attr_hp_max,0,[32,311],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[13,126],20}]};	
+get(10654)  ->
+	{2, [{?attr_defence,0,[19,184],25},{?attr_hp_max,0,[39,390],25},{?attr_evasion,1,[2,13],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[16,157],20}]};	
+get(10839)  ->
+	{2, [{?attr_defence,0,[23,229],15},{?attr_hp_max,0,[47,468],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[19,188],20}]};	
+get(11024)  ->
+	{2, [{?attr_defence,0,[28,276],15},{?attr_hp_max,0,[55,547],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[22,219],20}]};	
+get(11209)  ->
+	{2, [{?attr_defence,0,[33,326],15},{?attr_hp_max,0,[63,625],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[25,250],20}]};	
+get(10100)  ->
+	{3, [{?attr_defence,0,[7,65],25},{?attr_hp_max,0,[19,186],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[8,77],20}]};	
+get(10285)  ->
+	{3, [{?attr_defence,0,[12,116],25},{?attr_hp_max,0,[28,279],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[12,114],20}]};	
+get(10470)  ->
+	{3, [{?attr_defence,0,[17,168],25},{?attr_hp_max,0,[38,373],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[16,151],20}]};	
+get(10655)  ->
+	{3, [{?attr_defence,0,[23,221],25},{?attr_hp_max,0,[47,468],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[19,188],20}]};	
+get(10840)  ->
+	{3, [{?attr_defence,0,[28,275],15},{?attr_hp_max,0,[57,562],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[23,225],20}]};	
+get(11025)  ->
+	{3, [{?attr_defence,0,[34,331],15},{?attr_hp_max,0,[66,656],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[27,262],20}]};	
+get(11210)  ->
+	{3, [{?attr_defence,0,[40,391],15},{?attr_hp_max,0,[75,750],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[30,300],20}]};	
+get(10101)  ->
+	{3, [{?attr_defence,0,[9,87],25},{?attr_hp_max,0,[25,247],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[11,102],20}]};	
+get(10286)  ->
+	{3, [{?attr_defence,0,[16,154],25},{?attr_hp_max,0,[38,372],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[16,151],20}]};	
+get(10471)  ->
+	{3, [{?attr_defence,0,[23,224],25},{?attr_hp_max,0,[50,498],25},{?attr_evasion,1,[2,16],10},{?attr_tenacity,0,[2,13],20},{?attr_mp_max,0,[21,201],20}]};	
+get(10656)  ->
+	{3, [{?attr_defence,0,[30,294],25},{?attr_hp_max,0,[63,623],25},{?attr_evasion,1,[2,20],10},{?attr_tenacity,0,[2,16],20},{?attr_mp_max,0,[26,251],20}]};	
+get(10841)  ->
+	{3, [{?attr_defence,0,[37,367],15},{?attr_hp_max,0,[75,749],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[30,300],20}]};	
+get(11026)  ->
+	{3, [{?attr_defence,0,[45,442],15},{?attr_hp_max,0,[88,874],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[35,350],20}]};	
+get(11211)  ->
+	{3, [{?attr_defence,0,[53,521],15},{?attr_hp_max,0,[100,999],15},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[3,24],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[40,400],20}]};	
+get(10177)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10362)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10547)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10732)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10917)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11102)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11287)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10178)  ->
+	{1, [{?attr_defence,0,[5,49],15},{?attr_hp_max,0,[14,138],15},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[9,84],6},{?attr_rst_wood,0,[9,84],6},{?attr_rst_water,0,[9,84],6},{?attr_rst_fire,0,[9,84],6},{?attr_rst_earth,0,[9,84],6},{?attr_mp_max,0,[6,57],20}]};	
+get(10363)  ->
+	{1, [{?attr_defence,0,[9,86],15},{?attr_hp_max,0,[21,207],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[15,150],6},{?attr_rst_wood,0,[15,150],6},{?attr_rst_water,0,[15,150],6},{?attr_rst_fire,0,[15,150],6},{?attr_rst_earth,0,[15,150],6},{?attr_mp_max,0,[9,84],20}]};	
+get(10548)  ->
+	{1, [{?attr_defence,0,[13,124],15},{?attr_hp_max,0,[28,277],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[12,112],20}]};	
+get(10733)  ->
+	{1, [{?attr_defence,0,[17,164],15},{?attr_hp_max,0,[35,347],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[31,310],6},{?attr_rst_wood,0,[31,310],6},{?attr_rst_water,0,[31,310],6},{?attr_rst_fire,0,[31,310],6},{?attr_rst_earth,0,[31,310],6},{?attr_mp_max,0,[14,140],20}]};	
+get(10918)  ->
+	{1, [{?attr_defence,0,[21,204],15},{?attr_hp_max,0,[42,416],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[42,412],6},{?attr_rst_wood,0,[42,412],6},{?attr_rst_water,0,[42,412],6},{?attr_rst_fire,0,[42,412],6},{?attr_rst_earth,0,[42,412],6},{?attr_mp_max,0,[17,167],20}]};	
+get(11103)  ->
+	{1, [{?attr_defence,0,[25,246],15},{?attr_hp_max,0,[49,486],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[55,546],6},{?attr_rst_wood,0,[55,546],6},{?attr_rst_water,0,[55,546],6},{?attr_rst_fire,0,[55,546],6},{?attr_rst_earth,0,[55,546],6},{?attr_mp_max,0,[20,194],20}]};	
+get(11288)  ->
+	{1, [{?attr_defence,0,[29,290],15},{?attr_hp_max,0,[56,555],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[74,737],6},{?attr_rst_wood,0,[74,737],6},{?attr_rst_water,0,[74,737],6},{?attr_rst_fire,0,[74,737],6},{?attr_rst_earth,0,[74,737],6},{?attr_mp_max,0,[23,222],20}]};	
+get(10179)  ->
+	{2, [{?attr_defence,0,[7,61],15},{?attr_hp_max,0,[18,172],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[11,104],6},{?attr_rst_wood,0,[11,104],6},{?attr_rst_water,0,[11,104],6},{?attr_rst_fire,0,[11,104],6},{?attr_rst_earth,0,[11,104],6},{?attr_mp_max,0,[8,71],20}]};	
+get(10364)  ->
+	{2, [{?attr_defence,0,[11,107],15},{?attr_hp_max,0,[26,259],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[19,187],6},{?attr_rst_wood,0,[19,187],6},{?attr_rst_water,0,[19,187],6},{?attr_rst_fire,0,[19,187],6},{?attr_rst_earth,0,[19,187],6},{?attr_mp_max,0,[11,105],20}]};	
+get(10549)  ->
+	{2, [{?attr_defence,0,[16,155],15},{?attr_hp_max,0,[35,346],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[28,279],6},{?attr_rst_wood,0,[28,279],6},{?attr_rst_water,0,[28,279],6},{?attr_rst_fire,0,[28,279],6},{?attr_rst_earth,0,[28,279],6},{?attr_mp_max,0,[14,140],20}]};	
+get(10734)  ->
+	{2, [{?attr_defence,0,[21,204],15},{?attr_hp_max,0,[44,433],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[39,387],6},{?attr_rst_wood,0,[39,387],6},{?attr_rst_water,0,[39,387],6},{?attr_rst_fire,0,[39,387],6},{?attr_rst_earth,0,[39,387],6},{?attr_mp_max,0,[18,174],20}]};	
+get(10919)  ->
+	{2, [{?attr_defence,0,[26,255],15},{?attr_hp_max,0,[52,520],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[52,515],6},{?attr_rst_wood,0,[52,515],6},{?attr_rst_water,0,[52,515],6},{?attr_rst_fire,0,[52,515],6},{?attr_rst_earth,0,[52,515],6},{?attr_mp_max,0,[21,209],20}]};	
+get(11104)  ->
+	{2, [{?attr_defence,0,[31,307],15},{?attr_hp_max,0,[61,607],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[69,682],6},{?attr_rst_wood,0,[69,682],6},{?attr_rst_water,0,[69,682],6},{?attr_rst_fire,0,[69,682],6},{?attr_rst_earth,0,[69,682],6},{?attr_mp_max,0,[25,243],20}]};	
+get(11289)  ->
+	{2, [{?attr_defence,0,[37,362],15},{?attr_hp_max,0,[70,694],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[93,921],6},{?attr_rst_wood,0,[93,921],6},{?attr_rst_water,0,[93,921],6},{?attr_rst_fire,0,[93,921],6},{?attr_rst_earth,0,[93,921],6},{?attr_mp_max,0,[28,278],20}]};	
+get(10180)  ->
+	{3, [{?attr_defence,0,[8,73],15},{?attr_hp_max,0,[21,206],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,125],6},{?attr_rst_wood,0,[13,125],6},{?attr_rst_water,0,[13,125],6},{?attr_rst_fire,0,[13,125],6},{?attr_rst_earth,0,[13,125],6},{?attr_mp_max,0,[9,85],20}]};	
+get(10365)  ->
+	{3, [{?attr_defence,0,[13,129],15},{?attr_hp_max,0,[31,310],15},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[23,224],6},{?attr_rst_wood,0,[23,224],6},{?attr_rst_water,0,[23,224],6},{?attr_rst_fire,0,[23,224],6},{?attr_rst_earth,0,[23,224],6},{?attr_mp_max,0,[13,126],20}]};	
+get(10550)  ->
+	{3, [{?attr_defence,0,[19,186],15},{?attr_hp_max,0,[42,415],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[34,335],6},{?attr_rst_wood,0,[34,335],6},{?attr_rst_water,0,[34,335],6},{?attr_rst_fire,0,[34,335],6},{?attr_rst_earth,0,[34,335],6},{?attr_mp_max,0,[17,168],20}]};	
+get(10735)  ->
+	{3, [{?attr_defence,0,[25,245],15},{?attr_hp_max,0,[52,520],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[47,464],6},{?attr_rst_wood,0,[47,464],6},{?attr_rst_water,0,[47,464],6},{?attr_rst_fire,0,[47,464],6},{?attr_rst_earth,0,[47,464],6},{?attr_mp_max,0,[21,209],20}]};	
+get(10920)  ->
+	{3, [{?attr_defence,0,[31,306],15},{?attr_hp_max,0,[63,624],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[62,618],6},{?attr_rst_wood,0,[62,618],6},{?attr_rst_water,0,[62,618],6},{?attr_rst_fire,0,[62,618],6},{?attr_rst_earth,0,[62,618],6},{?attr_mp_max,0,[25,250],20}]};	
+get(11105)  ->
+	{3, [{?attr_defence,0,[37,368],15},{?attr_hp_max,0,[73,729],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[82,819],6},{?attr_rst_wood,0,[82,819],6},{?attr_rst_water,0,[82,819],6},{?attr_rst_fire,0,[82,819],6},{?attr_rst_earth,0,[82,819],6},{?attr_mp_max,0,[30,291],20}]};	
+get(11290)  ->
+	{3, [{?attr_defence,0,[44,434],15},{?attr_hp_max,0,[84,833],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[111,1105],6},{?attr_rst_wood,0,[111,1105],6},{?attr_rst_water,0,[111,1105],6},{?attr_rst_fire,0,[111,1105],6},{?attr_rst_earth,0,[111,1105],6},{?attr_mp_max,0,[34,333],20}]};	
+get(10181)  ->
+	{3, [{?attr_defence,0,[10,97],15},{?attr_hp_max,0,[28,275],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,8],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[12,113],20}]};	
+get(10366)  ->
+	{3, [{?attr_defence,0,[18,171],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[30,299],6},{?attr_rst_wood,0,[30,299],6},{?attr_rst_water,0,[30,299],6},{?attr_rst_fire,0,[30,299],6},{?attr_rst_earth,0,[30,299],6},{?attr_mp_max,0,[17,168],20}]};	
+get(10551)  ->
+	{3, [{?attr_defence,0,[25,248],15},{?attr_hp_max,0,[56,553],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[45,447],6},{?attr_rst_wood,0,[45,447],6},{?attr_rst_water,0,[45,447],6},{?attr_rst_fire,0,[45,447],6},{?attr_rst_earth,0,[45,447],6},{?attr_mp_max,0,[23,223],20}]};	
+get(10736)  ->
+	{3, [{?attr_defence,0,[33,327],15},{?attr_hp_max,0,[70,693],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[62,619],6},{?attr_rst_wood,0,[62,619],6},{?attr_rst_water,0,[62,619],6},{?attr_rst_fire,0,[62,619],6},{?attr_rst_earth,0,[62,619],6},{?attr_mp_max,0,[28,279],20}]};	
+get(10921)  ->
+	{3, [{?attr_defence,0,[41,407],15},{?attr_hp_max,0,[84,832],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[83,823],6},{?attr_rst_wood,0,[83,823],6},{?attr_rst_water,0,[83,823],6},{?attr_rst_fire,0,[83,823],6},{?attr_rst_earth,0,[83,823],6},{?attr_mp_max,0,[34,334],20}]};	
+get(11106)  ->
+	{3, [{?attr_defence,0,[50,491],15},{?attr_hp_max,0,[98,972],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[110,1091],6},{?attr_rst_wood,0,[110,1091],6},{?attr_rst_water,0,[110,1091],6},{?attr_rst_fire,0,[110,1091],6},{?attr_rst_earth,0,[110,1091],6},{?attr_mp_max,0,[39,388],20}]};	
+get(11291)  ->
+	{3, [{?attr_defence,0,[58,579],15},{?attr_hp_max,0,[111,1110],15},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[3,27],15},{?attr_rst_metal,0,[148,1473],6},{?attr_rst_wood,0,[148,1473],6},{?attr_rst_water,0,[148,1473],6},{?attr_rst_fire,0,[148,1473],6},{?attr_rst_earth,0,[148,1473],6},{?attr_mp_max,0,[45,444],20}]};	
+get(10072)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10257)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10442)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10627)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10812)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10997)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11182)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10073)  ->
+	{1, [{?attr_defence,0,[4,37],20},{?attr_hp_max,0,[11,103],20},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[1,7],10},{?attr_mp_max,0,[5,43],25}]};	
+get(10258)  ->
+	{1, [{?attr_defence,0,[7,65],20},{?attr_hp_max,0,[16,155],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[2,11],10},{?attr_mp_max,0,[7,63],25}]};	
+get(10443)  ->
+	{1, [{?attr_defence,0,[10,93],20},{?attr_hp_max,0,[21,208],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[2,14],10},{?attr_mp_max,0,[9,84],25}]};	
+get(10628)  ->
+	{1, [{?attr_defence,0,[13,123],20},{?attr_hp_max,0,[26,260],20},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[2,17],10},{?attr_mp_max,0,[11,105],25}]};	
+get(10813)  ->
+	{1, [{?attr_defence,0,[16,153],20},{?attr_hp_max,0,[32,312],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[3,21],10},{?attr_mp_max,0,[13,125],25}]};	
+get(10998)  ->
+	{1, [{?attr_defence,0,[19,184],20},{?attr_hp_max,0,[37,365],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[3,24],10},{?attr_mp_max,0,[15,146],25}]};	
+get(11183)  ->
+	{1, [{?attr_defence,0,[22,217],20},{?attr_hp_max,0,[42,417],20},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[3,28],10},{?attr_mp_max,0,[17,167],25}]};	
+get(10074)  ->
+	{2, [{?attr_defence,0,[5,46],20},{?attr_hp_max,0,[13,129],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[1,9],10},{?attr_mp_max,0,[6,53],25}]};	
+get(10259)  ->
+	{2, [{?attr_defence,0,[9,81],20},{?attr_hp_max,0,[20,194],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[2,13],10},{?attr_mp_max,0,[8,79],25}]};	
+get(10444)  ->
+	{2, [{?attr_defence,0,[12,117],20},{?attr_hp_max,0,[26,260],20},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[2,18],10},{?attr_mp_max,0,[11,105],25}]};	
+get(10629)  ->
+	{2, [{?attr_defence,0,[16,153],20},{?attr_hp_max,0,[33,325],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[3,22],10},{?attr_mp_max,0,[14,131],25}]};	
+get(10814)  ->
+	{2, [{?attr_defence,0,[20,191],20},{?attr_hp_max,0,[39,390],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[3,26],10},{?attr_mp_max,0,[16,157],25}]};	
+get(10999)  ->
+	{2, [{?attr_defence,0,[23,230],20},{?attr_hp_max,0,[46,456],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[3,30],10},{?attr_mp_max,0,[19,182],25}]};	
+get(11184)  ->
+	{2, [{?attr_defence,0,[28,272],20},{?attr_hp_max,0,[53,521],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[4,34],10},{?attr_mp_max,0,[21,208],25}]};	
+get(10075)  ->
+	{3, [{?attr_defence,0,[6,55],20},{?attr_hp_max,0,[16,155],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[2,11],10},{?attr_mp_max,0,[7,64],25}]};	
+get(10260)  ->
+	{3, [{?attr_defence,0,[10,97],20},{?attr_hp_max,0,[24,233],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[2,16],10},{?attr_mp_max,0,[10,95],25}]};	
+get(10445)  ->
+	{3, [{?attr_defence,0,[14,140],20},{?attr_hp_max,0,[32,311],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[3,21],10},{?attr_mp_max,0,[13,126],25}]};	
+get(10630)  ->
+	{3, [{?attr_defence,0,[19,184],20},{?attr_hp_max,0,[39,390],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[3,26],10},{?attr_mp_max,0,[16,157],25}]};	
+get(10815)  ->
+	{3, [{?attr_defence,0,[23,229],20},{?attr_hp_max,0,[47,468],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[4,31],10},{?attr_mp_max,0,[19,188],25}]};	
+get(11000)  ->
+	{3, [{?attr_defence,0,[28,276],20},{?attr_hp_max,0,[55,547],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[4,36],10},{?attr_mp_max,0,[22,219],25}]};	
+get(11185)  ->
+	{3, [{?attr_defence,0,[33,326],20},{?attr_hp_max,0,[63,625],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[5,41],10},{?attr_mp_max,0,[25,250],25}]};	
+get(10076)  ->
+	{3, [{?attr_defence,0,[8,73],20},{?attr_hp_max,0,[21,206],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[2,14],10},{?attr_mp_max,0,[9,85],25}]};	
+get(10261)  ->
+	{3, [{?attr_defence,0,[13,129],20},{?attr_hp_max,0,[31,310],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[3,21],10},{?attr_mp_max,0,[13,126],25}]};	
+get(10446)  ->
+	{3, [{?attr_defence,0,[19,186],20},{?attr_hp_max,0,[42,415],20},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[3,28],10},{?attr_mp_max,0,[17,168],25}]};	
+get(10631)  ->
+	{3, [{?attr_defence,0,[25,245],20},{?attr_hp_max,0,[52,520],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[4,34],10},{?attr_mp_max,0,[21,209],25}]};	
+get(10816)  ->
+	{3, [{?attr_defence,0,[31,306],20},{?attr_hp_max,0,[63,624],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[5,41],10},{?attr_mp_max,0,[25,250],25}]};	
+get(11001)  ->
+	{3, [{?attr_defence,0,[37,368],20},{?attr_hp_max,0,[73,729],20},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,18],20},{?attr_js,0,[5,48],10},{?attr_mp_max,0,[30,291],25}]};	
+get(11186)  ->
+	{3, [{?attr_defence,0,[44,434],20},{?attr_hp_max,0,[84,833],20},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,20],20},{?attr_js,0,[6,55],10},{?attr_mp_max,0,[34,333],25}]};	
+get(10047)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10232)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10417)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10602)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10787)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10972)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11157)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(10048)  ->
+	{1, [{?attr_defence,0,[4,34],20},{?attr_hp_max,0,[10,96],20},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,3],20},{?attr_js,0,[1,5],10},{?attr_mp_max,0,[4,40],25}]};	
+get(10233)  ->
+	{1, [{?attr_defence,0,[6,60],20},{?attr_hp_max,0,[15,145],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[1,7],10},{?attr_mp_max,0,[6,59],25}]};	
+get(10418)  ->
+	{1, [{?attr_defence,0,[9,87],20},{?attr_hp_max,0,[20,194],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[1,10],10},{?attr_mp_max,0,[8,78],25}]};	
+get(10603)  ->
+	{1, [{?attr_defence,0,[12,115],20},{?attr_hp_max,0,[25,243],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[2,12],10},{?attr_mp_max,0,[10,98],25}]};	
+get(10788)  ->
+	{1, [{?attr_defence,0,[15,143],20},{?attr_hp_max,0,[30,292],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[2,14],10},{?attr_mp_max,0,[12,117],25}]};	
+get(10973)  ->
+	{1, [{?attr_defence,0,[18,172],20},{?attr_hp_max,0,[34,340],20},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[2,16],10},{?attr_mp_max,0,[14,136],25}]};	
+get(11158)  ->
+	{1, [{?attr_defence,0,[21,203],20},{?attr_hp_max,0,[39,389],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[2,19],10},{?attr_mp_max,0,[16,156],25}]};	
+get(10049)  ->
+	{2, [{?attr_defence,0,[5,43],20},{?attr_hp_max,0,[12,120],20},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[1,6],10},{?attr_mp_max,0,[5,50],25}]};	
+get(10234)  ->
+	{2, [{?attr_defence,0,[8,75],20},{?attr_hp_max,0,[19,181],20},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,5],20},{?attr_js,0,[1,9],10},{?attr_mp_max,0,[8,74],25}]};	
+get(10419)  ->
+	{2, [{?attr_defence,0,[11,109],20},{?attr_hp_max,0,[25,242],20},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,7],20},{?attr_js,0,[2,12],10},{?attr_mp_max,0,[10,98],25}]};	
+get(10604)  ->
+	{2, [{?attr_defence,0,[15,143],20},{?attr_hp_max,0,[31,303],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[2,15],10},{?attr_mp_max,0,[13,122],25}]};	
+get(10789)  ->
+	{2, [{?attr_defence,0,[18,179],20},{?attr_hp_max,0,[37,364],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,9],20},{?attr_js,0,[2,17],10},{?attr_mp_max,0,[15,146],25}]};	
+get(10974)  ->
+	{2, [{?attr_defence,0,[22,215],20},{?attr_hp_max,0,[43,425],20},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[2,20],10},{?attr_mp_max,0,[17,170],25}]};	
+get(11159)  ->
+	{2, [{?attr_defence,0,[26,254],20},{?attr_hp_max,0,[49,486],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[3,23],10},{?attr_mp_max,0,[20,194],25}]};	
+get(10050)  ->
+	{3, [{?attr_defence,0,[6,51],20},{?attr_hp_max,0,[15,144],20},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],20},{?attr_js,0,[1,7],10},{?attr_mp_max,0,[6,60],25}]};	
+get(10235)  ->
+	{3, [{?attr_defence,0,[9,90],20},{?attr_hp_max,0,[22,217],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[2,11],10},{?attr_mp_max,0,[9,89],25}]};	
+get(10420)  ->
+	{3, [{?attr_defence,0,[14,131],20},{?attr_hp_max,0,[30,291],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[2,14],10},{?attr_mp_max,0,[12,117],25}]};	
+get(10605)  ->
+	{3, [{?attr_defence,0,[18,172],20},{?attr_hp_max,0,[37,364],20},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[2,17],10},{?attr_mp_max,0,[15,146],25}]};	
+get(10790)  ->
+	{3, [{?attr_defence,0,[22,214],20},{?attr_hp_max,0,[44,437],20},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[3,21],10},{?attr_mp_max,0,[18,175],25}]};	
+get(10975)  ->
+	{3, [{?attr_defence,0,[26,258],20},{?attr_hp_max,0,[51,510],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[3,24],10},{?attr_mp_max,0,[21,204],25}]};	
+get(11160)  ->
+	{3, [{?attr_defence,0,[31,304],20},{?attr_hp_max,0,[59,583],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[3,28],10},{?attr_mp_max,0,[24,233],25}]};	
+get(10051)  ->
+	{3, [{?attr_defence,0,[7,68],20},{?attr_hp_max,0,[20,192],20},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],20},{?attr_js,0,[1,10],10},{?attr_mp_max,0,[8,79],25}]};	
+get(10236)  ->
+	{3, [{?attr_defence,0,[12,120],20},{?attr_hp_max,0,[29,290],20},{?attr_evasion,1,[1,10],5},{?attr_tenacity,0,[1,8],20},{?attr_js,0,[2,14],10},{?attr_mp_max,0,[12,118],25}]};	
+get(10421)  ->
+	{3, [{?attr_defence,0,[18,174],20},{?attr_hp_max,0,[39,387],20},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,10],20},{?attr_js,0,[2,19],10},{?attr_mp_max,0,[16,156],25}]};	
+get(10606)  ->
+	{3, [{?attr_defence,0,[23,229],20},{?attr_hp_max,0,[49,485],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,13],20},{?attr_js,0,[3,23],10},{?attr_mp_max,0,[20,195],25}]};	
+get(10791)  ->
+	{3, [{?attr_defence,0,[29,285],20},{?attr_hp_max,0,[59,583],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[3,28],10},{?attr_mp_max,0,[24,234],25}]};	
+get(10976)  ->
+	{3, [{?attr_defence,0,[35,344],20},{?attr_hp_max,0,[68,680],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[4,32],10},{?attr_mp_max,0,[28,272],25}]};	
+get(11161)  ->
+	{3, [{?attr_defence,0,[41,406],20},{?attr_hp_max,0,[78,777],20},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[4,37],10},{?attr_mp_max,0,[32,311],25}]};	
+get(10147)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10332)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10517)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10702)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10887)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11072)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11257)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10148)  ->
+	{1, [{?attr_defence,0,[5,41],25},{?attr_hp_max,0,[12,117],25},{?attr_evasion,1,[1,4],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[5,48],20}]};	
+get(10333)  ->
+	{1, [{?attr_defence,0,[8,73],25},{?attr_hp_max,0,[18,176],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[8,72],20}]};	
+get(10518)  ->
+	{1, [{?attr_defence,0,[11,106],25},{?attr_hp_max,0,[24,235],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[10,95],20}]};	
+get(10703)  ->
+	{1, [{?attr_defence,0,[14,139],25},{?attr_hp_max,0,[30,295],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[12,119],20}]};	
+get(10888)  ->
+	{1, [{?attr_defence,0,[18,173],15},{?attr_hp_max,0,[36,354],15},{?attr_evasion,1,[2,12],5},{?attr_tenacity,0,[1,9],15},{?attr_anti_stun,0,[2,15],6},{?attr_anti_poison,0,[2,15],6},{?attr_anti_sleep,0,[2,15],6},{?attr_anti_stone,0,[2,15],6},{?attr_anti_taunt,0,[2,15],6},{?attr_mp_max,0,[15,142],20}]};	
+get(11073)  ->
+	{1, [{?attr_defence,0,[21,209],15},{?attr_hp_max,0,[42,413],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[1,10],15},{?attr_anti_stun,0,[2,18],6},{?attr_anti_poison,0,[2,18],6},{?attr_anti_sleep,0,[2,18],6},{?attr_anti_stone,0,[2,18],6},{?attr_anti_taunt,0,[2,18],6},{?attr_mp_max,0,[17,165],20}]};	
+get(11258)  ->
+	{1, [{?attr_defence,0,[25,246],15},{?attr_hp_max,0,[48,472],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,12],15},{?attr_anti_stun,0,[2,20],6},{?attr_anti_poison,0,[2,20],6},{?attr_anti_sleep,0,[2,20],6},{?attr_anti_stone,0,[2,20],6},{?attr_anti_taunt,0,[2,20],6},{?attr_mp_max,0,[19,189],20}]};	
+get(10149)  ->
+	{2, [{?attr_defence,0,[6,52],25},{?attr_hp_max,0,[15,146],25},{?attr_evasion,1,[1,5],10},{?attr_tenacity,0,[1,4],20},{?attr_mp_max,0,[6,60],20}]};	
+get(10334)  ->
+	{2, [{?attr_defence,0,[10,91],25},{?attr_hp_max,0,[22,220],25},{?attr_evasion,1,[1,7],10},{?attr_tenacity,0,[1,6],20},{?attr_mp_max,0,[9,90],20}]};	
+get(10519)  ->
+	{2, [{?attr_defence,0,[14,132],25},{?attr_hp_max,0,[30,294],25},{?attr_evasion,1,[1,10],10},{?attr_tenacity,0,[1,8],20},{?attr_mp_max,0,[12,119],20}]};	
+get(10704)  ->
+	{2, [{?attr_defence,0,[18,174],25},{?attr_hp_max,0,[37,368],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[15,148],20}]};	
+get(10889)  ->
+	{2, [{?attr_defence,0,[22,217],15},{?attr_hp_max,0,[45,442],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[2,11],15},{?attr_anti_stun,0,[2,19],6},{?attr_anti_poison,0,[2,19],6},{?attr_anti_sleep,0,[2,19],6},{?attr_anti_stone,0,[2,19],6},{?attr_anti_taunt,0,[2,19],6},{?attr_mp_max,0,[18,177],20}]};	
+get(11074)  ->
+	{2, [{?attr_defence,0,[27,261],15},{?attr_hp_max,0,[52,516],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,22],6},{?attr_anti_poison,0,[3,22],6},{?attr_anti_sleep,0,[3,22],6},{?attr_anti_stone,0,[3,22],6},{?attr_anti_taunt,0,[3,22],6},{?attr_mp_max,0,[21,207],20}]};	
+get(11259)  ->
+	{2, [{?attr_defence,0,[31,308],15},{?attr_hp_max,0,[59,590],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[24,236],20}]};	
+get(10150)  ->
+	{3, [{?attr_defence,0,[7,62],25},{?attr_hp_max,0,[18,175],25},{?attr_evasion,1,[1,6],10},{?attr_tenacity,0,[1,5],20},{?attr_mp_max,0,[8,72],20}]};	
+get(10335)  ->
+	{3, [{?attr_defence,0,[11,109],25},{?attr_hp_max,0,[27,264],25},{?attr_evasion,1,[1,9],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[11,107],20}]};	
+get(10520)  ->
+	{3, [{?attr_defence,0,[16,158],25},{?attr_hp_max,0,[36,353],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,9],20},{?attr_mp_max,0,[15,142],20}]};	
+get(10705)  ->
+	{3, [{?attr_defence,0,[21,209],25},{?attr_hp_max,0,[45,442],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[2,11],20},{?attr_mp_max,0,[18,178],20}]};	
+get(10890)  ->
+	{3, [{?attr_defence,0,[26,260],15},{?attr_hp_max,0,[54,531],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[22,213],20}]};	
+get(11075)  ->
+	{3, [{?attr_defence,0,[32,313],15},{?attr_hp_max,0,[62,620],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,27],6},{?attr_anti_poison,0,[3,27],6},{?attr_anti_sleep,0,[3,27],6},{?attr_anti_stone,0,[3,27],6},{?attr_anti_taunt,0,[3,27],6},{?attr_mp_max,0,[25,248],20}]};	
+get(11260)  ->
+	{3, [{?attr_defence,0,[37,369],15},{?attr_hp_max,0,[71,708],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[29,283],20}]};	
+get(10151)  ->
+	{3, [{?attr_defence,0,[9,82],25},{?attr_hp_max,0,[24,234],25},{?attr_evasion,1,[1,8],10},{?attr_tenacity,0,[1,7],20},{?attr_mp_max,0,[10,96],20}]};	
+get(10336)  ->
+	{3, [{?attr_defence,0,[15,146],25},{?attr_hp_max,0,[36,352],25},{?attr_evasion,1,[2,12],10},{?attr_tenacity,0,[1,10],20},{?attr_mp_max,0,[15,143],20}]};	
+get(10521)  ->
+	{3, [{?attr_defence,0,[22,211],25},{?attr_hp_max,0,[47,470],25},{?attr_evasion,1,[2,15],10},{?attr_tenacity,0,[2,12],20},{?attr_mp_max,0,[19,190],20}]};	
+get(10706)  ->
+	{3, [{?attr_defence,0,[28,278],25},{?attr_hp_max,0,[59,589],25},{?attr_evasion,1,[2,19],10},{?attr_tenacity,0,[2,15],20},{?attr_mp_max,0,[24,237],20}]};	
+get(10891)  ->
+	{3, [{?attr_defence,0,[35,346],15},{?attr_hp_max,0,[71,707],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[3,30],6},{?attr_anti_poison,0,[3,30],6},{?attr_anti_sleep,0,[3,30],6},{?attr_anti_stone,0,[3,30],6},{?attr_anti_taunt,0,[3,30],6},{?attr_mp_max,0,[29,284],20}]};	
+get(11076)  ->
+	{3, [{?attr_defence,0,[42,417],15},{?attr_hp_max,0,[83,826],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,20],15},{?attr_anti_stun,0,[4,35],6},{?attr_anti_poison,0,[4,35],6},{?attr_anti_sleep,0,[4,35],6},{?attr_anti_stone,0,[4,35],6},{?attr_anti_taunt,0,[4,35],6},{?attr_mp_max,0,[33,330],20}]};	
+get(11261)  ->
+	{3, [{?attr_defence,0,[50,492],15},{?attr_hp_max,0,[95,944],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[3,23],15},{?attr_anti_stun,0,[4,40],6},{?attr_anti_poison,0,[4,40],6},{?attr_anti_sleep,0,[4,40],6},{?attr_anti_stone,0,[4,40],6},{?attr_anti_taunt,0,[4,40],6},{?attr_mp_max,0,[38,377],20}]};	
+get(10122)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10307)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10492)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10677)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10862)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11047)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11232)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(10123)  ->
+	{1, [{?attr_defence,0,[4,39],15},{?attr_hp_max,0,[11,110],15},{?attr_evasion,1,[1,4],5},{?attr_tenacity,0,[1,3],15},{?attr_rst_metal,0,[5,45],6},{?attr_rst_wood,0,[5,45],6},{?attr_rst_water,0,[5,45],6},{?attr_rst_fire,0,[5,45],6},{?attr_rst_earth,0,[5,45],6},{?attr_mp_max,0,[5,46],20}]};	
+get(10308)  ->
+	{1, [{?attr_defence,0,[7,69],15},{?attr_hp_max,0,[17,166],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[9,81],6},{?attr_rst_wood,0,[9,81],6},{?attr_rst_water,0,[9,81],6},{?attr_rst_fire,0,[9,81],6},{?attr_rst_earth,0,[9,81],6},{?attr_mp_max,0,[7,68],20}]};	
+get(10493)  ->
+	{1, [{?attr_defence,0,[10,100],15},{?attr_hp_max,0,[23,222],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[9,90],20}]};	
+get(10678)  ->
+	{1, [{?attr_defence,0,[14,131],15},{?attr_hp_max,0,[28,277],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[17,167],6},{?attr_rst_wood,0,[17,167],6},{?attr_rst_water,0,[17,167],6},{?attr_rst_fire,0,[17,167],6},{?attr_rst_earth,0,[17,167],6},{?attr_mp_max,0,[12,112],20}]};	
+get(10863)  ->
+	{1, [{?attr_defence,0,[17,163],15},{?attr_hp_max,0,[34,333],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[23,222],6},{?attr_rst_wood,0,[23,222],6},{?attr_rst_water,0,[23,222],6},{?attr_rst_fire,0,[23,222],6},{?attr_rst_earth,0,[23,222],6},{?attr_mp_max,0,[14,134],20}]};	
+get(11048)  ->
+	{1, [{?attr_defence,0,[20,197],15},{?attr_hp_max,0,[39,389],15},{?attr_evasion,1,[2,13],5},{?attr_tenacity,0,[1,10],15},{?attr_rst_metal,0,[30,294],6},{?attr_rst_wood,0,[30,294],6},{?attr_rst_water,0,[30,294],6},{?attr_rst_fire,0,[30,294],6},{?attr_rst_earth,0,[30,294],6},{?attr_mp_max,0,[16,156],20}]};	
+get(11233)  ->
+	{1, [{?attr_defence,0,[24,232],15},{?attr_hp_max,0,[45,444],15},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[40,397],6},{?attr_rst_wood,0,[40,397],6},{?attr_rst_water,0,[40,397],6},{?attr_rst_fire,0,[40,397],6},{?attr_rst_earth,0,[40,397],6},{?attr_mp_max,0,[18,178],20}]};	
+get(10124)  ->
+	{2, [{?attr_defence,0,[5,49],15},{?attr_hp_max,0,[14,138],15},{?attr_evasion,1,[1,5],5},{?attr_tenacity,0,[1,4],15},{?attr_rst_metal,0,[6,56],6},{?attr_rst_wood,0,[6,56],6},{?attr_rst_water,0,[6,56],6},{?attr_rst_fire,0,[6,56],6},{?attr_rst_earth,0,[6,56],6},{?attr_mp_max,0,[6,57],20}]};	
+get(10309)  ->
+	{2, [{?attr_defence,0,[9,86],15},{?attr_hp_max,0,[21,207],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[11,101],6},{?attr_rst_wood,0,[11,101],6},{?attr_rst_water,0,[11,101],6},{?attr_rst_fire,0,[11,101],6},{?attr_rst_earth,0,[11,101],6},{?attr_mp_max,0,[9,84],20}]};	
+get(10494)  ->
+	{2, [{?attr_defence,0,[13,124],15},{?attr_hp_max,0,[28,277],15},{?attr_evasion,1,[1,9],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[16,151],6},{?attr_rst_wood,0,[16,151],6},{?attr_rst_water,0,[16,151],6},{?attr_rst_fire,0,[16,151],6},{?attr_rst_earth,0,[16,151],6},{?attr_mp_max,0,[12,112],20}]};	
+get(10679)  ->
+	{2, [{?attr_defence,0,[17,164],15},{?attr_hp_max,0,[35,347],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[21,209],6},{?attr_rst_wood,0,[21,209],6},{?attr_rst_water,0,[21,209],6},{?attr_rst_fire,0,[21,209],6},{?attr_rst_earth,0,[21,209],6},{?attr_mp_max,0,[14,140],20}]};	
+get(10864)  ->
+	{2, [{?attr_defence,0,[21,204],15},{?attr_hp_max,0,[42,416],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[28,277],6},{?attr_rst_wood,0,[28,277],6},{?attr_rst_water,0,[28,277],6},{?attr_rst_fire,0,[28,277],6},{?attr_rst_earth,0,[28,277],6},{?attr_mp_max,0,[17,167],20}]};	
+get(11049)  ->
+	{2, [{?attr_defence,0,[25,246],15},{?attr_hp_max,0,[49,486],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[37,368],6},{?attr_rst_wood,0,[37,368],6},{?attr_rst_water,0,[37,368],6},{?attr_rst_fire,0,[37,368],6},{?attr_rst_earth,0,[37,368],6},{?attr_mp_max,0,[20,194],20}]};	
+get(11234)  ->
+	{2, [{?attr_defence,0,[29,290],15},{?attr_hp_max,0,[56,555],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[50,496],6},{?attr_rst_wood,0,[50,496],6},{?attr_rst_water,0,[50,496],6},{?attr_rst_fire,0,[50,496],6},{?attr_rst_earth,0,[50,496],6},{?attr_mp_max,0,[23,222],20}]};	
+get(10125)  ->
+	{3, [{?attr_defence,0,[6,58],15},{?attr_hp_max,0,[17,165],15},{?attr_evasion,1,[1,6],5},{?attr_tenacity,0,[1,5],15},{?attr_rst_metal,0,[7,68],6},{?attr_rst_wood,0,[7,68],6},{?attr_rst_water,0,[7,68],6},{?attr_rst_fire,0,[7,68],6},{?attr_rst_earth,0,[7,68],6},{?attr_mp_max,0,[7,68],20}]};	
+get(10310)  ->
+	{3, [{?attr_defence,0,[11,103],15},{?attr_hp_max,0,[25,248],15},{?attr_evasion,1,[1,8],5},{?attr_tenacity,0,[1,7],15},{?attr_rst_metal,0,[13,121],6},{?attr_rst_wood,0,[13,121],6},{?attr_rst_water,0,[13,121],6},{?attr_rst_fire,0,[13,121],6},{?attr_rst_earth,0,[13,121],6},{?attr_mp_max,0,[11,101],20}]};	
+get(10495)  ->
+	{3, [{?attr_defence,0,[15,149],15},{?attr_hp_max,0,[34,332],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[19,181],6},{?attr_rst_wood,0,[19,181],6},{?attr_rst_water,0,[19,181],6},{?attr_rst_fire,0,[19,181],6},{?attr_rst_earth,0,[19,181],6},{?attr_mp_max,0,[14,134],20}]};	
+get(10680)  ->
+	{3, [{?attr_defence,0,[20,196],15},{?attr_hp_max,0,[42,416],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],15},{?attr_rst_metal,0,[25,250],6},{?attr_rst_wood,0,[25,250],6},{?attr_rst_water,0,[25,250],6},{?attr_rst_fire,0,[25,250],6},{?attr_rst_earth,0,[25,250],6},{?attr_mp_max,0,[17,167],20}]};	
+get(10865)  ->
+	{3, [{?attr_defence,0,[25,245],15},{?attr_hp_max,0,[50,499],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[34,333],6},{?attr_rst_wood,0,[34,333],6},{?attr_rst_water,0,[34,333],6},{?attr_rst_fire,0,[34,333],6},{?attr_rst_earth,0,[34,333],6},{?attr_mp_max,0,[20,200],20}]};	
+get(11050)  ->
+	{3, [{?attr_defence,0,[30,295],15},{?attr_hp_max,0,[59,583],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[45,441],6},{?attr_rst_wood,0,[45,441],6},{?attr_rst_water,0,[45,441],6},{?attr_rst_fire,0,[45,441],6},{?attr_rst_earth,0,[45,441],6},{?attr_mp_max,0,[24,233],20}]};	
+get(11235)  ->
+	{3, [{?attr_defence,0,[35,348],15},{?attr_hp_max,0,[67,666],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,16],15},{?attr_rst_metal,0,[60,595],6},{?attr_rst_wood,0,[60,595],6},{?attr_rst_water,0,[60,595],6},{?attr_rst_fire,0,[60,595],6},{?attr_rst_earth,0,[60,595],6},{?attr_mp_max,0,[27,267],20}]};	
+get(10126)  ->
+	{3, [{?attr_defence,0,[8,77],15},{?attr_hp_max,0,[22,220],15},{?attr_evasion,1,[1,7],5},{?attr_tenacity,0,[1,6],15},{?attr_rst_metal,0,[9,90],6},{?attr_rst_wood,0,[9,90],6},{?attr_rst_water,0,[9,90],6},{?attr_rst_fire,0,[9,90],6},{?attr_rst_earth,0,[9,90],6},{?attr_mp_max,0,[10,91],20}]};	
+get(10311)  ->
+	{3, [{?attr_defence,0,[14,137],15},{?attr_hp_max,0,[34,331],15},{?attr_evasion,1,[2,11],5},{?attr_tenacity,0,[1,9],15},{?attr_rst_metal,0,[17,161],6},{?attr_rst_wood,0,[17,161],6},{?attr_rst_water,0,[17,161],6},{?attr_rst_fire,0,[17,161],6},{?attr_rst_earth,0,[17,161],6},{?attr_mp_max,0,[14,135],20}]};	
+get(10496)  ->
+	{3, [{?attr_defence,0,[20,199],15},{?attr_hp_max,0,[45,443],15},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[25,241],6},{?attr_rst_wood,0,[25,241],6},{?attr_rst_water,0,[25,241],6},{?attr_rst_fire,0,[25,241],6},{?attr_rst_earth,0,[25,241],6},{?attr_mp_max,0,[18,179],20}]};	
+get(10681)  ->
+	{3, [{?attr_defence,0,[27,262],15},{?attr_hp_max,0,[56,554],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,14],15},{?attr_rst_metal,0,[34,334],6},{?attr_rst_wood,0,[34,334],6},{?attr_rst_water,0,[34,334],6},{?attr_rst_fire,0,[34,334],6},{?attr_rst_earth,0,[34,334],6},{?attr_mp_max,0,[23,223],20}]};	
+get(10866)  ->
+	{3, [{?attr_defence,0,[33,326],15},{?attr_hp_max,0,[67,666],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[45,444],6},{?attr_rst_wood,0,[45,444],6},{?attr_rst_water,0,[45,444],6},{?attr_rst_fire,0,[45,444],6},{?attr_rst_earth,0,[45,444],6},{?attr_mp_max,0,[27,267],20}]};	
+get(11051)  ->
+	{3, [{?attr_defence,0,[40,393],15},{?attr_hp_max,0,[78,777],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[59,588],6},{?attr_rst_wood,0,[59,588],6},{?attr_rst_water,0,[59,588],6},{?attr_rst_fire,0,[59,588],6},{?attr_rst_earth,0,[59,588],6},{?attr_mp_max,0,[32,311],20}]};	
+get(11236)  ->
+	{3, [{?attr_defence,0,[47,463],15},{?attr_hp_max,0,[89,888],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[3,22],15},{?attr_rst_metal,0,[80,793],6},{?attr_rst_wood,0,[80,793],6},{?attr_rst_water,0,[80,793],6},{?attr_rst_fire,0,[80,793],6},{?attr_rst_earth,0,[80,793],6},{?attr_mp_max,0,[36,355],20}]};	
+get(11344)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11345)  ->
+	{1, [{?attr_defence,0,[18,172],20},{?attr_hp_max,0,[35,348],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[4,35],10},{?attr_mp_max,0,[26,256],25}]};	
+get(11346)  ->
+	{2, [{?attr_defence,0,[22,215],20},{?attr_hp_max,0,[44,435],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[5,44],10},{?attr_mp_max,0,[32,319],25}]};	
+get(11347)  ->
+	{3, [{?attr_defence,0,[26,258],20},{?attr_hp_max,0,[53,522],20},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[6,53],10},{?attr_mp_max,0,[39,383],25}]};	
+get(11348)  ->
+	{3, [{?attr_defence,0,[35,343],20},{?attr_hp_max,0,[70,696],20},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,21],20},{?attr_js,0,[7,70],10},{?attr_mp_max,0,[52,511],25}]};	
+get(11349)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11350)  ->
+	{1, [{?attr_defence,0,[27,268],20},{?attr_hp_max,0,[44,438],20},{?attr_evasion,1,[2,14],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[3,21],10},{?attr_mp_max,0,[18,175],25}]};	
+get(11351)  ->
+	{2, [{?attr_defence,0,[34,335],20},{?attr_hp_max,0,[55,547],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[3,26],10},{?attr_mp_max,0,[22,219],25}]};	
+get(11352)  ->
+	{3, [{?attr_defence,0,[41,402],20},{?attr_hp_max,0,[66,656],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[4,31],10},{?attr_mp_max,0,[27,262],25}]};	
+get(11353)  ->
+	{3, [{?attr_defence,0,[54,536],20},{?attr_hp_max,0,[88,875],20},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[3,21],20},{?attr_js,0,[5,41],10},{?attr_mp_max,0,[35,350],25}]};	
+get(11354)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11355)  ->
+	{1, [{?attr_defence,0,[13,121],20},{?attr_hp_max,0,[33,322],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[5,50],10},{?attr_mp_max,0,[34,337],25}]};	
+get(11356)  ->
+	{2, [{?attr_defence,0,[16,151],20},{?attr_hp_max,0,[41,402],20},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[7,62],10},{?attr_mp_max,0,[43,421],25}]};	
+get(11357)  ->
+	{3, [{?attr_defence,0,[19,181],20},{?attr_hp_max,0,[49,483],20},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[8,74],10},{?attr_mp_max,0,[51,505],25}]};	
+get(11358)  ->
+	{3, [{?attr_defence,0,[25,241],20},{?attr_hp_max,0,[65,644],20},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,21],20},{?attr_js,0,[10,99],10},{?attr_mp_max,0,[68,673],25}]};	
+get(11359)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(11360)  ->
+	{1, [{?attr_defence,0,[10,91],20},{?attr_hp_max,0,[33,323],25},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[8,71],5},{?attr_mp_max,0,[46,458],25}]};	
+get(11361)  ->
+	{2, [{?attr_defence,0,[12,114],20},{?attr_hp_max,0,[41,404],25},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[9,89],5},{?attr_mp_max,0,[58,572],25}]};	
+get(11362)  ->
+	{3, [{?attr_defence,0,[14,137],20},{?attr_hp_max,0,[49,485],25},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[11,107],5},{?attr_mp_max,0,[69,687],25}]};	
+get(11363)  ->
+	{3, [{?attr_defence,0,[19,182],20},{?attr_hp_max,0,[65,646],25},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[3,21],20},{?attr_js,0,[15,142],5},{?attr_mp_max,0,[92,915],25}]};	
+get(11364)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11365)  ->
+	{1, [{?attr_defence,0,[18,172],20},{?attr_hp_max,0,[29,290],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,11],20},{?attr_js,0,[6,57],10},{?attr_mp_max,0,[38,377],25}]};	
+get(11366)  ->
+	{2, [{?attr_defence,0,[22,215],20},{?attr_hp_max,0,[37,363],20},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[8,71],10},{?attr_mp_max,0,[48,471],25}]};	
+get(11367)  ->
+	{3, [{?attr_defence,0,[26,258],20},{?attr_hp_max,0,[44,435],20},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,16],20},{?attr_js,0,[9,85],10},{?attr_mp_max,0,[57,566],25}]};	
+get(11368)  ->
+	{3, [{?attr_defence,0,[35,343],20},{?attr_hp_max,0,[58,580],20},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,21],20},{?attr_js,0,[12,113],10},{?attr_mp_max,0,[76,754],25}]};	
+get(11369)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11370)  ->
+	{1, [{?attr_defence,0,[19,184],20},{?attr_hp_max,0,[38,373],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[6,53],10},{?attr_mp_max,0,[28,274],25}]};	
+get(11371)  ->
+	{2, [{?attr_defence,0,[23,230],20},{?attr_hp_max,0,[47,466],20},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[7,66],10},{?attr_mp_max,0,[35,342],25}]};	
+get(11372)  ->
+	{3, [{?attr_defence,0,[28,276],20},{?attr_hp_max,0,[56,559],20},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[8,79],10},{?attr_mp_max,0,[42,411],25}]};	
+get(11373)  ->
+	{3, [{?attr_defence,0,[37,368],20},{?attr_hp_max,0,[75,746],20},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[11,105],10},{?attr_mp_max,0,[55,547],25}]};	
+get(11374)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11375)  ->
+	{1, [{?attr_defence,0,[29,287],20},{?attr_hp_max,0,[47,469],20},{?attr_evasion,1,[2,15],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[4,31],10},{?attr_mp_max,0,[19,188],25}]};	
+get(11376)  ->
+	{2, [{?attr_defence,0,[36,359],20},{?attr_hp_max,0,[59,586],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[4,39],10},{?attr_mp_max,0,[24,234],25}]};	
+get(11377)  ->
+	{3, [{?attr_defence,0,[44,431],20},{?attr_hp_max,0,[71,703],20},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[5,46],10},{?attr_mp_max,0,[29,281],25}]};	
+get(11378)  ->
+	{3, [{?attr_defence,0,[58,574],20},{?attr_hp_max,0,[94,937],20},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[7,61],10},{?attr_mp_max,0,[38,375],25}]};	
+get(11379)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11380)  ->
+	{1, [{?attr_defence,0,[13,130],20},{?attr_hp_max,0,[35,345],20},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[8,74],10},{?attr_mp_max,0,[37,361],25}]};	
+get(11381)  ->
+	{2, [{?attr_defence,0,[17,162],20},{?attr_hp_max,0,[44,431],20},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[10,93],10},{?attr_mp_max,0,[46,451],25}]};	
+get(11382)  ->
+	{3, [{?attr_defence,0,[20,194],20},{?attr_hp_max,0,[52,517],20},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[12,111],10},{?attr_mp_max,0,[55,541],25}]};	
+get(11383)  ->
+	{3, [{?attr_defence,0,[26,259],20},{?attr_hp_max,0,[69,689],20},{?attr_evasion,1,[5,47],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[15,148],10},{?attr_mp_max,0,[73,721],25}]};	
+get(11384)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],25},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],5},{?attr_mp_max,0,[0,0],25}]};	
+get(11385)  ->
+	{1, [{?attr_defence,0,[10,98],20},{?attr_hp_max,0,[35,346],25},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[11,107],5},{?attr_mp_max,0,[50,491],25}]};	
+get(11386)  ->
+	{2, [{?attr_defence,0,[13,122],20},{?attr_hp_max,0,[44,433],25},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[14,133],5},{?attr_mp_max,0,[62,613],25}]};	
+get(11387)  ->
+	{3, [{?attr_defence,0,[15,147],20},{?attr_hp_max,0,[52,519],25},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[16,160],5},{?attr_mp_max,0,[74,736],25}]};	
+get(11388)  ->
+	{3, [{?attr_defence,0,[20,195],20},{?attr_hp_max,0,[70,692],25},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[22,213],5},{?attr_mp_max,0,[99,981],25}]};	
+get(11389)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11390)  ->
+	{1, [{?attr_defence,0,[19,184],20},{?attr_hp_max,0,[32,311],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[9,85],10},{?attr_mp_max,0,[41,404],25}]};	
+get(11391)  ->
+	{2, [{?attr_defence,0,[23,230],20},{?attr_hp_max,0,[39,388],20},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[11,106],10},{?attr_mp_max,0,[51,505],25}]};	
+get(11392)  ->
+	{3, [{?attr_defence,0,[28,276],20},{?attr_hp_max,0,[47,466],20},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[13,127],10},{?attr_mp_max,0,[61,606],25}]};	
+get(11393)  ->
+	{3, [{?attr_defence,0,[37,368],20},{?attr_hp_max,0,[63,621],20},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[17,170],10},{?attr_mp_max,0,[81,808],25}]};	
+get(11394)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11395)  ->
+	{1, [{?attr_defence,0,[23,221],15},{?attr_hp_max,0,[45,448],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[33,329],20}]};	
+get(11396)  ->
+	{2, [{?attr_defence,0,[28,276],15},{?attr_hp_max,0,[56,559],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[42,411],20}]};	
+get(11397)  ->
+	{3, [{?attr_defence,0,[34,331],15},{?attr_hp_max,0,[68,671],15},{?attr_evasion,1,[4,34],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[50,493],20}]};	
+get(11398)  ->
+	{3, [{?attr_defence,0,[45,441],15},{?attr_hp_max,0,[90,895],15},{?attr_evasion,1,[5,45],5},{?attr_tenacity,0,[3,27],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[66,657],20}]};	
+get(11399)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11400)  ->
+	{1, [{?attr_defence,0,[35,345],15},{?attr_hp_max,0,[57,563],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[23,225],20}]};	
+get(11401)  ->
+	{2, [{?attr_defence,0,[44,431],15},{?attr_hp_max,0,[71,703],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[29,281],20}]};	
+get(11402)  ->
+	{3, [{?attr_defence,0,[52,517],15},{?attr_hp_max,0,[85,844],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[34,337],20}]};	
+get(11403)  ->
+	{3, [{?attr_defence,0,[69,689],15},{?attr_hp_max,0,[113,1125],15},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[3,27],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[45,449],20}]};	
+get(11404)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11405)  ->
+	{1, [{?attr_defence,0,[16,155],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[44,433],20}]};	
+get(11406)  ->
+	{2, [{?attr_defence,0,[20,194],15},{?attr_hp_max,0,[52,517],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[55,541],20}]};	
+get(11407)  ->
+	{3, [{?attr_defence,0,[24,233],15},{?attr_hp_max,0,[63,621],15},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[65,649],20}]};	
+get(11408)  ->
+	{3, [{?attr_defence,0,[31,310],15},{?attr_hp_max,0,[83,827],15},{?attr_evasion,1,[6,56],5},{?attr_tenacity,0,[3,27],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[87,866],20}]};	
+get(11409)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11410)  ->
+	{1, [{?attr_defence,0,[12,117],15},{?attr_hp_max,0,[42,415],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[59,589],20}]};	
+get(11411)  ->
+	{2, [{?attr_defence,0,[15,147],15},{?attr_hp_max,0,[52,519],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[74,736],20}]};	
+get(11412)  ->
+	{3, [{?attr_defence,0,[18,176],15},{?attr_hp_max,0,[63,623],15},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[89,883],20}]};	
+get(11413)  ->
+	{3, [{?attr_defence,0,[24,234],15},{?attr_hp_max,0,[83,830],15},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[3,27],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[118,1177],20}]};	
+get(11414)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11415)  ->
+	{1, [{?attr_defence,0,[23,221],15},{?attr_hp_max,0,[38,373],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[49,485],20}]};	
+get(11416)  ->
+	{2, [{?attr_defence,0,[28,276],15},{?attr_hp_max,0,[47,466],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,17],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[61,606],20}]};	
+get(11417)  ->
+	{3, [{?attr_defence,0,[34,331],15},{?attr_hp_max,0,[56,559],15},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[73,727],20}]};	
+get(11418)  ->
+	{3, [{?attr_defence,0,[45,441],15},{?attr_hp_max,0,[75,745],15},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[3,27],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[97,969],20}]};	
+get(11419)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11420)  ->
+	{1, [{?attr_defence,0,[20,196],15},{?attr_hp_max,0,[40,398],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[53,529],6},{?attr_rst_wood,0,[53,529],6},{?attr_rst_water,0,[53,529],6},{?attr_rst_fire,0,[53,529],6},{?attr_rst_earth,0,[53,529],6},{?attr_mp_max,0,[30,292],20}]};	
+get(11421)  ->
+	{2, [{?attr_defence,0,[25,245],15},{?attr_hp_max,0,[50,497],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[67,662],6},{?attr_rst_wood,0,[67,662],6},{?attr_rst_water,0,[67,662],6},{?attr_rst_fire,0,[67,662],6},{?attr_rst_earth,0,[67,662],6},{?attr_mp_max,0,[37,365],20}]};	
+get(11422)  ->
+	{3, [{?attr_defence,0,[30,294],15},{?attr_hp_max,0,[60,597],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[80,794],6},{?attr_rst_wood,0,[80,794],6},{?attr_rst_water,0,[80,794],6},{?attr_rst_fire,0,[80,794],6},{?attr_rst_earth,0,[80,794],6},{?attr_mp_max,0,[44,438],20}]};	
+get(11423)  ->
+	{3, [{?attr_defence,0,[40,392],15},{?attr_hp_max,0,[80,795],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[106,1058],6},{?attr_rst_wood,0,[106,1058],6},{?attr_rst_water,0,[106,1058],6},{?attr_rst_fire,0,[106,1058],6},{?attr_rst_earth,0,[106,1058],6},{?attr_mp_max,0,[59,584],20}]};	
+get(11424)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11425)  ->
+	{1, [{?attr_defence,0,[31,307],15},{?attr_hp_max,0,[50,500],15},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[53,529],6},{?attr_rst_wood,0,[53,529],6},{?attr_rst_water,0,[53,529],6},{?attr_rst_fire,0,[53,529],6},{?attr_rst_earth,0,[53,529],6},{?attr_mp_max,0,[20,200],20}]};	
+get(11426)  ->
+	{2, [{?attr_defence,0,[39,383],15},{?attr_hp_max,0,[63,625],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[67,662],6},{?attr_rst_wood,0,[67,662],6},{?attr_rst_water,0,[67,662],6},{?attr_rst_fire,0,[67,662],6},{?attr_rst_earth,0,[67,662],6},{?attr_mp_max,0,[25,250],20}]};	
+get(11427)  ->
+	{3, [{?attr_defence,0,[46,460],15},{?attr_hp_max,0,[75,750],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[80,794],6},{?attr_rst_wood,0,[80,794],6},{?attr_rst_water,0,[80,794],6},{?attr_rst_fire,0,[80,794],6},{?attr_rst_earth,0,[80,794],6},{?attr_mp_max,0,[30,300],20}]};	
+get(11428)  ->
+	{3, [{?attr_defence,0,[62,613],15},{?attr_hp_max,0,[100,1000],15},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[106,1058],6},{?attr_rst_wood,0,[106,1058],6},{?attr_rst_water,0,[106,1058],6},{?attr_rst_fire,0,[106,1058],6},{?attr_rst_earth,0,[106,1058],6},{?attr_mp_max,0,[40,399],20}]};	
+get(11429)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11430)  ->
+	{1, [{?attr_defence,0,[14,138],15},{?attr_hp_max,0,[37,368],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[53,529],6},{?attr_rst_wood,0,[53,529],6},{?attr_rst_water,0,[53,529],6},{?attr_rst_fire,0,[53,529],6},{?attr_rst_earth,0,[53,529],6},{?attr_mp_max,0,[39,385],20}]};	
+get(11431)  ->
+	{2, [{?attr_defence,0,[18,173],15},{?attr_hp_max,0,[46,460],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[67,662],6},{?attr_rst_wood,0,[67,662],6},{?attr_rst_water,0,[67,662],6},{?attr_rst_fire,0,[67,662],6},{?attr_rst_earth,0,[67,662],6},{?attr_mp_max,0,[49,481],20}]};	
+get(11432)  ->
+	{3, [{?attr_defence,0,[21,207],15},{?attr_hp_max,0,[56,552],15},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[80,794],6},{?attr_rst_wood,0,[80,794],6},{?attr_rst_water,0,[80,794],6},{?attr_rst_fire,0,[80,794],6},{?attr_rst_earth,0,[80,794],6},{?attr_mp_max,0,[58,577],20}]};	
+get(11433)  ->
+	{3, [{?attr_defence,0,[28,276],15},{?attr_hp_max,0,[74,735],15},{?attr_evasion,1,[5,50],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[106,1058],6},{?attr_rst_wood,0,[106,1058],6},{?attr_rst_water,0,[106,1058],6},{?attr_rst_fire,0,[106,1058],6},{?attr_rst_earth,0,[106,1058],6},{?attr_mp_max,0,[77,769],20}]};	
+get(11434)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11435)  ->
+	{1, [{?attr_defence,0,[11,104],15},{?attr_hp_max,0,[37,369],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[53,529],6},{?attr_rst_wood,0,[53,529],6},{?attr_rst_water,0,[53,529],6},{?attr_rst_fire,0,[53,529],6},{?attr_rst_earth,0,[53,529],6},{?attr_mp_max,0,[53,523],20}]};	
+get(11436)  ->
+	{2, [{?attr_defence,0,[13,130],15},{?attr_hp_max,0,[47,461],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[67,662],6},{?attr_rst_wood,0,[67,662],6},{?attr_rst_water,0,[67,662],6},{?attr_rst_fire,0,[67,662],6},{?attr_rst_earth,0,[67,662],6},{?attr_mp_max,0,[66,654],20}]};	
+get(11437)  ->
+	{3, [{?attr_defence,0,[16,156],15},{?attr_hp_max,0,[56,554],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[80,794],6},{?attr_rst_wood,0,[80,794],6},{?attr_rst_water,0,[80,794],6},{?attr_rst_fire,0,[80,794],6},{?attr_rst_earth,0,[80,794],6},{?attr_mp_max,0,[79,785],20}]};	
+get(11438)  ->
+	{3, [{?attr_defence,0,[21,208],15},{?attr_hp_max,0,[74,738],15},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[106,1058],6},{?attr_rst_wood,0,[106,1058],6},{?attr_rst_water,0,[106,1058],6},{?attr_rst_fire,0,[106,1058],6},{?attr_rst_earth,0,[106,1058],6},{?attr_mp_max,0,[105,1046],20}]};	
+get(11439)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11440)  ->
+	{1, [{?attr_defence,0,[20,196],15},{?attr_hp_max,0,[34,332],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,12],15},{?attr_rst_metal,0,[53,529],6},{?attr_rst_wood,0,[53,529],6},{?attr_rst_water,0,[53,529],6},{?attr_rst_fire,0,[53,529],6},{?attr_rst_earth,0,[53,529],6},{?attr_mp_max,0,[44,431],20}]};	
+get(11441)  ->
+	{2, [{?attr_defence,0,[25,245],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[67,662],6},{?attr_rst_wood,0,[67,662],6},{?attr_rst_water,0,[67,662],6},{?attr_rst_fire,0,[67,662],6},{?attr_rst_earth,0,[67,662],6},{?attr_mp_max,0,[54,539],20}]};	
+get(11442)  ->
+	{3, [{?attr_defence,0,[30,294],15},{?attr_hp_max,0,[50,497],15},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[2,18],15},{?attr_rst_metal,0,[80,794],6},{?attr_rst_wood,0,[80,794],6},{?attr_rst_water,0,[80,794],6},{?attr_rst_fire,0,[80,794],6},{?attr_rst_earth,0,[80,794],6},{?attr_mp_max,0,[65,646],20}]};	
+get(11443)  ->
+	{3, [{?attr_defence,0,[40,392],15},{?attr_hp_max,0,[67,663],15},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[3,24],15},{?attr_rst_metal,0,[106,1058],6},{?attr_rst_wood,0,[106,1058],6},{?attr_rst_water,0,[106,1058],6},{?attr_rst_fire,0,[106,1058],6},{?attr_rst_earth,0,[106,1058],6},{?attr_mp_max,0,[87,862],20}]};	
+get(11444)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11445)  ->
+	{1, [{?attr_defence,0,[21,209],15},{?attr_hp_max,0,[43,423],15},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[31,310],20}]};	
+get(11446)  ->
+	{2, [{?attr_defence,0,[27,261],15},{?attr_hp_max,0,[53,528],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[39,388],20}]};	
+get(11447)  ->
+	{3, [{?attr_defence,0,[32,313],15},{?attr_hp_max,0,[64,634],15},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[47,465],20}]};	
+get(11448)  ->
+	{3, [{?attr_defence,0,[42,417],15},{?attr_hp_max,0,[85,845],15},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[3,26],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[62,620],20}]};	
+get(11449)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11450)  ->
+	{1, [{?attr_defence,0,[33,326],15},{?attr_hp_max,0,[54,531],15},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[22,212],20}]};	
+get(11451)  ->
+	{2, [{?attr_defence,0,[41,407],15},{?attr_hp_max,0,[67,664],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[27,265],20}]};	
+get(11452)  ->
+	{3, [{?attr_defence,0,[49,488],15},{?attr_hp_max,0,[80,797],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[32,318],20}]};	
+get(11453)  ->
+	{3, [{?attr_defence,0,[66,651],15},{?attr_hp_max,0,[107,1062],15},{?attr_evasion,1,[4,34],5},{?attr_tenacity,0,[3,26],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[43,424],20}]};	
+get(11454)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11455)  ->
+	{1, [{?attr_defence,0,[15,147],15},{?attr_hp_max,0,[40,391],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[41,409],20}]};	
+get(11456)  ->
+	{2, [{?attr_defence,0,[19,183],15},{?attr_hp_max,0,[49,489],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[52,511],20}]};	
+get(11457)  ->
+	{3, [{?attr_defence,0,[22,220],15},{?attr_hp_max,0,[59,586],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[62,613],20}]};	
+get(11458)  ->
+	{3, [{?attr_defence,0,[30,293],15},{?attr_hp_max,0,[79,781],15},{?attr_evasion,1,[6,53],5},{?attr_tenacity,0,[3,26],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[82,818],20}]};	
+get(11459)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11460)  ->
+	{1, [{?attr_defence,0,[12,111],15},{?attr_hp_max,0,[40,392],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[56,556],20}]};	
+get(11461)  ->
+	{2, [{?attr_defence,0,[14,138],15},{?attr_hp_max,0,[49,490],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[70,695],20}]};	
+get(11462)  ->
+	{3, [{?attr_defence,0,[17,166],15},{?attr_hp_max,0,[59,588],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[84,834],20}]};	
+get(11463)  ->
+	{3, [{?attr_defence,0,[23,221],15},{?attr_hp_max,0,[79,784],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,26],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[112,1111],20}]};	
+get(11464)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11465)  ->
+	{1, [{?attr_defence,0,[21,209],15},{?attr_hp_max,0,[36,352],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,13],15},{?attr_anti_stun,0,[3,23],6},{?attr_anti_poison,0,[3,23],6},{?attr_anti_sleep,0,[3,23],6},{?attr_anti_stone,0,[3,23],6},{?attr_anti_taunt,0,[3,23],6},{?attr_mp_max,0,[46,458],20}]};	
+get(11466)  ->
+	{2, [{?attr_defence,0,[27,261],15},{?attr_hp_max,0,[44,440],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,16],15},{?attr_anti_stun,0,[3,29],6},{?attr_anti_poison,0,[3,29],6},{?attr_anti_sleep,0,[3,29],6},{?attr_anti_stone,0,[3,29],6},{?attr_anti_taunt,0,[3,29],6},{?attr_mp_max,0,[58,572],20}]};	
+get(11467)  ->
+	{3, [{?attr_defence,0,[32,313],15},{?attr_hp_max,0,[53,528],15},{?attr_evasion,1,[4,34],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,34],6},{?attr_anti_poison,0,[4,34],6},{?attr_anti_sleep,0,[4,34],6},{?attr_anti_stone,0,[4,34],6},{?attr_anti_taunt,0,[4,34],6},{?attr_mp_max,0,[69,687],20}]};	
+get(11468)  ->
+	{3, [{?attr_defence,0,[42,417],15},{?attr_hp_max,0,[71,704],15},{?attr_evasion,1,[5,45],5},{?attr_tenacity,0,[3,26],15},{?attr_anti_stun,0,[5,45],6},{?attr_anti_poison,0,[5,45],6},{?attr_anti_sleep,0,[5,45],6},{?attr_anti_stone,0,[5,45],6},{?attr_anti_taunt,0,[5,45],6},{?attr_mp_max,0,[92,915],20}]};	
+get(11474)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11475)  ->
+	{1, [{?attr_defence,0,[25,245],15},{?attr_hp_max,0,[50,497],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[99,983],6},{?attr_rst_wood,0,[99,983],6},{?attr_rst_water,0,[99,983],6},{?attr_rst_fire,0,[99,983],6},{?attr_rst_earth,0,[99,983],6},{?attr_mp_max,0,[37,365],20}]};	
+get(11476)  ->
+	{2, [{?attr_defence,0,[31,307],15},{?attr_hp_max,0,[63,621],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[46,456],20}]};	
+get(11477)  ->
+	{3, [{?attr_defence,0,[37,368],15},{?attr_hp_max,0,[75,746],15},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,23],15},{?attr_rst_metal,0,[148,1474],6},{?attr_rst_wood,0,[148,1474],6},{?attr_rst_water,0,[148,1474],6},{?attr_rst_fire,0,[148,1474],6},{?attr_rst_earth,0,[148,1474],6},{?attr_mp_max,0,[55,547],20}]};	
+get(11478)  ->
+	{3, [{?attr_defence,0,[49,490],15},{?attr_hp_max,0,[100,994],15},{?attr_evasion,1,[5,49],5},{?attr_tenacity,0,[3,30],15},{?attr_rst_metal,0,[197,1965],6},{?attr_rst_wood,0,[197,1965],6},{?attr_rst_water,0,[197,1965],6},{?attr_rst_fire,0,[197,1965],6},{?attr_rst_earth,0,[197,1965],6},{?attr_mp_max,0,[73,730],20}]};	
+get(11479)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11480)  ->
+	{1, [{?attr_defence,0,[39,383],15},{?attr_hp_max,0,[63,625],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[99,983],6},{?attr_rst_wood,0,[99,983],6},{?attr_rst_water,0,[99,983],6},{?attr_rst_fire,0,[99,983],6},{?attr_rst_earth,0,[99,983],6},{?attr_mp_max,0,[25,250],20}]};	
+get(11481)  ->
+	{2, [{?attr_defence,0,[48,479],15},{?attr_hp_max,0,[79,781],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[32,312],20}]};	
+get(11482)  ->
+	{3, [{?attr_defence,0,[58,574],15},{?attr_hp_max,0,[94,937],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[3,23],15},{?attr_rst_metal,0,[148,1474],6},{?attr_rst_wood,0,[148,1474],6},{?attr_rst_water,0,[148,1474],6},{?attr_rst_fire,0,[148,1474],6},{?attr_rst_earth,0,[148,1474],6},{?attr_mp_max,0,[38,375],20}]};	
+get(11483)  ->
+	{3, [{?attr_defence,0,[77,766],15},{?attr_hp_max,0,[125,1249],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,30],15},{?attr_rst_metal,0,[197,1965],6},{?attr_rst_wood,0,[197,1965],6},{?attr_rst_water,0,[197,1965],6},{?attr_rst_fire,0,[197,1965],6},{?attr_rst_earth,0,[197,1965],6},{?attr_mp_max,0,[50,499],20}]};	
+get(11484)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11485)  ->
+	{1, [{?attr_defence,0,[18,173],15},{?attr_hp_max,0,[46,460],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[99,983],6},{?attr_rst_wood,0,[99,983],6},{?attr_rst_water,0,[99,983],6},{?attr_rst_fire,0,[99,983],6},{?attr_rst_earth,0,[99,983],6},{?attr_mp_max,0,[49,481],20}]};	
+get(11486)  ->
+	{2, [{?attr_defence,0,[22,216],15},{?attr_hp_max,0,[58,575],15},{?attr_evasion,1,[4,39],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[61,601],20}]};	
+get(11487)  ->
+	{3, [{?attr_defence,0,[26,259],15},{?attr_hp_max,0,[69,689],15},{?attr_evasion,1,[5,47],5},{?attr_tenacity,0,[3,23],15},{?attr_rst_metal,0,[148,1474],6},{?attr_rst_wood,0,[148,1474],6},{?attr_rst_water,0,[148,1474],6},{?attr_rst_fire,0,[148,1474],6},{?attr_rst_earth,0,[148,1474],6},{?attr_mp_max,0,[73,721],20}]};	
+get(11488)  ->
+	{3, [{?attr_defence,0,[35,345],15},{?attr_hp_max,0,[92,919],15},{?attr_evasion,1,[7,62],5},{?attr_tenacity,0,[3,30],15},{?attr_rst_metal,0,[197,1965],6},{?attr_rst_wood,0,[197,1965],6},{?attr_rst_water,0,[197,1965],6},{?attr_rst_fire,0,[197,1965],6},{?attr_rst_earth,0,[197,1965],6},{?attr_mp_max,0,[97,962],20}]};	
+get(11489)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11490)  ->
+	{1, [{?attr_defence,0,[13,130],15},{?attr_hp_max,0,[47,461],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[99,983],6},{?attr_rst_wood,0,[99,983],6},{?attr_rst_water,0,[99,983],6},{?attr_rst_fire,0,[99,983],6},{?attr_rst_earth,0,[99,983],6},{?attr_mp_max,0,[66,654],20}]};	
+get(11491)  ->
+	{2, [{?attr_defence,0,[17,163],15},{?attr_hp_max,0,[58,577],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[82,817],20}]};	
+get(11492)  ->
+	{3, [{?attr_defence,0,[20,195],15},{?attr_hp_max,0,[70,692],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,23],15},{?attr_rst_metal,0,[148,1474],6},{?attr_rst_wood,0,[148,1474],6},{?attr_rst_water,0,[148,1474],6},{?attr_rst_fire,0,[148,1474],6},{?attr_rst_earth,0,[148,1474],6},{?attr_mp_max,0,[99,981],20}]};	
+get(11493)  ->
+	{3, [{?attr_defence,0,[26,260],15},{?attr_hp_max,0,[93,922],15},{?attr_evasion,1,[5,46],5},{?attr_tenacity,0,[3,30],15},{?attr_rst_metal,0,[197,1965],6},{?attr_rst_wood,0,[197,1965],6},{?attr_rst_water,0,[197,1965],6},{?attr_rst_fire,0,[197,1965],6},{?attr_rst_earth,0,[197,1965],6},{?attr_mp_max,0,[131,1307],20}]};	
+get(11494)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11495)  ->
+	{1, [{?attr_defence,0,[25,245],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,15],15},{?attr_rst_metal,0,[99,983],6},{?attr_rst_wood,0,[99,983],6},{?attr_rst_water,0,[99,983],6},{?attr_rst_fire,0,[99,983],6},{?attr_rst_earth,0,[99,983],6},{?attr_mp_max,0,[54,539],20}]};	
+get(11496)  ->
+	{2, [{?attr_defence,0,[31,307],15},{?attr_hp_max,0,[52,518],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,19],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[68,673],20}]};	
+get(11497)  ->
+	{3, [{?attr_defence,0,[37,368],15},{?attr_hp_max,0,[63,621],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,23],15},{?attr_rst_metal,0,[148,1474],6},{?attr_rst_wood,0,[148,1474],6},{?attr_rst_water,0,[148,1474],6},{?attr_rst_fire,0,[148,1474],6},{?attr_rst_earth,0,[148,1474],6},{?attr_mp_max,0,[81,808],20}]};	
+get(11498)  ->
+	{3, [{?attr_defence,0,[49,490],15},{?attr_hp_max,0,[83,828],15},{?attr_evasion,1,[6,53],5},{?attr_tenacity,0,[3,30],15},{?attr_rst_metal,0,[197,1965],6},{?attr_rst_wood,0,[197,1965],6},{?attr_rst_water,0,[197,1965],6},{?attr_rst_fire,0,[197,1965],6},{?attr_rst_earth,0,[197,1965],6},{?attr_mp_max,0,[108,1077],20}]};	
+get(10012)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(10197)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(10382)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(10567)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(10752)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(10937)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(11122)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(11307)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(10013)  ->
+	{1, [{?attr_rst_metal,0,[3,25],15},{?attr_rst_wood,0,[3,25],15},{?attr_rst_water,0,[3,25],15},{?attr_rst_fire,0,[3,25],15},{?attr_rst_earth,0,[3,25],15},{?attr_anti_stun,0,[1,3],5},{?attr_anti_poison,0,[1,3],5},{?attr_anti_sleep,0,[1,3],5},{?attr_anti_stone,0,[1,3],5},{?attr_anti_taunt,0,[1,3],5}]};	
+get(10198)  ->
+	{1, [{?attr_rst_metal,0,[8,80],15},{?attr_rst_wood,0,[8,80],15},{?attr_rst_water,0,[8,80],15},{?attr_rst_fire,0,[8,80],15},{?attr_rst_earth,0,[8,80],15},{?attr_anti_stun,0,[1,5],5},{?attr_anti_poison,0,[1,5],5},{?attr_anti_sleep,0,[1,5],5},{?attr_anti_stone,0,[1,5],5},{?attr_anti_taunt,0,[1,5],5}]};	
+get(10383)  ->
+	{1, [{?attr_rst_metal,0,[15,144],15},{?attr_rst_wood,0,[15,144],15},{?attr_rst_water,0,[15,144],15},{?attr_rst_fire,0,[15,144],15},{?attr_rst_earth,0,[15,144],15},{?attr_anti_stun,0,[1,8],5},{?attr_anti_poison,0,[1,8],5},{?attr_anti_sleep,0,[1,8],5},{?attr_anti_stone,0,[1,8],5},{?attr_anti_taunt,0,[1,8],5}]};	
+get(10568)  ->
+	{1, [{?attr_rst_metal,0,[22,215],15},{?attr_rst_wood,0,[22,215],15},{?attr_rst_water,0,[22,215],15},{?attr_rst_fire,0,[22,215],15},{?attr_rst_earth,0,[22,215],15},{?attr_anti_stun,0,[1,10],5},{?attr_anti_poison,0,[1,10],5},{?attr_anti_sleep,0,[1,10],5},{?attr_anti_stone,0,[1,10],5},{?attr_anti_taunt,0,[1,10],5}]};	
+get(10753)  ->
+	{1, [{?attr_rst_metal,0,[30,298],15},{?attr_rst_wood,0,[30,298],15},{?attr_rst_water,0,[30,298],15},{?attr_rst_fire,0,[30,298],15},{?attr_rst_earth,0,[30,298],15},{?attr_anti_stun,0,[2,13],5},{?attr_anti_poison,0,[2,13],5},{?attr_anti_sleep,0,[2,13],5},{?attr_anti_stone,0,[2,13],5},{?attr_anti_taunt,0,[2,13],5}]};	
+get(10938)  ->
+	{1, [{?attr_rst_metal,0,[40,396],15},{?attr_rst_wood,0,[40,396],15},{?attr_rst_water,0,[40,396],15},{?attr_rst_fire,0,[40,396],15},{?attr_rst_earth,0,[40,396],15},{?attr_anti_stun,0,[2,15],5},{?attr_anti_poison,0,[2,15],5},{?attr_anti_sleep,0,[2,15],5},{?attr_anti_stone,0,[2,15],5},{?attr_anti_taunt,0,[2,15],5}]};	
+get(11123)  ->
+	{1, [{?attr_rst_metal,0,[53,525],15},{?attr_rst_wood,0,[53,525],15},{?attr_rst_water,0,[53,525],15},{?attr_rst_fire,0,[53,525],15},{?attr_rst_earth,0,[53,525],15},{?attr_anti_stun,0,[2,18],5},{?attr_anti_poison,0,[2,18],5},{?attr_anti_sleep,0,[2,18],5},{?attr_anti_stone,0,[2,18],5},{?attr_anti_taunt,0,[2,18],5}]};	
+get(11308)  ->
+	{1, [{?attr_rst_metal,0,[71,708],15},{?attr_rst_wood,0,[71,708],15},{?attr_rst_water,0,[71,708],15},{?attr_rst_fire,0,[71,708],15},{?attr_rst_earth,0,[71,708],15},{?attr_anti_stun,0,[2,20],5},{?attr_anti_poison,0,[2,20],5},{?attr_anti_sleep,0,[2,20],5},{?attr_anti_stone,0,[2,20],5},{?attr_anti_taunt,0,[2,20],5}]};	
+get(10014)  ->
+	{2, [{?attr_rst_metal,0,[4,32],15},{?attr_rst_wood,0,[4,32],15},{?attr_rst_water,0,[4,32],15},{?attr_rst_fire,0,[4,32],15},{?attr_rst_earth,0,[4,32],15},{?attr_anti_stun,0,[1,4],5},{?attr_anti_poison,0,[1,4],5},{?attr_anti_sleep,0,[1,4],5},{?attr_anti_stone,0,[1,4],5},{?attr_anti_taunt,0,[1,4],5}]};	
+get(10199)  ->
+	{2, [{?attr_rst_metal,0,[10,100],15},{?attr_rst_wood,0,[10,100],15},{?attr_rst_water,0,[10,100],15},{?attr_rst_fire,0,[10,100],15},{?attr_rst_earth,0,[10,100],15},{?attr_anti_stun,0,[1,7],5},{?attr_anti_poison,0,[1,7],5},{?attr_anti_sleep,0,[1,7],5},{?attr_anti_stone,0,[1,7],5},{?attr_anti_taunt,0,[1,7],5}]};	
+get(10384)  ->
+	{2, [{?attr_rst_metal,0,[18,180],15},{?attr_rst_wood,0,[18,180],15},{?attr_rst_water,0,[18,180],15},{?attr_rst_fire,0,[18,180],15},{?attr_rst_earth,0,[18,180],15},{?attr_anti_stun,0,[1,10],5},{?attr_anti_poison,0,[1,10],5},{?attr_anti_sleep,0,[1,10],5},{?attr_anti_stone,0,[1,10],5},{?attr_anti_taunt,0,[1,10],5}]};	
+get(10569)  ->
+	{2, [{?attr_rst_metal,0,[27,269],15},{?attr_rst_wood,0,[27,269],15},{?attr_rst_water,0,[27,269],15},{?attr_rst_fire,0,[27,269],15},{?attr_rst_earth,0,[27,269],15},{?attr_anti_stun,0,[2,13],5},{?attr_anti_poison,0,[2,13],5},{?attr_anti_sleep,0,[2,13],5},{?attr_anti_stone,0,[2,13],5},{?attr_anti_taunt,0,[2,13],5}]};	
+get(10754)  ->
+	{2, [{?attr_rst_metal,0,[38,372],15},{?attr_rst_wood,0,[38,372],15},{?attr_rst_water,0,[38,372],15},{?attr_rst_fire,0,[38,372],15},{?attr_rst_earth,0,[38,372],15},{?attr_anti_stun,0,[2,16],5},{?attr_anti_poison,0,[2,16],5},{?attr_anti_sleep,0,[2,16],5},{?attr_anti_stone,0,[2,16],5},{?attr_anti_taunt,0,[2,16],5}]};	
+get(10939)  ->
+	{2, [{?attr_rst_metal,0,[50,495],15},{?attr_rst_wood,0,[50,495],15},{?attr_rst_water,0,[50,495],15},{?attr_rst_fire,0,[50,495],15},{?attr_rst_earth,0,[50,495],15},{?attr_anti_stun,0,[2,19],5},{?attr_anti_poison,0,[2,19],5},{?attr_anti_sleep,0,[2,19],5},{?attr_anti_stone,0,[2,19],5},{?attr_anti_taunt,0,[2,19],5}]};	
+get(11124)  ->
+	{2, [{?attr_rst_metal,0,[66,656],15},{?attr_rst_wood,0,[66,656],15},{?attr_rst_water,0,[66,656],15},{?attr_rst_fire,0,[66,656],15},{?attr_rst_earth,0,[66,656],15},{?attr_anti_stun,0,[3,22],5},{?attr_anti_poison,0,[3,22],5},{?attr_anti_sleep,0,[3,22],5},{?attr_anti_stone,0,[3,22],5},{?attr_anti_taunt,0,[3,22],5}]};	
+get(11309)  ->
+	{2, [{?attr_rst_metal,0,[89,885],15},{?attr_rst_wood,0,[89,885],15},{?attr_rst_water,0,[89,885],15},{?attr_rst_fire,0,[89,885],15},{?attr_rst_earth,0,[89,885],15},{?attr_anti_stun,0,[3,25],5},{?attr_anti_poison,0,[3,25],5},{?attr_anti_sleep,0,[3,25],5},{?attr_anti_stone,0,[3,25],5},{?attr_anti_taunt,0,[3,25],5}]};	
+get(10015)  ->
+	{3, [{?attr_rst_metal,0,[4,38],15},{?attr_rst_wood,0,[4,38],15},{?attr_rst_water,0,[4,38],15},{?attr_rst_fire,0,[4,38],15},{?attr_rst_earth,0,[4,38],15},{?attr_anti_stun,0,[1,4],5},{?attr_anti_poison,0,[1,4],5},{?attr_anti_sleep,0,[1,4],5},{?attr_anti_stone,0,[1,4],5},{?attr_anti_taunt,0,[1,4],5}]};	
+get(10200)  ->
+	{3, [{?attr_rst_metal,0,[12,120],15},{?attr_rst_wood,0,[12,120],15},{?attr_rst_water,0,[12,120],15},{?attr_rst_fire,0,[12,120],15},{?attr_rst_earth,0,[12,120],15},{?attr_anti_stun,0,[1,8],5},{?attr_anti_poison,0,[1,8],5},{?attr_anti_sleep,0,[1,8],5},{?attr_anti_stone,0,[1,8],5},{?attr_anti_taunt,0,[1,8],5}]};	
+get(10385)  ->
+	{3, [{?attr_rst_metal,0,[22,216],15},{?attr_rst_wood,0,[22,216],15},{?attr_rst_water,0,[22,216],15},{?attr_rst_fire,0,[22,216],15},{?attr_rst_earth,0,[22,216],15},{?attr_anti_stun,0,[2,12],5},{?attr_anti_poison,0,[2,12],5},{?attr_anti_sleep,0,[2,12],5},{?attr_anti_stone,0,[2,12],5},{?attr_anti_taunt,0,[2,12],5}]};	
+get(10570)  ->
+	{3, [{?attr_rst_metal,0,[33,322],15},{?attr_rst_wood,0,[33,322],15},{?attr_rst_water,0,[33,322],15},{?attr_rst_fire,0,[33,322],15},{?attr_rst_earth,0,[33,322],15},{?attr_anti_stun,0,[2,15],5},{?attr_anti_poison,0,[2,15],5},{?attr_anti_sleep,0,[2,15],5},{?attr_anti_stone,0,[2,15],5},{?attr_anti_taunt,0,[2,15],5}]};	
+get(10755)  ->
+	{3, [{?attr_rst_metal,0,[45,447],15},{?attr_rst_wood,0,[45,447],15},{?attr_rst_water,0,[45,447],15},{?attr_rst_fire,0,[45,447],15},{?attr_rst_earth,0,[45,447],15},{?attr_anti_stun,0,[2,19],5},{?attr_anti_poison,0,[2,19],5},{?attr_anti_sleep,0,[2,19],5},{?attr_anti_stone,0,[2,19],5},{?attr_anti_taunt,0,[2,19],5}]};	
+get(10940)  ->
+	{3, [{?attr_rst_metal,0,[60,594],15},{?attr_rst_wood,0,[60,594],15},{?attr_rst_water,0,[60,594],15},{?attr_rst_fire,0,[60,594],15},{?attr_rst_earth,0,[60,594],15},{?attr_anti_stun,0,[3,23],5},{?attr_anti_poison,0,[3,23],5},{?attr_anti_sleep,0,[3,23],5},{?attr_anti_stone,0,[3,23],5},{?attr_anti_taunt,0,[3,23],5}]};	
+get(11125)  ->
+	{3, [{?attr_rst_metal,0,[79,787],15},{?attr_rst_wood,0,[79,787],15},{?attr_rst_water,0,[79,787],15},{?attr_rst_fire,0,[79,787],15},{?attr_rst_earth,0,[79,787],15},{?attr_anti_stun,0,[3,27],5},{?attr_anti_poison,0,[3,27],5},{?attr_anti_sleep,0,[3,27],5},{?attr_anti_stone,0,[3,27],5},{?attr_anti_taunt,0,[3,27],5}]};	
+get(11310)  ->
+	{3, [{?attr_rst_metal,0,[107,1062],15},{?attr_rst_wood,0,[107,1062],15},{?attr_rst_water,0,[107,1062],15},{?attr_rst_fire,0,[107,1062],15},{?attr_rst_earth,0,[107,1062],15},{?attr_anti_stun,0,[3,30],5},{?attr_anti_poison,0,[3,30],5},{?attr_anti_sleep,0,[3,30],5},{?attr_anti_stone,0,[3,30],5},{?attr_anti_taunt,0,[3,30],5}]};	
+get(10016)  ->
+	{3, [{?attr_rst_metal,0,[5,50],15},{?attr_rst_wood,0,[5,50],15},{?attr_rst_water,0,[5,50],15},{?attr_rst_fire,0,[5,50],15},{?attr_rst_earth,0,[5,50],15},{?attr_anti_stun,0,[1,5],5},{?attr_anti_poison,0,[1,5],5},{?attr_anti_sleep,0,[1,5],5},{?attr_anti_stone,0,[1,5],5},{?attr_anti_taunt,0,[1,5],5}]};	
+get(10201)  ->
+	{3, [{?attr_rst_metal,0,[16,160],15},{?attr_rst_wood,0,[16,160],15},{?attr_rst_water,0,[16,160],15},{?attr_rst_fire,0,[16,160],15},{?attr_rst_earth,0,[16,160],15},{?attr_anti_stun,0,[1,10],5},{?attr_anti_poison,0,[1,10],5},{?attr_anti_sleep,0,[1,10],5},{?attr_anti_stone,0,[1,10],5},{?attr_anti_taunt,0,[1,10],5}]};	
+get(10386)  ->
+	{3, [{?attr_rst_metal,0,[29,288],15},{?attr_rst_wood,0,[29,288],15},{?attr_rst_water,0,[29,288],15},{?attr_rst_fire,0,[29,288],15},{?attr_rst_earth,0,[29,288],15},{?attr_anti_stun,0,[2,15],5},{?attr_anti_poison,0,[2,15],5},{?attr_anti_sleep,0,[2,15],5},{?attr_anti_stone,0,[2,15],5},{?attr_anti_taunt,0,[2,15],5}]};	
+get(10571)  ->
+	{3, [{?attr_rst_metal,0,[43,430],15},{?attr_rst_wood,0,[43,430],15},{?attr_rst_water,0,[43,430],15},{?attr_rst_fire,0,[43,430],15},{?attr_rst_earth,0,[43,430],15},{?attr_anti_stun,0,[2,20],5},{?attr_anti_poison,0,[2,20],5},{?attr_anti_sleep,0,[2,20],5},{?attr_anti_stone,0,[2,20],5},{?attr_anti_taunt,0,[2,20],5}]};	
+get(10756)  ->
+	{3, [{?attr_rst_metal,0,[60,595],15},{?attr_rst_wood,0,[60,595],15},{?attr_rst_water,0,[60,595],15},{?attr_rst_fire,0,[60,595],15},{?attr_rst_earth,0,[60,595],15},{?attr_anti_stun,0,[3,25],5},{?attr_anti_poison,0,[3,25],5},{?attr_anti_sleep,0,[3,25],5},{?attr_anti_stone,0,[3,25],5},{?attr_anti_taunt,0,[3,25],5}]};	
+get(10941)  ->
+	{3, [{?attr_rst_metal,0,[80,792],15},{?attr_rst_wood,0,[80,792],15},{?attr_rst_water,0,[80,792],15},{?attr_rst_fire,0,[80,792],15},{?attr_rst_earth,0,[80,792],15},{?attr_anti_stun,0,[3,30],5},{?attr_anti_poison,0,[3,30],5},{?attr_anti_sleep,0,[3,30],5},{?attr_anti_stone,0,[3,30],5},{?attr_anti_taunt,0,[3,30],5}]};	
+get(11126)  ->
+	{3, [{?attr_rst_metal,0,[105,1049],15},{?attr_rst_wood,0,[105,1049],15},{?attr_rst_water,0,[105,1049],15},{?attr_rst_fire,0,[105,1049],15},{?attr_rst_earth,0,[105,1049],15},{?attr_anti_stun,0,[4,35],5},{?attr_anti_poison,0,[4,35],5},{?attr_anti_sleep,0,[4,35],5},{?attr_anti_stone,0,[4,35],5},{?attr_anti_taunt,0,[4,35],5}]};	
+get(11311)  ->
+	{3, [{?attr_rst_metal,0,[142,1416],15},{?attr_rst_wood,0,[142,1416],15},{?attr_rst_water,0,[142,1416],15},{?attr_rst_fire,0,[142,1416],15},{?attr_rst_earth,0,[142,1416],15},{?attr_anti_stun,0,[4,40],5},{?attr_anti_poison,0,[4,40],5},{?attr_anti_sleep,0,[4,40],5},{?attr_anti_stone,0,[4,40],5},{?attr_anti_taunt,0,[4,40],5}]};	
+get(11499)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(11500)  ->
+	{1, [{?attr_rst_metal,0,[95,945],15},{?attr_rst_wood,0,[95,945],15},{?attr_rst_water,0,[95,945],15},{?attr_rst_fire,0,[95,945],15},{?attr_rst_earth,0,[95,945],15},{?attr_anti_stun,0,[3,23],5},{?attr_anti_poison,0,[3,23],5},{?attr_anti_sleep,0,[3,23],5},{?attr_anti_stone,0,[3,23],5},{?attr_anti_taunt,0,[3,23],5}]};	
+get(11501)  ->
+	{2, [{?attr_rst_metal,0,[119,1181],15},{?attr_rst_wood,0,[119,1181],15},{?attr_rst_water,0,[119,1181],15},{?attr_rst_fire,0,[119,1181],15},{?attr_rst_earth,0,[119,1181],15},{?attr_anti_stun,0,[3,29],5},{?attr_anti_poison,0,[3,29],5},{?attr_anti_sleep,0,[3,29],5},{?attr_anti_stone,0,[3,29],5},{?attr_anti_taunt,0,[3,29],5}]};	
+get(11502)  ->
+	{3, [{?attr_rst_metal,0,[142,1417],15},{?attr_rst_wood,0,[142,1417],15},{?attr_rst_water,0,[142,1417],15},{?attr_rst_fire,0,[142,1417],15},{?attr_rst_earth,0,[142,1417],15},{?attr_anti_stun,0,[4,34],5},{?attr_anti_poison,0,[4,34],5},{?attr_anti_sleep,0,[4,34],5},{?attr_anti_stone,0,[4,34],5},{?attr_anti_taunt,0,[4,34],5}]};	
+get(11503)  ->
+	{3, [{?attr_rst_metal,0,[189,1889],15},{?attr_rst_wood,0,[189,1889],15},{?attr_rst_water,0,[189,1889],15},{?attr_rst_fire,0,[189,1889],15},{?attr_rst_earth,0,[189,1889],15},{?attr_anti_stun,0,[5,45],5},{?attr_anti_poison,0,[5,45],5},{?attr_anti_sleep,0,[5,45],5},{?attr_anti_stone,0,[5,45],5},{?attr_anti_taunt,0,[5,45],5}]};	
+get(10006)  ->
+	{0, [{?attr_dmg_magic,0,[0,0],25},{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_js,0,[0,0],10}]};	
+get(10167)  ->
+	{0, [{?attr_dmg_magic,0,[0,0],25},{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_js,0,[0,0],10}]};	
+get(10352)  ->
+	{0, [{?attr_dmg_magic,0,[0,0],25},{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_js,0,[0,0],10}]};	
+get(10537)  ->
+	{0, [{?attr_dmg_magic,0,[0,0],25},{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_js,0,[0,0],10}]};	
+get(10722)  ->
+	{0, [{?attr_dmg_magic,0,[0,0],25},{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_js,0,[0,0],10}]};	
+get(10907)  ->
+	{0, [{?attr_dmg_magic,0,[0,0],25},{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_js,0,[0,0],10}]};	
+get(11092)  ->
+	{0, [{?attr_dmg_magic,0,[0,0],25},{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_js,0,[0,0],10}]};	
+get(11277)  ->
+	{0, [{?attr_dmg_magic,0,[0,0],25},{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_js,0,[0,0],10}]};	
+get(10007)  ->
+	{1, [{?attr_dmg_magic,0,[2,15],25},{?attr_dmg,0,[1,7],25},{?attr_critrate,1,[1,1],20},{?attr_hitrate,1,[1,2],20},{?attr_js,0,[1,7],10}]};	
+get(10168)  ->
+	{1, [{?attr_dmg_magic,0,[3,23],25},{?attr_dmg,0,[2,13],25},{?attr_critrate,1,[1,2],20},{?attr_hitrate,1,[1,3],20},{?attr_js,0,[2,13],10}]};	
+get(10353)  ->
+	{1, [{?attr_dmg_magic,0,[3,30],25},{?attr_dmg,0,[2,20],25},{?attr_critrate,1,[1,3],20},{?attr_hitrate,1,[1,4],20},{?attr_js,0,[2,20],10}]};	
+get(10538)  ->
+	{1, [{?attr_dmg_magic,0,[4,38],25},{?attr_dmg,0,[3,26],25},{?attr_critrate,1,[1,4],20},{?attr_hitrate,1,[1,6],20},{?attr_js,0,[3,26],10}]};	
+get(10723)  ->
+	{1, [{?attr_dmg_magic,0,[5,45],25},{?attr_dmg,0,[4,33],25},{?attr_critrate,1,[1,5],20},{?attr_hitrate,1,[1,7],20},{?attr_js,0,[4,33],10}]};	
+get(10908)  ->
+	{1, [{?attr_dmg_magic,0,[6,53],25},{?attr_dmg,0,[4,39],25},{?attr_critrate,1,[1,6],20},{?attr_hitrate,1,[1,8],20},{?attr_js,0,[4,39],10}]};	
+get(11093)  ->
+	{1, [{?attr_dmg_magic,0,[6,60],25},{?attr_dmg,0,[5,46],25},{?attr_critrate,1,[1,7],20},{?attr_hitrate,1,[1,10],20},{?attr_js,0,[5,45],10}]};	
+get(11278)  ->
+	{1, [{?attr_dmg_magic,0,[7,68],25},{?attr_dmg,0,[6,53],25},{?attr_critrate,1,[1,7],20},{?attr_hitrate,1,[2,11],20},{?attr_js,0,[6,52],10}]};	
+get(10008)  ->
+	{2, [{?attr_dmg_magic,0,[2,19],25},{?attr_dmg,0,[1,8],25},{?attr_critrate,1,[1,2],20},{?attr_hitrate,1,[1,2],20},{?attr_js,0,[1,9],10}]};	
+get(10169)  ->
+	{2, [{?attr_dmg_magic,0,[3,29],25},{?attr_dmg,0,[2,16],25},{?attr_critrate,1,[1,3],20},{?attr_hitrate,1,[1,4],20},{?attr_js,0,[2,17],10}]};	
+get(10354)  ->
+	{2, [{?attr_dmg_magic,0,[4,38],25},{?attr_dmg,0,[3,24],25},{?attr_critrate,1,[1,4],20},{?attr_hitrate,1,[1,5],20},{?attr_js,0,[3,25],10}]};	
+get(10539)  ->
+	{2, [{?attr_dmg_magic,0,[5,47],40},{?attr_dmg,0,[4,33],40},{?attr_critrate,1,[1,5],5},{?attr_hitrate,1,[1,7],10},{?attr_js,0,[4,33],5}]};	
+get(10724)  ->
+	{2, [{?attr_dmg_magic,0,[6,57],25},{?attr_dmg,0,[5,41],25},{?attr_critrate,1,[1,6],20},{?attr_hitrate,1,[1,9],20},{?attr_js,0,[5,41],10}]};	
+get(10909)  ->
+	{2, [{?attr_dmg_magic,0,[7,66],25},{?attr_dmg,0,[5,49],25},{?attr_critrate,1,[1,7],20},{?attr_hitrate,1,[1,10],20},{?attr_js,0,[5,49],10}]};	
+get(11094)  ->
+	{2, [{?attr_dmg_magic,0,[8,75],25},{?attr_dmg,0,[6,57],25},{?attr_critrate,1,[1,8],20},{?attr_hitrate,1,[2,12],20},{?attr_js,0,[6,57],10}]};	
+get(11279)  ->
+	{2, [{?attr_dmg_magic,0,[9,85],25},{?attr_dmg,0,[7,66],25},{?attr_critrate,1,[1,9],20},{?attr_hitrate,1,[2,14],20},{?attr_js,0,[7,65],10}]};	
+get(10009)  ->
+	{3, [{?attr_dmg_magic,0,[3,23],24},{?attr_dmg,0,[1,10],25},{?attr_critrate,1,[1,2],20},{?attr_hitrate,1,[1,2],20},{?attr_js,0,[1,10],10},{?attr_skill_lev,1,[102,202,302,402,502],1}]};	
+get(10170)  ->
+	{3, [{?attr_dmg_magic,0,[4,34],24},{?attr_dmg,0,[2,19],25},{?attr_critrate,1,[1,3],20},{?attr_hitrate,1,[1,4],20},{?attr_js,0,[2,20],10},{?attr_skill_lev,1,[102,202,302,402,502],1}]};	
+get(10355)  ->
+	{3, [{?attr_dmg_magic,0,[5,45],24},{?attr_dmg,0,[3,29],25},{?attr_critrate,1,[1,4],20},{?attr_hitrate,1,[1,6],20},{?attr_js,0,[3,30],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505],1}]};	
+get(10540)  ->
+	{3, [{?attr_dmg_magic,0,[6,57],24},{?attr_dmg,0,[4,39],25},{?attr_critrate,1,[1,6],20},{?attr_hitrate,1,[1,8],20},{?attr_js,0,[4,39],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509],1}]};	
+get(10725)  ->
+	{3, [{?attr_dmg_magic,0,[7,68],24},{?attr_dmg,0,[5,49],25},{?attr_critrate,1,[1,7],20},{?attr_hitrate,1,[1,10],20},{?attr_js,0,[5,49],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511],1}]};	
+get(10910)  ->
+	{3, [{?attr_dmg_magic,0,[8,79],24},{?attr_dmg,0,[6,59],25},{?attr_critrate,1,[1,8],20},{?attr_hitrate,1,[2,12],20},{?attr_js,0,[6,58],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513],1}]};	
+get(11095)  ->
+	{3, [{?attr_dmg_magic,0,[9,90],24},{?attr_dmg,0,[7,69],25},{?attr_critrate,1,[1,10],20},{?attr_hitrate,1,[2,14],20},{?attr_js,0,[7,68],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513],1}]};	
+get(11280)  ->
+	{3, [{?attr_dmg_magic,0,[11,102],24},{?attr_dmg,0,[8,79],25},{?attr_critrate,1,[2,11],20},{?attr_hitrate,1,[2,16],20},{?attr_js,0,[8,78],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513,119,219,319,419,519],1}]};	
+get(10010)  ->
+	{3, [{?attr_dmg_magic,0,[3,30],24},{?attr_dmg,0,[2,13],25},{?attr_critrate,1,[1,2],20},{?attr_hitrate,1,[1,3],20},{?attr_js,0,[2,14],10},{?attr_skill_lev,1,[102,202,302,402,502],1}]};	
+get(10171)  ->
+	{3, [{?attr_dmg_magic,0,[5,45],24},{?attr_dmg,0,[3,26],25},{?attr_critrate,1,[1,4],20},{?attr_hitrate,1,[1,5],20},{?attr_js,0,[3,26],10},{?attr_skill_lev,1,[102,202,302,402,502],1}]};	
+get(10356)  ->
+	{3, [{?attr_dmg_magic,0,[6,60],24},{?attr_dmg,0,[4,39],25},{?attr_critrate,1,[1,6],20},{?attr_hitrate,1,[1,8],20},{?attr_js,0,[4,39],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505],1}]};	
+get(10541)  ->
+	{3, [{?attr_dmg_magic,0,[8,75],24},{?attr_dmg,0,[6,52],25},{?attr_critrate,1,[1,7],20},{?attr_hitrate,1,[2,11],20},{?attr_js,0,[6,52],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509],1}]};	
+get(10726)  ->
+	{3, [{?attr_dmg_magic,0,[9,90],24},{?attr_dmg,0,[7,65],25},{?attr_critrate,1,[1,9],20},{?attr_hitrate,1,[2,13],20},{?attr_js,0,[7,65],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511],1}]};	
+get(10911)  ->
+	{3, [{?attr_dmg_magic,0,[11,105],24},{?attr_dmg,0,[8,78],25},{?attr_critrate,1,[2,11],20},{?attr_hitrate,1,[2,16],20},{?attr_js,0,[8,78],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513],1}]};	
+get(11096)  ->
+	{3, [{?attr_dmg_magic,0,[12,120],24},{?attr_dmg,0,[10,91],25},{?attr_critrate,1,[2,13],20},{?attr_hitrate,1,[2,19],20},{?attr_js,0,[9,90],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513],1}]};	
+get(11281)  ->
+	{3, [{?attr_dmg_magic,0,[14,135],24},{?attr_dmg,0,[11,105],25},{?attr_critrate,1,[2,14],20},{?attr_hitrate,1,[3,22],20},{?attr_js,0,[11,103],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513,119,219,319,419,519],1}]};	
+get(11469)  ->
+	{0, [{?attr_dmg_magic,0,[0,0],25},{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_js,0,[0,0],10}]};	
+get(11470)  ->
+	{1, [{?attr_dmg_magic,0,[8,75],25},{?attr_dmg,0,[6,59],25},{?attr_critrate,1,[1,8],20},{?attr_hitrate,1,[2,12],20},{?attr_js,0,[6,58],10}]};	
+get(11471)  ->
+	{2, [{?attr_dmg_magic,0,[10,94],25},{?attr_dmg,0,[8,74],25},{?attr_critrate,1,[1,10],20},{?attr_hitrate,1,[2,15],20},{?attr_js,0,[8,73],10}]};	
+get(11472)  ->
+	{3, [{?attr_dmg_magic,0,[12,113],24},{?attr_dmg,0,[9,89],25},{?attr_critrate,1,[2,12],20},{?attr_hitrate,1,[2,18],20},{?attr_js,0,[9,87],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513,119,219,319,419,519],1}]};	
+get(11473)  ->
+	{3, [{?attr_dmg_magic,0,[15,150],24},{?attr_dmg,0,[12,118],25},{?attr_critrate,1,[2,16],20},{?attr_hitrate,1,[3,24],20},{?attr_js,0,[12,116],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513,119,219,319,419,519],1}]};	
+get(10002)  ->
+	{1, [{?attr_defence,0,[1,10],15},{?attr_hp_max,0,[4,31],15},{?attr_evasion,0,[1,2],10},{?attr_tenacity,0,[1,2],10},{?attr_rst_metal,0,[1,10],10},{?attr_rst_wood,0,[1,10],10},{?attr_rst_water,0,[1,10],10},{?attr_rst_fire,0,[1,10],10},{?attr_rst_earth,0,[1,10],10}]};	
+get(10001)  ->
+	{1, [{?attr_defence,0,[1,5],15},{?attr_hp_max,0,[3,29],15},{?attr_evasion,0,[1,2],10},{?attr_tenacity,0,[1,2],10},{?attr_rst_metal,0,[1,9],10},{?attr_rst_wood,0,[1,9],10},{?attr_rst_water,0,[1,9],10},{?attr_rst_fire,0,[1,9],10},{?attr_rst_earth,0,[1,9],10}]};	
+get(10005)  ->
+	{1, [{?attr_defence,0,[1,6],15},{?attr_hp_max,0,[4,36],15},{?attr_evasion,0,[1,3],10},{?attr_tenacity,0,[1,2],10},{?attr_rst_metal,0,[2,11],10},{?attr_rst_wood,0,[2,11],10},{?attr_rst_water,0,[2,11],10},{?attr_rst_fire,0,[2,11],10},{?attr_rst_earth,0,[2,11],10}]};	
+get(10004)  ->
+	{1, [{?attr_defence,0,[1,6],15},{?attr_hp_max,0,[4,34],15},{?attr_evasion,0,[1,3],10},{?attr_tenacity,0,[1,2],10},{?attr_rst_metal,0,[1,10],10},{?attr_rst_wood,0,[1,10],10},{?attr_rst_water,0,[1,10],10},{?attr_rst_fire,0,[1,10],10},{?attr_rst_earth,0,[1,10],10}]};	
+get(10003)  ->
+	{1, [{?attr_defence,0,[1,6],15},{?attr_hp_max,0,[4,38],15},{?attr_evasion,0,[1,3],10},{?attr_tenacity,0,[1,2],10},{?attr_rst_metal,0,[2,11],10},{?attr_rst_wood,0,[2,11],10},{?attr_rst_water,0,[2,11],10},{?attr_rst_fire,0,[2,11],10},{?attr_rst_earth,0,[2,11],10}]};	
+get(10011)  ->
+	{1, [{?attr_defence,0,[1,7],15},{?attr_hp_max,0,[5,42],15},{?attr_evasion,0,[1,3],10},{?attr_tenacity,0,[1,3],10},{?attr_rst_metal,0,[2,13],10},{?attr_rst_wood,0,[2,13],10},{?attr_rst_water,0,[2,13],10},{?attr_rst_fire,0,[2,13],10},{?attr_rst_earth,0,[2,13],10}]};	
+get(16000)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16001)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16002)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16003)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16004)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16005)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16006)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16007)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16008)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16009)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16010)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16011)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16012)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16013)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16014)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16015)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16016)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16017)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16018)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16019)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16020)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16021)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16022)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16023)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16024)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16025)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16026)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16027)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16028)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16029)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16030)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16031)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16032)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16033)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16034)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[2,20],10},{?attr_anti_taunt,0,[2,20],10},{?attr_anti_stone,0,[2,20],10},{?attr_anti_sleep,0,[2,20],10},{?attr_anti_poison,0,[2,20],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16035)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[2,20],10},{?attr_anti_taunt,0,[2,20],10},{?attr_anti_stone,0,[2,20],10},{?attr_anti_sleep,0,[2,20],10},{?attr_anti_poison,0,[2,20],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16036)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16037)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16038)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16039)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16040)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16041)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16042)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16043)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16044)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16045)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16046)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16047)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16048)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16049)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16050)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16051)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16052)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16053)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16054)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16055)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16056)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16057)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16058)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16059)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16060)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16061)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16062)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16063)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16064)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16065)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16066)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16067)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16068)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16069)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16070)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16071)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16072)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16073)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16074)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16075)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16076)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16077)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16078)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16079)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16080)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16081)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16082)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16083)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16084)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16085)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16086)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16087)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16088)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16089)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16090)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16091)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16092)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16093)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16094)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16095)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16096)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16097)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16098)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16099)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16100)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16101)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16102)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16103)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16104)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16105)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16106)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16107)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16108)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16109)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16400)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16401)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16402)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16403)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16404)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16405)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16406)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16407)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16408)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16500)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16501)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16502)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16503)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16504)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16505)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16506)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16507)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16508)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16509)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16600)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16601)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16602)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16603)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16604)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16605)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16606)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16607)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16700)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16701)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16702)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16703)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16704)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16705)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16706)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16707)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16708)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16709)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16710)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16711)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16712)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16713)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16714)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16715)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16716)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16717)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16718)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16719)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16720)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16721)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16722)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16723)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16724)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16725)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16726)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16727)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16728)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16729)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16730)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16731)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16732)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16733)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16734)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16735)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16736)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16737)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16738)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16739)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16740)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16741)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16742)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16743)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16744)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16745)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16746)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16747)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16748)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16749)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16750)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16751)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16752)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16753)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16754)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16755)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16756)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16757)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16758)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16759)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16760)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16761)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16762)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16763)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16764)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16900)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16901)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16902)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16903)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16904)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16905)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16906)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16907)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16908)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16909)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16910)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16911)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16912)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16913)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16914)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16915)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16916)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16917)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16918)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16919)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16920)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16921)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16922)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16923)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16924)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16925)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16926)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16927)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16928)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16929)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16930)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16931)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16932)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16933)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16934)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16935)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16951)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16952)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16953)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16954)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16955)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16956)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16957)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16958)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(16959)  ->
+	{3, [{?attr_dmg,0,[5,50],10},{?attr_tenacity,0,[2,20],10},{?attr_js,1,[5,50],10},{?attr_anti_stun,0,[3,30],10},{?attr_anti_taunt,0,[3,30],10},{?attr_anti_stone,0,[3,30],10},{?attr_anti_sleep,0,[3,30],10},{?attr_anti_poison,0,[3,30],10},{?attr_hp_max,0,[10,100],20}]};	
+get(18800)  ->
+	{2, [{?attr_hp_max,0,[10,100],15},{?attr_tenacity,1,[2,20],10},{?attr_rst_metal,0,[10,100],15},{?attr_rst_wood,0,[10,100],15},{?attr_rst_water,0,[10,100],15},{?attr_rst_fire,0,[10,100],15},{?attr_rst_earth,0,[10,100],15}]};	
+get(18801)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18802)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18803)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18804)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18805)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18806)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18807)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18808)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18809)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18810)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18811)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18812)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18813)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18814)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18815)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18816)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18817)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18818)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18819)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18820)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18821)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18822)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18823)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18824)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18825)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18826)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18850)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18851)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18852)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18853)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18854)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18855)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18856)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18857)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18858)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18859)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(18860)  ->
+	{3, [{?attr_hp_max,0,[15,150],15},{?attr_dmg,0,[8,75],15},{?attr_tenacity,1,[3,30],15},{?attr_rst_metal,0,[20,200],11},{?attr_rst_wood,0,[20,200],11},{?attr_rst_water,0,[20,200],11},{?attr_rst_fire,0,[20,200],11},{?attr_rst_earth,0,[20,200],11}]};	
+get(11312)  ->
+	{3, [{?attr_dmg,0,[10,92],40},{?attr_critrate,1,[3,24],0},{?attr_hitrate,1,[3,24],20},{?attr_js,0,[7,68],0},{?attr_dmg_magic,0,[9,84],40}]};	
+get(11313)  ->
+	{3, [{?attr_dmg,0,[8,76],40},{?attr_critrate,1,[2,15],10},{?attr_hitrate,1,[3,23],10},{?attr_js,0,[4,40],0},{?attr_dmg_magic,0,[9,84],40}]};	
+get(11314)  ->
+	{3, [{?attr_dmg,0,[8,76],40},{?attr_critrate,1,[8,72],0},{?attr_hitrate,1,[3,27],20},{?attr_js,0,[10,96],0},{?attr_dmg_magic,0,[9,84],40}]};	
+get(11315)  ->
+	{3, [{?attr_dmg,0,[6,60],50},{?attr_critrate,1,[5,48],0},{?attr_hitrate,1,[3,28],15},{?attr_js,0,[14,138],10},{?attr_dmg_magic,0,[9,84],25}]};	
+get(11316)  ->
+	{3, [{?attr_dmg,0,[9,86],40},{?attr_critrate,1,[2,15],0},{?attr_hitrate,1,[4,31],20},{?attr_js,0,[11,110],0},{?attr_dmg_magic,0,[9,84],40}]};	
+get(11317)  ->
+	{3, [{?attr_dmg_magic,0,[7,63],30},{?attr_dmg,0,[5,45],45},{?attr_critrate,1,[1,6],0},{?attr_hitrate,1,[1,9],15},{?attr_js,0,[5,45],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509],0}]};	
+get(11318)  ->
+	{3, [{?attr_rst_metal,0,[42,415],15},{?attr_rst_wood,0,[42,415],15},{?attr_rst_water,0,[42,415],15},{?attr_rst_fire,0,[42,415],15},{?attr_rst_earth,0,[42,415],15},{?attr_anti_stun,0,[2,18],5},{?attr_anti_poison,0,[2,18],5},{?attr_anti_sleep,0,[2,18],5},{?attr_anti_stone,0,[2,18],5},{?attr_anti_taunt,0,[2,18],5}]};	
+get(10000)  ->
+	{1, [{?attr_dmg,0,[1,9],20},{?attr_critrate,1,[1,7],20},{?attr_hitrate,1,[1,4],20},{?attr_js,0,[3,22],20},{?attr_dmg_magic,0,[3,21],20}]};	
+get(10017)  ->
+	{0, []};	
+get(10018)  ->
+	{1, [{?attr_dmg,0,[3,28],20},{?attr_critrate,1,[1,7],20},{?attr_hitrate,1,[1,7],20},{?attr_js,0,[2,20],20},{?attr_dmg_magic,0,[4,31],20}]};	
+get(10019)  ->
+	{2, [{?attr_dmg,0,[4,36],20},{?attr_critrate,1,[1,9],20},{?attr_hitrate,1,[1,9],20},{?attr_js,0,[3,26],20},{?attr_dmg_magic,0,[4,39],20}]};	
+get(10020)  ->
+	{3, [{?attr_dmg,0,[5,43],20},{?attr_critrate,1,[2,11],20},{?attr_hitrate,1,[1,10],20},{?attr_js,0,[4,31],20},{?attr_dmg_magic,0,[5,47],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10021)  ->
+	{3, [{?attr_dmg,0,[6,57],20},{?attr_critrate,1,[2,15],20},{?attr_hitrate,1,[2,14],20},{?attr_js,0,[5,41],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10202)  ->
+	{0, []};	
+get(10203)  ->
+	{1, [{?attr_dmg,0,[5,42],20},{?attr_critrate,1,[2,11],20},{?attr_hitrate,1,[1,10],20},{?attr_js,0,[3,30],20},{?attr_dmg_magic,0,[5,41],20}]};	
+get(10204)  ->
+	{2, [{?attr_dmg,0,[6,53],20},{?attr_critrate,1,[2,14],20},{?attr_hitrate,1,[2,13],20},{?attr_js,0,[4,37],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10205)  ->
+	{3, [{?attr_dmg,0,[7,64],20},{?attr_critrate,1,[2,16],20},{?attr_hitrate,1,[2,16],20},{?attr_js,0,[5,45],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10206)  ->
+	{3, [{?attr_dmg,0,[9,85],20},{?attr_critrate,1,[3,22],20},{?attr_hitrate,1,[3,21],20},{?attr_js,0,[6,60],20},{?attr_dmg_magic,0,[9,82],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10387)  ->
+	{0, []};	
+get(10388)  ->
+	{1, [{?attr_dmg,0,[6,56],20},{?attr_critrate,1,[2,14],20},{?attr_hitrate,1,[2,14],20},{?attr_js,0,[4,40],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10389)  ->
+	{2, [{?attr_dmg,0,[8,71],40},{?attr_critrate,1,[2,18],0},{?attr_hitrate,1,[2,17],20},{?attr_js,0,[5,49],0},{?attr_dmg_magic,0,[7,64],40}]};	
+get(10390)  ->
+	{3, [{?attr_dmg,0,[9,85],20},{?attr_critrate,1,[3,22],20},{?attr_hitrate,1,[3,21],20},{?attr_js,0,[6,59],20},{?attr_dmg_magic,0,[8,77],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10391)  ->
+	{3, [{?attr_dmg,0,[12,113],20},{?attr_critrate,1,[3,29],20},{?attr_hitrate,1,[3,28],20},{?attr_js,0,[8,79],20},{?attr_dmg_magic,0,[11,102],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10572)  ->
+	{0, []};	
+get(10573)  ->
+	{1, [{?attr_dmg,0,[7,70],20},{?attr_critrate,1,[2,18],20},{?attr_hitrate,1,[2,17],20},{?attr_js,0,[5,49],20},{?attr_dmg_magic,0,[7,61],20}]};	
+get(10574)  ->
+	{2, [{?attr_dmg,0,[9,88],40},{?attr_critrate,1,[3,22],0},{?attr_hitrate,1,[3,22],20},{?attr_js,0,[7,62],0},{?attr_dmg_magic,0,[8,76],40}]};	
+get(10575)  ->
+	{3, [{?attr_dmg,0,[11,106],20},{?attr_critrate,1,[3,27],20},{?attr_hitrate,1,[3,26],20},{?attr_js,0,[8,74],20},{?attr_dmg_magic,0,[10,92],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10576)  ->
+	{3, [{?attr_dmg,0,[15,141],20},{?attr_critrate,1,[4,36],20},{?attr_hitrate,1,[4,35],20},{?attr_js,0,[10,99],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10757)  ->
+	{0, []};	
+get(10758)  ->
+	{1, [{?attr_dmg,0,[9,84],20},{?attr_critrate,1,[3,21],20},{?attr_hitrate,1,[3,21],20},{?attr_js,0,[6,59],20},{?attr_dmg_magic,0,[8,71],20}]};	
+get(10759)  ->
+	{2, [{?attr_dmg,0,[11,106],20},{?attr_critrate,1,[3,27],20},{?attr_hitrate,1,[3,27],20},{?attr_js,0,[8,74],20},{?attr_dmg_magic,0,[9,89],20}]};	
+get(10760)  ->
+	{3, [{?attr_dmg,0,[13,127],20},{?attr_critrate,1,[4,32],20},{?attr_hitrate,1,[4,32],20},{?attr_js,0,[9,88],20},{?attr_dmg_magic,0,[11,107],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10761)  ->
+	{3, [{?attr_dmg,0,[17,169],20},{?attr_critrate,1,[5,43],20},{?attr_hitrate,1,[5,43],20},{?attr_js,0,[12,118],20},{?attr_dmg_magic,0,[15,142],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10942)  ->
+	{0, []};	
+get(10943)  ->
+	{1, [{?attr_dmg,0,[10,98],20},{?attr_critrate,1,[3,25],20},{?attr_hitrate,1,[3,25],20},{?attr_js,0,[7,68],20},{?attr_dmg_magic,0,[9,81],20}]};	
+get(10944)  ->
+	{2, [{?attr_dmg,0,[13,123],20},{?attr_critrate,1,[4,31],20},{?attr_hitrate,1,[4,31],20},{?attr_js,0,[9,86],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(10945)  ->
+	{3, [{?attr_dmg,0,[15,148],20},{?attr_critrate,1,[4,37],20},{?attr_hitrate,1,[4,37],20},{?attr_js,0,[11,103],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(10946)  ->
+	{3, [{?attr_dmg,0,[20,197],20},{?attr_critrate,1,[5,50],20},{?attr_hitrate,1,[5,50],20},{?attr_js,0,[14,137],20},{?attr_dmg_magic,0,[17,162],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113],1}]};	
+get(11127)  ->
+	{0, []};	
+get(11128)  ->
+	{1, [{?attr_dmg,0,[12,112],20},{?attr_critrate,1,[3,28],20},{?attr_hitrate,1,[3,28],20},{?attr_js,0,[8,78],20},{?attr_dmg_magic,0,[10,91],20}]};	
+get(11129)  ->
+	{2, [{?attr_dmg,0,[15,141],20},{?attr_critrate,1,[4,35],20},{?attr_hitrate,1,[4,35],20},{?attr_js,0,[10,97],20},{?attr_dmg_magic,0,[12,114],20}]};	
+get(11130)  ->
+	{3, [{?attr_dmg,0,[17,169],20},{?attr_critrate,1,[5,43],20},{?attr_hitrate,1,[5,43],20},{?attr_js,0,[12,117],20},{?attr_dmg_magic,0,[14,137],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113,119],1}]};	
+get(11131)  ->
+	{3, [{?attr_dmg,0,[23,225],20},{?attr_critrate,1,[6,57],20},{?attr_hitrate,1,[6,57],20},{?attr_js,0,[16,156],20},{?attr_dmg_magic,0,[19,182],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113,119],1}]};	
+get(11319)  ->
+	{0, []};	
+get(11320)  ->
+	{1, [{?attr_dmg,0,[13,126],20},{?attr_critrate,1,[4,32],20},{?attr_hitrate,1,[4,32],20},{?attr_js,0,[9,87],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(11321)  ->
+	{2, [{?attr_dmg,0,[16,158],20},{?attr_critrate,1,[4,40],20},{?attr_hitrate,1,[4,40],20},{?attr_js,0,[11,109],20},{?attr_dmg_magic,0,[13,126],20}]};	
+get(11322)  ->
+	{3, [{?attr_dmg,0,[19,190],20},{?attr_critrate,1,[5,48],20},{?attr_hitrate,1,[5,48],20},{?attr_js,0,[14,131],20},{?attr_dmg_magic,0,[16,152],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113,119],1}]};	
+get(11323)  ->
+	{3, [{?attr_dmg,0,[26,253],20},{?attr_critrate,1,[7,64],20},{?attr_hitrate,1,[7,64],20},{?attr_js,0,[18,175],20},{?attr_dmg_magic,0,[21,202],19},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113,119],1}]};	
+get(10027)  ->
+	{0, []};	
+get(10028)  ->
+	{1, [{?attr_dmg,0,[3,22],20},{?attr_critrate,1,[3,21],20},{?attr_hitrate,1,[1,8],20},{?attr_js,0,[3,29],20},{?attr_dmg_magic,0,[4,31],20}]};	
+get(10029)  ->
+	{2, [{?attr_dmg,0,[3,28],20},{?attr_critrate,1,[3,26],20},{?attr_hitrate,1,[1,10],20},{?attr_js,0,[4,36],20},{?attr_dmg_magic,0,[4,39],20}]};	
+get(10030)  ->
+	{3, [{?attr_dmg,0,[4,33],20},{?attr_critrate,1,[4,32],20},{?attr_hitrate,1,[2,12],20},{?attr_js,0,[5,43],20},{?attr_dmg_magic,0,[5,47],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10031)  ->
+	{3, [{?attr_dmg,0,[5,44],20},{?attr_critrate,1,[5,42],20},{?attr_hitrate,1,[2,16],20},{?attr_js,0,[6,58],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10212)  ->
+	{0, []};	
+get(10213)  ->
+	{1, [{?attr_dmg,0,[4,33],20},{?attr_critrate,1,[4,32],20},{?attr_hitrate,1,[2,12],20},{?attr_js,0,[5,42],20},{?attr_dmg_magic,0,[5,41],20}]};	
+get(10214)  ->
+	{2, [{?attr_dmg,0,[5,41],20},{?attr_critrate,1,[4,40],20},{?attr_hitrate,1,[2,15],20},{?attr_js,0,[6,53],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10215)  ->
+	{3, [{?attr_dmg,0,[5,50],20},{?attr_critrate,1,[5,48],20},{?attr_hitrate,1,[2,18],20},{?attr_js,0,[7,64],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10216)  ->
+	{3, [{?attr_dmg,0,[7,66],20},{?attr_critrate,1,[7,64],20},{?attr_hitrate,1,[3,24],20},{?attr_js,0,[9,85],20},{?attr_dmg_magic,0,[9,82],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10397)  ->
+	{0, []};	
+get(10398)  ->
+	{1, [{?attr_dmg,0,[5,45],20},{?attr_critrate,1,[5,42],20},{?attr_hitrate,1,[2,16],20},{?attr_js,0,[6,56],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10399)  ->
+	{2, [{?attr_dmg,0,[6,56],40},{?attr_critrate,1,[6,53],10},{?attr_hitrate,1,[2,20],10},{?attr_js,0,[7,70],0},{?attr_dmg_magic,0,[7,64],40}]};	
+get(10400)  ->
+	{3, [{?attr_dmg,0,[7,67],20},{?attr_critrate,1,[7,63],20},{?attr_hitrate,1,[3,24],20},{?attr_js,0,[9,85],20},{?attr_dmg_magic,0,[8,77],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10401)  ->
+	{3, [{?attr_dmg,0,[9,89],20},{?attr_critrate,1,[9,84],20},{?attr_hitrate,1,[4,32],20},{?attr_js,0,[12,113],20},{?attr_dmg_magic,0,[11,102],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10582)  ->
+	{0, []};	
+get(10583)  ->
+	{1, [{?attr_dmg,0,[6,56],20},{?attr_critrate,1,[6,53],20},{?attr_hitrate,1,[2,20],20},{?attr_js,0,[7,70],20},{?attr_dmg_magic,0,[7,61],20}]};	
+get(10584)  ->
+	{2, [{?attr_dmg,0,[7,70],40},{?attr_critrate,1,[7,66],10},{?attr_hitrate,1,[3,25],10},{?attr_js,0,[9,87],0},{?attr_dmg_magic,0,[8,76],40}]};	
+get(10585)  ->
+	{3, [{?attr_dmg,0,[9,83],20},{?attr_critrate,1,[8,79],20},{?attr_hitrate,1,[3,30],20},{?attr_js,0,[11,105],20},{?attr_dmg_magic,0,[10,92],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10586)  ->
+	{3, [{?attr_dmg,0,[12,111],20},{?attr_critrate,1,[11,105],20},{?attr_hitrate,1,[4,40],20},{?attr_js,0,[14,140],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10767)  ->
+	{0, []};	
+get(10768)  ->
+	{1, [{?attr_dmg,0,[7,67],20},{?attr_critrate,1,[7,63],20},{?attr_hitrate,1,[3,24],20},{?attr_js,0,[9,83],20},{?attr_dmg_magic,0,[8,71],20}]};	
+get(10769)  ->
+	{2, [{?attr_dmg,0,[9,83],20},{?attr_critrate,1,[8,79],20},{?attr_hitrate,1,[3,30],20},{?attr_js,0,[11,104],20},{?attr_dmg_magic,0,[9,89],20}]};	
+get(10770)  ->
+	{3, [{?attr_dmg,0,[10,100],20},{?attr_critrate,1,[10,95],20},{?attr_hitrate,1,[4,36],20},{?attr_js,0,[13,125],20},{?attr_dmg_magic,0,[11,107],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10771)  ->
+	{3, [{?attr_dmg,0,[14,133],20},{?attr_critrate,1,[13,126],20},{?attr_hitrate,1,[5,48],20},{?attr_js,0,[17,167],20},{?attr_dmg_magic,0,[15,142],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10952)  ->
+	{0, []};	
+get(10953)  ->
+	{1, [{?attr_dmg,0,[8,78],20},{?attr_critrate,1,[8,74],20},{?attr_hitrate,1,[3,28],20},{?attr_js,0,[10,97],20},{?attr_dmg_magic,0,[9,81],20}]};	
+get(10954)  ->
+	{2, [{?attr_dmg,0,[10,97],20},{?attr_critrate,1,[10,92],20},{?attr_hitrate,1,[4,36],20},{?attr_js,0,[13,121],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(10955)  ->
+	{3, [{?attr_dmg,0,[12,116],20},{?attr_critrate,1,[11,110],20},{?attr_hitrate,1,[5,43],20},{?attr_js,0,[15,145],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(10956)  ->
+	{3, [{?attr_dmg,0,[16,155],20},{?attr_critrate,1,[15,147],20},{?attr_hitrate,1,[6,57],20},{?attr_js,0,[20,194],20},{?attr_dmg_magic,0,[17,162],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213],1}]};	
+get(11137)  ->
+	{0, []};	
+get(11138)  ->
+	{1, [{?attr_dmg,0,[9,89],20},{?attr_critrate,1,[9,85],20},{?attr_hitrate,1,[4,32],20},{?attr_js,0,[12,111],20},{?attr_dmg_magic,0,[10,91],20}]};	
+get(11139)  ->
+	{2, [{?attr_dmg,0,[12,111],20},{?attr_critrate,1,[11,106],20},{?attr_hitrate,1,[5,41],20},{?attr_js,0,[14,139],20},{?attr_dmg_magic,0,[12,114],20}]};	
+get(11140)  ->
+	{3, [{?attr_dmg,0,[14,133],20},{?attr_critrate,1,[13,127],20},{?attr_hitrate,1,[5,49],20},{?attr_js,0,[17,166],20},{?attr_dmg_magic,0,[14,137],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213,219],1}]};	
+get(11141)  ->
+	{3, [{?attr_dmg,0,[18,177],20},{?attr_critrate,1,[17,169],20},{?attr_hitrate,1,[7,65],20},{?attr_js,0,[23,222],20},{?attr_dmg_magic,0,[19,182],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213,219],1}]};	
+get(11329)  ->
+	{0, []};	
+get(11330)  ->
+	{1, [{?attr_dmg,0,[10,100],20},{?attr_critrate,1,[10,96],20},{?attr_hitrate,1,[4,36],20},{?attr_js,0,[13,125],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(11331)  ->
+	{2, [{?attr_dmg,0,[13,125],20},{?attr_critrate,1,[12,120],20},{?attr_hitrate,1,[5,46],20},{?attr_js,0,[16,156],20},{?attr_dmg_magic,0,[13,126],20}]};	
+get(11332)  ->
+	{3, [{?attr_dmg,0,[15,149],20},{?attr_critrate,1,[15,143],20},{?attr_hitrate,1,[6,55],20},{?attr_js,0,[19,187],20},{?attr_dmg_magic,0,[16,152],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213,219],1}]};	
+get(11333)  ->
+	{3, [{?attr_dmg,0,[20,199],20},{?attr_critrate,1,[20,191],20},{?attr_hitrate,1,[8,73],20},{?attr_js,0,[25,250],20},{?attr_dmg_magic,0,[21,202],19},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213,219],1}]};	
+get(10032)  ->
+	{0, []};	
+get(10033)  ->
+	{1, [{?attr_dmg,0,[2,17],20},{?attr_critrate,1,[2,14],20},{?attr_hitrate,1,[1,8],20},{?attr_js,0,[5,42],20},{?attr_dmg_magic,0,[4,31],20}]};	
+get(10034)  ->
+	{2, [{?attr_dmg,0,[3,22],20},{?attr_critrate,1,[2,18],20},{?attr_hitrate,1,[1,10],20},{?attr_js,0,[6,52],20},{?attr_dmg_magic,0,[4,39],20}]};	
+get(10035)  ->
+	{3, [{?attr_dmg,0,[3,26],20},{?attr_critrate,1,[3,21],20},{?attr_hitrate,1,[2,12],20},{?attr_js,0,[7,63],20},{?attr_dmg_magic,0,[5,47],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10036)  ->
+	{3, [{?attr_dmg,0,[4,35],20},{?attr_critrate,1,[3,28],20},{?attr_hitrate,1,[2,16],20},{?attr_js,0,[9,84],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10217)  ->
+	{0, []};	
+get(10218)  ->
+	{1, [{?attr_dmg,0,[3,26],20},{?attr_critrate,1,[3,21],20},{?attr_hitrate,1,[2,12],20},{?attr_js,0,[7,61],20},{?attr_dmg_magic,0,[5,41],20}]};	
+get(10219)  ->
+	{2, [{?attr_dmg,0,[4,33],20},{?attr_critrate,1,[3,27],20},{?attr_hitrate,1,[2,15],20},{?attr_js,0,[8,77],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10220)  ->
+	{3, [{?attr_dmg,0,[4,40],20},{?attr_critrate,1,[4,32],20},{?attr_hitrate,1,[2,18],20},{?attr_js,0,[10,92],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10221)  ->
+	{3, [{?attr_dmg,0,[6,53],20},{?attr_critrate,1,[5,42],20},{?attr_hitrate,1,[3,24],20},{?attr_js,0,[13,123],20},{?attr_dmg_magic,0,[9,82],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10402)  ->
+	{0, []};	
+get(10403)  ->
+	{1, [{?attr_dmg,0,[4,35],20},{?attr_critrate,1,[3,28],20},{?attr_hitrate,1,[2,16],20},{?attr_js,0,[9,81],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10404)  ->
+	{2, [{?attr_dmg,0,[5,44],50},{?attr_critrate,1,[4,35],0},{?attr_hitrate,1,[3,21],10},{?attr_js,0,[11,101],20},{?attr_dmg_magic,0,[7,64],20}]};	
+get(10405)  ->
+	{3, [{?attr_dmg,0,[6,52],20},{?attr_critrate,1,[5,42],20},{?attr_hitrate,1,[3,25],20},{?attr_js,0,[13,121],20},{?attr_dmg_magic,0,[8,77],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10406)  ->
+	{3, [{?attr_dmg,0,[7,70],20},{?attr_critrate,1,[6,56],20},{?attr_hitrate,1,[4,33],20},{?attr_js,0,[17,162],20},{?attr_dmg_magic,0,[11,102],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10587)  ->
+	{0, []};	
+get(10588)  ->
+	{1, [{?attr_dmg,0,[5,43],20},{?attr_critrate,1,[4,35],20},{?attr_hitrate,1,[2,20],20},{?attr_js,0,[10,100],20},{?attr_dmg_magic,0,[7,61],20}]};	
+get(10589)  ->
+	{2, [{?attr_dmg,0,[6,54],50},{?attr_critrate,1,[5,44],0},{?attr_hitrate,1,[3,26],10},{?attr_js,0,[13,126],20},{?attr_dmg_magic,0,[8,76],20}]};	
+get(10590)  ->
+	{3, [{?attr_dmg,0,[7,65],20},{?attr_critrate,1,[6,53],20},{?attr_hitrate,1,[4,31],20},{?attr_js,0,[16,151],20},{?attr_dmg_magic,0,[10,92],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10591)  ->
+	{3, [{?attr_dmg,0,[9,87],20},{?attr_critrate,1,[7,70],20},{?attr_hitrate,1,[5,41],20},{?attr_js,0,[21,201],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10772)  ->
+	{0, []};	
+get(10773)  ->
+	{1, [{?attr_dmg,0,[6,52],20},{?attr_critrate,1,[5,42],20},{?attr_hitrate,1,[3,24],20},{?attr_js,0,[12,120],20},{?attr_dmg_magic,0,[8,71],20}]};	
+get(10774)  ->
+	{2, [{?attr_dmg,0,[7,65],20},{?attr_critrate,1,[6,53],20},{?attr_hitrate,1,[4,31],20},{?attr_js,0,[15,150],20},{?attr_dmg_magic,0,[9,89],20}]};	
+get(10775)  ->
+	{3, [{?attr_dmg,0,[8,78],20},{?attr_critrate,1,[7,63],20},{?attr_hitrate,1,[4,37],20},{?attr_js,0,[18,180],20},{?attr_dmg_magic,0,[11,107],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10776)  ->
+	{3, [{?attr_dmg,0,[11,104],20},{?attr_critrate,1,[9,84],20},{?attr_hitrate,1,[5,49],20},{?attr_js,0,[24,240],20},{?attr_dmg_magic,0,[15,142],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10957)  ->
+	{0, []};	
+get(10958)  ->
+	{1, [{?attr_dmg,0,[7,61],20},{?attr_critrate,1,[5,49],20},{?attr_hitrate,1,[3,29],20},{?attr_js,0,[14,140],20},{?attr_dmg_magic,0,[9,81],20}]};	
+get(10959)  ->
+	{2, [{?attr_dmg,0,[8,76],20},{?attr_critrate,1,[7,61],20},{?attr_hitrate,1,[4,36],20},{?attr_js,0,[18,175],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(10960)  ->
+	{3, [{?attr_dmg,0,[10,91],20},{?attr_critrate,1,[8,73],20},{?attr_hitrate,1,[5,43],20},{?attr_js,0,[21,210],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(10961)  ->
+	{3, [{?attr_dmg,0,[13,122],20},{?attr_critrate,1,[10,98],20},{?attr_hitrate,1,[6,58],20},{?attr_js,0,[28,280],20},{?attr_dmg_magic,0,[17,162],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313],1}]};	
+get(11142)  ->
+	{0, []};	
+get(11143)  ->
+	{1, [{?attr_dmg,0,[7,69],20},{?attr_critrate,1,[6,56],20},{?attr_hitrate,1,[4,33],20},{?attr_js,0,[16,159],20},{?attr_dmg_magic,0,[10,91],20}]};	
+get(11144)  ->
+	{2, [{?attr_dmg,0,[9,87],20},{?attr_critrate,1,[7,70],20},{?attr_hitrate,1,[5,41],20},{?attr_js,0,[20,199],20},{?attr_dmg_magic,0,[12,114],20}]};	
+get(11145)  ->
+	{3, [{?attr_dmg,0,[11,104],20},{?attr_critrate,1,[9,84],20},{?attr_hitrate,1,[5,49],20},{?attr_js,0,[24,239],20},{?attr_dmg_magic,0,[14,137],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313,319],1}]};	
+get(11146)  ->
+	{3, [{?attr_dmg,0,[14,139],20},{?attr_critrate,1,[12,113],20},{?attr_hitrate,1,[7,66],20},{?attr_js,0,[32,319],20},{?attr_dmg_magic,0,[19,182],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313,319],1}]};	
+get(11334)  ->
+	{0, []};	
+get(11335)  ->
+	{1, [{?attr_dmg,0,[8,78],20},{?attr_critrate,1,[7,64],20},{?attr_hitrate,1,[4,37],20},{?attr_js,0,[18,179],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(11336)  ->
+	{2, [{?attr_dmg,0,[10,97],20},{?attr_critrate,1,[8,80],20},{?attr_hitrate,1,[5,46],20},{?attr_js,0,[23,224],20},{?attr_dmg_magic,0,[13,126],20}]};	
+get(11337)  ->
+	{3, [{?attr_dmg,0,[12,117],20},{?attr_critrate,1,[10,96],20},{?attr_hitrate,1,[6,55],20},{?attr_js,0,[27,268],20},{?attr_dmg_magic,0,[16,152],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313,319],1}]};	
+get(11338)  ->
+	{3, [{?attr_dmg,0,[16,156],20},{?attr_critrate,1,[13,128],20},{?attr_hitrate,1,[8,74],20},{?attr_js,0,[36,358],20},{?attr_dmg_magic,0,[21,202],19},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313,319],1}]};	
+get(10037)  ->
+	{0, []};	
+get(10038)  ->
+	{1, [{?attr_dmg,0,[3,26],20},{?attr_critrate,1,[1,4],20},{?attr_hitrate,1,[1,8],20},{?attr_js,0,[4,33],20},{?attr_dmg_magic,0,[4,31],20}]};	
+get(10039)  ->
+	{2, [{?attr_dmg,0,[4,32],20},{?attr_critrate,1,[1,5],20},{?attr_hitrate,1,[2,11],20},{?attr_js,0,[5,41],20},{?attr_dmg_magic,0,[4,39],20}]};	
+get(10040)  ->
+	{3, [{?attr_dmg,0,[4,39],20},{?attr_critrate,1,[1,6],20},{?attr_hitrate,1,[2,13],20},{?attr_js,0,[5,50],20},{?attr_dmg_magic,0,[5,47],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10041)  ->
+	{3, [{?attr_dmg,0,[6,52],20},{?attr_critrate,1,[1,9],20},{?attr_hitrate,1,[2,17],20},{?attr_js,0,[7,66],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10222)  ->
+	{0, []};	
+get(10223)  ->
+	{1, [{?attr_dmg,0,[4,38],20},{?attr_critrate,1,[1,7],20},{?attr_hitrate,1,[2,13],20},{?attr_js,0,[5,49],20},{?attr_dmg_magic,0,[5,41],20}]};	
+get(10224)  ->
+	{2, [{?attr_dmg,0,[5,48],20},{?attr_critrate,1,[1,8],20},{?attr_hitrate,1,[2,16],20},{?attr_js,0,[7,61],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10225)  ->
+	{3, [{?attr_dmg,0,[6,57],20},{?attr_critrate,1,[1,10],20},{?attr_hitrate,1,[2,19],20},{?attr_js,0,[8,74],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10226)  ->
+	{3, [{?attr_dmg,0,[8,77],20},{?attr_critrate,1,[2,13],20},{?attr_hitrate,1,[3,26],20},{?attr_js,0,[10,98],20},{?attr_dmg_magic,0,[9,82],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10407)  ->
+	{0, []};	
+get(10408)  ->
+	{1, [{?attr_dmg,0,[6,51],20},{?attr_critrate,1,[1,9],20},{?attr_hitrate,1,[2,18],20},{?attr_js,0,[7,65],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10409)  ->
+	{2, [{?attr_dmg,0,[7,63],40},{?attr_critrate,1,[2,11],0},{?attr_hitrate,1,[3,22],20},{?attr_js,0,[9,81],0},{?attr_dmg_magic,0,[7,64],40}]};	
+get(10410)  ->
+	{3, [{?attr_dmg,0,[8,76],20},{?attr_critrate,1,[2,13],20},{?attr_hitrate,1,[3,26],20},{?attr_js,0,[10,97],20},{?attr_dmg_magic,0,[8,77],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10411)  ->
+	{3, [{?attr_dmg,0,[11,102],20},{?attr_critrate,1,[2,17],20},{?attr_hitrate,1,[4,35],20},{?attr_js,0,[13,129],20},{?attr_dmg_magic,0,[11,102],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10592)  ->
+	{0, []};	
+get(10593)  ->
+	{1, [{?attr_dmg,0,[7,63],20},{?attr_critrate,1,[2,11],20},{?attr_hitrate,1,[3,22],20},{?attr_js,0,[8,80],20},{?attr_dmg_magic,0,[7,61],20}]};	
+get(10594)  ->
+	{2, [{?attr_dmg,0,[8,79],40},{?attr_critrate,1,[2,13],0},{?attr_hitrate,1,[3,28],20},{?attr_js,0,[10,100],0},{?attr_dmg_magic,0,[8,76],40}]};	
+get(10595)  ->
+	{3, [{?attr_dmg,0,[10,95],20},{?attr_critrate,1,[2,16],20},{?attr_hitrate,1,[4,34],20},{?attr_js,0,[12,120],20},{?attr_dmg_magic,0,[10,92],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10596)  ->
+	{3, [{?attr_dmg,0,[13,127],20},{?attr_critrate,1,[3,21],20},{?attr_hitrate,1,[5,45],20},{?attr_js,0,[16,160],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10777)  ->
+	{0, []};	
+get(10778)  ->
+	{1, [{?attr_dmg,0,[8,76],20},{?attr_critrate,1,[2,13],20},{?attr_hitrate,1,[3,27],20},{?attr_js,0,[10,96],20},{?attr_dmg_magic,0,[8,71],20}]};	
+get(10779)  ->
+	{2, [{?attr_dmg,0,[10,95],20},{?attr_critrate,1,[2,16],20},{?attr_hitrate,1,[4,34],20},{?attr_js,0,[12,119],20},{?attr_dmg_magic,0,[9,89],20}]};	
+get(10780)  ->
+	{3, [{?attr_dmg,0,[12,114],20},{?attr_critrate,1,[2,19],20},{?attr_hitrate,1,[4,40],20},{?attr_js,0,[15,143],20},{?attr_dmg_magic,0,[11,107],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10781)  ->
+	{3, [{?attr_dmg,0,[16,152],20},{?attr_critrate,1,[3,25],20},{?attr_hitrate,1,[6,54],20},{?attr_js,0,[20,191],20},{?attr_dmg_magic,0,[15,142],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10962)  ->
+	{0, []};	
+get(10963)  ->
+	{1, [{?attr_dmg,0,[9,89],20},{?attr_critrate,1,[2,15],20},{?attr_hitrate,1,[4,31],20},{?attr_js,0,[12,111],20},{?attr_dmg_magic,0,[9,81],20}]};	
+get(10964)  ->
+	{2, [{?attr_dmg,0,[12,111],20},{?attr_critrate,1,[2,18],20},{?attr_hitrate,1,[4,39],20},{?attr_js,0,[14,139],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(10965)  ->
+	{3, [{?attr_dmg,0,[14,133],20},{?attr_critrate,1,[3,22],20},{?attr_hitrate,1,[5,47],20},{?attr_js,0,[17,167],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(10966)  ->
+	{3, [{?attr_dmg,0,[18,178],20},{?attr_critrate,1,[3,30],20},{?attr_hitrate,1,[7,63],20},{?attr_js,0,[23,222],20},{?attr_dmg_magic,0,[17,162],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413],1}]};	
+get(11147)  ->
+	{0, []};	
+get(11148)  ->
+	{1, [{?attr_dmg,0,[11,101],20},{?attr_critrate,1,[2,17],20},{?attr_hitrate,1,[4,36],20},{?attr_js,0,[13,127],20},{?attr_dmg_magic,0,[10,91],20}]};	
+get(11149)  ->
+	{2, [{?attr_dmg,0,[13,127],20},{?attr_critrate,1,[3,22],20},{?attr_hitrate,1,[5,45],20},{?attr_js,0,[16,159],20},{?attr_dmg_magic,0,[12,114],20}]};	
+get(11150)  ->
+	{3, [{?attr_dmg,0,[16,152],20},{?attr_critrate,1,[3,26],20},{?attr_hitrate,1,[6,54],20},{?attr_js,0,[20,191],20},{?attr_dmg_magic,0,[14,137],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413,419],1}]};	
+get(11151)  ->
+	{3, [{?attr_dmg,0,[21,203],20},{?attr_critrate,1,[4,35],20},{?attr_hitrate,1,[8,72],20},{?attr_js,0,[26,254],20},{?attr_dmg_magic,0,[19,182],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413,419],1}]};	
+get(11339)  ->
+	{0, []};	
+get(11340)  ->
+	{1, [{?attr_dmg,0,[12,114],20},{?attr_critrate,1,[2,20],20},{?attr_hitrate,1,[4,40],20},{?attr_js,0,[15,143],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(11341)  ->
+	{2, [{?attr_dmg,0,[15,142],20},{?attr_critrate,1,[3,25],20},{?attr_hitrate,1,[6,51],20},{?attr_js,0,[18,179],20},{?attr_dmg_magic,0,[13,126],20}]};	
+get(11342)  ->
+	{3, [{?attr_dmg,0,[18,171],20},{?attr_critrate,1,[3,30],20},{?attr_hitrate,1,[7,61],20},{?attr_js,0,[22,215],20},{?attr_dmg_magic,0,[16,152],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413,419],1}]};	
+get(11343)  ->
+	{3, [{?attr_dmg,0,[23,228],20},{?attr_critrate,1,[4,40],20},{?attr_hitrate,1,[9,81],20},{?attr_js,0,[29,286],20},{?attr_dmg_magic,0,[21,202],19},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413,419],1}]};	
+get(10022)  ->
+	{0, []};	
+get(10023)  ->
+	{1, [{?attr_dmg,0,[3,22],20},{?attr_critrate,1,[1,4],20},{?attr_hitrate,1,[1,6],20},{?attr_js,0,[2,12],20},{?attr_dmg_magic,0,[4,31],20}]};	
+get(10024)  ->
+	{2, [{?attr_dmg,0,[3,28],20},{?attr_critrate,1,[1,5],20},{?attr_hitrate,1,[1,8],20},{?attr_js,0,[2,15],20},{?attr_dmg_magic,0,[4,39],20}]};	
+get(10025)  ->
+	{3, [{?attr_dmg,0,[4,33],20},{?attr_critrate,1,[1,6],20},{?attr_hitrate,1,[1,10],20},{?attr_js,0,[2,18],20},{?attr_dmg_magic,0,[5,47],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10026)  ->
+	{3, [{?attr_dmg,0,[5,44],20},{?attr_critrate,1,[1,9],20},{?attr_hitrate,1,[2,13],20},{?attr_js,0,[3,24],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10207)  ->
+	{0, []};	
+get(10208)  ->
+	{1, [{?attr_dmg,0,[4,33],20},{?attr_critrate,1,[1,7],20},{?attr_hitrate,1,[1,10],20},{?attr_js,0,[2,18],20},{?attr_dmg_magic,0,[5,41],20}]};	
+get(10209)  ->
+	{2, [{?attr_dmg,0,[5,41],20},{?attr_critrate,1,[1,8],20},{?attr_hitrate,1,[2,12],20},{?attr_js,0,[3,22],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10210)  ->
+	{3, [{?attr_dmg,0,[5,50],20},{?attr_critrate,1,[1,10],20},{?attr_hitrate,1,[2,15],20},{?attr_js,0,[3,26],20},{?attr_dmg_magic,0,[7,62],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10211)  ->
+	{3, [{?attr_dmg,0,[7,66],20},{?attr_critrate,1,[2,13],20},{?attr_hitrate,1,[2,20],20},{?attr_js,0,[4,35],20},{?attr_dmg_magic,0,[9,82],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10392)  ->
+	{0, []};	
+get(10393)  ->
+	{1, [{?attr_dmg,0,[5,45],20},{?attr_critrate,1,[1,9],20},{?attr_hitrate,1,[2,13],20},{?attr_js,0,[3,23],20},{?attr_dmg_magic,0,[6,51],20}]};	
+get(10394)  ->
+	{2, [{?attr_dmg,0,[6,56],40},{?attr_critrate,1,[2,11],0},{?attr_hitrate,1,[2,17],20},{?attr_js,0,[3,29],0},{?attr_dmg_magic,0,[7,64],40}]};	
+get(10395)  ->
+	{3, [{?attr_dmg,0,[7,67],20},{?attr_critrate,1,[2,13],20},{?attr_hitrate,1,[2,20],20},{?attr_js,0,[4,35],20},{?attr_dmg_magic,0,[8,77],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10396)  ->
+	{3, [{?attr_dmg,0,[9,89],20},{?attr_critrate,1,[2,17],20},{?attr_hitrate,1,[3,27],20},{?attr_js,0,[5,46],20},{?attr_dmg_magic,0,[11,102],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10577)  ->
+	{0, []};	
+get(10578)  ->
+	{1, [{?attr_dmg,0,[6,56],20},{?attr_critrate,1,[2,11],20},{?attr_hitrate,1,[2,17],20},{?attr_js,0,[3,29],20},{?attr_dmg_magic,0,[7,61],20}]};	
+get(10579)  ->
+	{2, [{?attr_dmg,0,[7,70],40},{?attr_critrate,1,[2,13],0},{?attr_hitrate,1,[3,21],20},{?attr_js,0,[4,36],0},{?attr_dmg_magic,0,[8,76],40}]};	
+get(10580)  ->
+	{3, [{?attr_dmg,0,[9,83],20},{?attr_critrate,1,[2,16],20},{?attr_hitrate,1,[3,25],20},{?attr_js,0,[5,44],20},{?attr_dmg_magic,0,[10,92],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10581)  ->
+	{3, [{?attr_dmg,0,[12,111],20},{?attr_critrate,1,[3,21],20},{?attr_hitrate,1,[4,34],20},{?attr_js,0,[6,58],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10762)  ->
+	{0, []};	
+get(10763)  ->
+	{1, [{?attr_dmg,0,[7,67],20},{?attr_critrate,1,[2,13],20},{?attr_hitrate,1,[2,20],20},{?attr_js,0,[4,35],20},{?attr_dmg_magic,0,[8,71],20}]};	
+get(10764)  ->
+	{2, [{?attr_dmg,0,[9,83],20},{?attr_critrate,1,[2,16],20},{?attr_hitrate,1,[3,25],20},{?attr_js,0,[5,43],20},{?attr_dmg_magic,0,[9,89],20}]};	
+get(10765)  ->
+	{3, [{?attr_dmg,0,[10,100],20},{?attr_critrate,1,[2,19],20},{?attr_hitrate,1,[3,30],20},{?attr_js,0,[6,52],20},{?attr_dmg_magic,0,[11,107],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10766)  ->
+	{3, [{?attr_dmg,0,[14,133],20},{?attr_critrate,1,[3,25],20},{?attr_hitrate,1,[4,40],20},{?attr_js,0,[7,69],20},{?attr_dmg_magic,0,[15,142],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10947)  ->
+	{0, []};	
+get(10948)  ->
+	{1, [{?attr_dmg,0,[8,78],20},{?attr_critrate,1,[2,15],20},{?attr_hitrate,1,[3,23],20},{?attr_js,0,[4,40],20},{?attr_dmg_magic,0,[9,81],20}]};	
+get(10949)  ->
+	{2, [{?attr_dmg,0,[10,97],20},{?attr_critrate,1,[2,18],20},{?attr_hitrate,1,[3,29],20},{?attr_js,0,[5,50],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(10950)  ->
+	{3, [{?attr_dmg,0,[12,116],20},{?attr_critrate,1,[3,22],20},{?attr_hitrate,1,[4,35],20},{?attr_js,0,[6,60],20},{?attr_dmg_magic,0,[13,122],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(10951)  ->
+	{3, [{?attr_dmg,0,[16,155],20},{?attr_critrate,1,[3,30],20},{?attr_hitrate,1,[5,47],20},{?attr_js,0,[8,80],20},{?attr_dmg_magic,0,[17,162],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513],1}]};	
+get(11132)  ->
+	{0, []};	
+get(11133)  ->
+	{1, [{?attr_dmg,0,[9,89],20},{?attr_critrate,1,[2,17],20},{?attr_hitrate,1,[3,27],20},{?attr_js,0,[5,46],20},{?attr_dmg_magic,0,[10,91],20}]};	
+get(11134)  ->
+	{2, [{?attr_dmg,0,[12,111],20},{?attr_critrate,1,[3,22],20},{?attr_hitrate,1,[4,34],20},{?attr_js,0,[6,57],20},{?attr_dmg_magic,0,[12,114],20}]};	
+get(11135)  ->
+	{3, [{?attr_dmg,0,[14,133],20},{?attr_critrate,1,[3,26],20},{?attr_hitrate,1,[4,40],20},{?attr_js,0,[7,68],20},{?attr_dmg_magic,0,[14,137],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513,519],1}]};	
+get(11136)  ->
+	{3, [{?attr_dmg,0,[18,177],20},{?attr_critrate,1,[4,35],20},{?attr_hitrate,1,[6,54],20},{?attr_js,0,[10,91],20},{?attr_dmg_magic,0,[19,182],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513,519],1}]};	
+get(11324)  ->
+	{0, []};	
+get(11325)  ->
+	{1, [{?attr_dmg,0,[10,100],20},{?attr_critrate,1,[2,20],20},{?attr_hitrate,1,[3,30],20},{?attr_js,0,[6,51],20},{?attr_dmg_magic,0,[11,101],20}]};	
+get(11326)  ->
+	{2, [{?attr_dmg,0,[13,125],20},{?attr_critrate,1,[3,25],20},{?attr_hitrate,1,[4,38],20},{?attr_js,0,[7,64],20},{?attr_dmg_magic,0,[13,126],20}]};	
+get(11327)  ->
+	{3, [{?attr_dmg,0,[15,149],20},{?attr_critrate,1,[3,30],20},{?attr_hitrate,1,[5,46],20},{?attr_js,0,[8,77],20},{?attr_dmg_magic,0,[16,152],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513,519],1}]};	
+get(11328)  ->
+	{3, [{?attr_dmg,0,[20,199],20},{?attr_critrate,1,[4,40],20},{?attr_hitrate,1,[7,61],20},{?attr_js,0,[11,102],20},{?attr_dmg_magic,0,[21,202],19},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513,519],1}]};	
+get(11504)  ->
+	{0, [{?attr_dmg,0,[0,0],20},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_dmg_magic,0,[0,0],20},{?attr_js,0,[0,0],20}]};	
+get(11505)  ->
+	{1, [{?attr_dmg,0,[14,139],20},{?attr_critrate,1,[4,35],20},{?attr_hitrate,1,[4,35],20},{?attr_dmg_magic,0,[11,110],20},{?attr_js,0,[10,96],20}]};	
+get(11506)  ->
+	{2, [{?attr_dmg,0,[18,174],20},{?attr_critrate,1,[5,44],20},{?attr_hitrate,1,[5,44],20},{?attr_dmg_magic,0,[14,138],20},{?attr_js,0,[12,120],20}]};	
+get(11507)  ->
+	{3, [{?attr_dmg,0,[21,209],20},{?attr_critrate,1,[6,53],20},{?attr_hitrate,1,[6,53],20},{?attr_dmg_magic,0,[17,165],20},{?attr_js,0,[15,144],20},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113,119],1}]};	
+get(11508)  ->
+	{3, [{?attr_dmg,0,[28,278],20},{?attr_critrate,1,[7,70],20},{?attr_hitrate,1,[7,70],20},{?attr_dmg_magic,0,[22,220],20},{?attr_js,0,[20,192],20},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113,119],1}]};	
+get(11509)  ->
+	{0, [{?attr_dmg,0,[0,0],20},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_dmg_magic,0,[0,0],20},{?attr_js,0,[0,0],20}]};	
+get(11510)  ->
+	{1, [{?attr_dmg,0,[11,109],20},{?attr_critrate,1,[3,30],20},{?attr_hitrate,1,[4,33],20},{?attr_dmg_magic,0,[11,110],20},{?attr_js,0,[6,56],20}]};	
+get(11511)  ->
+	{2, [{?attr_dmg,0,[14,137],20},{?attr_critrate,1,[4,38],20},{?attr_hitrate,1,[5,41],20},{?attr_dmg_magic,0,[14,138],20},{?attr_js,0,[7,70],20}]};	
+get(11512)  ->
+	{3, [{?attr_dmg,0,[17,164],20},{?attr_critrate,1,[5,45],20},{?attr_hitrate,1,[5,50],20},{?attr_dmg_magic,0,[17,165],20},{?attr_js,0,[9,84],20},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513,519],1}]};	
+get(11513)  ->
+	{3, [{?attr_dmg,0,[22,218],20},{?attr_critrate,1,[6,60],20},{?attr_hitrate,1,[7,66],20},{?attr_dmg_magic,0,[22,220],20},{?attr_js,0,[12,113],20},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513,519],1}]};	
+get(11514)  ->
+	{0, [{?attr_dmg,0,[0,0],20},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_dmg_magic,0,[0,0],20},{?attr_js,0,[0,0],20}]};	
+get(11515)  ->
+	{1, [{?attr_dmg,0,[11,110],20},{?attr_critrate,1,[11,106],20},{?attr_hitrate,1,[4,40],20},{?attr_dmg_magic,0,[11,110],20},{?attr_js,0,[14,138],20}]};	
+get(11516)  ->
+	{2, [{?attr_dmg,0,[14,137],20},{?attr_critrate,1,[14,132],20},{?attr_hitrate,1,[5,50],20},{?attr_dmg_magic,0,[14,138],20},{?attr_js,0,[18,172],20}]};	
+get(11517)  ->
+	{3, [{?attr_dmg,0,[17,164],20},{?attr_critrate,1,[16,158],20},{?attr_hitrate,1,[6,60],20},{?attr_dmg_magic,0,[17,165],20},{?attr_js,0,[21,206],20},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213,219],1}]};	
+get(11518)  ->
+	{3, [{?attr_dmg,0,[22,219],20},{?attr_critrate,1,[22,211],20},{?attr_hitrate,1,[8,80],20},{?attr_dmg_magic,0,[22,220],20},{?attr_js,0,[28,275],20},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213,219],1}]};	
+get(11519)  ->
+	{0, [{?attr_dmg,0,[0,0],20},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_dmg_magic,0,[0,0],20},{?attr_js,0,[0,0],20}]};	
+get(11520)  ->
+	{1, [{?attr_dmg,0,[9,85],20},{?attr_critrate,1,[7,70],20},{?attr_hitrate,1,[5,41],20},{?attr_dmg_magic,0,[11,110],20},{?attr_js,0,[20,197],20}]};	
+get(11521)  ->
+	{2, [{?attr_dmg,0,[11,107],20},{?attr_critrate,1,[9,88],20},{?attr_hitrate,1,[6,51],20},{?attr_dmg_magic,0,[14,138],20},{?attr_js,0,[25,246],20}]};	
+get(11522)  ->
+	{3, [{?attr_dmg,0,[13,128],20},{?attr_critrate,1,[11,105],20},{?attr_hitrate,1,[7,61],20},{?attr_dmg_magic,0,[17,165],20},{?attr_js,0,[30,295],20},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313,319],1}]};	
+get(11523)  ->
+	{3, [{?attr_dmg,0,[18,171],20},{?attr_critrate,1,[14,140],20},{?attr_hitrate,1,[9,82],20},{?attr_dmg_magic,0,[22,220],20},{?attr_js,0,[40,393],20},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313,319],1}]};	
+get(11524)  ->
+	{0, [{?attr_dmg,0,[0,0],20},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_dmg_magic,0,[0,0],20},{?attr_js,0,[0,0],20}]};	
+get(11525)  ->
+	{1, [{?attr_dmg,0,[13,125],20},{?attr_critrate,1,[3,30],20},{?attr_hitrate,1,[5,44],20},{?attr_dmg_magic,0,[11,110],20},{?attr_js,0,[16,157],20}]};	
+get(11526)  ->
+	{2, [{?attr_dmg,0,[16,156],20},{?attr_critrate,1,[4,38],20},{?attr_hitrate,1,[6,55],20},{?attr_dmg_magic,0,[14,138],20},{?attr_js,0,[20,196],20}]};	
+get(11527)  ->
+	{3, [{?attr_dmg,0,[19,188],20},{?attr_critrate,1,[5,45],20},{?attr_hitrate,1,[7,67],20},{?attr_dmg_magic,0,[17,165],20},{?attr_js,0,[24,235],20},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413,419],1}]};	
+get(11528)  ->
+	{3, [{?attr_dmg,0,[25,250],20},{?attr_critrate,1,[6,60],20},{?attr_hitrate,1,[9,89],20},{?attr_dmg_magic,0,[22,220],20},{?attr_js,0,[32,313],20},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413,419],1}]};	
+get(11529)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11530)  ->
+	{1, [{?attr_defence,0,[22,211],20},{?attr_hp_max,0,[39,386],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[4,39],10},{?attr_mp_max,0,[29,284],25}]};	
+get(11531)  ->
+	{2, [{?attr_defence,0,[27,263],20},{?attr_hp_max,0,[49,483],20},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[5,48],10},{?attr_mp_max,0,[36,354],25}]};	
+get(11532)  ->
+	{3, [{?attr_defence,0,[32,316],20},{?attr_hp_max,0,[58,580],20},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[6,58],10},{?attr_mp_max,0,[43,425],25}]};	
+get(11533)  ->
+	{3, [{?attr_defence,0,[43,421],20},{?attr_hp_max,0,[78,773],20},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[8,77],10},{?attr_mp_max,0,[57,567],25}]};	
+get(11534)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11535)  ->
+	{1, [{?attr_defence,0,[34,333],20},{?attr_hp_max,0,[49,486],20},{?attr_evasion,1,[2,16],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[3,23],10},{?attr_mp_max,0,[20,194],25}]};	
+get(11536)  ->
+	{2, [{?attr_defence,0,[42,416],20},{?attr_hp_max,0,[61,607],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[3,28],10},{?attr_mp_max,0,[25,242],25}]};	
+get(11537)  ->
+	{3, [{?attr_defence,0,[50,500],20},{?attr_hp_max,0,[73,729],20},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[4,34],10},{?attr_mp_max,0,[30,291],25}]};	
+get(11538)  ->
+	{3, [{?attr_defence,0,[67,666],20},{?attr_hp_max,0,[98,972],20},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[5,45],10},{?attr_mp_max,0,[39,388],25}]};	
+get(11539)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11540)  ->
+	{1, [{?attr_defence,0,[15,144],20},{?attr_hp_max,0,[36,357],20},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[6,55],10},{?attr_mp_max,0,[38,374],25}]};	
+get(11541)  ->
+	{2, [{?attr_defence,0,[18,180],20},{?attr_hp_max,0,[45,447],20},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[7,68],10},{?attr_mp_max,0,[47,467],25}]};	
+get(11542)  ->
+	{3, [{?attr_defence,0,[22,215],20},{?attr_hp_max,0,[54,536],20},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[9,82],10},{?attr_mp_max,0,[57,561],25}]};	
+get(11543)  ->
+	{3, [{?attr_defence,0,[29,287],20},{?attr_hp_max,0,[72,715],20},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[11,109],10},{?attr_mp_max,0,[75,747],25}]};	
+get(11544)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11545)  ->
+	{1, [{?attr_defence,0,[11,108],20},{?attr_hp_max,0,[36,359],20},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[8,79],10},{?attr_mp_max,0,[51,508],25}]};	
+get(11546)  ->
+	{2, [{?attr_defence,0,[14,136],20},{?attr_hp_max,0,[45,448],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[10,98],10},{?attr_mp_max,0,[64,635],25}]};	
+get(11547)  ->
+	{3, [{?attr_defence,0,[17,163],20},{?attr_hp_max,0,[54,538],20},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[12,118],10},{?attr_mp_max,0,[77,762],25}]};	
+get(11548)  ->
+	{3, [{?attr_defence,0,[22,217],20},{?attr_hp_max,0,[72,717],20},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[16,157],10},{?attr_mp_max,0,[102,1016],25}]};	
+get(11549)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11550)  ->
+	{1, [{?attr_defence,0,[22,211],20},{?attr_hp_max,0,[33,322],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[7,63],10},{?attr_mp_max,0,[42,419],25}]};	
+get(11551)  ->
+	{2, [{?attr_defence,0,[27,263],20},{?attr_hp_max,0,[41,403],20},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,14],20},{?attr_js,0,[8,78],10},{?attr_mp_max,0,[53,523],25}]};	
+get(11552)  ->
+	{3, [{?attr_defence,0,[32,316],20},{?attr_hp_max,0,[49,483],20},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,17],20},{?attr_js,0,[10,94],10},{?attr_mp_max,0,[63,628],25}]};	
+get(11553)  ->
+	{3, [{?attr_defence,0,[43,421],20},{?attr_hp_max,0,[65,644],20},{?attr_evasion,1,[5,41],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[13,125],10},{?attr_mp_max,0,[84,837],25}]};	
+get(11554)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11555)  ->
+	{1, [{?attr_defence,0,[23,226],20},{?attr_hp_max,0,[42,414],20},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[6,58],10},{?attr_mp_max,0,[31,304],25}]};	
+get(11556)  ->
+	{2, [{?attr_defence,0,[29,282],20},{?attr_hp_max,0,[52,517],20},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[8,72],10},{?attr_mp_max,0,[38,380],25}]};	
+get(11557)  ->
+	{3, [{?attr_defence,0,[34,338],20},{?attr_hp_max,0,[63,621],20},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[9,87],10},{?attr_mp_max,0,[46,456],25}]};	
+get(11558)  ->
+	{3, [{?attr_defence,0,[46,451],20},{?attr_hp_max,0,[83,828],20},{?attr_evasion,1,[5,41],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[12,116],10},{?attr_mp_max,0,[61,608],25}]};	
+get(11559)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11560)  ->
+	{1, [{?attr_defence,0,[36,357],20},{?attr_hp_max,0,[52,520],20},{?attr_evasion,1,[2,17],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[4,34],10},{?attr_mp_max,0,[21,208],25}]};	
+get(11561)  ->
+	{2, [{?attr_defence,0,[45,446],20},{?attr_hp_max,0,[66,651],20},{?attr_evasion,1,[3,21],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[5,42],10},{?attr_mp_max,0,[26,260],25}]};	
+get(11562)  ->
+	{3, [{?attr_defence,0,[54,535],20},{?attr_hp_max,0,[79,781],20},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[6,51],10},{?attr_mp_max,0,[32,312],25}]};	
+get(11563)  ->
+	{3, [{?attr_defence,0,[72,714],20},{?attr_hp_max,0,[105,1041],20},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[7,68],10},{?attr_mp_max,0,[42,416],25}]};	
+get(11564)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11565)  ->
+	{1, [{?attr_defence,0,[16,154],20},{?attr_hp_max,0,[39,383],20},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[9,82],10},{?attr_mp_max,0,[40,400],25}]};	
+get(11566)  ->
+	{2, [{?attr_defence,0,[20,192],20},{?attr_hp_max,0,[48,479],20},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[11,102],10},{?attr_mp_max,0,[51,501],25}]};	
+get(11567)  ->
+	{3, [{?attr_defence,0,[24,231],20},{?attr_hp_max,0,[58,574],20},{?attr_evasion,1,[4,39],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[13,123],10},{?attr_mp_max,0,[61,601],25}]};	
+get(11568)  ->
+	{3, [{?attr_defence,0,[31,308],20},{?attr_hp_max,0,[77,766],20},{?attr_evasion,1,[6,52],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[17,164],10},{?attr_mp_max,0,[81,801],25}]};	
+get(11569)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11570)  ->
+	{1, [{?attr_defence,0,[12,116],20},{?attr_hp_max,0,[39,384],20},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[12,118],10},{?attr_mp_max,0,[55,544],25}]};	
+get(11571)  ->
+	{2, [{?attr_defence,0,[15,145],20},{?attr_hp_max,0,[48,480],20},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[15,147],10},{?attr_mp_max,0,[69,681],25}]};	
+get(11572)  ->
+	{3, [{?attr_defence,0,[18,174],20},{?attr_hp_max,0,[58,576],20},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[18,177],10},{?attr_mp_max,0,[82,817],25}]};	
+get(11573)  ->
+	{3, [{?attr_defence,0,[24,232],20},{?attr_hp_max,0,[77,768],20},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[24,236],10},{?attr_mp_max,0,[109,1089],25}]};	
+get(11574)  ->
+	{0, [{?attr_defence,0,[0,0],20},{?attr_hp_max,0,[0,0],20},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],20},{?attr_js,0,[0,0],10},{?attr_mp_max,0,[0,0],25}]};	
+get(11575)  ->
+	{1, [{?attr_defence,0,[23,226],20},{?attr_hp_max,0,[35,345],20},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,12],20},{?attr_js,0,[10,94],10},{?attr_mp_max,0,[45,448],25}]};	
+get(11576)  ->
+	{2, [{?attr_defence,0,[29,282],20},{?attr_hp_max,0,[44,431],20},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,15],20},{?attr_js,0,[12,117],10},{?attr_mp_max,0,[57,561],25}]};	
+get(11577)  ->
+	{3, [{?attr_defence,0,[34,338],20},{?attr_hp_max,0,[52,518],20},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,19],20},{?attr_js,0,[15,141],10},{?attr_mp_max,0,[68,673],25}]};	
+get(11578)  ->
+	{3, [{?attr_defence,0,[46,451],20},{?attr_hp_max,0,[69,690],20},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[19,188],10},{?attr_mp_max,0,[90,897],25}]};	
+get(11579)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11580)  ->
+	{1, [{?attr_defence,0,[28,271],15},{?attr_hp_max,0,[50,497],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[37,365],20}]};	
+get(11581)  ->
+	{2, [{?attr_defence,0,[34,338],15},{?attr_hp_max,0,[63,621],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[46,456],20}]};	
+get(11582)  ->
+	{3, [{?attr_defence,0,[41,406],15},{?attr_hp_max,0,[75,745],15},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[55,547],20}]};	
+get(11583)  ->
+	{3, [{?attr_defence,0,[55,541],15},{?attr_hp_max,0,[100,994],15},{?attr_evasion,1,[5,49],5},{?attr_tenacity,0,[3,30],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[73,729],20}]};	
+get(11584)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11585)  ->
+	{1, [{?attr_defence,0,[43,428],15},{?attr_hp_max,0,[63,625],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[25,249],20}]};	
+get(11586)  ->
+	{2, [{?attr_defence,0,[54,535],15},{?attr_hp_max,0,[79,781],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[32,312],20}]};	
+get(11587)  ->
+	{3, [{?attr_defence,0,[65,642],15},{?attr_hp_max,0,[94,937],15},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[38,374],20}]};	
+get(11588)  ->
+	{3, [{?attr_defence,0,[86,857],15},{?attr_hp_max,0,[125,1249],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,30],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[50,499],20}]};	
+get(11589)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11590)  ->
+	{1, [{?attr_defence,0,[19,185],15},{?attr_hp_max,0,[46,460],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[49,481],20}]};	
+get(11591)  ->
+	{2, [{?attr_defence,0,[24,231],15},{?attr_hp_max,0,[58,574],15},{?attr_evasion,1,[4,39],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[61,601],20}]};	
+get(11592)  ->
+	{3, [{?attr_defence,0,[28,277],15},{?attr_hp_max,0,[69,689],15},{?attr_evasion,1,[5,47],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[73,721],20}]};	
+get(11593)  ->
+	{3, [{?attr_defence,0,[37,369],15},{?attr_hp_max,0,[92,919],15},{?attr_evasion,1,[7,62],5},{?attr_tenacity,0,[3,30],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[97,961],20}]};	
+get(11594)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11595)  ->
+	{1, [{?attr_defence,0,[14,139],15},{?attr_hp_max,0,[47,461],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[66,653],20}]};	
+get(11596)  ->
+	{2, [{?attr_defence,0,[18,174],15},{?attr_hp_max,0,[58,576],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[82,817],20}]};	
+get(11597)  ->
+	{3, [{?attr_defence,0,[21,209],15},{?attr_hp_max,0,[70,692],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[98,980],20}]};	
+get(11598)  ->
+	{3, [{?attr_defence,0,[28,279],15},{?attr_hp_max,0,[93,922],15},{?attr_evasion,1,[5,46],5},{?attr_tenacity,0,[3,30],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[131,1307],20}]};	
+get(11599)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11600)  ->
+	{1, [{?attr_defence,0,[28,271],15},{?attr_hp_max,0,[42,414],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,15],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[54,538],20}]};	
+get(11601)  ->
+	{2, [{?attr_defence,0,[34,338],15},{?attr_hp_max,0,[52,518],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,19],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[68,673],20}]};	
+get(11602)  ->
+	{3, [{?attr_defence,0,[41,406],15},{?attr_hp_max,0,[63,621],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,22],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[81,807],20}]};	
+get(11603)  ->
+	{3, [{?attr_defence,0,[55,541],15},{?attr_hp_max,0,[83,828],15},{?attr_evasion,1,[6,53],5},{?attr_tenacity,0,[3,30],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[108,1076],20}]};	
+get(11604)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11605)  ->
+	{1, [{?attr_defence,0,[25,241],15},{?attr_hp_max,0,[45,442],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[67,661],6},{?attr_rst_wood,0,[67,661],6},{?attr_rst_water,0,[67,661],6},{?attr_rst_fire,0,[67,661],6},{?attr_rst_earth,0,[67,661],6},{?attr_mp_max,0,[33,324],20}]};	
+get(11606)  ->
+	{2, [{?attr_defence,0,[31,301],15},{?attr_hp_max,0,[56,552],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[83,827],6},{?attr_rst_wood,0,[83,827],6},{?attr_rst_water,0,[83,827],6},{?attr_rst_fire,0,[83,827],6},{?attr_rst_earth,0,[83,827],6},{?attr_mp_max,0,[41,405],20}]};	
+get(11607)  ->
+	{3, [{?attr_defence,0,[37,361],15},{?attr_hp_max,0,[67,662],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[100,992],6},{?attr_rst_wood,0,[100,992],6},{?attr_rst_water,0,[100,992],6},{?attr_rst_fire,0,[100,992],6},{?attr_rst_earth,0,[100,992],6},{?attr_mp_max,0,[49,486],20}]};	
+get(11608)  ->
+	{3, [{?attr_defence,0,[49,481],15},{?attr_hp_max,0,[89,883],15},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[133,1323],6},{?attr_rst_wood,0,[133,1323],6},{?attr_rst_water,0,[133,1323],6},{?attr_rst_fire,0,[133,1323],6},{?attr_rst_earth,0,[133,1323],6},{?attr_mp_max,0,[65,648],20}]};	
+get(11609)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11610)  ->
+	{1, [{?attr_defence,0,[39,381],15},{?attr_hp_max,0,[56,555],15},{?attr_evasion,1,[2,18],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[67,661],6},{?attr_rst_wood,0,[67,661],6},{?attr_rst_water,0,[67,661],6},{?attr_rst_fire,0,[67,661],6},{?attr_rst_earth,0,[67,661],6},{?attr_mp_max,0,[23,222],20}]};	
+get(11611)  ->
+	{2, [{?attr_defence,0,[48,476],15},{?attr_hp_max,0,[70,694],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[83,827],6},{?attr_rst_wood,0,[83,827],6},{?attr_rst_water,0,[83,827],6},{?attr_rst_fire,0,[83,827],6},{?attr_rst_earth,0,[83,827],6},{?attr_mp_max,0,[28,277],20}]};	
+get(11612)  ->
+	{3, [{?attr_defence,0,[58,571],15},{?attr_hp_max,0,[84,833],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[100,992],6},{?attr_rst_wood,0,[100,992],6},{?attr_rst_water,0,[100,992],6},{?attr_rst_fire,0,[100,992],6},{?attr_rst_earth,0,[100,992],6},{?attr_mp_max,0,[34,332],20}]};	
+get(11613)  ->
+	{3, [{?attr_defence,0,[77,761],15},{?attr_hp_max,0,[111,1110],15},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[133,1323],6},{?attr_rst_wood,0,[133,1323],6},{?attr_rst_water,0,[133,1323],6},{?attr_rst_fire,0,[133,1323],6},{?attr_rst_earth,0,[133,1323],6},{?attr_mp_max,0,[45,443],20}]};	
+get(11614)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11615)  ->
+	{1, [{?attr_defence,0,[17,164],15},{?attr_hp_max,0,[41,408],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[67,661],6},{?attr_rst_wood,0,[67,661],6},{?attr_rst_water,0,[67,661],6},{?attr_rst_fire,0,[67,661],6},{?attr_rst_earth,0,[67,661],6},{?attr_mp_max,0,[43,427],20}]};	
+get(11616)  ->
+	{2, [{?attr_defence,0,[21,205],15},{?attr_hp_max,0,[52,511],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[83,827],6},{?attr_rst_wood,0,[83,827],6},{?attr_rst_water,0,[83,827],6},{?attr_rst_fire,0,[83,827],6},{?attr_rst_earth,0,[83,827],6},{?attr_mp_max,0,[54,534],20}]};	
+get(11617)  ->
+	{3, [{?attr_defence,0,[25,246],15},{?attr_hp_max,0,[62,613],15},{?attr_evasion,1,[5,41],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[100,992],6},{?attr_rst_wood,0,[100,992],6},{?attr_rst_water,0,[100,992],6},{?attr_rst_fire,0,[100,992],6},{?attr_rst_earth,0,[100,992],6},{?attr_mp_max,0,[65,641],20}]};	
+get(11618)  ->
+	{3, [{?attr_defence,0,[33,328],15},{?attr_hp_max,0,[82,817],15},{?attr_evasion,1,[6,55],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[133,1323],6},{?attr_rst_wood,0,[133,1323],6},{?attr_rst_water,0,[133,1323],6},{?attr_rst_fire,0,[133,1323],6},{?attr_rst_earth,0,[133,1323],6},{?attr_mp_max,0,[86,854],20}]};	
+get(11619)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11620)  ->
+	{1, [{?attr_defence,0,[13,124],15},{?attr_hp_max,0,[41,410],15},{?attr_evasion,1,[2,20],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[67,661],6},{?attr_rst_wood,0,[67,661],6},{?attr_rst_water,0,[67,661],6},{?attr_rst_fire,0,[67,661],6},{?attr_rst_earth,0,[67,661],6},{?attr_mp_max,0,[59,581],20}]};	
+get(11621)  ->
+	{2, [{?attr_defence,0,[16,155],15},{?attr_hp_max,0,[52,512],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[83,827],6},{?attr_rst_wood,0,[83,827],6},{?attr_rst_water,0,[83,827],6},{?attr_rst_fire,0,[83,827],6},{?attr_rst_earth,0,[83,827],6},{?attr_mp_max,0,[73,726],20}]};	
+get(11622)  ->
+	{3, [{?attr_defence,0,[19,186],15},{?attr_hp_max,0,[62,615],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[100,992],6},{?attr_rst_wood,0,[100,992],6},{?attr_rst_water,0,[100,992],6},{?attr_rst_fire,0,[100,992],6},{?attr_rst_earth,0,[100,992],6},{?attr_mp_max,0,[88,871],20}]};	
+get(11623)  ->
+	{3, [{?attr_defence,0,[25,248],15},{?attr_hp_max,0,[82,820],15},{?attr_evasion,1,[5,41],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[133,1323],6},{?attr_rst_wood,0,[133,1323],6},{?attr_rst_water,0,[133,1323],6},{?attr_rst_fire,0,[133,1323],6},{?attr_rst_earth,0,[133,1323],6},{?attr_mp_max,0,[117,1161],20}]};	
+get(11624)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11625)  ->
+	{1, [{?attr_defence,0,[25,241],15},{?attr_hp_max,0,[37,368],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,13],15},{?attr_rst_metal,0,[67,661],6},{?attr_rst_wood,0,[67,661],6},{?attr_rst_water,0,[67,661],6},{?attr_rst_fire,0,[67,661],6},{?attr_rst_earth,0,[67,661],6},{?attr_mp_max,0,[48,478],20}]};	
+get(11626)  ->
+	{2, [{?attr_defence,0,[31,301],15},{?attr_hp_max,0,[46,460],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[83,827],6},{?attr_rst_wood,0,[83,827],6},{?attr_rst_water,0,[83,827],6},{?attr_rst_fire,0,[83,827],6},{?attr_rst_earth,0,[83,827],6},{?attr_mp_max,0,[60,598],20}]};	
+get(11627)  ->
+	{3, [{?attr_defence,0,[37,361],15},{?attr_hp_max,0,[56,552],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[2,20],15},{?attr_rst_metal,0,[100,992],6},{?attr_rst_wood,0,[100,992],6},{?attr_rst_water,0,[100,992],6},{?attr_rst_fire,0,[100,992],6},{?attr_rst_earth,0,[100,992],6},{?attr_mp_max,0,[72,717],20}]};	
+get(11628)  ->
+	{3, [{?attr_defence,0,[49,481],15},{?attr_hp_max,0,[74,736],15},{?attr_evasion,1,[5,47],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[133,1323],6},{?attr_rst_wood,0,[133,1323],6},{?attr_rst_water,0,[133,1323],6},{?attr_rst_fire,0,[133,1323],6},{?attr_rst_earth,0,[133,1323],6},{?attr_mp_max,0,[96,957],20}]};	
+get(11629)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11630)  ->
+	{1, [{?attr_defence,0,[26,256],15},{?attr_hp_max,0,[47,469],15},{?attr_evasion,1,[3,23],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[35,344],20}]};	
+get(11631)  ->
+	{2, [{?attr_defence,0,[32,320],15},{?attr_hp_max,0,[59,586],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[43,430],20}]};	
+get(11632)  ->
+	{3, [{?attr_defence,0,[39,384],15},{?attr_hp_max,0,[71,704],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[52,516],20}]};	
+get(11633)  ->
+	{3, [{?attr_defence,0,[52,511],15},{?attr_hp_max,0,[94,938],15},{?attr_evasion,1,[5,46],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[69,689],20}]};	
+get(11634)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11635)  ->
+	{1, [{?attr_defence,0,[41,404],15},{?attr_hp_max,0,[59,590],15},{?attr_evasion,1,[2,19],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[24,235],20}]};	
+get(11636)  ->
+	{2, [{?attr_defence,0,[51,506],15},{?attr_hp_max,0,[74,737],15},{?attr_evasion,1,[3,24],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[30,294],20}]};	
+get(11637)  ->
+	{3, [{?attr_defence,0,[61,607],15},{?attr_hp_max,0,[89,885],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[36,353],20}]};	
+get(11638)  ->
+	{3, [{?attr_defence,0,[81,809],15},{?attr_hp_max,0,[118,1180],15},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[48,471],20}]};	
+get(11639)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11640)  ->
+	{1, [{?attr_defence,0,[18,174],15},{?attr_hp_max,0,[44,434],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[46,454],20}]};	
+get(11641)  ->
+	{2, [{?attr_defence,0,[22,218],15},{?attr_hp_max,0,[55,542],15},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[57,567],20}]};	
+get(11642)  ->
+	{3, [{?attr_defence,0,[27,262],15},{?attr_hp_max,0,[66,651],15},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[69,681],20}]};	
+get(11643)  ->
+	{3, [{?attr_defence,0,[35,349],15},{?attr_hp_max,0,[87,868],15},{?attr_evasion,1,[6,59],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[91,908],20}]};	
+get(11644)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11645)  ->
+	{1, [{?attr_defence,0,[14,132],15},{?attr_hp_max,0,[44,435],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[62,617],20}]};	
+get(11646)  ->
+	{2, [{?attr_defence,0,[17,165],15},{?attr_hp_max,0,[55,544],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[78,771],20}]};	
+get(11647)  ->
+	{3, [{?attr_defence,0,[20,198],15},{?attr_hp_max,0,[66,653],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[93,926],20}]};	
+get(11648)  ->
+	{3, [{?attr_defence,0,[27,263],15},{?attr_hp_max,0,[88,871],15},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[124,1234],20}]};	
+get(11649)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_anti_stun,0,[0,0],6},{?attr_anti_poison,0,[0,0],6},{?attr_anti_sleep,0,[0,0],6},{?attr_anti_stone,0,[0,0],6},{?attr_anti_taunt,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11650)  ->
+	{1, [{?attr_defence,0,[26,256],15},{?attr_hp_max,0,[40,391],15},{?attr_evasion,1,[3,25],5},{?attr_tenacity,0,[2,14],15},{?attr_anti_stun,0,[3,25],6},{?attr_anti_poison,0,[3,25],6},{?attr_anti_sleep,0,[3,25],6},{?attr_anti_stone,0,[3,25],6},{?attr_anti_taunt,0,[3,25],6},{?attr_mp_max,0,[51,508],20}]};	
+get(11651)  ->
+	{2, [{?attr_defence,0,[32,320],15},{?attr_hp_max,0,[49,489],15},{?attr_evasion,1,[4,31],5},{?attr_tenacity,0,[2,18],15},{?attr_anti_stun,0,[4,31],6},{?attr_anti_poison,0,[4,31],6},{?attr_anti_sleep,0,[4,31],6},{?attr_anti_stone,0,[4,31],6},{?attr_anti_taunt,0,[4,31],6},{?attr_mp_max,0,[64,635],20}]};	
+get(11652)  ->
+	{3, [{?attr_defence,0,[39,384],15},{?attr_hp_max,0,[59,587],15},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,21],15},{?attr_anti_stun,0,[4,38],6},{?attr_anti_poison,0,[4,38],6},{?attr_anti_sleep,0,[4,38],6},{?attr_anti_stone,0,[4,38],6},{?attr_anti_taunt,0,[4,38],6},{?attr_mp_max,0,[77,762],20}]};	
+get(11653)  ->
+	{3, [{?attr_defence,0,[52,511],15},{?attr_hp_max,0,[79,782],15},{?attr_evasion,1,[5,50],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[5,50],6},{?attr_anti_poison,0,[5,50],6},{?attr_anti_sleep,0,[5,50],6},{?attr_anti_stone,0,[5,50],6},{?attr_anti_taunt,0,[5,50],6},{?attr_mp_max,0,[102,1016],20}]};	
+get(11654)  ->
+	{0, [{?attr_dmg,0,[0,0],25},{?attr_critrate,1,[0,0],20},{?attr_hitrate,1,[0,0],20},{?attr_dmg_magic,0,[0,0],25},{?attr_js,0,[0,0],10}]};	
+get(11655)  ->
+	{1, [{?attr_dmg,0,[7,65],25},{?attr_critrate,1,[3,25],20},{?attr_hitrate,1,[2,15],20},{?attr_dmg_magic,0,[9,83],25},{?attr_js,0,[7,64],10}]};	
+get(11656)  ->
+	{2, [{?attr_dmg,0,[9,82],25},{?attr_critrate,1,[4,31],20},{?attr_hitrate,1,[2,19],20},{?attr_dmg_magic,0,[11,103],25},{?attr_js,0,[8,80],10}]};	
+get(11657)  ->
+	{3, [{?attr_dmg,0,[10,98],25},{?attr_critrate,1,[4,38],20},{?attr_hitrate,1,[3,23],20},{?attr_dmg_magic,0,[13,124],25},{?attr_js,0,[10,96],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513,119,219,319,419,519],1}]};	
+get(11658)  ->
+	{3, [{?attr_dmg,0,[14,131],25},{?attr_critrate,1,[5,50],20},{?attr_hitrate,1,[3,30],20},{?attr_dmg_magic,0,[17,165],25},{?attr_js,0,[13,128],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513,119,219,319,419,519],1}]};	
+get(11659)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11660)  ->
+	{1, [{?attr_defence,0,[31,301],15},{?attr_hp_max,0,[56,552],15},{?attr_evasion,1,[3,27],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[41,405],20}]};	
+get(11661)  ->
+	{2, [{?attr_defence,0,[38,376],15},{?attr_hp_max,0,[69,690],15},{?attr_evasion,1,[4,34],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[154,1535],6},{?attr_rst_wood,0,[154,1535],6},{?attr_rst_water,0,[154,1535],6},{?attr_rst_fire,0,[154,1535],6},{?attr_rst_earth,0,[154,1535],6},{?attr_mp_max,0,[51,506],20}]};	
+get(11662)  ->
+	{3, [{?attr_defence,0,[46,451],15},{?attr_hp_max,0,[83,828],15},{?attr_evasion,1,[5,41],5},{?attr_tenacity,0,[3,25],15},{?attr_rst_metal,0,[185,1842],6},{?attr_rst_wood,0,[185,1842],6},{?attr_rst_water,0,[185,1842],6},{?attr_rst_fire,0,[185,1842],6},{?attr_rst_earth,0,[185,1842],6},{?attr_mp_max,0,[61,608],20}]};	
+get(11663)  ->
+	{3, [{?attr_defence,0,[61,602],15},{?attr_hp_max,0,[111,1104],15},{?attr_evasion,1,[6,54],5},{?attr_tenacity,0,[4,33],15},{?attr_rst_metal,0,[246,2456],6},{?attr_rst_wood,0,[246,2456],6},{?attr_rst_water,0,[246,2456],6},{?attr_rst_fire,0,[246,2456],6},{?attr_rst_earth,0,[246,2456],6},{?attr_mp_max,0,[81,810],20}]};	
+get(11664)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11665)  ->
+	{1, [{?attr_defence,0,[48,476],15},{?attr_hp_max,0,[70,694],15},{?attr_evasion,1,[3,22],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[28,277],20}]};	
+get(11666)  ->
+	{2, [{?attr_defence,0,[60,595],15},{?attr_hp_max,0,[87,867],15},{?attr_evasion,1,[3,28],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[154,1535],6},{?attr_rst_wood,0,[154,1535],6},{?attr_rst_water,0,[154,1535],6},{?attr_rst_fire,0,[154,1535],6},{?attr_rst_earth,0,[154,1535],6},{?attr_mp_max,0,[35,346],20}]};	
+get(11667)  ->
+	{3, [{?attr_defence,0,[72,714],15},{?attr_hp_max,0,[105,1041],15},{?attr_evasion,1,[4,33],5},{?attr_tenacity,0,[3,25],15},{?attr_rst_metal,0,[185,1842],6},{?attr_rst_wood,0,[185,1842],6},{?attr_rst_water,0,[185,1842],6},{?attr_rst_fire,0,[185,1842],6},{?attr_rst_earth,0,[185,1842],6},{?attr_mp_max,0,[42,416],20}]};	
+get(11668)  ->
+	{3, [{?attr_defence,0,[96,952],15},{?attr_hp_max,0,[139,1388],15},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[4,33],15},{?attr_rst_metal,0,[246,2456],6},{?attr_rst_wood,0,[246,2456],6},{?attr_rst_water,0,[246,2456],6},{?attr_rst_fire,0,[246,2456],6},{?attr_rst_earth,0,[246,2456],6},{?attr_mp_max,0,[56,554],20}]};	
+get(11669)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11670)  ->
+	{1, [{?attr_defence,0,[21,205],15},{?attr_hp_max,0,[52,511],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[54,534],20}]};	
+get(11671)  ->
+	{2, [{?attr_defence,0,[26,256],15},{?attr_hp_max,0,[64,638],15},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[154,1535],6},{?attr_rst_wood,0,[154,1535],6},{?attr_rst_water,0,[154,1535],6},{?attr_rst_fire,0,[154,1535],6},{?attr_rst_earth,0,[154,1535],6},{?attr_mp_max,0,[67,667],20}]};	
+get(11672)  ->
+	{3, [{?attr_defence,0,[31,308],15},{?attr_hp_max,0,[77,766],15},{?attr_evasion,1,[6,52],5},{?attr_tenacity,0,[3,25],15},{?attr_rst_metal,0,[185,1842],6},{?attr_rst_wood,0,[185,1842],6},{?attr_rst_water,0,[185,1842],6},{?attr_rst_fire,0,[185,1842],6},{?attr_rst_earth,0,[185,1842],6},{?attr_mp_max,0,[81,801],20}]};	
+get(11673)  ->
+	{3, [{?attr_defence,0,[41,410],15},{?attr_hp_max,0,[103,1021],15},{?attr_evasion,1,[7,69],5},{?attr_tenacity,0,[4,33],15},{?attr_rst_metal,0,[246,2456],6},{?attr_rst_wood,0,[246,2456],6},{?attr_rst_water,0,[246,2456],6},{?attr_rst_fire,0,[246,2456],6},{?attr_rst_earth,0,[246,2456],6},{?attr_mp_max,0,[107,1068],20}]};	
+get(11674)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11675)  ->
+	{1, [{?attr_defence,0,[16,155],15},{?attr_hp_max,0,[52,512],15},{?attr_evasion,1,[3,26],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[73,726],20}]};	
+get(11676)  ->
+	{2, [{?attr_defence,0,[20,194],15},{?attr_hp_max,0,[64,640],15},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[154,1535],6},{?attr_rst_wood,0,[154,1535],6},{?attr_rst_water,0,[154,1535],6},{?attr_rst_fire,0,[154,1535],6},{?attr_rst_earth,0,[154,1535],6},{?attr_mp_max,0,[91,907],20}]};	
+get(11677)  ->
+	{3, [{?attr_defence,0,[24,232],15},{?attr_hp_max,0,[77,768],15},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[3,25],15},{?attr_rst_metal,0,[185,1842],6},{?attr_rst_wood,0,[185,1842],6},{?attr_rst_water,0,[185,1842],6},{?attr_rst_fire,0,[185,1842],6},{?attr_rst_earth,0,[185,1842],6},{?attr_mp_max,0,[109,1089],20}]};	
+get(11678)  ->
+	{3, [{?attr_defence,0,[31,310],15},{?attr_hp_max,0,[103,1025],15},{?attr_evasion,1,[6,51],5},{?attr_tenacity,0,[4,33],15},{?attr_rst_metal,0,[246,2456],6},{?attr_rst_wood,0,[246,2456],6},{?attr_rst_water,0,[246,2456],6},{?attr_rst_fire,0,[246,2456],6},{?attr_rst_earth,0,[246,2456],6},{?attr_mp_max,0,[146,1452],20}]};	
+get(11679)  ->
+	{0, [{?attr_defence,0,[0,0],15},{?attr_hp_max,0,[0,0],15},{?attr_evasion,1,[0,0],5},{?attr_tenacity,0,[0,0],15},{?attr_rst_metal,0,[0,0],6},{?attr_rst_wood,0,[0,0],6},{?attr_rst_water,0,[0,0],6},{?attr_rst_fire,0,[0,0],6},{?attr_rst_earth,0,[0,0],6},{?attr_mp_max,0,[0,0],20}]};	
+get(11680)  ->
+	{1, [{?attr_defence,0,[31,301],15},{?attr_hp_max,0,[46,460],15},{?attr_evasion,1,[3,29],5},{?attr_tenacity,0,[2,17],15},{?attr_rst_metal,0,[123,1228],6},{?attr_rst_wood,0,[123,1228],6},{?attr_rst_water,0,[123,1228],6},{?attr_rst_fire,0,[123,1228],6},{?attr_rst_earth,0,[123,1228],6},{?attr_mp_max,0,[60,598],20}]};	
+get(11681)  ->
+	{2, [{?attr_defence,0,[38,376],15},{?attr_hp_max,0,[58,575],15},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,21],15},{?attr_rst_metal,0,[154,1535],6},{?attr_rst_wood,0,[154,1535],6},{?attr_rst_water,0,[154,1535],6},{?attr_rst_fire,0,[154,1535],6},{?attr_rst_earth,0,[154,1535],6},{?attr_mp_max,0,[75,747],20}]};	
+get(11682)  ->
+	{3, [{?attr_defence,0,[46,451],15},{?attr_hp_max,0,[69,690],15},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,25],15},{?attr_rst_metal,0,[185,1842],6},{?attr_rst_wood,0,[185,1842],6},{?attr_rst_water,0,[185,1842],6},{?attr_rst_fire,0,[185,1842],6},{?attr_rst_earth,0,[185,1842],6},{?attr_mp_max,0,[90,897],20}]};	
+get(11683)  ->
+	{3, [{?attr_defence,0,[61,602],15},{?attr_hp_max,0,[92,920],15},{?attr_evasion,1,[6,59],5},{?attr_tenacity,0,[4,33],15},{?attr_rst_metal,0,[246,2456],6},{?attr_rst_wood,0,[246,2456],6},{?attr_rst_water,0,[246,2456],6},{?attr_rst_fire,0,[246,2456],6},{?attr_rst_earth,0,[246,2456],6},{?attr_mp_max,0,[120,1196],20}]};	
+get(11684)  ->
+	{0, [{?attr_rst_metal,0,[0,0],15},{?attr_rst_wood,0,[0,0],15},{?attr_rst_water,0,[0,0],15},{?attr_rst_fire,0,[0,0],15},{?attr_rst_earth,0,[0,0],15},{?attr_anti_stun,0,[0,0],5},{?attr_anti_poison,0,[0,0],5},{?attr_anti_sleep,0,[0,0],5},{?attr_anti_stone,0,[0,0],5},{?attr_anti_taunt,0,[0,0],5}]};	
+get(11685)  ->
+	{1, [{?attr_rst_metal,0,[119,1181],15},{?attr_rst_wood,0,[119,1181],15},{?attr_rst_water,0,[119,1181],15},{?attr_rst_fire,0,[119,1181],15},{?attr_rst_earth,0,[119,1181],15},{?attr_anti_stun,0,[3,25],5},{?attr_anti_poison,0,[3,25],5},{?attr_anti_sleep,0,[3,25],5},{?attr_anti_stone,0,[3,25],5},{?attr_anti_taunt,0,[3,25],5}]};	
+get(11686)  ->
+	{2, [{?attr_rst_metal,0,[148,1476],15},{?attr_rst_wood,0,[148,1476],15},{?attr_rst_water,0,[148,1476],15},{?attr_rst_fire,0,[148,1476],15},{?attr_rst_earth,0,[148,1476],15},{?attr_anti_stun,0,[4,31],5},{?attr_anti_poison,0,[4,31],5},{?attr_anti_sleep,0,[4,31],5},{?attr_anti_stone,0,[4,31],5},{?attr_anti_taunt,0,[4,31],5}]};	
+get(11687)  ->
+	{3, [{?attr_rst_metal,0,[178,1771],15},{?attr_rst_wood,0,[178,1771],15},{?attr_rst_water,0,[178,1771],15},{?attr_rst_fire,0,[178,1771],15},{?attr_rst_earth,0,[178,1771],15},{?attr_anti_stun,0,[4,38],5},{?attr_anti_poison,0,[4,38],5},{?attr_anti_sleep,0,[4,38],5},{?attr_anti_stone,0,[4,38],5},{?attr_anti_taunt,0,[4,38],5}]};	
+get(11688)  ->
+	{3, [{?attr_rst_metal,0,[237,2362],15},{?attr_rst_wood,0,[237,2362],15},{?attr_rst_water,0,[237,2362],15},{?attr_rst_fire,0,[237,2362],15},{?attr_rst_earth,0,[237,2362],15},{?attr_anti_stun,0,[5,50],5},{?attr_anti_poison,0,[5,50],5},{?attr_anti_sleep,0,[5,50],5},{?attr_anti_stone,0,[5,50],5},{?attr_anti_taunt,0,[5,50],5}]};	
+get(11689)  ->
+	{3, [{?attr_dmg,0,[34,338],20},{?attr_critrate,1,[7,68],20},{?attr_hitrate,1,[7,68],20},{?attr_dmg_magic,0,[22,218],20},{?attr_js,0,[24,234],20},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113,119],1}]};	
+get(11690)  ->
+	{3, [{?attr_dmg,0,[27,266],20},{?attr_critrate,1,[5,42],20},{?attr_hitrate,1,[7,65],20},{?attr_dmg_magic,0,[22,218],20},{?attr_js,0,[14,137],20},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513,519],1}]};	
+get(11691)  ->
+	{3, [{?attr_dmg,0,[27,266],20},{?attr_critrate,1,[21,203],20},{?attr_hitrate,1,[8,78],20},{?attr_dmg_magic,0,[22,218],20},{?attr_js,0,[34,333],20},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213,219],1}]};	
+get(11692)  ->
+	{3, [{?attr_dmg,0,[21,209],20},{?attr_critrate,1,[14,136],20},{?attr_hitrate,1,[8,79],20},{?attr_dmg_magic,0,[22,218],20},{?attr_js,0,[48,479],20},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313,319],1}]};	
+get(11693)  ->
+	{3, [{?attr_dmg,0,[31,305],20},{?attr_critrate,1,[5,42],20},{?attr_hitrate,1,[9,86],20},{?attr_dmg_magic,0,[22,218],20},{?attr_js,0,[39,381],20},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413,419],1}]};	
+get(11694)  ->
+	{3, [{?attr_defence,0,[40,398],20},{?attr_hp_max,0,[93,929],20},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[10,93],10},{?attr_mp_max,0,[69,681],25}]};	
+get(11695)  ->
+	{3, [{?attr_defence,0,[61,609],20},{?attr_hp_max,0,[117,1166],20},{?attr_evasion,1,[3,30],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[6,56],10},{?attr_mp_max,0,[47,467],25}]};	
+get(11696)  ->
+	{3, [{?attr_defence,0,[30,293],20},{?attr_hp_max,0,[86,858],20},{?attr_evasion,1,[5,47],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[14,132],10},{?attr_mp_max,0,[90,899],25}]};	
+get(11697)  ->
+	{3, [{?attr_defence,0,[23,221],20},{?attr_hp_max,0,[87,861],25},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[19,189],5},{?attr_mp_max,0,[123,1221],25}]};	
+get(11698)  ->
+	{3, [{?attr_defence,0,[40,398],20},{?attr_hp_max,0,[78,773],20},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,23],20},{?attr_js,0,[16,152],10},{?attr_mp_max,0,[101,1005],25}]};	
+get(11699)  ->
+	{3, [{?attr_defence,0,[43,426],20},{?attr_hp_max,0,[100,995],20},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,24],20},{?attr_js,0,[14,140],10},{?attr_mp_max,0,[74,731],25}]};	
+get(11700)  ->
+	{3, [{?attr_defence,0,[66,651],20},{?attr_hp_max,0,[125,1250],20},{?attr_evasion,1,[4,32],5},{?attr_tenacity,0,[3,24],20},{?attr_js,0,[9,83],10},{?attr_mp_max,0,[50,500],25}]};	
+get(11701)  ->
+	{3, [{?attr_defence,0,[32,314],20},{?attr_hp_max,0,[92,920],20},{?attr_evasion,1,[5,50],5},{?attr_tenacity,0,[3,24],20},{?attr_js,0,[20,198],10},{?attr_mp_max,0,[97,962],25}]};	
+get(11702)  ->
+	{3, [{?attr_defence,0,[24,237],20},{?attr_hp_max,0,[93,923],25},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,24],20},{?attr_js,0,[29,284],5},{?attr_mp_max,0,[131,1308],25}]};	
+get(11703)  ->
+	{3, [{?attr_defence,0,[43,426],20},{?attr_hp_max,0,[83,828],20},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[3,24],20},{?attr_js,0,[23,227],10},{?attr_mp_max,0,[108,1077],25}]};	
+get(11704)  ->
+	{3, [{?attr_defence,0,[51,510],15},{?attr_hp_max,0,[120,1193],15},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[3,29],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[88,876],20}]};	
+get(11705)  ->
+	{3, [{?attr_defence,0,[79,782],15},{?attr_hp_max,0,[150,1499],15},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[3,29],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[60,600],20}]};	
+get(11706)  ->
+	{3, [{?attr_defence,0,[38,377],15},{?attr_hp_max,0,[111,1103],15},{?attr_evasion,1,[6,60],5},{?attr_tenacity,0,[3,29],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[116,1155],20}]};	
+get(11707)  ->
+	{3, [{?attr_defence,0,[29,284],15},{?attr_hp_max,0,[111,1107],15},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,29],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[157,1569],20}]};	
+get(11708)  ->
+	{3, [{?attr_defence,0,[51,510],15},{?attr_hp_max,0,[100,993],15},{?attr_evasion,1,[6,52],5},{?attr_tenacity,0,[3,29],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[130,1293],20}]};	
+get(11709)  ->
+	{3, [{?attr_defence,0,[46,455],15},{?attr_hp_max,0,[107,1061],15},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[119,1190],6},{?attr_rst_wood,0,[119,1190],6},{?attr_rst_water,0,[119,1190],6},{?attr_rst_fire,0,[119,1190],6},{?attr_rst_earth,0,[119,1190],6},{?attr_mp_max,0,[78,779],20}]};	
+get(11710)  ->
+	{3, [{?attr_defence,0,[70,695],15},{?attr_hp_max,0,[134,1332],15},{?attr_evasion,1,[4,35],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[119,1190],6},{?attr_rst_wood,0,[119,1190],6},{?attr_rst_water,0,[119,1190],6},{?attr_rst_fire,0,[119,1190],6},{?attr_rst_earth,0,[119,1190],6},{?attr_mp_max,0,[54,533],20}]};	
+get(11711)  ->
+	{3, [{?attr_defence,0,[34,335],15},{?attr_hp_max,0,[98,980],15},{?attr_evasion,1,[6,53],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[119,1190],6},{?attr_rst_wood,0,[119,1190],6},{?attr_rst_water,0,[119,1190],6},{?attr_rst_fire,0,[119,1190],6},{?attr_rst_earth,0,[119,1190],6},{?attr_mp_max,0,[103,1026],20}]};	
+get(11712)  ->
+	{3, [{?attr_defence,0,[26,252],15},{?attr_hp_max,0,[99,984],15},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[119,1190],6},{?attr_rst_wood,0,[119,1190],6},{?attr_rst_water,0,[119,1190],6},{?attr_rst_fire,0,[119,1190],6},{?attr_rst_earth,0,[119,1190],6},{?attr_mp_max,0,[140,1395],20}]};	
+get(11713)  ->
+	{3, [{?attr_defence,0,[46,455],15},{?attr_hp_max,0,[89,882],15},{?attr_evasion,1,[5,46],5},{?attr_tenacity,0,[3,26],15},{?attr_rst_metal,0,[119,1190],6},{?attr_rst_wood,0,[119,1190],6},{?attr_rst_water,0,[119,1190],6},{?attr_rst_fire,0,[119,1190],6},{?attr_rst_earth,0,[119,1190],6},{?attr_mp_max,0,[115,1149],20}]};	
+get(11714)  ->
+	{3, [{?attr_defence,0,[49,483],15},{?attr_hp_max,0,[113,1127],15},{?attr_evasion,1,[5,46],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[83,827],20}]};	
+get(11715)  ->
+	{3, [{?attr_defence,0,[74,738],15},{?attr_hp_max,0,[142,1416],15},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[57,566],20}]};	
+get(11716)  ->
+	{3, [{?attr_defence,0,[36,356],15},{?attr_hp_max,0,[105,1041],15},{?attr_evasion,1,[6,56],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[110,1091],20}]};	
+get(11717)  ->
+	{3, [{?attr_defence,0,[27,269],15},{?attr_hp_max,0,[105,1046],15},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[149,1482],20}]};	
+get(11718)  ->
+	{3, [{?attr_defence,0,[49,483],15},{?attr_hp_max,0,[94,938],15},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[3,28],15},{?attr_anti_stun,0,[6,52],6},{?attr_anti_poison,0,[6,52],6},{?attr_anti_sleep,0,[6,52],6},{?attr_anti_stone,0,[6,52],6},{?attr_anti_taunt,0,[6,52],6},{?attr_mp_max,0,[123,1221],20}]};	
+get(11719)  ->
+	{3, [{?attr_dmg,0,[16,158],25},{?attr_critrate,1,[2,17],20},{?attr_hitrate,1,[3,26],20},{?attr_dmg_magic,0,[17,162],24},{?attr_js,0,[16,155],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513,119,219,319,419,519],1}]};	
+get(11720)  ->
+	{3, [{?attr_defence,0,[57,567],15},{?attr_hp_max,0,[133,1326],15},{?attr_evasion,1,[6,53],5},{?attr_tenacity,0,[4,32],15},{?attr_rst_metal,0,[221,2210],6},{?attr_rst_wood,0,[221,2210],6},{?attr_rst_water,0,[221,2210],6},{?attr_rst_fire,0,[221,2210],6},{?attr_rst_earth,0,[221,2210],6},{?attr_mp_max,0,[98,974],20}]};	
+get(11721)  ->
+	{3, [{?attr_defence,0,[87,869],15},{?attr_hp_max,0,[167,1665],15},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[4,32],15},{?attr_rst_metal,0,[221,2210],6},{?attr_rst_wood,0,[221,2210],6},{?attr_rst_water,0,[221,2210],6},{?attr_rst_fire,0,[221,2210],6},{?attr_rst_earth,0,[221,2210],6},{?attr_mp_max,0,[67,666],20}]};	
+get(11722)  ->
+	{3, [{?attr_defence,0,[42,419],15},{?attr_hp_max,0,[123,1226],15},{?attr_evasion,1,[7,66],5},{?attr_tenacity,0,[4,32],15},{?attr_rst_metal,0,[221,2210],6},{?attr_rst_wood,0,[221,2210],6},{?attr_rst_water,0,[221,2210],6},{?attr_rst_fire,0,[221,2210],6},{?attr_rst_earth,0,[221,2210],6},{?attr_mp_max,0,[129,1283],20}]};	
+get(11723)  ->
+	{3, [{?attr_defence,0,[32,315],15},{?attr_hp_max,0,[123,1230],15},{?attr_evasion,1,[5,49],5},{?attr_tenacity,0,[4,32],15},{?attr_rst_metal,0,[221,2210],6},{?attr_rst_wood,0,[221,2210],6},{?attr_rst_water,0,[221,2210],6},{?attr_rst_fire,0,[221,2210],6},{?attr_rst_earth,0,[221,2210],6},{?attr_mp_max,0,[175,1743],20}]};	
+get(11724)  ->
+	{3, [{?attr_defence,0,[57,567],15},{?attr_hp_max,0,[111,1103],15},{?attr_evasion,1,[6,56],5},{?attr_tenacity,0,[4,32],15},{?attr_rst_metal,0,[221,2210],6},{?attr_rst_wood,0,[221,2210],6},{?attr_rst_water,0,[221,2210],6},{?attr_rst_fire,0,[221,2210],6},{?attr_rst_earth,0,[221,2210],6},{?attr_mp_max,0,[144,1436],20}]};	
+get(11725)  ->
+	{3, [{?attr_rst_metal,0,[213,2124],15},{?attr_rst_wood,0,[213,2124],15},{?attr_rst_water,0,[213,2124],15},{?attr_rst_fire,0,[213,2124],15},{?attr_rst_earth,0,[213,2124],15},{?attr_anti_stun,0,[6,52],5},{?attr_anti_poison,0,[6,52],5},{?attr_anti_sleep,0,[6,52],5},{?attr_anti_stone,0,[6,52],5},{?attr_anti_taunt,0,[6,52],5}]};	
+get(11726)  ->
+	{3, [{?attr_dmg,0,[38,380],20},{?attr_critrate,1,[8,77],20},{?attr_hitrate,1,[8,77],20},{?attr_dmg_magic,0,[25,242],20},{?attr_js,0,[27,263],20},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113,119],1}]};	
+get(11727)  ->
+	{3, [{?attr_dmg,0,[30,299],20},{?attr_critrate,1,[5,48],20},{?attr_hitrate,1,[8,73],20},{?attr_dmg_magic,0,[25,242],20},{?attr_js,0,[16,153],20},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513,519],1}]};	
+get(11728)  ->
+	{3, [{?attr_dmg,0,[30,299],20},{?attr_critrate,1,[23,229],20},{?attr_hitrate,1,[9,88],20},{?attr_dmg_magic,0,[25,242],20},{?attr_js,0,[38,375],20},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213,219],1}]};	
+get(11729)  ->
+	{3, [{?attr_dmg,0,[24,234],20},{?attr_critrate,1,[16,154],20},{?attr_hitrate,1,[9,89],20},{?attr_dmg_magic,0,[25,242],20},{?attr_js,0,[54,537],20},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313,319],1}]};	
+get(11730)  ->
+	{3, [{?attr_dmg,0,[35,342],20},{?attr_critrate,1,[5,48],20},{?attr_hitrate,1,[10,97],20},{?attr_dmg_magic,0,[25,242],20},{?attr_js,0,[43,429],20},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413,419],1}]};	
+get(11731)  ->
+	{3, [{?attr_defence,0,[52,515],20},{?attr_hp_max,0,[105,1044],20},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[11,105],10},{?attr_mp_max,0,[77,767],25}]};	
+get(11732)  ->
+	{3, [{?attr_defence,0,[81,804],20},{?attr_hp_max,0,[132,1313],20},{?attr_evasion,1,[4,34],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[7,62],10},{?attr_mp_max,0,[53,525],25}]};	
+get(11733)  ->
+	{3, [{?attr_defence,0,[37,362],20},{?attr_hp_max,0,[97,966],20},{?attr_evasion,1,[6,53],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[15,149],10},{?attr_mp_max,0,[101,1010],25}]};	
+get(11734)  ->
+	{3, [{?attr_defence,0,[28,273],20},{?attr_hp_max,0,[97,969],25},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[22,213],5},{?attr_mp_max,0,[138,1373],25}]};	
+get(11735)  ->
+	{3, [{?attr_defence,0,[52,515],20},{?attr_hp_max,0,[87,870],20},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,25],20},{?attr_js,0,[17,170],10},{?attr_mp_max,0,[114,1131],25}]};	
+get(11736)  ->
+	{3, [{?attr_defence,0,[56,552],20},{?attr_hp_max,0,[112,1119],20},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[16,158],10},{?attr_mp_max,0,[83,821],25}]};	
+get(11737)  ->
+	{3, [{?attr_defence,0,[87,861],20},{?attr_hp_max,0,[141,1406],20},{?attr_evasion,1,[4,36],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[10,92],10},{?attr_mp_max,0,[57,563],25}]};	
+get(11738)  ->
+	{3, [{?attr_defence,0,[39,389],20},{?attr_hp_max,0,[104,1034],20},{?attr_evasion,1,[6,56],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[23,222],10},{?attr_mp_max,0,[109,1082],25}]};	
+get(11739)  ->
+	{3, [{?attr_defence,0,[30,293],20},{?attr_hp_max,0,[104,1038],25},{?attr_evasion,1,[5,42],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[32,320],5},{?attr_mp_max,0,[148,1472],25}]};	
+get(11740)  ->
+	{3, [{?attr_defence,0,[56,552],20},{?attr_hp_max,0,[94,932],20},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[26,255],10},{?attr_mp_max,0,[122,1212],25}]};	
+get(11741)  ->
+	{3, [{?attr_defence,0,[67,662],15},{?attr_hp_max,0,[135,1343],15},{?attr_evasion,1,[6,54],5},{?attr_tenacity,0,[4,32],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[99,986],20}]};	
+get(11742)  ->
+	{3, [{?attr_defence,0,[104,1034],15},{?attr_hp_max,0,[169,1688],15},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[4,32],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[68,674],20}]};	
+get(11743)  ->
+	{3, [{?attr_defence,0,[47,465],15},{?attr_hp_max,0,[125,1241],15},{?attr_evasion,1,[7,67],5},{?attr_tenacity,0,[4,32],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[130,1299],20}]};	
+get(11744)  ->
+	{3, [{?attr_defence,0,[36,351],15},{?attr_hp_max,0,[125,1245],15},{?attr_evasion,1,[5,50],5},{?attr_tenacity,0,[4,32],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[177,1766],20}]};	
+get(11745)  ->
+	{3, [{?attr_defence,0,[67,662],15},{?attr_hp_max,0,[112,1118],15},{?attr_evasion,1,[6,58],5},{?attr_tenacity,0,[4,32],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[146,1454],20}]};	
+get(11746)  ->
+	{3, [{?attr_defence,0,[59,588],15},{?attr_hp_max,0,[120,1193],15},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[3,29],15},{?attr_rst_metal,0,[159,1587],6},{?attr_rst_wood,0,[159,1587],6},{?attr_rst_water,0,[159,1587],6},{?attr_rst_fire,0,[159,1587],6},{?attr_rst_earth,0,[159,1587],6},{?attr_mp_max,0,[88,876],20}]};	
+get(11747)  ->
+	{3, [{?attr_defence,0,[92,920],15},{?attr_hp_max,0,[150,1500],15},{?attr_evasion,1,[4,38],5},{?attr_tenacity,0,[3,29],15},{?attr_rst_metal,0,[159,1587],6},{?attr_rst_wood,0,[159,1587],6},{?attr_rst_water,0,[159,1587],6},{?attr_rst_fire,0,[159,1587],6},{?attr_rst_earth,0,[159,1587],6},{?attr_mp_max,0,[60,599],20}]};	
+get(11748)  ->
+	{3, [{?attr_defence,0,[42,414],15},{?attr_hp_max,0,[111,1103],15},{?attr_evasion,1,[6,60],5},{?attr_tenacity,0,[3,29],15},{?attr_rst_metal,0,[159,1587],6},{?attr_rst_wood,0,[159,1587],6},{?attr_rst_water,0,[159,1587],6},{?attr_rst_fire,0,[159,1587],6},{?attr_rst_earth,0,[159,1587],6},{?attr_mp_max,0,[116,1154],20}]};	
+get(11749)  ->
+	{3, [{?attr_defence,0,[32,312],15},{?attr_hp_max,0,[111,1107],15},{?attr_evasion,1,[5,44],5},{?attr_tenacity,0,[3,29],15},{?attr_rst_metal,0,[159,1587],6},{?attr_rst_wood,0,[159,1587],6},{?attr_rst_water,0,[159,1587],6},{?attr_rst_fire,0,[159,1587],6},{?attr_rst_earth,0,[159,1587],6},{?attr_mp_max,0,[157,1569],20}]};	
+get(11750)  ->
+	{3, [{?attr_defence,0,[59,588],15},{?attr_hp_max,0,[100,995],15},{?attr_evasion,1,[6,52],5},{?attr_tenacity,0,[3,29],15},{?attr_rst_metal,0,[159,1587],6},{?attr_rst_wood,0,[159,1587],6},{?attr_rst_water,0,[159,1587],6},{?attr_rst_fire,0,[159,1587],6},{?attr_rst_earth,0,[159,1587],6},{?attr_mp_max,0,[130,1293],20}]};	
+get(11751)  ->
+	{3, [{?attr_defence,0,[63,626],15},{?attr_hp_max,0,[127,1268],15},{?attr_evasion,1,[5,50],5},{?attr_tenacity,0,[4,31],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[93,930],20}]};	
+get(11752)  ->
+	{3, [{?attr_defence,0,[98,977],15},{?attr_hp_max,0,[160,1593],15},{?attr_evasion,1,[5,41],5},{?attr_tenacity,0,[4,31],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[64,636],20}]};	
+get(11753)  ->
+	{3, [{?attr_defence,0,[44,440],15},{?attr_hp_max,0,[118,1172],15},{?attr_evasion,1,[7,64],5},{?attr_tenacity,0,[4,31],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[123,1227],20}]};	
+get(11754)  ->
+	{3, [{?attr_defence,0,[34,332],15},{?attr_hp_max,0,[118,1176],15},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[4,31],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[167,1667],20}]};	
+get(11755)  ->
+	{3, [{?attr_defence,0,[63,626],15},{?attr_hp_max,0,[106,1056],15},{?attr_evasion,1,[6,54],5},{?attr_tenacity,0,[4,31],15},{?attr_anti_stun,0,[6,59],6},{?attr_anti_poison,0,[6,59],6},{?attr_anti_sleep,0,[6,59],6},{?attr_anti_stone,0,[6,59],6},{?attr_anti_taunt,0,[6,59],6},{?attr_mp_max,0,[138,1373],20}]};	
+get(11756)  ->
+	{3, [{?attr_dmg,0,[18,177],25},{?attr_critrate,1,[2,19],20},{?attr_hitrate,1,[3,29],20},{?attr_dmg_magic,0,[18,180],24},{?attr_js,0,[18,174],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513,119,219,319,419,519],1}]};	
+get(11757)  ->
+	{3, [{?attr_defence,0,[74,735],15},{?attr_hp_max,0,[150,1491],15},{?attr_evasion,1,[6,59],5},{?attr_tenacity,0,[4,36],15},{?attr_rst_metal,0,[295,2948],6},{?attr_rst_wood,0,[295,2948],6},{?attr_rst_water,0,[295,2948],6},{?attr_rst_fire,0,[295,2948],6},{?attr_rst_earth,0,[295,2948],6},{?attr_mp_max,0,[110,1095],20}]};	
+get(11758)  ->
+	{3, [{?attr_defence,0,[115,1149],15},{?attr_hp_max,0,[188,1874],15},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[4,36],15},{?attr_rst_metal,0,[295,2948],6},{?attr_rst_wood,0,[295,2948],6},{?attr_rst_water,0,[295,2948],6},{?attr_rst_fire,0,[295,2948],6},{?attr_rst_earth,0,[295,2948],6},{?attr_mp_max,0,[75,749],20}]};	
+get(11759)  ->
+	{3, [{?attr_defence,0,[52,518],15},{?attr_hp_max,0,[138,1379],15},{?attr_evasion,1,[8,74],5},{?attr_tenacity,0,[4,36],15},{?attr_rst_metal,0,[295,2948],6},{?attr_rst_wood,0,[295,2948],6},{?attr_rst_water,0,[295,2948],6},{?attr_rst_fire,0,[295,2948],6},{?attr_rst_earth,0,[295,2948],6},{?attr_mp_max,0,[145,1443],20}]};	
+get(11760)  ->
+	{3, [{?attr_defence,0,[39,390],15},{?attr_hp_max,0,[139,1383],15},{?attr_evasion,1,[6,55],5},{?attr_tenacity,0,[4,36],15},{?attr_rst_metal,0,[295,2948],6},{?attr_rst_wood,0,[295,2948],6},{?attr_rst_water,0,[295,2948],6},{?attr_rst_fire,0,[295,2948],6},{?attr_rst_earth,0,[295,2948],6},{?attr_mp_max,0,[197,1961],20}]};	
+get(11761)  ->
+	{3, [{?attr_defence,0,[74,735],15},{?attr_hp_max,0,[125,1242],15},{?attr_evasion,1,[7,64],5},{?attr_tenacity,0,[4,36],15},{?attr_rst_metal,0,[295,2948],6},{?attr_rst_wood,0,[295,2948],6},{?attr_rst_water,0,[295,2948],6},{?attr_rst_fire,0,[295,2948],6},{?attr_rst_earth,0,[295,2948],6},{?attr_mp_max,0,[162,1616],20}]};	
+get(11762)  ->
+	{3, [{?attr_rst_metal,0,[284,2834],15},{?attr_rst_wood,0,[284,2834],15},{?attr_rst_water,0,[284,2834],15},{?attr_rst_fire,0,[284,2834],15},{?attr_rst_earth,0,[284,2834],15},{?attr_anti_stun,0,[6,59],5},{?attr_anti_poison,0,[6,59],5},{?attr_anti_sleep,0,[6,59],5},{?attr_anti_stone,0,[6,59],5},{?attr_anti_taunt,0,[6,59],5}]};	
+get(11763)  ->
+	{3, [{?attr_dmg,0,[42,417],20},{?attr_critrate,1,[9,84],20},{?attr_hitrate,1,[9,84],20},{?attr_dmg_magic,0,[27,264],20},{?attr_js,0,[29,288],20},{?attr_skill_lev,1,[101,102,103,104,105,106,107,108,109,110,111,112,113,119],1}]};	
+get(11764)  ->
+	{3, [{?attr_dmg,0,[33,327],20},{?attr_critrate,1,[8,72],20},{?attr_hitrate,1,[8,79],20},{?attr_dmg_magic,0,[27,264],20},{?attr_js,0,[17,170],20},{?attr_skill_lev,1,[501,502,503,504,505,506,507,508,509,510,511,512,513,519],1}]};	
+get(11765)  ->
+	{3, [{?attr_dmg,0,[33,329],20},{?attr_critrate,1,[26,253],20},{?attr_hitrate,1,[10,96],20},{?attr_dmg_magic,0,[27,264],20},{?attr_js,0,[42,413],20},{?attr_skill_lev,1,[201,202,203,204,205,206,207,208,209,210,211,212,213,219],1}]};	
+get(11766)  ->
+	{3, [{?attr_dmg,0,[26,257],20},{?attr_critrate,1,[17,168],20},{?attr_hitrate,1,[10,98],20},{?attr_dmg_magic,0,[27,264],20},{?attr_js,0,[59,590],20},{?attr_skill_lev,1,[301,302,303,304,305,306,307,308,309,310,311,312,313,319],1}]};	
+get(11767)  ->
+	{3, [{?attr_dmg,0,[38,375],20},{?attr_critrate,1,[8,72],20},{?attr_hitrate,1,[11,107],20},{?attr_dmg_magic,0,[27,264],20},{?attr_js,0,[47,470],20},{?attr_skill_lev,1,[401,402,403,404,405,406,407,408,409,410,411,412,413,419],1}]};	
+get(11768)  ->
+	{3, [{?attr_defence,0,[64,632],20},{?attr_hp_max,0,[116,1160],20},{?attr_evasion,1,[5,46],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[12,116],10},{?attr_mp_max,0,[86,851],25}]};	
+get(11769)  ->
+	{3, [{?attr_defence,0,[100,999],20},{?attr_hp_max,0,[146,1458],20},{?attr_evasion,1,[4,37],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[7,68],10},{?attr_mp_max,0,[59,582],25}]};	
+get(11770)  ->
+	{3, [{?attr_defence,0,[44,431],20},{?attr_hp_max,0,[108,1073],20},{?attr_evasion,1,[6,58],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[17,164],10},{?attr_mp_max,0,[113,1121],25}]};	
+get(11771)  ->
+	{3, [{?attr_defence,0,[33,326],20},{?attr_hp_max,0,[108,1076],20},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[24,236],10},{?attr_mp_max,0,[153,1524],25}]};	
+get(11772)  ->
+	{3, [{?attr_defence,0,[64,632],20},{?attr_hp_max,0,[97,966],20},{?attr_evasion,1,[5,49],5},{?attr_tenacity,0,[3,28],20},{?attr_js,0,[19,188],10},{?attr_mp_max,0,[126,1256],25}]};	
+get(11773)  ->
+	{3, [{?attr_defence,0,[68,677],20},{?attr_hp_max,0,[125,1242],20},{?attr_evasion,1,[5,49],5},{?attr_tenacity,0,[3,30],20},{?attr_js,0,[18,174],10},{?attr_mp_max,0,[92,912],25}]};	
+get(11774)  ->
+	{3, [{?attr_defence,0,[108,1071],20},{?attr_hp_max,0,[157,1562],20},{?attr_evasion,1,[4,40],5},{?attr_tenacity,0,[3,30],20},{?attr_js,0,[11,102],10},{?attr_mp_max,0,[63,624],25}]};	
+get(11775)  ->
+	{3, [{?attr_defence,0,[47,462],20},{?attr_hp_max,0,[115,1149],20},{?attr_evasion,1,[7,62],5},{?attr_tenacity,0,[3,30],20},{?attr_js,0,[25,246],10},{?attr_mp_max,0,[121,1202],25}]};	
+get(11776)  ->
+	{3, [{?attr_defence,0,[35,348],20},{?attr_hp_max,0,[116,1152],20},{?attr_evasion,1,[5,46],5},{?attr_tenacity,0,[3,30],20},{?attr_js,0,[36,354],10},{?attr_mp_max,0,[164,1634],25}]};	
+get(11777)  ->
+	{3, [{?attr_defence,0,[68,677],20},{?attr_hp_max,0,[104,1035],20},{?attr_evasion,1,[6,53],5},{?attr_tenacity,0,[3,30],20},{?attr_js,0,[29,282],10},{?attr_mp_max,0,[135,1346],25}]};	
+get(11778)  ->
+	{3, [{?attr_defence,0,[82,812],15},{?attr_hp_max,0,[150,1491],15},{?attr_evasion,1,[6,59],5},{?attr_tenacity,0,[4,36],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[110,1094],20}]};	
+get(11779)  ->
+	{3, [{?attr_defence,0,[129,1286],15},{?attr_hp_max,0,[188,1874],15},{?attr_evasion,1,[5,48],5},{?attr_tenacity,0,[4,36],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[75,749],20}]};	
+get(11780)  ->
+	{3, [{?attr_defence,0,[56,554],15},{?attr_hp_max,0,[138,1379],15},{?attr_evasion,1,[8,74],5},{?attr_tenacity,0,[4,36],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[145,1442],20}]};	
+get(11781)  ->
+	{3, [{?attr_defence,0,[42,419],15},{?attr_hp_max,0,[139,1383],15},{?attr_evasion,1,[6,55],5},{?attr_tenacity,0,[4,36],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[197,1961],20}]};	
+get(11782)  ->
+	{3, [{?attr_defence,0,[82,812],15},{?attr_hp_max,0,[125,1242],15},{?attr_evasion,1,[7,64],5},{?attr_tenacity,0,[4,36],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[162,1614],20}]};	
+get(11783)  ->
+	{3, [{?attr_defence,0,[73,722],15},{?attr_hp_max,0,[133,1325],15},{?attr_evasion,1,[6,52],5},{?attr_tenacity,0,[4,31],15},{?attr_rst_metal,0,[199,1985],6},{?attr_rst_wood,0,[199,1985],6},{?attr_rst_water,0,[199,1985],6},{?attr_rst_fire,0,[199,1985],6},{?attr_rst_earth,0,[199,1985],6},{?attr_mp_max,0,[98,972],20}]};	
+get(11784)  ->
+	{3, [{?attr_defence,0,[115,1142],15},{?attr_hp_max,0,[167,1665],15},{?attr_evasion,1,[5,43],5},{?attr_tenacity,0,[4,31],15},{?attr_rst_metal,0,[199,1985],6},{?attr_rst_wood,0,[199,1985],6},{?attr_rst_water,0,[199,1985],6},{?attr_rst_fire,0,[199,1985],6},{?attr_rst_earth,0,[199,1985],6},{?attr_mp_max,0,[67,665],20}]};	
+get(11785)  ->
+	{3, [{?attr_defence,0,[50,492],15},{?attr_hp_max,0,[123,1226],15},{?attr_evasion,1,[7,66],5},{?attr_tenacity,0,[4,31],15},{?attr_rst_metal,0,[199,1985],6},{?attr_rst_wood,0,[199,1985],6},{?attr_rst_water,0,[199,1985],6},{?attr_rst_fire,0,[199,1985],6},{?attr_rst_earth,0,[199,1985],6},{?attr_mp_max,0,[129,1281],20}]};	
+get(11786)  ->
+	{3, [{?attr_defence,0,[38,372],15},{?attr_hp_max,0,[123,1230],15},{?attr_evasion,1,[5,49],5},{?attr_tenacity,0,[4,31],15},{?attr_rst_metal,0,[199,1985],6},{?attr_rst_wood,0,[199,1985],6},{?attr_rst_water,0,[199,1985],6},{?attr_rst_fire,0,[199,1985],6},{?attr_rst_earth,0,[199,1985],6},{?attr_mp_max,0,[175,1742],20}]};	
+get(11787)  ->
+	{3, [{?attr_defence,0,[73,722],15},{?attr_hp_max,0,[111,1104],15},{?attr_evasion,1,[6,56],5},{?attr_tenacity,0,[4,31],15},{?attr_rst_metal,0,[199,1985],6},{?attr_rst_wood,0,[199,1985],6},{?attr_rst_water,0,[199,1985],6},{?attr_rst_fire,0,[199,1985],6},{?attr_rst_earth,0,[199,1985],6},{?attr_mp_max,0,[144,1436],20}]};	
+get(11788)  ->
+	{3, [{?attr_defence,0,[77,767],15},{?attr_hp_max,0,[141,1407],15},{?attr_evasion,1,[6,55],5},{?attr_tenacity,0,[4,34],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[104,1034],20}]};	
+get(11789)  ->
+	{3, [{?attr_defence,0,[122,1214],15},{?attr_hp_max,0,[177,1770],15},{?attr_evasion,1,[5,46],5},{?attr_tenacity,0,[4,34],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[71,707],20}]};	
+get(11790)  ->
+	{3, [{?attr_defence,0,[53,524],15},{?attr_hp_max,0,[131,1302],15},{?attr_evasion,1,[8,71],5},{?attr_tenacity,0,[4,34],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[137,1362],20}]};	
+get(11791)  ->
+	{3, [{?attr_defence,0,[40,395],15},{?attr_hp_max,0,[131,1307],15},{?attr_evasion,1,[6,52],5},{?attr_tenacity,0,[4,34],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[186,1851],20}]};	
+get(11792)  ->
+	{3, [{?attr_defence,0,[77,767],15},{?attr_hp_max,0,[118,1173],15},{?attr_evasion,1,[6,60],5},{?attr_tenacity,0,[4,34],15},{?attr_anti_stun,0,[7,65],6},{?attr_anti_poison,0,[7,65],6},{?attr_anti_sleep,0,[7,65],6},{?attr_anti_stone,0,[7,65],6},{?attr_anti_taunt,0,[7,65],6},{?attr_mp_max,0,[153,1524],20}]};	
+get(11793)  ->
+	{3, [{?attr_dmg,0,[20,197],25},{?attr_critrate,1,[6,60],20},{?attr_hitrate,1,[4,36],20},{?attr_dmg_magic,0,[20,198],25},{?attr_js,0,[20,192],10},{?attr_skill_lev,1,[102,202,302,402,502,103,203,303,403,503,104,204,304,404,504,105,205,305,405,505,106,206,306,406,506,107,207,307,407,507,108,208,308,408,508,109,209,309,409,509,110,210,310,410,510,111,211,311,411,511,112,212,312,412,512,113,213,313,413,513,119,219,319,419,519],1}]};	
+get(11794)  ->
+	{3, [{?attr_defence,0,[91,903],15},{?attr_hp_max,0,[166,1656],15},{?attr_evasion,1,[7,65],5},{?attr_tenacity,0,[4,40],15},{?attr_rst_metal,0,[369,3684],6},{?attr_rst_wood,0,[369,3684],6},{?attr_rst_water,0,[369,3684],6},{?attr_rst_fire,0,[369,3684],6},{?attr_rst_earth,0,[369,3684],6},{?attr_mp_max,0,[122,1215],20}]};	
+get(11795)  ->
+	{3, [{?attr_defence,0,[143,1428],15},{?attr_hp_max,0,[209,2082],15},{?attr_evasion,1,[6,53],5},{?attr_tenacity,0,[4,40],15},{?attr_rst_metal,0,[369,3684],6},{?attr_rst_wood,0,[369,3684],6},{?attr_rst_water,0,[369,3684],6},{?attr_rst_fire,0,[369,3684],6},{?attr_rst_earth,0,[369,3684],6},{?attr_mp_max,0,[84,831],20}]};	
+get(11796)  ->
+	{3, [{?attr_defence,0,[62,615],15},{?attr_hp_max,0,[154,1532],15},{?attr_evasion,1,[9,83],5},{?attr_tenacity,0,[4,40],15},{?attr_rst_metal,0,[369,3684],6},{?attr_rst_wood,0,[369,3684],6},{?attr_rst_water,0,[369,3684],6},{?attr_rst_fire,0,[369,3684],6},{?attr_rst_earth,0,[369,3684],6},{?attr_mp_max,0,[161,1602],20}]};	
+get(11797)  ->
+	{3, [{?attr_defence,0,[47,465],15},{?attr_hp_max,0,[154,1538],15},{?attr_evasion,1,[7,61],5},{?attr_tenacity,0,[4,40],15},{?attr_rst_metal,0,[369,3684],6},{?attr_rst_wood,0,[369,3684],6},{?attr_rst_water,0,[369,3684],6},{?attr_rst_fire,0,[369,3684],6},{?attr_rst_earth,0,[369,3684],6},{?attr_mp_max,0,[218,2178],20}]};	
+get(11798)  ->
+	{3, [{?attr_defence,0,[91,903],15},{?attr_hp_max,0,[138,1380],15},{?attr_evasion,1,[8,71],5},{?attr_tenacity,0,[4,40],15},{?attr_rst_metal,0,[369,3684],6},{?attr_rst_wood,0,[369,3684],6},{?attr_rst_water,0,[369,3684],6},{?attr_rst_fire,0,[369,3684],6},{?attr_rst_earth,0,[369,3684],6},{?attr_mp_max,0,[180,1794],20}]};	
+get(11799)  ->
+	{3, [{?attr_rst_metal,0,[355,3543],15},{?attr_rst_wood,0,[355,3543],15},{?attr_rst_water,0,[355,3543],15},{?attr_rst_fire,0,[355,3543],15},{?attr_rst_earth,0,[355,3543],15},{?attr_anti_stun,0,[7,65],5},{?attr_anti_poison,0,[7,65],5},{?attr_anti_sleep,0,[7,65],5},{?attr_anti_stone,0,[7,65],5},{?attr_anti_taunt,0,[7,65],5}]};	
+get(_Id) ->
+    {}.

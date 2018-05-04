@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Module util</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module util</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+<p><b>Authors:</b> <a href="mailto:yeahoo2000@gmail.com"><tt>yeahoo2000@gmail.com</tt></a>, Qinxuan.</p>
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#all_to_binary-1">all_to_binary/1</a></td><td>将列里的不同类型转行成字节型，如 [&lt;&lt;"字节"&gt;&gt;, 123, asd, "assd"] 输出 &lt;&lt;"字节123asdassd"&gt;&gt;.</td></tr>
+<tr><td valign="top"><a href="#bitstring_to_term-1">bitstring_to_term/1</a></td><td>term反序列化，bitstring转换为term.</td></tr>
+<tr><td valign="top"><a href="#bool2int-1">bool2int/1</a></td><td>true false 值转成int值.</td></tr>
+<tr><td valign="top"><a href="#build_fun-1">build_fun/1</a></td><td>根据字符串内容生成函数.</td></tr>
+<tr><td valign="top"><a href="#ceil-1">ceil/1</a></td><td>取大于X的最小整数.</td></tr>
+<tr><td valign="top"><a href="#cn-1">cn/1</a></td><td>在控制台显示带中文的字符串.</td></tr>
+<tr><td valign="top"><a href="#cn-2">cn/2</a></td><td>在控制台显示带中文的字符串
+  <ul>
+  <li>F: 待显示的中文字符串（可带格式化参数）</li>
+  <li>A: 格式化参数</li>
+  </ul></td></tr>
+<tr><td valign="top"><a href="#fbin-2">fbin/2</a></td><td>返回格式化的二进制字符串
+  <ul>
+  <li>Bin: 待格式化的二进制字符串</li>
+  <li>Args: 格式化参数</li>
+  </ul></td></tr>
+<tr><td valign="top"><a href="#floor-1">floor/1</a></td><td>取小于X的最大整数.</td></tr>
+<tr><td valign="top"><a href="#for-3">for/3</a></td><td>模拟for循环.</td></tr>
+<tr><td valign="top"><a href="#md5-1">md5/1</a></td><td>生成16位格式的md5值.</td></tr>
+<tr><td valign="top"><a href="#parse_qs-1">parse_qs/1</a></td><td>解析 QueryString.</td></tr>
+<tr><td valign="top"><a href="#parse_qs-3">parse_qs/3</a></td><td>按指定的字符切割字符串.</td></tr>
+<tr><td valign="top"><a href="#rand-2">rand/2</a></td><td>产生一个介于Min到Max之间的随机整数.</td></tr>
+<tr><td valign="top"><a href="#rand_list-1">rand_list/1</a></td><td>从一个list中随机取出一项.</td></tr>
+<tr><td valign="top"><a href="#sleep-1">sleep/1</a></td><td>程序暂停执行时长(单位:毫秒).</td></tr>
+<tr><td valign="top"><a href="#string_to_term-1">string_to_term/1</a></td><td>term反序列化，string转换为term，e.g., "[{a},1]"  =&gt; [{a},1].</td></tr>
+<tr><td valign="top"><a href="#term_to_bitstring-1">term_to_bitstring/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#term_to_string-1">term_to_string/1</a></td><td>term序列化，term转换为string格式.</td></tr>
+<tr><td valign="top"><a href="#text_banned-2">text_banned/2</a></td><td>检查文本中是否含有指定的关键词.</td></tr>
+<tr><td valign="top"><a href="#text_filter-2">text_filter/2</a></td><td>文字内容过滤，将关键词替换为"*".</td></tr>
+<tr><td valign="top"><a href="#to_binary-1">to_binary/1</a></td><td>将Val值转换为binary格式（8位二进制）.</td></tr>
+<tr><td valign="top"><a href="#to_list-1">to_list/1</a></td><td>将任意类型的数据转成list()类型(主要用于控制台打印).</td></tr>
+<tr><td valign="top"><a href="#unixtime-0">unixtime/0</a></td><td>取得当前的unix时间戳.</td></tr>
+<tr><td valign="top"><a href="#unixtime-1">unixtime/1</a></td><td>取得当前的unix时间戳，精确到毫秒.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="all_to_binary-1">all_to_binary/1</a></h3>
+<div class="spec">
+<p><tt>all_to_binary(List::list()) -&gt; binary()</tt><br></p>
+</div><p>将列里的不同类型转行成字节型，如 [&lt;&lt;"字节"&gt;&gt;, 123, asd, "assd"] 输出 &lt;&lt;"字节123asdassd"&gt;&gt;</p>
+
+<h3 class="function"><a name="bitstring_to_term-1">bitstring_to_term/1</a></h3>
+<div class="spec">
+<p><tt>bitstring_to_term(BitString::list()) -&gt; term()</tt><br></p>
+</div><p>term反序列化，bitstring转换为term</p>
+
+<h3 class="function"><a name="bool2int-1">bool2int/1</a></h3>
+<div class="spec">
+<p><tt>bool2int(X1::Bool) -&gt; 0 | 1</tt>
+<ul class="definitions"><li><tt>Bool = flase | true</tt></li></ul></p>
+</div><p>true false 值转成int值</p>
+
+<h3 class="function"><a name="build_fun-1">build_fun/1</a></h3>
+<div class="spec">
+<p><tt>build_fun(String) -&gt; function()</tt>
+<ul class="definitions"><li><tt>String = list()</tt></li></ul></p>
+</div><p>根据字符串内容生成函数</p>
+
+<h3 class="function"><a name="ceil-1">ceil/1</a></h3>
+<div class="spec">
+<p><tt>ceil(X) -&gt; integer()</tt>
+<ul class="definitions"><li><tt>X = number()</tt></li></ul></p>
+</div><p>取大于X的最小整数</p>
+
+<h3 class="function"><a name="cn-1">cn/1</a></h3>
+<div class="spec">
+<p><tt>cn(Str) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Str = list()</tt></li></ul></p>
+</div><p>在控制台显示带中文的字符串</p>
+
+<h3 class="function"><a name="cn-2">cn/2</a></h3>
+<div class="spec">
+<p><tt>cn(F, A) -&gt; ok</tt>
+<ul class="definitions"><li><tt>F = list()</tt></li><li><tt>A = list()</tt></li></ul></p>
+</div><p>在控制台显示带中文的字符串
+  <ul>
+  <li>F: 待显示的中文字符串（可带格式化参数）</li>
+  <li>A: 格式化参数</li>
+  </ul></p>
+
+<h3 class="function"><a name="fbin-2">fbin/2</a></h3>
+<div class="spec">
+<p><tt>fbin(Bin, Args) -&gt; binary()</tt>
+<ul class="definitions"><li><tt>Bin = binary()</tt></li><li><tt>Args = list()</tt></li></ul></p>
+</div><p>返回格式化的二进制字符串
+  <ul>
+  <li>Bin: 待格式化的二进制字符串</li>
+  <li>Args: 格式化参数</li>
+  </ul></p>
+
+<h3 class="function"><a name="floor-1">floor/1</a></h3>
+<div class="spec">
+<p><tt>floor(X) -&gt; integer()</tt>
+<ul class="definitions"><li><tt>X = number()</tt></li></ul></p>
+</div><p>取小于X的最大整数</p>
+
+<h3 class="function"><a name="for-3">for/3</a></h3>
+<div class="spec">
+<p><tt>for(Begin::integer(), End::integer(), Fun::function()) -&gt; ok</tt><br></p>
+</div><p>模拟for循环</p>
+
+<h3 class="function"><a name="md5-1">md5/1</a></h3>
+<div class="spec">
+<p><tt>md5(S) -&gt; binary()</tt>
+<ul class="definitions"><li><tt>S = list()</tt></li></ul></p>
+</div><p>生成16位格式的md5值</p>
+
+<h3 class="function"><a name="parse_qs-1">parse_qs/1</a></h3>
+<div class="spec">
+<p><tt>parse_qs(String) -&gt; list()</tt>
+<ul class="definitions"><li><tt>String = binary() | list()</tt></li></ul></p>
+</div><p>解析 QueryString</p>
+
+<h3 class="function"><a name="parse_qs-3">parse_qs/3</a></h3>
+<div class="spec">
+<p><tt>parse_qs(String, Token1, Token2) -&gt; list()</tt>
+<ul class="definitions"><li><tt>String = binary() | list()</tt></li><li><tt>Token1 = list()</tt></li><li><tt>Token2 = list()</tt></li></ul></p>
+</div><p>按指定的字符切割字符串</p>
+
+<h3 class="function"><a name="rand-2">rand/2</a></h3>
+<div class="spec">
+<p><tt>rand(Min, Max) -&gt; integer()</tt>
+<ul class="definitions"><li><tt>Min = integer()</tt></li><li><tt>Max = integer()</tt></li></ul></p>
+</div><p>产生一个介于Min到Max之间的随机整数</p>
+
+<h3 class="function"><a name="rand_list-1">rand_list/1</a></h3>
+<div class="spec">
+<p><tt>rand_list(L::list()) -&gt; null | term()</tt><br></p>
+</div><p>从一个list中随机取出一项</p>
+
+<h3 class="function"><a name="sleep-1">sleep/1</a></h3>
+<div class="spec">
+<p><tt>sleep(T) -&gt; ok</tt>
+<ul class="definitions"><li><tt>T = integer()</tt></li></ul></p>
+</div><p>程序暂停执行时长(单位:毫秒)</p>
+
+<h3 class="function"><a name="string_to_term-1">string_to_term/1</a></h3>
+<div class="spec">
+<p><tt>string_to_term(String::list()) -&gt; undefined | term()</tt><br></p>
+</div><p>term反序列化，string转换为term，e.g., "[{a},1]"  =&gt; [{a},1]</p>
+
+<h3 class="function"><a name="term_to_bitstring-1">term_to_bitstring/1</a></h3>
+<div class="spec">
+<p><tt>term_to_bitstring(Term) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="term_to_string-1">term_to_string/1</a></h3>
+<div class="spec">
+<p><tt>term_to_string(Term::term()) -&gt; list()</tt><br></p>
+</div><p>term序列化，term转换为string格式</p>
+
+<h3 class="function"><a name="text_banned-2">text_banned/2</a></h3>
+<div class="spec">
+<p><tt>text_banned(Text, L::Keywords) -&gt; bool()</tt>
+<ul class="definitions"><li><tt>Text = string()</tt></li><li><tt>Keywords = list()</tt></li></ul></p>
+</div><p>检查文本中是否含有指定的关键词</p>
+
+<h3 class="function"><a name="text_filter-2">text_filter/2</a></h3>
+<div class="spec">
+<p><tt>text_filter(Text, L::Keywords) -&gt; iolist()</tt>
+<ul class="definitions"><li><tt>Text = string()</tt></li><li><tt>Keywords = list()</tt></li></ul></p>
+</div><p>文字内容过滤，将关键词替换为"*"</p>
+
+<h3 class="function"><a name="to_binary-1">to_binary/1</a></h3>
+<div class="spec">
+<p><tt>to_binary(Val) -&gt; binary()</tt>
+<ul class="definitions"><li><tt>Val = any()</tt></li></ul></p>
+</div><p>将Val值转换为binary格式（8位二进制）</p>
+
+<h3 class="function"><a name="to_list-1">to_list/1</a></h3>
+<div class="spec">
+<p><tt>to_list(X) -&gt; list()</tt>
+<ul class="definitions"><li><tt>X = any()</tt></li></ul></p>
+</div><p>将任意类型的数据转成list()类型(主要用于控制台打印).
+  注意:tuple类型有特殊处理</p>
+
+<h3 class="function"><a name="unixtime-0">unixtime/0</a></h3>
+<div class="spec">
+<p><tt>unixtime() -&gt; Timestamp</tt>
+<ul class="definitions"><li><tt>Timestamp = integer()</tt></li></ul></p>
+</div><p>取得当前的unix时间戳</p>
+
+<h3 class="function"><a name="unixtime-1">unixtime/1</a></h3>
+<div class="spec">
+<p><tt>unixtime(X1::ms) -&gt; Timestamp</tt>
+<ul class="definitions"><li><tt>Timestamp = integer()</tt></li></ul></p>
+</div><p>取得当前的unix时间戳，精确到毫秒</p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Sep 3 2011, 10:17:25.</i></p>
+</body>
+</html>

@@ -1,0 +1,4545 @@
+
+
+%% ****************
+%% 元神数据
+%% ****************
+-module(channel_data).
+-export([get/2, get_rate/1, get_award_attr/1]).
+-include("channel.hrl").
+
+
+
+
+get(1,1)->
+	#channel{
+		id=1
+		,lev=1
+		,cond_lev=11
+		,cost_spirit=300
+		,cost_time=5
+		,attr={hp_max,75}
+};
+get(2,1)->
+	#channel{
+		id=2
+		,lev=1
+		,cond_lev=11
+		,cost_spirit=300
+		,cost_time=5
+		,attr={dmg,9}
+};
+get(3,1)->
+	#channel{
+		id=3
+		,lev=1
+		,cond_lev=11
+		,cost_spirit=300
+		,cost_time=5
+		,attr={defence,38}
+};
+get(4,1)->
+	#channel{
+		id=4
+		,lev=1
+		,cond_lev=11
+		,cost_spirit=300
+		,cost_time=5
+		,attr={critrate,8}
+};
+get(5,1)->
+	#channel{
+		id=5
+		,lev=1
+		,cond_lev=11
+		,cost_spirit=300
+		,cost_time=5
+		,attr={tenacity,8}
+};
+get(6,1)->
+	#channel{
+		id=6
+		,lev=1
+		,cond_lev=11
+		,cost_spirit=300
+		,cost_time=5
+		,attr={hitrate,3}
+};
+get(7,1)->
+	#channel{
+		id=7
+		,lev=1
+		,cond_lev=11
+		,cost_spirit=300
+		,cost_time=5
+		,attr={evasion,3}
+};
+get(8,1)->
+	#channel{
+		id=8
+		,lev=1
+		,cond_lev=11
+		,cost_spirit=300
+		,cost_time=5
+		,attr={resist_all,15}
+};
+get(1,2)->
+	#channel{
+		id=1
+		,lev=2
+		,cond_lev=12
+		,cost_spirit=315
+		,cost_time=15
+		,attr={hp_max,160}
+};
+get(2,2)->
+	#channel{
+		id=2
+		,lev=2
+		,cond_lev=12
+		,cost_spirit=315
+		,cost_time=15
+		,attr={dmg,20}
+};
+get(3,2)->
+	#channel{
+		id=3
+		,lev=2
+		,cond_lev=12
+		,cost_spirit=315
+		,cost_time=15
+		,attr={defence,80}
+};
+get(4,2)->
+	#channel{
+		id=4
+		,lev=2
+		,cond_lev=12
+		,cost_spirit=315
+		,cost_time=15
+		,attr={critrate,16}
+};
+get(5,2)->
+	#channel{
+		id=5
+		,lev=2
+		,cond_lev=12
+		,cost_spirit=315
+		,cost_time=15
+		,attr={tenacity,16}
+};
+get(6,2)->
+	#channel{
+		id=6
+		,lev=2
+		,cond_lev=12
+		,cost_spirit=315
+		,cost_time=15
+		,attr={hitrate,6}
+};
+get(7,2)->
+	#channel{
+		id=7
+		,lev=2
+		,cond_lev=12
+		,cost_spirit=315
+		,cost_time=15
+		,attr={evasion,6}
+};
+get(8,2)->
+	#channel{
+		id=8
+		,lev=2
+		,cond_lev=12
+		,cost_spirit=315
+		,cost_time=15
+		,attr={resist_all,32}
+};
+get(1,3)->
+	#channel{
+		id=1
+		,lev=3
+		,cond_lev=13
+		,cost_spirit=330
+		,cost_time=40
+		,attr={hp_max,245}
+};
+get(2,3)->
+	#channel{
+		id=2
+		,lev=3
+		,cond_lev=13
+		,cost_spirit=330
+		,cost_time=40
+		,attr={dmg,31}
+};
+get(3,3)->
+	#channel{
+		id=3
+		,lev=3
+		,cond_lev=13
+		,cost_spirit=330
+		,cost_time=40
+		,attr={defence,123}
+};
+get(4,3)->
+	#channel{
+		id=4
+		,lev=3
+		,cond_lev=13
+		,cost_spirit=330
+		,cost_time=40
+		,attr={critrate,25}
+};
+get(5,3)->
+	#channel{
+		id=5
+		,lev=3
+		,cond_lev=13
+		,cost_spirit=330
+		,cost_time=40
+		,attr={tenacity,25}
+};
+get(6,3)->
+	#channel{
+		id=6
+		,lev=3
+		,cond_lev=13
+		,cost_spirit=330
+		,cost_time=40
+		,attr={hitrate,10}
+};
+get(7,3)->
+	#channel{
+		id=7
+		,lev=3
+		,cond_lev=13
+		,cost_spirit=330
+		,cost_time=40
+		,attr={evasion,10}
+};
+get(8,3)->
+	#channel{
+		id=8
+		,lev=3
+		,cond_lev=13
+		,cost_spirit=330
+		,cost_time=40
+		,attr={resist_all,49}
+};
+get(1,4)->
+	#channel{
+		id=1
+		,lev=4
+		,cond_lev=14
+		,cost_spirit=345
+		,cost_time=70
+		,attr={hp_max,330}
+};
+get(2,4)->
+	#channel{
+		id=2
+		,lev=4
+		,cond_lev=14
+		,cost_spirit=345
+		,cost_time=70
+		,attr={dmg,41}
+};
+get(3,4)->
+	#channel{
+		id=3
+		,lev=4
+		,cond_lev=14
+		,cost_spirit=345
+		,cost_time=70
+		,attr={defence,165}
+};
+get(4,4)->
+	#channel{
+		id=4
+		,lev=4
+		,cond_lev=14
+		,cost_spirit=345
+		,cost_time=70
+		,attr={critrate,33}
+};
+get(5,4)->
+	#channel{
+		id=5
+		,lev=4
+		,cond_lev=14
+		,cost_spirit=345
+		,cost_time=70
+		,attr={tenacity,33}
+};
+get(6,4)->
+	#channel{
+		id=6
+		,lev=4
+		,cond_lev=14
+		,cost_spirit=345
+		,cost_time=70
+		,attr={hitrate,13}
+};
+get(7,4)->
+	#channel{
+		id=7
+		,lev=4
+		,cond_lev=14
+		,cost_spirit=345
+		,cost_time=70
+		,attr={evasion,13}
+};
+get(8,4)->
+	#channel{
+		id=8
+		,lev=4
+		,cond_lev=14
+		,cost_spirit=345
+		,cost_time=70
+		,attr={resist_all,66}
+};
+get(1,5)->
+	#channel{
+		id=1
+		,lev=5
+		,cond_lev=15
+		,cost_spirit=360
+		,cost_time=120
+		,attr={hp_max,415}
+};
+get(2,5)->
+	#channel{
+		id=2
+		,lev=5
+		,cond_lev=15
+		,cost_spirit=360
+		,cost_time=120
+		,attr={dmg,52}
+};
+get(3,5)->
+	#channel{
+		id=3
+		,lev=5
+		,cond_lev=15
+		,cost_spirit=360
+		,cost_time=120
+		,attr={defence,208}
+};
+get(4,5)->
+	#channel{
+		id=4
+		,lev=5
+		,cond_lev=15
+		,cost_spirit=360
+		,cost_time=120
+		,attr={critrate,42}
+};
+get(5,5)->
+	#channel{
+		id=5
+		,lev=5
+		,cond_lev=15
+		,cost_spirit=360
+		,cost_time=120
+		,attr={tenacity,42}
+};
+get(6,5)->
+	#channel{
+		id=6
+		,lev=5
+		,cond_lev=15
+		,cost_spirit=360
+		,cost_time=120
+		,attr={hitrate,17}
+};
+get(7,5)->
+	#channel{
+		id=7
+		,lev=5
+		,cond_lev=15
+		,cost_spirit=360
+		,cost_time=120
+		,attr={evasion,17}
+};
+get(8,5)->
+	#channel{
+		id=8
+		,lev=5
+		,cond_lev=15
+		,cost_spirit=360
+		,cost_time=120
+		,attr={resist_all,83}
+};
+get(1,6)->
+	#channel{
+		id=1
+		,lev=6
+		,cond_lev=16
+		,cost_spirit=385
+		,cost_time=220
+		,attr={hp_max,500}
+};
+get(2,6)->
+	#channel{
+		id=2
+		,lev=6
+		,cond_lev=16
+		,cost_spirit=385
+		,cost_time=220
+		,attr={dmg,63}
+};
+get(3,6)->
+	#channel{
+		id=3
+		,lev=6
+		,cond_lev=16
+		,cost_spirit=385
+		,cost_time=220
+		,attr={defence,250}
+};
+get(4,6)->
+	#channel{
+		id=4
+		,lev=6
+		,cond_lev=16
+		,cost_spirit=385
+		,cost_time=220
+		,attr={critrate,50}
+};
+get(5,6)->
+	#channel{
+		id=5
+		,lev=6
+		,cond_lev=16
+		,cost_spirit=385
+		,cost_time=220
+		,attr={tenacity,50}
+};
+get(6,6)->
+	#channel{
+		id=6
+		,lev=6
+		,cond_lev=16
+		,cost_spirit=385
+		,cost_time=220
+		,attr={hitrate,20}
+};
+get(7,6)->
+	#channel{
+		id=7
+		,lev=6
+		,cond_lev=16
+		,cost_spirit=385
+		,cost_time=220
+		,attr={evasion,20}
+};
+get(8,6)->
+	#channel{
+		id=8
+		,lev=6
+		,cond_lev=16
+		,cost_spirit=385
+		,cost_time=220
+		,attr={resist_all,100}
+};
+get(1,7)->
+	#channel{
+		id=1
+		,lev=7
+		,cond_lev=17
+		,cost_spirit=410
+		,cost_time=320
+		,attr={hp_max,585}
+};
+get(2,7)->
+	#channel{
+		id=2
+		,lev=7
+		,cond_lev=17
+		,cost_spirit=410
+		,cost_time=320
+		,attr={dmg,73}
+};
+get(3,7)->
+	#channel{
+		id=3
+		,lev=7
+		,cond_lev=17
+		,cost_spirit=410
+		,cost_time=320
+		,attr={defence,293}
+};
+get(4,7)->
+	#channel{
+		id=4
+		,lev=7
+		,cond_lev=17
+		,cost_spirit=410
+		,cost_time=320
+		,attr={critrate,59}
+};
+get(5,7)->
+	#channel{
+		id=5
+		,lev=7
+		,cond_lev=17
+		,cost_spirit=410
+		,cost_time=320
+		,attr={tenacity,59}
+};
+get(6,7)->
+	#channel{
+		id=6
+		,lev=7
+		,cond_lev=17
+		,cost_spirit=410
+		,cost_time=320
+		,attr={hitrate,23}
+};
+get(7,7)->
+	#channel{
+		id=7
+		,lev=7
+		,cond_lev=17
+		,cost_spirit=410
+		,cost_time=320
+		,attr={evasion,23}
+};
+get(8,7)->
+	#channel{
+		id=8
+		,lev=7
+		,cond_lev=17
+		,cost_spirit=410
+		,cost_time=320
+		,attr={resist_all,117}
+};
+get(1,8)->
+	#channel{
+		id=1
+		,lev=8
+		,cond_lev=18
+		,cost_spirit=435
+		,cost_time=420
+		,attr={hp_max,670}
+};
+get(2,8)->
+	#channel{
+		id=2
+		,lev=8
+		,cond_lev=18
+		,cost_spirit=435
+		,cost_time=420
+		,attr={dmg,84}
+};
+get(3,8)->
+	#channel{
+		id=3
+		,lev=8
+		,cond_lev=18
+		,cost_spirit=435
+		,cost_time=420
+		,attr={defence,335}
+};
+get(4,8)->
+	#channel{
+		id=4
+		,lev=8
+		,cond_lev=18
+		,cost_spirit=435
+		,cost_time=420
+		,attr={critrate,67}
+};
+get(5,8)->
+	#channel{
+		id=5
+		,lev=8
+		,cond_lev=18
+		,cost_spirit=435
+		,cost_time=420
+		,attr={tenacity,67}
+};
+get(6,8)->
+	#channel{
+		id=6
+		,lev=8
+		,cond_lev=18
+		,cost_spirit=435
+		,cost_time=420
+		,attr={hitrate,27}
+};
+get(7,8)->
+	#channel{
+		id=7
+		,lev=8
+		,cond_lev=18
+		,cost_spirit=435
+		,cost_time=420
+		,attr={evasion,27}
+};
+get(8,8)->
+	#channel{
+		id=8
+		,lev=8
+		,cond_lev=18
+		,cost_spirit=435
+		,cost_time=420
+		,attr={resist_all,134}
+};
+get(1,9)->
+	#channel{
+		id=1
+		,lev=9
+		,cond_lev=19
+		,cost_spirit=460
+		,cost_time=520
+		,attr={hp_max,755}
+};
+get(2,9)->
+	#channel{
+		id=2
+		,lev=9
+		,cond_lev=19
+		,cost_spirit=460
+		,cost_time=520
+		,attr={dmg,94}
+};
+get(3,9)->
+	#channel{
+		id=3
+		,lev=9
+		,cond_lev=19
+		,cost_spirit=460
+		,cost_time=520
+		,attr={defence,378}
+};
+get(4,9)->
+	#channel{
+		id=4
+		,lev=9
+		,cond_lev=19
+		,cost_spirit=460
+		,cost_time=520
+		,attr={critrate,76}
+};
+get(5,9)->
+	#channel{
+		id=5
+		,lev=9
+		,cond_lev=19
+		,cost_spirit=460
+		,cost_time=520
+		,attr={tenacity,76}
+};
+get(6,9)->
+	#channel{
+		id=6
+		,lev=9
+		,cond_lev=19
+		,cost_spirit=460
+		,cost_time=520
+		,attr={hitrate,30}
+};
+get(7,9)->
+	#channel{
+		id=7
+		,lev=9
+		,cond_lev=19
+		,cost_spirit=460
+		,cost_time=520
+		,attr={evasion,30}
+};
+get(8,9)->
+	#channel{
+		id=8
+		,lev=9
+		,cond_lev=19
+		,cost_spirit=460
+		,cost_time=520
+		,attr={resist_all,151}
+};
+get(1,10)->
+	#channel{
+		id=1
+		,lev=10
+		,cond_lev=20
+		,cost_spirit=485
+		,cost_time=620
+		,attr={hp_max,840}
+};
+get(2,10)->
+	#channel{
+		id=2
+		,lev=10
+		,cond_lev=20
+		,cost_spirit=485
+		,cost_time=620
+		,attr={dmg,105}
+};
+get(3,10)->
+	#channel{
+		id=3
+		,lev=10
+		,cond_lev=20
+		,cost_spirit=485
+		,cost_time=620
+		,attr={defence,420}
+};
+get(4,10)->
+	#channel{
+		id=4
+		,lev=10
+		,cond_lev=20
+		,cost_spirit=485
+		,cost_time=620
+		,attr={critrate,84}
+};
+get(5,10)->
+	#channel{
+		id=5
+		,lev=10
+		,cond_lev=20
+		,cost_spirit=485
+		,cost_time=620
+		,attr={tenacity,84}
+};
+get(6,10)->
+	#channel{
+		id=6
+		,lev=10
+		,cond_lev=20
+		,cost_spirit=485
+		,cost_time=620
+		,attr={hitrate,34}
+};
+get(7,10)->
+	#channel{
+		id=7
+		,lev=10
+		,cond_lev=20
+		,cost_spirit=485
+		,cost_time=620
+		,attr={evasion,34}
+};
+get(8,10)->
+	#channel{
+		id=8
+		,lev=10
+		,cond_lev=20
+		,cost_spirit=485
+		,cost_time=620
+		,attr={resist_all,168}
+};
+get(1,11)->
+	#channel{
+		id=1
+		,lev=11
+		,cond_lev=21
+		,cost_spirit=530
+		,cost_time=720
+		,attr={hp_max,925}
+};
+get(2,11)->
+	#channel{
+		id=2
+		,lev=11
+		,cond_lev=21
+		,cost_spirit=530
+		,cost_time=720
+		,attr={dmg,116}
+};
+get(3,11)->
+	#channel{
+		id=3
+		,lev=11
+		,cond_lev=21
+		,cost_spirit=530
+		,cost_time=720
+		,attr={defence,463}
+};
+get(4,11)->
+	#channel{
+		id=4
+		,lev=11
+		,cond_lev=21
+		,cost_spirit=530
+		,cost_time=720
+		,attr={critrate,93}
+};
+get(5,11)->
+	#channel{
+		id=5
+		,lev=11
+		,cond_lev=21
+		,cost_spirit=530
+		,cost_time=720
+		,attr={tenacity,93}
+};
+get(6,11)->
+	#channel{
+		id=6
+		,lev=11
+		,cond_lev=21
+		,cost_spirit=530
+		,cost_time=720
+		,attr={hitrate,37}
+};
+get(7,11)->
+	#channel{
+		id=7
+		,lev=11
+		,cond_lev=21
+		,cost_spirit=530
+		,cost_time=720
+		,attr={evasion,37}
+};
+get(8,11)->
+	#channel{
+		id=8
+		,lev=11
+		,cond_lev=21
+		,cost_spirit=530
+		,cost_time=720
+		,attr={resist_all,185}
+};
+get(1,12)->
+	#channel{
+		id=1
+		,lev=12
+		,cond_lev=22
+		,cost_spirit=575
+		,cost_time=820
+		,attr={hp_max,1010}
+};
+get(2,12)->
+	#channel{
+		id=2
+		,lev=12
+		,cond_lev=22
+		,cost_spirit=575
+		,cost_time=820
+		,attr={dmg,126}
+};
+get(3,12)->
+	#channel{
+		id=3
+		,lev=12
+		,cond_lev=22
+		,cost_spirit=575
+		,cost_time=820
+		,attr={defence,505}
+};
+get(4,12)->
+	#channel{
+		id=4
+		,lev=12
+		,cond_lev=22
+		,cost_spirit=575
+		,cost_time=820
+		,attr={critrate,101}
+};
+get(5,12)->
+	#channel{
+		id=5
+		,lev=12
+		,cond_lev=22
+		,cost_spirit=575
+		,cost_time=820
+		,attr={tenacity,101}
+};
+get(6,12)->
+	#channel{
+		id=6
+		,lev=12
+		,cond_lev=22
+		,cost_spirit=575
+		,cost_time=820
+		,attr={hitrate,40}
+};
+get(7,12)->
+	#channel{
+		id=7
+		,lev=12
+		,cond_lev=22
+		,cost_spirit=575
+		,cost_time=820
+		,attr={evasion,40}
+};
+get(8,12)->
+	#channel{
+		id=8
+		,lev=12
+		,cond_lev=22
+		,cost_spirit=575
+		,cost_time=820
+		,attr={resist_all,202}
+};
+get(1,13)->
+	#channel{
+		id=1
+		,lev=13
+		,cond_lev=23
+		,cost_spirit=620
+		,cost_time=920
+		,attr={hp_max,1095}
+};
+get(2,13)->
+	#channel{
+		id=2
+		,lev=13
+		,cond_lev=23
+		,cost_spirit=620
+		,cost_time=920
+		,attr={dmg,137}
+};
+get(3,13)->
+	#channel{
+		id=3
+		,lev=13
+		,cond_lev=23
+		,cost_spirit=620
+		,cost_time=920
+		,attr={defence,548}
+};
+get(4,13)->
+	#channel{
+		id=4
+		,lev=13
+		,cond_lev=23
+		,cost_spirit=620
+		,cost_time=920
+		,attr={critrate,110}
+};
+get(5,13)->
+	#channel{
+		id=5
+		,lev=13
+		,cond_lev=23
+		,cost_spirit=620
+		,cost_time=920
+		,attr={tenacity,110}
+};
+get(6,13)->
+	#channel{
+		id=6
+		,lev=13
+		,cond_lev=23
+		,cost_spirit=620
+		,cost_time=920
+		,attr={hitrate,44}
+};
+get(7,13)->
+	#channel{
+		id=7
+		,lev=13
+		,cond_lev=23
+		,cost_spirit=620
+		,cost_time=920
+		,attr={evasion,44}
+};
+get(8,13)->
+	#channel{
+		id=8
+		,lev=13
+		,cond_lev=23
+		,cost_spirit=620
+		,cost_time=920
+		,attr={resist_all,219}
+};
+get(1,14)->
+	#channel{
+		id=1
+		,lev=14
+		,cond_lev=24
+		,cost_spirit=665
+		,cost_time=1020
+		,attr={hp_max,1180}
+};
+get(2,14)->
+	#channel{
+		id=2
+		,lev=14
+		,cond_lev=24
+		,cost_spirit=665
+		,cost_time=1020
+		,attr={dmg,148}
+};
+get(3,14)->
+	#channel{
+		id=3
+		,lev=14
+		,cond_lev=24
+		,cost_spirit=665
+		,cost_time=1020
+		,attr={defence,590}
+};
+get(4,14)->
+	#channel{
+		id=4
+		,lev=14
+		,cond_lev=24
+		,cost_spirit=665
+		,cost_time=1020
+		,attr={critrate,118}
+};
+get(5,14)->
+	#channel{
+		id=5
+		,lev=14
+		,cond_lev=24
+		,cost_spirit=665
+		,cost_time=1020
+		,attr={tenacity,118}
+};
+get(6,14)->
+	#channel{
+		id=6
+		,lev=14
+		,cond_lev=24
+		,cost_spirit=665
+		,cost_time=1020
+		,attr={hitrate,47}
+};
+get(7,14)->
+	#channel{
+		id=7
+		,lev=14
+		,cond_lev=24
+		,cost_spirit=665
+		,cost_time=1020
+		,attr={evasion,47}
+};
+get(8,14)->
+	#channel{
+		id=8
+		,lev=14
+		,cond_lev=24
+		,cost_spirit=665
+		,cost_time=1020
+		,attr={resist_all,236}
+};
+get(1,15)->
+	#channel{
+		id=1
+		,lev=15
+		,cond_lev=25
+		,cost_spirit=750
+		,cost_time=1120
+		,attr={hp_max,1265}
+};
+get(2,15)->
+	#channel{
+		id=2
+		,lev=15
+		,cond_lev=25
+		,cost_spirit=750
+		,cost_time=1120
+		,attr={dmg,158}
+};
+get(3,15)->
+	#channel{
+		id=3
+		,lev=15
+		,cond_lev=25
+		,cost_spirit=750
+		,cost_time=1120
+		,attr={defence,633}
+};
+get(4,15)->
+	#channel{
+		id=4
+		,lev=15
+		,cond_lev=25
+		,cost_spirit=750
+		,cost_time=1120
+		,attr={critrate,127}
+};
+get(5,15)->
+	#channel{
+		id=5
+		,lev=15
+		,cond_lev=25
+		,cost_spirit=750
+		,cost_time=1120
+		,attr={tenacity,127}
+};
+get(6,15)->
+	#channel{
+		id=6
+		,lev=15
+		,cond_lev=25
+		,cost_spirit=750
+		,cost_time=1120
+		,attr={hitrate,51}
+};
+get(7,15)->
+	#channel{
+		id=7
+		,lev=15
+		,cond_lev=25
+		,cost_spirit=750
+		,cost_time=1120
+		,attr={evasion,51}
+};
+get(8,15)->
+	#channel{
+		id=8
+		,lev=15
+		,cond_lev=25
+		,cost_spirit=750
+		,cost_time=1120
+		,attr={resist_all,253}
+};
+get(1,16)->
+	#channel{
+		id=1
+		,lev=16
+		,cond_lev=26
+		,cost_spirit=835
+		,cost_time=1220
+		,attr={hp_max,1350}
+};
+get(2,16)->
+	#channel{
+		id=2
+		,lev=16
+		,cond_lev=26
+		,cost_spirit=835
+		,cost_time=1220
+		,attr={dmg,169}
+};
+get(3,16)->
+	#channel{
+		id=3
+		,lev=16
+		,cond_lev=26
+		,cost_spirit=835
+		,cost_time=1220
+		,attr={defence,675}
+};
+get(4,16)->
+	#channel{
+		id=4
+		,lev=16
+		,cond_lev=26
+		,cost_spirit=835
+		,cost_time=1220
+		,attr={critrate,135}
+};
+get(5,16)->
+	#channel{
+		id=5
+		,lev=16
+		,cond_lev=26
+		,cost_spirit=835
+		,cost_time=1220
+		,attr={tenacity,135}
+};
+get(6,16)->
+	#channel{
+		id=6
+		,lev=16
+		,cond_lev=26
+		,cost_spirit=835
+		,cost_time=1220
+		,attr={hitrate,54}
+};
+get(7,16)->
+	#channel{
+		id=7
+		,lev=16
+		,cond_lev=26
+		,cost_spirit=835
+		,cost_time=1220
+		,attr={evasion,54}
+};
+get(8,16)->
+	#channel{
+		id=8
+		,lev=16
+		,cond_lev=26
+		,cost_spirit=835
+		,cost_time=1220
+		,attr={resist_all,270}
+};
+get(1,17)->
+	#channel{
+		id=1
+		,lev=17
+		,cond_lev=27
+		,cost_spirit=920
+		,cost_time=1320
+		,attr={hp_max,1435}
+};
+get(2,17)->
+	#channel{
+		id=2
+		,lev=17
+		,cond_lev=27
+		,cost_spirit=920
+		,cost_time=1320
+		,attr={dmg,179}
+};
+get(3,17)->
+	#channel{
+		id=3
+		,lev=17
+		,cond_lev=27
+		,cost_spirit=920
+		,cost_time=1320
+		,attr={defence,718}
+};
+get(4,17)->
+	#channel{
+		id=4
+		,lev=17
+		,cond_lev=27
+		,cost_spirit=920
+		,cost_time=1320
+		,attr={critrate,144}
+};
+get(5,17)->
+	#channel{
+		id=5
+		,lev=17
+		,cond_lev=27
+		,cost_spirit=920
+		,cost_time=1320
+		,attr={tenacity,144}
+};
+get(6,17)->
+	#channel{
+		id=6
+		,lev=17
+		,cond_lev=27
+		,cost_spirit=920
+		,cost_time=1320
+		,attr={hitrate,57}
+};
+get(7,17)->
+	#channel{
+		id=7
+		,lev=17
+		,cond_lev=27
+		,cost_spirit=920
+		,cost_time=1320
+		,attr={evasion,57}
+};
+get(8,17)->
+	#channel{
+		id=8
+		,lev=17
+		,cond_lev=27
+		,cost_spirit=920
+		,cost_time=1320
+		,attr={resist_all,287}
+};
+get(1,18)->
+	#channel{
+		id=1
+		,lev=18
+		,cond_lev=28
+		,cost_spirit=1005
+		,cost_time=1420
+		,attr={hp_max,1520}
+};
+get(2,18)->
+	#channel{
+		id=2
+		,lev=18
+		,cond_lev=28
+		,cost_spirit=1005
+		,cost_time=1420
+		,attr={dmg,190}
+};
+get(3,18)->
+	#channel{
+		id=3
+		,lev=18
+		,cond_lev=28
+		,cost_spirit=1005
+		,cost_time=1420
+		,attr={defence,760}
+};
+get(4,18)->
+	#channel{
+		id=4
+		,lev=18
+		,cond_lev=28
+		,cost_spirit=1005
+		,cost_time=1420
+		,attr={critrate,152}
+};
+get(5,18)->
+	#channel{
+		id=5
+		,lev=18
+		,cond_lev=28
+		,cost_spirit=1005
+		,cost_time=1420
+		,attr={tenacity,152}
+};
+get(6,18)->
+	#channel{
+		id=6
+		,lev=18
+		,cond_lev=28
+		,cost_spirit=1005
+		,cost_time=1420
+		,attr={hitrate,61}
+};
+get(7,18)->
+	#channel{
+		id=7
+		,lev=18
+		,cond_lev=28
+		,cost_spirit=1005
+		,cost_time=1420
+		,attr={evasion,61}
+};
+get(8,18)->
+	#channel{
+		id=8
+		,lev=18
+		,cond_lev=28
+		,cost_spirit=1005
+		,cost_time=1420
+		,attr={resist_all,304}
+};
+get(1,19)->
+	#channel{
+		id=1
+		,lev=19
+		,cond_lev=29
+		,cost_spirit=1105
+		,cost_time=1520
+		,attr={hp_max,1605}
+};
+get(2,19)->
+	#channel{
+		id=2
+		,lev=19
+		,cond_lev=29
+		,cost_spirit=1105
+		,cost_time=1520
+		,attr={dmg,201}
+};
+get(3,19)->
+	#channel{
+		id=3
+		,lev=19
+		,cond_lev=29
+		,cost_spirit=1105
+		,cost_time=1520
+		,attr={defence,803}
+};
+get(4,19)->
+	#channel{
+		id=4
+		,lev=19
+		,cond_lev=29
+		,cost_spirit=1105
+		,cost_time=1520
+		,attr={critrate,161}
+};
+get(5,19)->
+	#channel{
+		id=5
+		,lev=19
+		,cond_lev=29
+		,cost_spirit=1105
+		,cost_time=1520
+		,attr={tenacity,161}
+};
+get(6,19)->
+	#channel{
+		id=6
+		,lev=19
+		,cond_lev=29
+		,cost_spirit=1105
+		,cost_time=1520
+		,attr={hitrate,64}
+};
+get(7,19)->
+	#channel{
+		id=7
+		,lev=19
+		,cond_lev=29
+		,cost_spirit=1105
+		,cost_time=1520
+		,attr={evasion,64}
+};
+get(8,19)->
+	#channel{
+		id=8
+		,lev=19
+		,cond_lev=29
+		,cost_spirit=1105
+		,cost_time=1520
+		,attr={resist_all,321}
+};
+get(1,20)->
+	#channel{
+		id=1
+		,lev=20
+		,cond_lev=30
+		,cost_spirit=1205
+		,cost_time=1620
+		,attr={hp_max,1690}
+};
+get(2,20)->
+	#channel{
+		id=2
+		,lev=20
+		,cond_lev=30
+		,cost_spirit=1205
+		,cost_time=1620
+		,attr={dmg,211}
+};
+get(3,20)->
+	#channel{
+		id=3
+		,lev=20
+		,cond_lev=30
+		,cost_spirit=1205
+		,cost_time=1620
+		,attr={defence,845}
+};
+get(4,20)->
+	#channel{
+		id=4
+		,lev=20
+		,cond_lev=30
+		,cost_spirit=1205
+		,cost_time=1620
+		,attr={critrate,169}
+};
+get(5,20)->
+	#channel{
+		id=5
+		,lev=20
+		,cond_lev=30
+		,cost_spirit=1205
+		,cost_time=1620
+		,attr={tenacity,169}
+};
+get(6,20)->
+	#channel{
+		id=6
+		,lev=20
+		,cond_lev=30
+		,cost_spirit=1205
+		,cost_time=1620
+		,attr={hitrate,68}
+};
+get(7,20)->
+	#channel{
+		id=7
+		,lev=20
+		,cond_lev=30
+		,cost_spirit=1205
+		,cost_time=1620
+		,attr={evasion,68}
+};
+get(8,20)->
+	#channel{
+		id=8
+		,lev=20
+		,cond_lev=30
+		,cost_spirit=1205
+		,cost_time=1620
+		,attr={resist_all,338}
+};
+get(1,21)->
+	#channel{
+		id=1
+		,lev=21
+		,cond_lev=31
+		,cost_spirit=1305
+		,cost_time=1720
+		,attr={hp_max,1775}
+};
+get(2,21)->
+	#channel{
+		id=2
+		,lev=21
+		,cond_lev=31
+		,cost_spirit=1305
+		,cost_time=1720
+		,attr={dmg,222}
+};
+get(3,21)->
+	#channel{
+		id=3
+		,lev=21
+		,cond_lev=31
+		,cost_spirit=1305
+		,cost_time=1720
+		,attr={defence,888}
+};
+get(4,21)->
+	#channel{
+		id=4
+		,lev=21
+		,cond_lev=31
+		,cost_spirit=1305
+		,cost_time=1720
+		,attr={critrate,178}
+};
+get(5,21)->
+	#channel{
+		id=5
+		,lev=21
+		,cond_lev=31
+		,cost_spirit=1305
+		,cost_time=1720
+		,attr={tenacity,178}
+};
+get(6,21)->
+	#channel{
+		id=6
+		,lev=21
+		,cond_lev=31
+		,cost_spirit=1305
+		,cost_time=1720
+		,attr={hitrate,71}
+};
+get(7,21)->
+	#channel{
+		id=7
+		,lev=21
+		,cond_lev=31
+		,cost_spirit=1305
+		,cost_time=1720
+		,attr={evasion,71}
+};
+get(8,21)->
+	#channel{
+		id=8
+		,lev=21
+		,cond_lev=31
+		,cost_spirit=1305
+		,cost_time=1720
+		,attr={resist_all,355}
+};
+get(1,22)->
+	#channel{
+		id=1
+		,lev=22
+		,cond_lev=32
+		,cost_spirit=1405
+		,cost_time=1820
+		,attr={hp_max,1860}
+};
+get(2,22)->
+	#channel{
+		id=2
+		,lev=22
+		,cond_lev=32
+		,cost_spirit=1405
+		,cost_time=1820
+		,attr={dmg,233}
+};
+get(3,22)->
+	#channel{
+		id=3
+		,lev=22
+		,cond_lev=32
+		,cost_spirit=1405
+		,cost_time=1820
+		,attr={defence,930}
+};
+get(4,22)->
+	#channel{
+		id=4
+		,lev=22
+		,cond_lev=32
+		,cost_spirit=1405
+		,cost_time=1820
+		,attr={critrate,186}
+};
+get(5,22)->
+	#channel{
+		id=5
+		,lev=22
+		,cond_lev=32
+		,cost_spirit=1405
+		,cost_time=1820
+		,attr={tenacity,186}
+};
+get(6,22)->
+	#channel{
+		id=6
+		,lev=22
+		,cond_lev=32
+		,cost_spirit=1405
+		,cost_time=1820
+		,attr={hitrate,74}
+};
+get(7,22)->
+	#channel{
+		id=7
+		,lev=22
+		,cond_lev=32
+		,cost_spirit=1405
+		,cost_time=1820
+		,attr={evasion,74}
+};
+get(8,22)->
+	#channel{
+		id=8
+		,lev=22
+		,cond_lev=32
+		,cost_spirit=1405
+		,cost_time=1820
+		,attr={resist_all,372}
+};
+get(1,23)->
+	#channel{
+		id=1
+		,lev=23
+		,cond_lev=33
+		,cost_spirit=1505
+		,cost_time=1920
+		,attr={hp_max,1945}
+};
+get(2,23)->
+	#channel{
+		id=2
+		,lev=23
+		,cond_lev=33
+		,cost_spirit=1505
+		,cost_time=1920
+		,attr={dmg,243}
+};
+get(3,23)->
+	#channel{
+		id=3
+		,lev=23
+		,cond_lev=33
+		,cost_spirit=1505
+		,cost_time=1920
+		,attr={defence,973}
+};
+get(4,23)->
+	#channel{
+		id=4
+		,lev=23
+		,cond_lev=33
+		,cost_spirit=1505
+		,cost_time=1920
+		,attr={critrate,195}
+};
+get(5,23)->
+	#channel{
+		id=5
+		,lev=23
+		,cond_lev=33
+		,cost_spirit=1505
+		,cost_time=1920
+		,attr={tenacity,195}
+};
+get(6,23)->
+	#channel{
+		id=6
+		,lev=23
+		,cond_lev=33
+		,cost_spirit=1505
+		,cost_time=1920
+		,attr={hitrate,78}
+};
+get(7,23)->
+	#channel{
+		id=7
+		,lev=23
+		,cond_lev=33
+		,cost_spirit=1505
+		,cost_time=1920
+		,attr={evasion,78}
+};
+get(8,23)->
+	#channel{
+		id=8
+		,lev=23
+		,cond_lev=33
+		,cost_spirit=1505
+		,cost_time=1920
+		,attr={resist_all,389}
+};
+get(1,24)->
+	#channel{
+		id=1
+		,lev=24
+		,cond_lev=34
+		,cost_spirit=1755
+		,cost_time=2020
+		,attr={hp_max,2030}
+};
+get(2,24)->
+	#channel{
+		id=2
+		,lev=24
+		,cond_lev=34
+		,cost_spirit=1755
+		,cost_time=2020
+		,attr={dmg,254}
+};
+get(3,24)->
+	#channel{
+		id=3
+		,lev=24
+		,cond_lev=34
+		,cost_spirit=1755
+		,cost_time=2020
+		,attr={defence,1015}
+};
+get(4,24)->
+	#channel{
+		id=4
+		,lev=24
+		,cond_lev=34
+		,cost_spirit=1755
+		,cost_time=2020
+		,attr={critrate,203}
+};
+get(5,24)->
+	#channel{
+		id=5
+		,lev=24
+		,cond_lev=34
+		,cost_spirit=1755
+		,cost_time=2020
+		,attr={tenacity,203}
+};
+get(6,24)->
+	#channel{
+		id=6
+		,lev=24
+		,cond_lev=34
+		,cost_spirit=1755
+		,cost_time=2020
+		,attr={hitrate,81}
+};
+get(7,24)->
+	#channel{
+		id=7
+		,lev=24
+		,cond_lev=34
+		,cost_spirit=1755
+		,cost_time=2020
+		,attr={evasion,81}
+};
+get(8,24)->
+	#channel{
+		id=8
+		,lev=24
+		,cond_lev=34
+		,cost_spirit=1755
+		,cost_time=2020
+		,attr={resist_all,406}
+};
+get(1,25)->
+	#channel{
+		id=1
+		,lev=25
+		,cond_lev=35
+		,cost_spirit=2005
+		,cost_time=2120
+		,attr={hp_max,2115}
+};
+get(2,25)->
+	#channel{
+		id=2
+		,lev=25
+		,cond_lev=35
+		,cost_spirit=2005
+		,cost_time=2120
+		,attr={dmg,264}
+};
+get(3,25)->
+	#channel{
+		id=3
+		,lev=25
+		,cond_lev=35
+		,cost_spirit=2005
+		,cost_time=2120
+		,attr={defence,1058}
+};
+get(4,25)->
+	#channel{
+		id=4
+		,lev=25
+		,cond_lev=35
+		,cost_spirit=2005
+		,cost_time=2120
+		,attr={critrate,212}
+};
+get(5,25)->
+	#channel{
+		id=5
+		,lev=25
+		,cond_lev=35
+		,cost_spirit=2005
+		,cost_time=2120
+		,attr={tenacity,212}
+};
+get(6,25)->
+	#channel{
+		id=6
+		,lev=25
+		,cond_lev=35
+		,cost_spirit=2005
+		,cost_time=2120
+		,attr={hitrate,85}
+};
+get(7,25)->
+	#channel{
+		id=7
+		,lev=25
+		,cond_lev=35
+		,cost_spirit=2005
+		,cost_time=2120
+		,attr={evasion,85}
+};
+get(8,25)->
+	#channel{
+		id=8
+		,lev=25
+		,cond_lev=35
+		,cost_spirit=2005
+		,cost_time=2120
+		,attr={resist_all,423}
+};
+get(1,26)->
+	#channel{
+		id=1
+		,lev=26
+		,cond_lev=36
+		,cost_spirit=2255
+		,cost_time=2220
+		,attr={hp_max,2200}
+};
+get(2,26)->
+	#channel{
+		id=2
+		,lev=26
+		,cond_lev=36
+		,cost_spirit=2255
+		,cost_time=2220
+		,attr={dmg,275}
+};
+get(3,26)->
+	#channel{
+		id=3
+		,lev=26
+		,cond_lev=36
+		,cost_spirit=2255
+		,cost_time=2220
+		,attr={defence,1100}
+};
+get(4,26)->
+	#channel{
+		id=4
+		,lev=26
+		,cond_lev=36
+		,cost_spirit=2255
+		,cost_time=2220
+		,attr={critrate,220}
+};
+get(5,26)->
+	#channel{
+		id=5
+		,lev=26
+		,cond_lev=36
+		,cost_spirit=2255
+		,cost_time=2220
+		,attr={tenacity,220}
+};
+get(6,26)->
+	#channel{
+		id=6
+		,lev=26
+		,cond_lev=36
+		,cost_spirit=2255
+		,cost_time=2220
+		,attr={hitrate,88}
+};
+get(7,26)->
+	#channel{
+		id=7
+		,lev=26
+		,cond_lev=36
+		,cost_spirit=2255
+		,cost_time=2220
+		,attr={evasion,88}
+};
+get(8,26)->
+	#channel{
+		id=8
+		,lev=26
+		,cond_lev=36
+		,cost_spirit=2255
+		,cost_time=2220
+		,attr={resist_all,440}
+};
+get(1,27)->
+	#channel{
+		id=1
+		,lev=27
+		,cond_lev=37
+		,cost_spirit=2505
+		,cost_time=2320
+		,attr={hp_max,2285}
+};
+get(2,27)->
+	#channel{
+		id=2
+		,lev=27
+		,cond_lev=37
+		,cost_spirit=2505
+		,cost_time=2320
+		,attr={dmg,286}
+};
+get(3,27)->
+	#channel{
+		id=3
+		,lev=27
+		,cond_lev=37
+		,cost_spirit=2505
+		,cost_time=2320
+		,attr={defence,1143}
+};
+get(4,27)->
+	#channel{
+		id=4
+		,lev=27
+		,cond_lev=37
+		,cost_spirit=2505
+		,cost_time=2320
+		,attr={critrate,229}
+};
+get(5,27)->
+	#channel{
+		id=5
+		,lev=27
+		,cond_lev=37
+		,cost_spirit=2505
+		,cost_time=2320
+		,attr={tenacity,229}
+};
+get(6,27)->
+	#channel{
+		id=6
+		,lev=27
+		,cond_lev=37
+		,cost_spirit=2505
+		,cost_time=2320
+		,attr={hitrate,91}
+};
+get(7,27)->
+	#channel{
+		id=7
+		,lev=27
+		,cond_lev=37
+		,cost_spirit=2505
+		,cost_time=2320
+		,attr={evasion,91}
+};
+get(8,27)->
+	#channel{
+		id=8
+		,lev=27
+		,cond_lev=37
+		,cost_spirit=2505
+		,cost_time=2320
+		,attr={resist_all,457}
+};
+get(1,28)->
+	#channel{
+		id=1
+		,lev=28
+		,cond_lev=38
+		,cost_spirit=2755
+		,cost_time=2420
+		,attr={hp_max,2370}
+};
+get(2,28)->
+	#channel{
+		id=2
+		,lev=28
+		,cond_lev=38
+		,cost_spirit=2755
+		,cost_time=2420
+		,attr={dmg,296}
+};
+get(3,28)->
+	#channel{
+		id=3
+		,lev=28
+		,cond_lev=38
+		,cost_spirit=2755
+		,cost_time=2420
+		,attr={defence,1185}
+};
+get(4,28)->
+	#channel{
+		id=4
+		,lev=28
+		,cond_lev=38
+		,cost_spirit=2755
+		,cost_time=2420
+		,attr={critrate,237}
+};
+get(5,28)->
+	#channel{
+		id=5
+		,lev=28
+		,cond_lev=38
+		,cost_spirit=2755
+		,cost_time=2420
+		,attr={tenacity,237}
+};
+get(6,28)->
+	#channel{
+		id=6
+		,lev=28
+		,cond_lev=38
+		,cost_spirit=2755
+		,cost_time=2420
+		,attr={hitrate,95}
+};
+get(7,28)->
+	#channel{
+		id=7
+		,lev=28
+		,cond_lev=38
+		,cost_spirit=2755
+		,cost_time=2420
+		,attr={evasion,95}
+};
+get(8,28)->
+	#channel{
+		id=8
+		,lev=28
+		,cond_lev=38
+		,cost_spirit=2755
+		,cost_time=2420
+		,attr={resist_all,474}
+};
+get(1,29)->
+	#channel{
+		id=1
+		,lev=29
+		,cond_lev=39
+		,cost_spirit=3005
+		,cost_time=2520
+		,attr={hp_max,2455}
+};
+get(2,29)->
+	#channel{
+		id=2
+		,lev=29
+		,cond_lev=39
+		,cost_spirit=3005
+		,cost_time=2520
+		,attr={dmg,307}
+};
+get(3,29)->
+	#channel{
+		id=3
+		,lev=29
+		,cond_lev=39
+		,cost_spirit=3005
+		,cost_time=2520
+		,attr={defence,1228}
+};
+get(4,29)->
+	#channel{
+		id=4
+		,lev=29
+		,cond_lev=39
+		,cost_spirit=3005
+		,cost_time=2520
+		,attr={critrate,246}
+};
+get(5,29)->
+	#channel{
+		id=5
+		,lev=29
+		,cond_lev=39
+		,cost_spirit=3005
+		,cost_time=2520
+		,attr={tenacity,246}
+};
+get(6,29)->
+	#channel{
+		id=6
+		,lev=29
+		,cond_lev=39
+		,cost_spirit=3005
+		,cost_time=2520
+		,attr={hitrate,98}
+};
+get(7,29)->
+	#channel{
+		id=7
+		,lev=29
+		,cond_lev=39
+		,cost_spirit=3005
+		,cost_time=2520
+		,attr={evasion,98}
+};
+get(8,29)->
+	#channel{
+		id=8
+		,lev=29
+		,cond_lev=39
+		,cost_spirit=3005
+		,cost_time=2520
+		,attr={resist_all,491}
+};
+get(1,30)->
+	#channel{
+		id=1
+		,lev=30
+		,cond_lev=40
+		,cost_spirit=3255
+		,cost_time=2620
+		,attr={hp_max,2540}
+};
+get(2,30)->
+	#channel{
+		id=2
+		,lev=30
+		,cond_lev=40
+		,cost_spirit=3255
+		,cost_time=2620
+		,attr={dmg,318}
+};
+get(3,30)->
+	#channel{
+		id=3
+		,lev=30
+		,cond_lev=40
+		,cost_spirit=3255
+		,cost_time=2620
+		,attr={defence,1270}
+};
+get(4,30)->
+	#channel{
+		id=4
+		,lev=30
+		,cond_lev=40
+		,cost_spirit=3255
+		,cost_time=2620
+		,attr={critrate,254}
+};
+get(5,30)->
+	#channel{
+		id=5
+		,lev=30
+		,cond_lev=40
+		,cost_spirit=3255
+		,cost_time=2620
+		,attr={tenacity,254}
+};
+get(6,30)->
+	#channel{
+		id=6
+		,lev=30
+		,cond_lev=40
+		,cost_spirit=3255
+		,cost_time=2620
+		,attr={hitrate,102}
+};
+get(7,30)->
+	#channel{
+		id=7
+		,lev=30
+		,cond_lev=40
+		,cost_spirit=3255
+		,cost_time=2620
+		,attr={evasion,102}
+};
+get(8,30)->
+	#channel{
+		id=8
+		,lev=30
+		,cond_lev=40
+		,cost_spirit=3255
+		,cost_time=2620
+		,attr={resist_all,508}
+};
+get(1,31)->
+	#channel{
+		id=1
+		,lev=31
+		,cond_lev=41
+		,cost_spirit=3505
+		,cost_time=2720
+		,attr={hp_max,2625}
+};
+get(2,31)->
+	#channel{
+		id=2
+		,lev=31
+		,cond_lev=41
+		,cost_spirit=3505
+		,cost_time=2720
+		,attr={dmg,328}
+};
+get(3,31)->
+	#channel{
+		id=3
+		,lev=31
+		,cond_lev=41
+		,cost_spirit=3505
+		,cost_time=2720
+		,attr={defence,1313}
+};
+get(4,31)->
+	#channel{
+		id=4
+		,lev=31
+		,cond_lev=41
+		,cost_spirit=3505
+		,cost_time=2720
+		,attr={critrate,263}
+};
+get(5,31)->
+	#channel{
+		id=5
+		,lev=31
+		,cond_lev=41
+		,cost_spirit=3505
+		,cost_time=2720
+		,attr={tenacity,263}
+};
+get(6,31)->
+	#channel{
+		id=6
+		,lev=31
+		,cond_lev=41
+		,cost_spirit=3505
+		,cost_time=2720
+		,attr={hitrate,105}
+};
+get(7,31)->
+	#channel{
+		id=7
+		,lev=31
+		,cond_lev=41
+		,cost_spirit=3505
+		,cost_time=2720
+		,attr={evasion,105}
+};
+get(8,31)->
+	#channel{
+		id=8
+		,lev=31
+		,cond_lev=41
+		,cost_spirit=3505
+		,cost_time=2720
+		,attr={resist_all,525}
+};
+get(1,32)->
+	#channel{
+		id=1
+		,lev=32
+		,cond_lev=42
+		,cost_spirit=4055
+		,cost_time=2820
+		,attr={hp_max,2710}
+};
+get(2,32)->
+	#channel{
+		id=2
+		,lev=32
+		,cond_lev=42
+		,cost_spirit=4055
+		,cost_time=2820
+		,attr={dmg,339}
+};
+get(3,32)->
+	#channel{
+		id=3
+		,lev=32
+		,cond_lev=42
+		,cost_spirit=4055
+		,cost_time=2820
+		,attr={defence,1355}
+};
+get(4,32)->
+	#channel{
+		id=4
+		,lev=32
+		,cond_lev=42
+		,cost_spirit=4055
+		,cost_time=2820
+		,attr={critrate,271}
+};
+get(5,32)->
+	#channel{
+		id=5
+		,lev=32
+		,cond_lev=42
+		,cost_spirit=4055
+		,cost_time=2820
+		,attr={tenacity,271}
+};
+get(6,32)->
+	#channel{
+		id=6
+		,lev=32
+		,cond_lev=42
+		,cost_spirit=4055
+		,cost_time=2820
+		,attr={hitrate,108}
+};
+get(7,32)->
+	#channel{
+		id=7
+		,lev=32
+		,cond_lev=42
+		,cost_spirit=4055
+		,cost_time=2820
+		,attr={evasion,108}
+};
+get(8,32)->
+	#channel{
+		id=8
+		,lev=32
+		,cond_lev=42
+		,cost_spirit=4055
+		,cost_time=2820
+		,attr={resist_all,542}
+};
+get(1,33)->
+	#channel{
+		id=1
+		,lev=33
+		,cond_lev=43
+		,cost_spirit=4605
+		,cost_time=2920
+		,attr={hp_max,2795}
+};
+get(2,33)->
+	#channel{
+		id=2
+		,lev=33
+		,cond_lev=43
+		,cost_spirit=4605
+		,cost_time=2920
+		,attr={dmg,349}
+};
+get(3,33)->
+	#channel{
+		id=3
+		,lev=33
+		,cond_lev=43
+		,cost_spirit=4605
+		,cost_time=2920
+		,attr={defence,1398}
+};
+get(4,33)->
+	#channel{
+		id=4
+		,lev=33
+		,cond_lev=43
+		,cost_spirit=4605
+		,cost_time=2920
+		,attr={critrate,280}
+};
+get(5,33)->
+	#channel{
+		id=5
+		,lev=33
+		,cond_lev=43
+		,cost_spirit=4605
+		,cost_time=2920
+		,attr={tenacity,280}
+};
+get(6,33)->
+	#channel{
+		id=6
+		,lev=33
+		,cond_lev=43
+		,cost_spirit=4605
+		,cost_time=2920
+		,attr={hitrate,112}
+};
+get(7,33)->
+	#channel{
+		id=7
+		,lev=33
+		,cond_lev=43
+		,cost_spirit=4605
+		,cost_time=2920
+		,attr={evasion,112}
+};
+get(8,33)->
+	#channel{
+		id=8
+		,lev=33
+		,cond_lev=43
+		,cost_spirit=4605
+		,cost_time=2920
+		,attr={resist_all,559}
+};
+get(1,34)->
+	#channel{
+		id=1
+		,lev=34
+		,cond_lev=44
+		,cost_spirit=5355
+		,cost_time=3020
+		,attr={hp_max,2880}
+};
+get(2,34)->
+	#channel{
+		id=2
+		,lev=34
+		,cond_lev=44
+		,cost_spirit=5355
+		,cost_time=3020
+		,attr={dmg,360}
+};
+get(3,34)->
+	#channel{
+		id=3
+		,lev=34
+		,cond_lev=44
+		,cost_spirit=5355
+		,cost_time=3020
+		,attr={defence,1440}
+};
+get(4,34)->
+	#channel{
+		id=4
+		,lev=34
+		,cond_lev=44
+		,cost_spirit=5355
+		,cost_time=3020
+		,attr={critrate,288}
+};
+get(5,34)->
+	#channel{
+		id=5
+		,lev=34
+		,cond_lev=44
+		,cost_spirit=5355
+		,cost_time=3020
+		,attr={tenacity,288}
+};
+get(6,34)->
+	#channel{
+		id=6
+		,lev=34
+		,cond_lev=44
+		,cost_spirit=5355
+		,cost_time=3020
+		,attr={hitrate,115}
+};
+get(7,34)->
+	#channel{
+		id=7
+		,lev=34
+		,cond_lev=44
+		,cost_spirit=5355
+		,cost_time=3020
+		,attr={evasion,115}
+};
+get(8,34)->
+	#channel{
+		id=8
+		,lev=34
+		,cond_lev=44
+		,cost_spirit=5355
+		,cost_time=3020
+		,attr={resist_all,576}
+};
+get(1,35)->
+	#channel{
+		id=1
+		,lev=35
+		,cond_lev=45
+		,cost_spirit=6305
+		,cost_time=3120
+		,attr={hp_max,2965}
+};
+get(2,35)->
+	#channel{
+		id=2
+		,lev=35
+		,cond_lev=45
+		,cost_spirit=6305
+		,cost_time=3120
+		,attr={dmg,371}
+};
+get(3,35)->
+	#channel{
+		id=3
+		,lev=35
+		,cond_lev=45
+		,cost_spirit=6305
+		,cost_time=3120
+		,attr={defence,1483}
+};
+get(4,35)->
+	#channel{
+		id=4
+		,lev=35
+		,cond_lev=45
+		,cost_spirit=6305
+		,cost_time=3120
+		,attr={critrate,297}
+};
+get(5,35)->
+	#channel{
+		id=5
+		,lev=35
+		,cond_lev=45
+		,cost_spirit=6305
+		,cost_time=3120
+		,attr={tenacity,297}
+};
+get(6,35)->
+	#channel{
+		id=6
+		,lev=35
+		,cond_lev=45
+		,cost_spirit=6305
+		,cost_time=3120
+		,attr={hitrate,119}
+};
+get(7,35)->
+	#channel{
+		id=7
+		,lev=35
+		,cond_lev=45
+		,cost_spirit=6305
+		,cost_time=3120
+		,attr={evasion,119}
+};
+get(8,35)->
+	#channel{
+		id=8
+		,lev=35
+		,cond_lev=45
+		,cost_spirit=6305
+		,cost_time=3120
+		,attr={resist_all,593}
+};
+get(1,36)->
+	#channel{
+		id=1
+		,lev=36
+		,cond_lev=46
+		,cost_spirit=7255
+		,cost_time=3220
+		,attr={hp_max,3050}
+};
+get(2,36)->
+	#channel{
+		id=2
+		,lev=36
+		,cond_lev=46
+		,cost_spirit=7255
+		,cost_time=3220
+		,attr={dmg,381}
+};
+get(3,36)->
+	#channel{
+		id=3
+		,lev=36
+		,cond_lev=46
+		,cost_spirit=7255
+		,cost_time=3220
+		,attr={defence,1525}
+};
+get(4,36)->
+	#channel{
+		id=4
+		,lev=36
+		,cond_lev=46
+		,cost_spirit=7255
+		,cost_time=3220
+		,attr={critrate,305}
+};
+get(5,36)->
+	#channel{
+		id=5
+		,lev=36
+		,cond_lev=46
+		,cost_spirit=7255
+		,cost_time=3220
+		,attr={tenacity,305}
+};
+get(6,36)->
+	#channel{
+		id=6
+		,lev=36
+		,cond_lev=46
+		,cost_spirit=7255
+		,cost_time=3220
+		,attr={hitrate,122}
+};
+get(7,36)->
+	#channel{
+		id=7
+		,lev=36
+		,cond_lev=46
+		,cost_spirit=7255
+		,cost_time=3220
+		,attr={evasion,122}
+};
+get(8,36)->
+	#channel{
+		id=8
+		,lev=36
+		,cond_lev=46
+		,cost_spirit=7255
+		,cost_time=3220
+		,attr={resist_all,610}
+};
+get(1,37)->
+	#channel{
+		id=1
+		,lev=37
+		,cond_lev=47
+		,cost_spirit=8605
+		,cost_time=3320
+		,attr={hp_max,3135}
+};
+get(2,37)->
+	#channel{
+		id=2
+		,lev=37
+		,cond_lev=47
+		,cost_spirit=8605
+		,cost_time=3320
+		,attr={dmg,392}
+};
+get(3,37)->
+	#channel{
+		id=3
+		,lev=37
+		,cond_lev=47
+		,cost_spirit=8605
+		,cost_time=3320
+		,attr={defence,1568}
+};
+get(4,37)->
+	#channel{
+		id=4
+		,lev=37
+		,cond_lev=47
+		,cost_spirit=8605
+		,cost_time=3320
+		,attr={critrate,314}
+};
+get(5,37)->
+	#channel{
+		id=5
+		,lev=37
+		,cond_lev=47
+		,cost_spirit=8605
+		,cost_time=3320
+		,attr={tenacity,314}
+};
+get(6,37)->
+	#channel{
+		id=6
+		,lev=37
+		,cond_lev=47
+		,cost_spirit=8605
+		,cost_time=3320
+		,attr={hitrate,125}
+};
+get(7,37)->
+	#channel{
+		id=7
+		,lev=37
+		,cond_lev=47
+		,cost_spirit=8605
+		,cost_time=3320
+		,attr={evasion,125}
+};
+get(8,37)->
+	#channel{
+		id=8
+		,lev=37
+		,cond_lev=47
+		,cost_spirit=8605
+		,cost_time=3320
+		,attr={resist_all,627}
+};
+get(1,38)->
+	#channel{
+		id=1
+		,lev=38
+		,cond_lev=48
+		,cost_spirit=9955
+		,cost_time=3420
+		,attr={hp_max,3220}
+};
+get(2,38)->
+	#channel{
+		id=2
+		,lev=38
+		,cond_lev=48
+		,cost_spirit=9955
+		,cost_time=3420
+		,attr={dmg,403}
+};
+get(3,38)->
+	#channel{
+		id=3
+		,lev=38
+		,cond_lev=48
+		,cost_spirit=9955
+		,cost_time=3420
+		,attr={defence,1610}
+};
+get(4,38)->
+	#channel{
+		id=4
+		,lev=38
+		,cond_lev=48
+		,cost_spirit=9955
+		,cost_time=3420
+		,attr={critrate,322}
+};
+get(5,38)->
+	#channel{
+		id=5
+		,lev=38
+		,cond_lev=48
+		,cost_spirit=9955
+		,cost_time=3420
+		,attr={tenacity,322}
+};
+get(6,38)->
+	#channel{
+		id=6
+		,lev=38
+		,cond_lev=48
+		,cost_spirit=9955
+		,cost_time=3420
+		,attr={hitrate,129}
+};
+get(7,38)->
+	#channel{
+		id=7
+		,lev=38
+		,cond_lev=48
+		,cost_spirit=9955
+		,cost_time=3420
+		,attr={evasion,129}
+};
+get(8,38)->
+	#channel{
+		id=8
+		,lev=38
+		,cond_lev=48
+		,cost_spirit=9955
+		,cost_time=3420
+		,attr={resist_all,644}
+};
+get(1,39)->
+	#channel{
+		id=1
+		,lev=39
+		,cond_lev=49
+		,cost_spirit=11305
+		,cost_time=3520
+		,attr={hp_max,3305}
+};
+get(2,39)->
+	#channel{
+		id=2
+		,lev=39
+		,cond_lev=49
+		,cost_spirit=11305
+		,cost_time=3520
+		,attr={dmg,413}
+};
+get(3,39)->
+	#channel{
+		id=3
+		,lev=39
+		,cond_lev=49
+		,cost_spirit=11305
+		,cost_time=3520
+		,attr={defence,1653}
+};
+get(4,39)->
+	#channel{
+		id=4
+		,lev=39
+		,cond_lev=49
+		,cost_spirit=11305
+		,cost_time=3520
+		,attr={critrate,331}
+};
+get(5,39)->
+	#channel{
+		id=5
+		,lev=39
+		,cond_lev=49
+		,cost_spirit=11305
+		,cost_time=3520
+		,attr={tenacity,331}
+};
+get(6,39)->
+	#channel{
+		id=6
+		,lev=39
+		,cond_lev=49
+		,cost_spirit=11305
+		,cost_time=3520
+		,attr={hitrate,132}
+};
+get(7,39)->
+	#channel{
+		id=7
+		,lev=39
+		,cond_lev=49
+		,cost_spirit=11305
+		,cost_time=3520
+		,attr={evasion,132}
+};
+get(8,39)->
+	#channel{
+		id=8
+		,lev=39
+		,cond_lev=49
+		,cost_spirit=11305
+		,cost_time=3520
+		,attr={resist_all,661}
+};
+get(1,40)->
+	#channel{
+		id=1
+		,lev=40
+		,cond_lev=50
+		,cost_spirit=12655
+		,cost_time=3620
+		,attr={hp_max,3390}
+};
+get(2,40)->
+	#channel{
+		id=2
+		,lev=40
+		,cond_lev=50
+		,cost_spirit=12655
+		,cost_time=3620
+		,attr={dmg,424}
+};
+get(3,40)->
+	#channel{
+		id=3
+		,lev=40
+		,cond_lev=50
+		,cost_spirit=12655
+		,cost_time=3620
+		,attr={defence,1695}
+};
+get(4,40)->
+	#channel{
+		id=4
+		,lev=40
+		,cond_lev=50
+		,cost_spirit=12655
+		,cost_time=3620
+		,attr={critrate,339}
+};
+get(5,40)->
+	#channel{
+		id=5
+		,lev=40
+		,cond_lev=50
+		,cost_spirit=12655
+		,cost_time=3620
+		,attr={tenacity,339}
+};
+get(6,40)->
+	#channel{
+		id=6
+		,lev=40
+		,cond_lev=50
+		,cost_spirit=12655
+		,cost_time=3620
+		,attr={hitrate,136}
+};
+get(7,40)->
+	#channel{
+		id=7
+		,lev=40
+		,cond_lev=50
+		,cost_spirit=12655
+		,cost_time=3620
+		,attr={evasion,136}
+};
+get(8,40)->
+	#channel{
+		id=8
+		,lev=40
+		,cond_lev=50
+		,cost_spirit=12655
+		,cost_time=3620
+		,attr={resist_all,678}
+};
+get(1,41)->
+	#channel{
+		id=1
+		,lev=41
+		,cond_lev=51
+		,cost_spirit=14405
+		,cost_time=3720
+		,attr={hp_max,3475}
+};
+get(2,41)->
+	#channel{
+		id=2
+		,lev=41
+		,cond_lev=51
+		,cost_spirit=14405
+		,cost_time=3720
+		,attr={dmg,434}
+};
+get(3,41)->
+	#channel{
+		id=3
+		,lev=41
+		,cond_lev=51
+		,cost_spirit=14405
+		,cost_time=3720
+		,attr={defence,1738}
+};
+get(4,41)->
+	#channel{
+		id=4
+		,lev=41
+		,cond_lev=51
+		,cost_spirit=14405
+		,cost_time=3720
+		,attr={critrate,348}
+};
+get(5,41)->
+	#channel{
+		id=5
+		,lev=41
+		,cond_lev=51
+		,cost_spirit=14405
+		,cost_time=3720
+		,attr={tenacity,348}
+};
+get(6,41)->
+	#channel{
+		id=6
+		,lev=41
+		,cond_lev=51
+		,cost_spirit=14405
+		,cost_time=3720
+		,attr={hitrate,139}
+};
+get(7,41)->
+	#channel{
+		id=7
+		,lev=41
+		,cond_lev=51
+		,cost_spirit=14405
+		,cost_time=3720
+		,attr={evasion,139}
+};
+get(8,41)->
+	#channel{
+		id=8
+		,lev=41
+		,cond_lev=51
+		,cost_spirit=14405
+		,cost_time=3720
+		,attr={resist_all,695}
+};
+get(1,42)->
+	#channel{
+		id=1
+		,lev=42
+		,cond_lev=52
+		,cost_spirit=16155
+		,cost_time=3820
+		,attr={hp_max,3560}
+};
+get(2,42)->
+	#channel{
+		id=2
+		,lev=42
+		,cond_lev=52
+		,cost_spirit=16155
+		,cost_time=3820
+		,attr={dmg,445}
+};
+get(3,42)->
+	#channel{
+		id=3
+		,lev=42
+		,cond_lev=52
+		,cost_spirit=16155
+		,cost_time=3820
+		,attr={defence,1780}
+};
+get(4,42)->
+	#channel{
+		id=4
+		,lev=42
+		,cond_lev=52
+		,cost_spirit=16155
+		,cost_time=3820
+		,attr={critrate,356}
+};
+get(5,42)->
+	#channel{
+		id=5
+		,lev=42
+		,cond_lev=52
+		,cost_spirit=16155
+		,cost_time=3820
+		,attr={tenacity,356}
+};
+get(6,42)->
+	#channel{
+		id=6
+		,lev=42
+		,cond_lev=52
+		,cost_spirit=16155
+		,cost_time=3820
+		,attr={hitrate,142}
+};
+get(7,42)->
+	#channel{
+		id=7
+		,lev=42
+		,cond_lev=52
+		,cost_spirit=16155
+		,cost_time=3820
+		,attr={evasion,142}
+};
+get(8,42)->
+	#channel{
+		id=8
+		,lev=42
+		,cond_lev=52
+		,cost_spirit=16155
+		,cost_time=3820
+		,attr={resist_all,712}
+};
+get(1,43)->
+	#channel{
+		id=1
+		,lev=43
+		,cond_lev=53
+		,cost_spirit=17905
+		,cost_time=3920
+		,attr={hp_max,3645}
+};
+get(2,43)->
+	#channel{
+		id=2
+		,lev=43
+		,cond_lev=53
+		,cost_spirit=17905
+		,cost_time=3920
+		,attr={dmg,456}
+};
+get(3,43)->
+	#channel{
+		id=3
+		,lev=43
+		,cond_lev=53
+		,cost_spirit=17905
+		,cost_time=3920
+		,attr={defence,1823}
+};
+get(4,43)->
+	#channel{
+		id=4
+		,lev=43
+		,cond_lev=53
+		,cost_spirit=17905
+		,cost_time=3920
+		,attr={critrate,365}
+};
+get(5,43)->
+	#channel{
+		id=5
+		,lev=43
+		,cond_lev=53
+		,cost_spirit=17905
+		,cost_time=3920
+		,attr={tenacity,365}
+};
+get(6,43)->
+	#channel{
+		id=6
+		,lev=43
+		,cond_lev=53
+		,cost_spirit=17905
+		,cost_time=3920
+		,attr={hitrate,146}
+};
+get(7,43)->
+	#channel{
+		id=7
+		,lev=43
+		,cond_lev=53
+		,cost_spirit=17905
+		,cost_time=3920
+		,attr={evasion,146}
+};
+get(8,43)->
+	#channel{
+		id=8
+		,lev=43
+		,cond_lev=53
+		,cost_spirit=17905
+		,cost_time=3920
+		,attr={resist_all,729}
+};
+get(1,44)->
+	#channel{
+		id=1
+		,lev=44
+		,cond_lev=54
+		,cost_spirit=19905
+		,cost_time=4020
+		,attr={hp_max,3730}
+};
+get(2,44)->
+	#channel{
+		id=2
+		,lev=44
+		,cond_lev=54
+		,cost_spirit=19905
+		,cost_time=4020
+		,attr={dmg,466}
+};
+get(3,44)->
+	#channel{
+		id=3
+		,lev=44
+		,cond_lev=54
+		,cost_spirit=19905
+		,cost_time=4020
+		,attr={defence,1865}
+};
+get(4,44)->
+	#channel{
+		id=4
+		,lev=44
+		,cond_lev=54
+		,cost_spirit=19905
+		,cost_time=4020
+		,attr={critrate,373}
+};
+get(5,44)->
+	#channel{
+		id=5
+		,lev=44
+		,cond_lev=54
+		,cost_spirit=19905
+		,cost_time=4020
+		,attr={tenacity,373}
+};
+get(6,44)->
+	#channel{
+		id=6
+		,lev=44
+		,cond_lev=54
+		,cost_spirit=19905
+		,cost_time=4020
+		,attr={hitrate,149}
+};
+get(7,44)->
+	#channel{
+		id=7
+		,lev=44
+		,cond_lev=54
+		,cost_spirit=19905
+		,cost_time=4020
+		,attr={evasion,149}
+};
+get(8,44)->
+	#channel{
+		id=8
+		,lev=44
+		,cond_lev=54
+		,cost_spirit=19905
+		,cost_time=4020
+		,attr={resist_all,746}
+};
+get(1,45)->
+	#channel{
+		id=1
+		,lev=45
+		,cond_lev=55
+		,cost_spirit=21905
+		,cost_time=4120
+		,attr={hp_max,3815}
+};
+get(2,45)->
+	#channel{
+		id=2
+		,lev=45
+		,cond_lev=55
+		,cost_spirit=21905
+		,cost_time=4120
+		,attr={dmg,477}
+};
+get(3,45)->
+	#channel{
+		id=3
+		,lev=45
+		,cond_lev=55
+		,cost_spirit=21905
+		,cost_time=4120
+		,attr={defence,1908}
+};
+get(4,45)->
+	#channel{
+		id=4
+		,lev=45
+		,cond_lev=55
+		,cost_spirit=21905
+		,cost_time=4120
+		,attr={critrate,382}
+};
+get(5,45)->
+	#channel{
+		id=5
+		,lev=45
+		,cond_lev=55
+		,cost_spirit=21905
+		,cost_time=4120
+		,attr={tenacity,382}
+};
+get(6,45)->
+	#channel{
+		id=6
+		,lev=45
+		,cond_lev=55
+		,cost_spirit=21905
+		,cost_time=4120
+		,attr={hitrate,153}
+};
+get(7,45)->
+	#channel{
+		id=7
+		,lev=45
+		,cond_lev=55
+		,cost_spirit=21905
+		,cost_time=4120
+		,attr={evasion,153}
+};
+get(8,45)->
+	#channel{
+		id=8
+		,lev=45
+		,cond_lev=55
+		,cost_spirit=21905
+		,cost_time=4120
+		,attr={resist_all,763}
+};
+get(1,46)->
+	#channel{
+		id=1
+		,lev=46
+		,cond_lev=56
+		,cost_spirit=23905
+		,cost_time=4220
+		,attr={hp_max,3900}
+};
+get(2,46)->
+	#channel{
+		id=2
+		,lev=46
+		,cond_lev=56
+		,cost_spirit=23905
+		,cost_time=4220
+		,attr={dmg,488}
+};
+get(3,46)->
+	#channel{
+		id=3
+		,lev=46
+		,cond_lev=56
+		,cost_spirit=23905
+		,cost_time=4220
+		,attr={defence,1950}
+};
+get(4,46)->
+	#channel{
+		id=4
+		,lev=46
+		,cond_lev=56
+		,cost_spirit=23905
+		,cost_time=4220
+		,attr={critrate,390}
+};
+get(5,46)->
+	#channel{
+		id=5
+		,lev=46
+		,cond_lev=56
+		,cost_spirit=23905
+		,cost_time=4220
+		,attr={tenacity,390}
+};
+get(6,46)->
+	#channel{
+		id=6
+		,lev=46
+		,cond_lev=56
+		,cost_spirit=23905
+		,cost_time=4220
+		,attr={hitrate,156}
+};
+get(7,46)->
+	#channel{
+		id=7
+		,lev=46
+		,cond_lev=56
+		,cost_spirit=23905
+		,cost_time=4220
+		,attr={evasion,156}
+};
+get(8,46)->
+	#channel{
+		id=8
+		,lev=46
+		,cond_lev=56
+		,cost_spirit=23905
+		,cost_time=4220
+		,attr={resist_all,780}
+};
+get(1,47)->
+	#channel{
+		id=1
+		,lev=47
+		,cond_lev=57
+		,cost_spirit=26505
+		,cost_time=4320
+		,attr={hp_max,3985}
+};
+get(2,47)->
+	#channel{
+		id=2
+		,lev=47
+		,cond_lev=57
+		,cost_spirit=26505
+		,cost_time=4320
+		,attr={dmg,498}
+};
+get(3,47)->
+	#channel{
+		id=3
+		,lev=47
+		,cond_lev=57
+		,cost_spirit=26505
+		,cost_time=4320
+		,attr={defence,1993}
+};
+get(4,47)->
+	#channel{
+		id=4
+		,lev=47
+		,cond_lev=57
+		,cost_spirit=26505
+		,cost_time=4320
+		,attr={critrate,399}
+};
+get(5,47)->
+	#channel{
+		id=5
+		,lev=47
+		,cond_lev=57
+		,cost_spirit=26505
+		,cost_time=4320
+		,attr={tenacity,399}
+};
+get(6,47)->
+	#channel{
+		id=6
+		,lev=47
+		,cond_lev=57
+		,cost_spirit=26505
+		,cost_time=4320
+		,attr={hitrate,159}
+};
+get(7,47)->
+	#channel{
+		id=7
+		,lev=47
+		,cond_lev=57
+		,cost_spirit=26505
+		,cost_time=4320
+		,attr={evasion,159}
+};
+get(8,47)->
+	#channel{
+		id=8
+		,lev=47
+		,cond_lev=57
+		,cost_spirit=26505
+		,cost_time=4320
+		,attr={resist_all,797}
+};
+get(1,48)->
+	#channel{
+		id=1
+		,lev=48
+		,cond_lev=58
+		,cost_spirit=29105
+		,cost_time=4420
+		,attr={hp_max,4070}
+};
+get(2,48)->
+	#channel{
+		id=2
+		,lev=48
+		,cond_lev=58
+		,cost_spirit=29105
+		,cost_time=4420
+		,attr={dmg,509}
+};
+get(3,48)->
+	#channel{
+		id=3
+		,lev=48
+		,cond_lev=58
+		,cost_spirit=29105
+		,cost_time=4420
+		,attr={defence,2035}
+};
+get(4,48)->
+	#channel{
+		id=4
+		,lev=48
+		,cond_lev=58
+		,cost_spirit=29105
+		,cost_time=4420
+		,attr={critrate,407}
+};
+get(5,48)->
+	#channel{
+		id=5
+		,lev=48
+		,cond_lev=58
+		,cost_spirit=29105
+		,cost_time=4420
+		,attr={tenacity,407}
+};
+get(6,48)->
+	#channel{
+		id=6
+		,lev=48
+		,cond_lev=58
+		,cost_spirit=29105
+		,cost_time=4420
+		,attr={hitrate,163}
+};
+get(7,48)->
+	#channel{
+		id=7
+		,lev=48
+		,cond_lev=58
+		,cost_spirit=29105
+		,cost_time=4420
+		,attr={evasion,163}
+};
+get(8,48)->
+	#channel{
+		id=8
+		,lev=48
+		,cond_lev=58
+		,cost_spirit=29105
+		,cost_time=4420
+		,attr={resist_all,814}
+};
+get(1,49)->
+	#channel{
+		id=1
+		,lev=49
+		,cond_lev=59
+		,cost_spirit=31705
+		,cost_time=4520
+		,attr={hp_max,4155}
+};
+get(2,49)->
+	#channel{
+		id=2
+		,lev=49
+		,cond_lev=59
+		,cost_spirit=31705
+		,cost_time=4520
+		,attr={dmg,519}
+};
+get(3,49)->
+	#channel{
+		id=3
+		,lev=49
+		,cond_lev=59
+		,cost_spirit=31705
+		,cost_time=4520
+		,attr={defence,2078}
+};
+get(4,49)->
+	#channel{
+		id=4
+		,lev=49
+		,cond_lev=59
+		,cost_spirit=31705
+		,cost_time=4520
+		,attr={critrate,416}
+};
+get(5,49)->
+	#channel{
+		id=5
+		,lev=49
+		,cond_lev=59
+		,cost_spirit=31705
+		,cost_time=4520
+		,attr={tenacity,416}
+};
+get(6,49)->
+	#channel{
+		id=6
+		,lev=49
+		,cond_lev=59
+		,cost_spirit=31705
+		,cost_time=4520
+		,attr={hitrate,166}
+};
+get(7,49)->
+	#channel{
+		id=7
+		,lev=49
+		,cond_lev=59
+		,cost_spirit=31705
+		,cost_time=4520
+		,attr={evasion,166}
+};
+get(8,49)->
+	#channel{
+		id=8
+		,lev=49
+		,cond_lev=59
+		,cost_spirit=31705
+		,cost_time=4520
+		,attr={resist_all,831}
+};
+get(1,50)->
+	#channel{
+		id=1
+		,lev=50
+		,cond_lev=60
+		,cost_spirit=34305
+		,cost_time=4620
+		,attr={hp_max,4240}
+};
+get(2,50)->
+	#channel{
+		id=2
+		,lev=50
+		,cond_lev=60
+		,cost_spirit=34305
+		,cost_time=4620
+		,attr={dmg,530}
+};
+get(3,50)->
+	#channel{
+		id=3
+		,lev=50
+		,cond_lev=60
+		,cost_spirit=34305
+		,cost_time=4620
+		,attr={defence,2120}
+};
+get(4,50)->
+	#channel{
+		id=4
+		,lev=50
+		,cond_lev=60
+		,cost_spirit=34305
+		,cost_time=4620
+		,attr={critrate,424}
+};
+get(5,50)->
+	#channel{
+		id=5
+		,lev=50
+		,cond_lev=60
+		,cost_spirit=34305
+		,cost_time=4620
+		,attr={tenacity,424}
+};
+get(6,50)->
+	#channel{
+		id=6
+		,lev=50
+		,cond_lev=60
+		,cost_spirit=34305
+		,cost_time=4620
+		,attr={hitrate,170}
+};
+get(7,50)->
+	#channel{
+		id=7
+		,lev=50
+		,cond_lev=60
+		,cost_spirit=34305
+		,cost_time=4620
+		,attr={evasion,170}
+};
+get(8,50)->
+	#channel{
+		id=8
+		,lev=50
+		,cond_lev=60
+		,cost_spirit=34305
+		,cost_time=4620
+		,attr={resist_all,848}
+};
+get(1,51)->
+	#channel{
+		id=1
+		,lev=51
+		,cond_lev=61
+		,cost_spirit=39805
+		,cost_time=4720
+		,attr={hp_max,4325}
+};
+get(2,51)->
+	#channel{
+		id=2
+		,lev=51
+		,cond_lev=61
+		,cost_spirit=39805
+		,cost_time=4720
+		,attr={dmg,541}
+};
+get(3,51)->
+	#channel{
+		id=3
+		,lev=51
+		,cond_lev=61
+		,cost_spirit=39805
+		,cost_time=4720
+		,attr={defence,2163}
+};
+get(4,51)->
+	#channel{
+		id=4
+		,lev=51
+		,cond_lev=61
+		,cost_spirit=39805
+		,cost_time=4720
+		,attr={critrate,433}
+};
+get(5,51)->
+	#channel{
+		id=5
+		,lev=51
+		,cond_lev=61
+		,cost_spirit=39805
+		,cost_time=4720
+		,attr={tenacity,433}
+};
+get(6,51)->
+	#channel{
+		id=6
+		,lev=51
+		,cond_lev=61
+		,cost_spirit=39805
+		,cost_time=4720
+		,attr={hitrate,173}
+};
+get(7,51)->
+	#channel{
+		id=7
+		,lev=51
+		,cond_lev=61
+		,cost_spirit=39805
+		,cost_time=4720
+		,attr={evasion,173}
+};
+get(8,51)->
+	#channel{
+		id=8
+		,lev=51
+		,cond_lev=61
+		,cost_spirit=39805
+		,cost_time=4720
+		,attr={resist_all,865}
+};
+get(1,52)->
+	#channel{
+		id=1
+		,lev=52
+		,cond_lev=62
+		,cost_spirit=45305
+		,cost_time=4820
+		,attr={hp_max,4410}
+};
+get(2,52)->
+	#channel{
+		id=2
+		,lev=52
+		,cond_lev=62
+		,cost_spirit=45305
+		,cost_time=4820
+		,attr={dmg,551}
+};
+get(3,52)->
+	#channel{
+		id=3
+		,lev=52
+		,cond_lev=62
+		,cost_spirit=45305
+		,cost_time=4820
+		,attr={defence,2205}
+};
+get(4,52)->
+	#channel{
+		id=4
+		,lev=52
+		,cond_lev=62
+		,cost_spirit=45305
+		,cost_time=4820
+		,attr={critrate,441}
+};
+get(5,52)->
+	#channel{
+		id=5
+		,lev=52
+		,cond_lev=62
+		,cost_spirit=45305
+		,cost_time=4820
+		,attr={tenacity,441}
+};
+get(6,52)->
+	#channel{
+		id=6
+		,lev=52
+		,cond_lev=62
+		,cost_spirit=45305
+		,cost_time=4820
+		,attr={hitrate,176}
+};
+get(7,52)->
+	#channel{
+		id=7
+		,lev=52
+		,cond_lev=62
+		,cost_spirit=45305
+		,cost_time=4820
+		,attr={evasion,176}
+};
+get(8,52)->
+	#channel{
+		id=8
+		,lev=52
+		,cond_lev=62
+		,cost_spirit=45305
+		,cost_time=4820
+		,attr={resist_all,882}
+};
+get(1,53)->
+	#channel{
+		id=1
+		,lev=53
+		,cond_lev=63
+		,cost_spirit=50805
+		,cost_time=4920
+		,attr={hp_max,4495}
+};
+get(2,53)->
+	#channel{
+		id=2
+		,lev=53
+		,cond_lev=63
+		,cost_spirit=50805
+		,cost_time=4920
+		,attr={dmg,562}
+};
+get(3,53)->
+	#channel{
+		id=3
+		,lev=53
+		,cond_lev=63
+		,cost_spirit=50805
+		,cost_time=4920
+		,attr={defence,2248}
+};
+get(4,53)->
+	#channel{
+		id=4
+		,lev=53
+		,cond_lev=63
+		,cost_spirit=50805
+		,cost_time=4920
+		,attr={critrate,450}
+};
+get(5,53)->
+	#channel{
+		id=5
+		,lev=53
+		,cond_lev=63
+		,cost_spirit=50805
+		,cost_time=4920
+		,attr={tenacity,450}
+};
+get(6,53)->
+	#channel{
+		id=6
+		,lev=53
+		,cond_lev=63
+		,cost_spirit=50805
+		,cost_time=4920
+		,attr={hitrate,180}
+};
+get(7,53)->
+	#channel{
+		id=7
+		,lev=53
+		,cond_lev=63
+		,cost_spirit=50805
+		,cost_time=4920
+		,attr={evasion,180}
+};
+get(8,53)->
+	#channel{
+		id=8
+		,lev=53
+		,cond_lev=63
+		,cost_spirit=50805
+		,cost_time=4920
+		,attr={resist_all,899}
+};
+get(1,54)->
+	#channel{
+		id=1
+		,lev=54
+		,cond_lev=64
+		,cost_spirit=59305
+		,cost_time=5020
+		,attr={hp_max,4580}
+};
+get(2,54)->
+	#channel{
+		id=2
+		,lev=54
+		,cond_lev=64
+		,cost_spirit=59305
+		,cost_time=5020
+		,attr={dmg,573}
+};
+get(3,54)->
+	#channel{
+		id=3
+		,lev=54
+		,cond_lev=64
+		,cost_spirit=59305
+		,cost_time=5020
+		,attr={defence,2290}
+};
+get(4,54)->
+	#channel{
+		id=4
+		,lev=54
+		,cond_lev=64
+		,cost_spirit=59305
+		,cost_time=5020
+		,attr={critrate,458}
+};
+get(5,54)->
+	#channel{
+		id=5
+		,lev=54
+		,cond_lev=64
+		,cost_spirit=59305
+		,cost_time=5020
+		,attr={tenacity,458}
+};
+get(6,54)->
+	#channel{
+		id=6
+		,lev=54
+		,cond_lev=64
+		,cost_spirit=59305
+		,cost_time=5020
+		,attr={hitrate,183}
+};
+get(7,54)->
+	#channel{
+		id=7
+		,lev=54
+		,cond_lev=64
+		,cost_spirit=59305
+		,cost_time=5020
+		,attr={evasion,183}
+};
+get(8,54)->
+	#channel{
+		id=8
+		,lev=54
+		,cond_lev=64
+		,cost_spirit=59305
+		,cost_time=5020
+		,attr={resist_all,916}
+};
+get(1,55)->
+	#channel{
+		id=1
+		,lev=55
+		,cond_lev=65
+		,cost_spirit=67805
+		,cost_time=5120
+		,attr={hp_max,4665}
+};
+get(2,55)->
+	#channel{
+		id=2
+		,lev=55
+		,cond_lev=65
+		,cost_spirit=67805
+		,cost_time=5120
+		,attr={dmg,583}
+};
+get(3,55)->
+	#channel{
+		id=3
+		,lev=55
+		,cond_lev=65
+		,cost_spirit=67805
+		,cost_time=5120
+		,attr={defence,2333}
+};
+get(4,55)->
+	#channel{
+		id=4
+		,lev=55
+		,cond_lev=65
+		,cost_spirit=67805
+		,cost_time=5120
+		,attr={critrate,467}
+};
+get(5,55)->
+	#channel{
+		id=5
+		,lev=55
+		,cond_lev=65
+		,cost_spirit=67805
+		,cost_time=5120
+		,attr={tenacity,467}
+};
+get(6,55)->
+	#channel{
+		id=6
+		,lev=55
+		,cond_lev=65
+		,cost_spirit=67805
+		,cost_time=5120
+		,attr={hitrate,187}
+};
+get(7,55)->
+	#channel{
+		id=7
+		,lev=55
+		,cond_lev=65
+		,cost_spirit=67805
+		,cost_time=5120
+		,attr={evasion,187}
+};
+get(8,55)->
+	#channel{
+		id=8
+		,lev=55
+		,cond_lev=65
+		,cost_spirit=67805
+		,cost_time=5120
+		,attr={resist_all,933}
+};
+get(1,56)->
+	#channel{
+		id=1
+		,lev=56
+		,cond_lev=66
+		,cost_spirit=76305
+		,cost_time=5220
+		,attr={hp_max,4750}
+};
+get(2,56)->
+	#channel{
+		id=2
+		,lev=56
+		,cond_lev=66
+		,cost_spirit=76305
+		,cost_time=5220
+		,attr={dmg,594}
+};
+get(3,56)->
+	#channel{
+		id=3
+		,lev=56
+		,cond_lev=66
+		,cost_spirit=76305
+		,cost_time=5220
+		,attr={defence,2375}
+};
+get(4,56)->
+	#channel{
+		id=4
+		,lev=56
+		,cond_lev=66
+		,cost_spirit=76305
+		,cost_time=5220
+		,attr={critrate,475}
+};
+get(5,56)->
+	#channel{
+		id=5
+		,lev=56
+		,cond_lev=66
+		,cost_spirit=76305
+		,cost_time=5220
+		,attr={tenacity,475}
+};
+get(6,56)->
+	#channel{
+		id=6
+		,lev=56
+		,cond_lev=66
+		,cost_spirit=76305
+		,cost_time=5220
+		,attr={hitrate,190}
+};
+get(7,56)->
+	#channel{
+		id=7
+		,lev=56
+		,cond_lev=66
+		,cost_spirit=76305
+		,cost_time=5220
+		,attr={evasion,190}
+};
+get(8,56)->
+	#channel{
+		id=8
+		,lev=56
+		,cond_lev=66
+		,cost_spirit=76305
+		,cost_time=5220
+		,attr={resist_all,950}
+};
+get(1,57)->
+	#channel{
+		id=1
+		,lev=57
+		,cond_lev=67
+		,cost_spirit=89805
+		,cost_time=5320
+		,attr={hp_max,4835}
+};
+get(2,57)->
+	#channel{
+		id=2
+		,lev=57
+		,cond_lev=67
+		,cost_spirit=89805
+		,cost_time=5320
+		,attr={dmg,604}
+};
+get(3,57)->
+	#channel{
+		id=3
+		,lev=57
+		,cond_lev=67
+		,cost_spirit=89805
+		,cost_time=5320
+		,attr={defence,2418}
+};
+get(4,57)->
+	#channel{
+		id=4
+		,lev=57
+		,cond_lev=67
+		,cost_spirit=89805
+		,cost_time=5320
+		,attr={critrate,484}
+};
+get(5,57)->
+	#channel{
+		id=5
+		,lev=57
+		,cond_lev=67
+		,cost_spirit=89805
+		,cost_time=5320
+		,attr={tenacity,484}
+};
+get(6,57)->
+	#channel{
+		id=6
+		,lev=57
+		,cond_lev=67
+		,cost_spirit=89805
+		,cost_time=5320
+		,attr={hitrate,193}
+};
+get(7,57)->
+	#channel{
+		id=7
+		,lev=57
+		,cond_lev=67
+		,cost_spirit=89805
+		,cost_time=5320
+		,attr={evasion,193}
+};
+get(8,57)->
+	#channel{
+		id=8
+		,lev=57
+		,cond_lev=67
+		,cost_spirit=89805
+		,cost_time=5320
+		,attr={resist_all,967}
+};
+get(1,58)->
+	#channel{
+		id=1
+		,lev=58
+		,cond_lev=68
+		,cost_spirit=103305
+		,cost_time=5420
+		,attr={hp_max,4920}
+};
+get(2,58)->
+	#channel{
+		id=2
+		,lev=58
+		,cond_lev=68
+		,cost_spirit=103305
+		,cost_time=5420
+		,attr={dmg,615}
+};
+get(3,58)->
+	#channel{
+		id=3
+		,lev=58
+		,cond_lev=68
+		,cost_spirit=103305
+		,cost_time=5420
+		,attr={defence,2460}
+};
+get(4,58)->
+	#channel{
+		id=4
+		,lev=58
+		,cond_lev=68
+		,cost_spirit=103305
+		,cost_time=5420
+		,attr={critrate,492}
+};
+get(5,58)->
+	#channel{
+		id=5
+		,lev=58
+		,cond_lev=68
+		,cost_spirit=103305
+		,cost_time=5420
+		,attr={tenacity,492}
+};
+get(6,58)->
+	#channel{
+		id=6
+		,lev=58
+		,cond_lev=68
+		,cost_spirit=103305
+		,cost_time=5420
+		,attr={hitrate,197}
+};
+get(7,58)->
+	#channel{
+		id=7
+		,lev=58
+		,cond_lev=68
+		,cost_spirit=103305
+		,cost_time=5420
+		,attr={evasion,197}
+};
+get(8,58)->
+	#channel{
+		id=8
+		,lev=58
+		,cond_lev=68
+		,cost_spirit=103305
+		,cost_time=5420
+		,attr={resist_all,984}
+};
+get(1,59)->
+	#channel{
+		id=1
+		,lev=59
+		,cond_lev=69
+		,cost_spirit=116805
+		,cost_time=5520
+		,attr={hp_max,5005}
+};
+get(2,59)->
+	#channel{
+		id=2
+		,lev=59
+		,cond_lev=69
+		,cost_spirit=116805
+		,cost_time=5520
+		,attr={dmg,626}
+};
+get(3,59)->
+	#channel{
+		id=3
+		,lev=59
+		,cond_lev=69
+		,cost_spirit=116805
+		,cost_time=5520
+		,attr={defence,2503}
+};
+get(4,59)->
+	#channel{
+		id=4
+		,lev=59
+		,cond_lev=69
+		,cost_spirit=116805
+		,cost_time=5520
+		,attr={critrate,501}
+};
+get(5,59)->
+	#channel{
+		id=5
+		,lev=59
+		,cond_lev=69
+		,cost_spirit=116805
+		,cost_time=5520
+		,attr={tenacity,501}
+};
+get(6,59)->
+	#channel{
+		id=6
+		,lev=59
+		,cond_lev=69
+		,cost_spirit=116805
+		,cost_time=5520
+		,attr={hitrate,200}
+};
+get(7,59)->
+	#channel{
+		id=7
+		,lev=59
+		,cond_lev=69
+		,cost_spirit=116805
+		,cost_time=5520
+		,attr={evasion,200}
+};
+get(8,59)->
+	#channel{
+		id=8
+		,lev=59
+		,cond_lev=69
+		,cost_spirit=116805
+		,cost_time=5520
+		,attr={resist_all,1001}
+};
+get(1,60)->
+	#channel{
+		id=1
+		,lev=60
+		,cond_lev=70
+		,cost_spirit=130305
+		,cost_time=5620
+		,attr={hp_max,5090}
+};
+get(2,60)->
+	#channel{
+		id=2
+		,lev=60
+		,cond_lev=70
+		,cost_spirit=130305
+		,cost_time=5620
+		,attr={dmg,636}
+};
+get(3,60)->
+	#channel{
+		id=3
+		,lev=60
+		,cond_lev=70
+		,cost_spirit=130305
+		,cost_time=5620
+		,attr={defence,2545}
+};
+get(4,60)->
+	#channel{
+		id=4
+		,lev=60
+		,cond_lev=70
+		,cost_spirit=130305
+		,cost_time=5620
+		,attr={critrate,509}
+};
+get(5,60)->
+	#channel{
+		id=5
+		,lev=60
+		,cond_lev=70
+		,cost_spirit=130305
+		,cost_time=5620
+		,attr={tenacity,509}
+};
+get(6,60)->
+	#channel{
+		id=6
+		,lev=60
+		,cond_lev=70
+		,cost_spirit=130305
+		,cost_time=5620
+		,attr={hitrate,204}
+};
+get(7,60)->
+	#channel{
+		id=7
+		,lev=60
+		,cond_lev=70
+		,cost_spirit=130305
+		,cost_time=5620
+		,attr={evasion,204}
+};
+get(8,60)->
+	#channel{
+		id=8
+		,lev=60
+		,cond_lev=70
+		,cost_spirit=130305
+		,cost_time=5620
+		,attr={resist_all,1018}
+};
+get(_Id, _Lev) ->
+    false.
+
+get_rate(1) -> {10000,1000};
+get_rate(2) -> {10000,1000};
+get_rate(3) -> {10000,1000};
+get_rate(4) -> {10000,1000};
+get_rate(5) -> {9000,1000};
+get_rate(6) -> {9000,1000};
+get_rate(7) -> {9000,1000};
+get_rate(8) -> {9000,1000};
+get_rate(9) -> {9000,1000};
+get_rate(10) -> {9000,1000};
+get_rate(11) -> {9000,1200};
+get_rate(12) -> {9000,1200};
+get_rate(13) -> {9000,1200};
+get_rate(14) -> {9000,1200};
+get_rate(15) -> {9000,1200};
+get_rate(16) -> {9000,1200};
+get_rate(17) -> {9000,1200};
+get_rate(18) -> {9000,1200};
+get_rate(19) -> {9000,1200};
+get_rate(20) -> {8500,1200};
+get_rate(21) -> {8500,1500};
+get_rate(22) -> {8500,1500};
+get_rate(23) -> {8500,1500};
+get_rate(24) -> {8500,1500};
+get_rate(25) -> {8000,1500};
+get_rate(26) -> {8000,1500};
+get_rate(27) -> {8000,1500};
+get_rate(28) -> {8000,1500};
+get_rate(29) -> {8000,1500};
+get_rate(30) -> {7500,1500};
+get_rate(31) -> {7500,2000};
+get_rate(32) -> {7500,2000};
+get_rate(33) -> {7500,2000};
+get_rate(34) -> {7500,2000};
+get_rate(35) -> {7000,2000};
+get_rate(36) -> {7000,2000};
+get_rate(37) -> {7000,2000};
+get_rate(38) -> {7000,2000};
+get_rate(39) -> {7000,2000};
+get_rate(40) -> {6500,2000};
+get_rate(41) -> {6500,2500};
+get_rate(42) -> {6500,2500};
+get_rate(43) -> {6500,2500};
+get_rate(44) -> {6500,2500};
+get_rate(45) -> {6000,2500};
+get_rate(46) -> {6000,2500};
+get_rate(47) -> {6000,2500};
+get_rate(48) -> {6000,2500};
+get_rate(49) -> {6000,2500};
+get_rate(50) -> {6000,2500};
+get_rate(51) -> {6000,3000};
+get_rate(52) -> {6000,3000};
+get_rate(53) -> {6000,3000};
+get_rate(54) -> {6000,3000};
+get_rate(55) -> {5500,3000};
+get_rate(56) -> {5500,3000};
+get_rate(57) -> {5500,3000};
+get_rate(58) -> {5500,3000};
+get_rate(59) -> {5500,3000};
+get_rate(60) -> {5000,3000};
+get_rate(61) -> {5000,3500};
+get_rate(62) -> {5000,3500};
+get_rate(63) -> {5000,3500};
+get_rate(64) -> {5000,3500};
+get_rate(65) -> {5000,3500};
+get_rate(66) -> {5000,3500};
+get_rate(67) -> {5000,3500};
+get_rate(68) -> {5000,3500};
+get_rate(69) -> {5000,3500};
+get_rate(70) -> {4500,3500};
+get_rate(71) -> {4500,4000};
+get_rate(72) -> {4500,4000};
+get_rate(73) -> {4500,4000};
+get_rate(74) -> {4500,4000};
+get_rate(75) -> {4500,4000};
+get_rate(76) -> {4500,4000};
+get_rate(77) -> {4500,4000};
+get_rate(78) -> {4500,4000};
+get_rate(79) -> {4500,4000};
+get_rate(80) -> {4500,4000};
+get_rate(81) -> {4500,4500};
+get_rate(82) -> {4500,4500};
+get_rate(83) -> {4500,4500};
+get_rate(84) -> {4500,4500};
+get_rate(85) -> {4000,4500};
+get_rate(86) -> {4000,4500};
+get_rate(87) -> {4000,4500};
+get_rate(88) -> {4000,4500};
+get_rate(89) -> {4000,4500};
+get_rate(90) -> {4000,4500};
+get_rate(91) -> {4000,5000};
+get_rate(92) -> {4000,5000};
+get_rate(93) -> {4000,5000};
+get_rate(94) -> {4000,5000};
+get_rate(95) -> {4000,5000};
+get_rate(96) -> {4000,5000};
+get_rate(97) -> {4000,5000};
+get_rate(98) -> {4000,5000};
+get_rate(99) -> {4000,5000};
+get_rate(100) -> {3500,5000};
+get_rate(101) -> {2000,5500};
+get_rate(102) -> {2000,5500};
+get_rate(103) -> {2000,5500};
+get_rate(104) -> {2000,5500};
+get_rate(105) -> {2000,5500};
+get_rate(106) -> {2000,5500};
+get_rate(107) -> {2000,5500};
+get_rate(108) -> {2000,5500};
+get_rate(109) -> {2000,5500};
+get_rate(110) -> {2000,5500};
+get_rate(111) -> {2000,6000};
+get_rate(112) -> {2000,6000};
+get_rate(113) -> {2000,6000};
+get_rate(114) -> {2000,6000};
+get_rate(115) -> {2000,6000};
+get_rate(116) -> {2000,6000};
+get_rate(117) -> {2000,6000};
+get_rate(118) -> {2000,6000};
+get_rate(119) -> {2000,6000};
+get_rate(120) -> {1500,6000};
+get_rate(121) -> {1500,6500};
+get_rate(122) -> {1500,6500};
+get_rate(123) -> {1500,6500};
+get_rate(124) -> {1500,6500};
+get_rate(125) -> {1500,6500};
+get_rate(126) -> {1500,6500};
+get_rate(127) -> {1500,6500};
+get_rate(128) -> {1500,6500};
+get_rate(129) -> {1500,6500};
+get_rate(130) -> {1500,6500};
+get_rate(131) -> {1500,7000};
+get_rate(132) -> {1500,7000};
+get_rate(133) -> {1500,7000};
+get_rate(134) -> {1500,7000};
+get_rate(135) -> {1500,7000};
+get_rate(136) -> {1500,7000};
+get_rate(137) -> {1500,7000};
+get_rate(138) -> {1500,7000};
+get_rate(139) -> {1500,7000};
+get_rate(140) -> {1500,7000};
+get_rate(141) -> {1500,7500};
+get_rate(142) -> {1500,7500};
+get_rate(143) -> {1500,7500};
+get_rate(144) -> {1500,7500};
+get_rate(145) -> {999.99999999999989,7500};
+get_rate(146) -> {999.99999999999989,7500};
+get_rate(147) -> {999.99999999999989,7500};
+get_rate(148) -> {999.99999999999989,7500};
+get_rate(149) -> {999.99999999999989,7500};
+get_rate(150) -> {999.99999999999989,7500};
+get_rate(151) -> {999.99999999999989,8000};
+get_rate(152) -> {999.99999999999989,8000};
+get_rate(153) -> {999.99999999999989,8000};
+get_rate(154) -> {999.99999999999989,8000};
+get_rate(155) -> {999.99999999999989,8000};
+get_rate(156) -> {999.99999999999989,8000};
+get_rate(157) -> {999.99999999999989,8000};
+get_rate(158) -> {999.99999999999989,8000};
+get_rate(159) -> {999.99999999999989,8000};
+get_rate(160) -> {999.99999999999989,8000};
+get_rate(161) -> {999.99999999999989,8500};
+get_rate(162) -> {999.99999999999989,8500};
+get_rate(163) -> {999.99999999999989,8500};
+get_rate(164) -> {999.99999999999989,8500};
+get_rate(165) -> {999.99999999999989,8500};
+get_rate(166) -> {999.99999999999989,8500};
+get_rate(167) -> {999.99999999999989,8500};
+get_rate(168) -> {999.99999999999989,8500};
+get_rate(169) -> {999.99999999999989,8500};
+get_rate(170) -> {999.99999999999989,8500};
+get_rate(171) -> {999.99999999999989,9000};
+get_rate(172) -> {999.99999999999989,9000};
+get_rate(173) -> {999.99999999999989,9000};
+get_rate(174) -> {999.99999999999989,9000};
+get_rate(175) -> {999.99999999999989,9000};
+get_rate(176) -> {999.99999999999989,9000};
+get_rate(177) -> {999.99999999999989,9000};
+get_rate(178) -> {999.99999999999989,9000};
+get_rate(179) -> {999.99999999999989,9000};
+get_rate(180) -> {999.99999999999989,9000};
+get_rate(181) -> {999.99999999999989,9500};
+get_rate(182) -> {999.99999999999989,9500};
+get_rate(183) -> {999.99999999999989,9500};
+get_rate(184) -> {999.99999999999989,9500};
+get_rate(185) -> {999.99999999999989,9500};
+get_rate(186) -> {999.99999999999989,9500};
+get_rate(187) -> {999.99999999999989,9500};
+get_rate(188) -> {999.99999999999989,9500};
+get_rate(189) -> {999.99999999999989,9500};
+get_rate(190) -> {999.99999999999989,9500};
+get_rate(191) -> {999.99999999999989,10000};
+get_rate(192) -> {999.99999999999989,10000};
+get_rate(193) -> {999.99999999999989,10000};
+get_rate(194) -> {999.99999999999989,10000};
+get_rate(195) -> {999.99999999999989,10000};
+get_rate(196) -> {999.99999999999989,10000};
+get_rate(197) -> {999.99999999999989,10000};
+get_rate(198) -> {999.99999999999989,10000};
+get_rate(199) -> {999.99999999999989,10000};
+get_rate(200) -> {999.99999999999989,10000};
+get_rate(_Lev) -> false.
+
+get_award_attr(10) -> [{hp_max,200},{dmg,30}];
+get_award_attr(20) -> [{hp_max,300},{dmg,60},{defence,100},{resist_all,30}];
+get_award_attr(30) -> [{hp_max,400},{dmg,80},{defence,120},{resist_all,50}];
+get_award_attr(50) -> [{hp_max,600},{dmg,120},{defence,200},{resist_all,80}];
+get_award_attr(70) -> [{hp_max,1200},{dmg,150},{defence,250},{resist_all,100},{hitrate,20},{evasion,20},{critrate,90},{tenacity,90}];
+get_award_attr(100) -> [{hp_max,1800},{dmg,180},{defence,600},{resist_all,250},{hitrate,80},{evasion,80},{critrate,150},{tenacity,150}];
+get_award_attr(_Lev) -> [].
+	

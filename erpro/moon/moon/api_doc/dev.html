@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Module dev</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module dev</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+<p><b>Authors:</b> <a href="mailto:yeahoo2000@gmail.com"><tt>yeahoo2000@gmail.com</tt></a>.</p>
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#edoc-0">edoc/0</a></td><td>生成API文档，将源码文件全部放入ebin/同级的tmp/目录中.</td></tr>
+<tr><td valign="top"><a href="#eprof_start-0">eprof_start/0</a></td><td>开始对当前进程执行eprof分析程序.</td></tr>
+<tr><td valign="top"><a href="#eprof_start-2">eprof_start/2</a></td><td>开始执行eprof分析程序.</td></tr>
+<tr><td valign="top"><a href="#eprof_stop-0">eprof_stop/0</a></td><td>停止eprof并输出分析结果到指eprof_analyze.log文件中.</td></tr>
+<tr><td valign="top"><a href="#eprof_stop-1">eprof_stop/1</a></td><td>停止eprof并输出分析结果到指定文件.</td></tr>
+<tr><td valign="top"><a href="#info-0">info/0</a></td><td>查看系统当前的综合信息.</td></tr>
+<tr><td valign="top"><a href="#m-0">m/0</a></td><td>编译并热更新模块(默认带debug参数).</td></tr>
+<tr><td valign="top"><a href="#m-1">m/1</a></td><td>编译并更新模块(带参数)
+  <dl><dt><code>{d, Define::atom()}</code></dt>
+  <dd><ul>
+  <li>debug 开启debug模式，打开宏?DEBUG的输出</li>
+  <li>debug_sql 开启数据库调试模式，打印所有的SQL查询信息</li>
+  <li>debug_socket 开启socket调试模式，打印所有收发的socket数据</li>
+  </ul></dd></dl></td></tr>
+<tr><td valign="top"><a href="#nodes-0">nodes/0</a></td><td>打印所有节点的信息.</td></tr>
+<tr><td valign="top"><a href="#pinfo-1">pinfo/1</a></td><td>打印进程信息.</td></tr>
+<tr><td valign="top"><a href="#top-1">top/1</a></td><td>显示资源占最多的进程列表
+  参数说明见<a href="adm.html#top-1"><code>adm:top/1</code></a></td></tr>
+<tr><td valign="top"><a href="#top-3">top/3</a></td><td>显示资源占最多的进程列表
+  参数说明见<a href="adm.html#top-3"><code>adm:top/3</code></a></td></tr>
+<tr><td valign="top"><a href="#u-0">u/0</a></td><td>热更新所有模块(非强制).</td></tr>
+<tr><td valign="top"><a href="#u-1">u/1</a></td><td>热更新所有模块(强制更新).</td></tr>
+<tr><td valign="top"><a href="#u-2">u/2</a></td><td>热更新指定模块(强制更新).</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="edoc-0">edoc/0</a></h3>
+<div class="spec">
+<p><tt>edoc() -&gt; ok</tt><br></p>
+</div><p>生成API文档，将源码文件全部放入ebin/同级的tmp/目录中</p>
+
+<h3 class="function"><a name="eprof_start-0">eprof_start/0</a></h3>
+<div class="spec">
+<p><tt>eprof_start() -&gt; ok</tt><br></p>
+</div><p>开始对当前进程执行eprof分析程序</p>
+
+<h3 class="function"><a name="eprof_start-2">eprof_start/2</a></h3>
+<div class="spec">
+<p><tt>eprof_start(X1::pid, Pids) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Pids = [pid()]</tt></li></ul></p>
+</div><p>开始执行eprof分析程序</p>
+
+<h3 class="function"><a name="eprof_stop-0">eprof_stop/0</a></h3>
+<div class="spec">
+<p><tt>eprof_stop() -&gt; ok</tt><br></p>
+</div><p>停止eprof并输出分析结果到指eprof_analyze.log文件中</p>
+
+<h3 class="function"><a name="eprof_stop-1">eprof_stop/1</a></h3>
+<div class="spec">
+<p><tt>eprof_stop(FileName) -&gt; ok</tt>
+<ul class="definitions"><li><tt>FileName = string()</tt></li></ul></p>
+</div><p>停止eprof并输出分析结果到指定文件</p>
+
+<h3 class="function"><a name="info-0">info/0</a></h3>
+<div class="spec">
+<p><tt>info() -&gt; ok</tt><br></p>
+</div><p>查看系统当前的综合信息</p>
+
+<h3 class="function"><a name="m-0">m/0</a></h3>
+<div class="spec">
+<p><tt>m() -&gt; ok</tt><br></p>
+</div><p>编译并热更新模块(默认带debug参数)</p>
+
+<h3 class="function"><a name="m-1">m/1</a></h3>
+<div class="spec">
+<p><tt>m(Param::Options) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Options = debug | release | list()</tt></li></ul></p>
+</div><p>编译并更新模块(带参数)
+  <dl><dt><code>{d, Define::atom()}</code></dt>
+  <dd><ul>
+  <li>debug 开启debug模式，打开宏?DEBUG的输出</li>
+  <li>debug_sql 开启数据库调试模式，打印所有的SQL查询信息</li>
+  <li>debug_socket 开启socket调试模式，打印所有收发的socket数据</li>
+  </ul></dd></dl></p>
+
+<h3 class="function"><a name="nodes-0">nodes/0</a></h3>
+<div class="spec">
+<p><tt>nodes() -&gt; ok</tt><br></p>
+</div><p>打印所有节点的信息</p>
+
+<h3 class="function"><a name="pinfo-1">pinfo/1</a></h3>
+<div class="spec">
+<p><tt>pinfo(Name::Options) -&gt; ok</tt><br></p>
+</div><p>打印进程信息</p>
+
+<h3 class="function"><a name="top-1">top/1</a></h3>
+<div class="spec">
+<p><tt>top(Type) -&gt; ok</tt><br></p>
+</div><p>显示资源占最多的进程列表
+  参数说明见<a href="adm.html#top-1"><code>adm:top/1</code></a></p>
+
+<h3 class="function"><a name="top-3">top/3</a></h3>
+<div class="spec">
+<p><tt>top(Type, Start, Len) -&gt; ok</tt><br></p>
+</div><p>显示资源占最多的进程列表
+  参数说明见<a href="adm.html#top-3"><code>adm:top/3</code></a></p>
+
+<h3 class="function"><a name="u-0">u/0</a></h3>
+<div class="spec">
+<p><tt>u() -&gt; any()</tt></p>
+</div><p>热更新所有模块(非强制)</p>
+
+<h3 class="function"><a name="u-1">u/1</a></h3>
+<div class="spec">
+<p><tt>u(ModList) -&gt; any()</tt></p>
+</div><p>热更新所有模块(强制更新)</p>
+
+<h3 class="function"><a name="u-2">u/2</a></h3>
+<div class="spec">
+<p><tt>u(ModList, X2) -&gt; any()</tt></p>
+</div><p>热更新指定模块(强制更新)</p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Nov 29 2011, 16:27:44.</i></p>
+</body>
+</html>

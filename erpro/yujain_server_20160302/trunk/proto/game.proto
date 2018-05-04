@@ -1,0 +1,1112 @@
+import "common.proto";
+option java_package = "proto.line";
+
+//////////////////////////////////////////////////////////////////////////////
+//tos:消息是客户端发送到服务端的消息定义
+//toc:服务端发送到客户端的消息定义
+//toc消息结构中一般定义以下两个字段来处理
+//
+//   0操作成功 同时返回给自已,1表示操作成功广播给别的玩家处理
+//   op_code -999-999为系统全局编码，各子系统不可以使用
+//   optional int32 op_code = 1[default=0]; // 操作编码
+//
+//   一般只需要返回操作编码前端对应相应的提示文字就可以，一些特殊的文字提示可以使用此字段返回
+//   optional string op_reason = 2[default=""]; // 操作原因
+//
+//
+//   proto 生成erlang hrl record 规则
+//   1,repeated 类型  且默认值为 [default=""] 即生成 xxx = []
+//
+//使用的数据类型
+//bool int64 int32 int16 byte double string
+//////////////////////////////////////////////////////////////////////////////
+
+//用于客户端连接服务器所需要的认证包 
+message m_auth_key_tos {     
+    required string account_name              = 1[default=""];  // 账号名
+    required string account_via               = 2[default=""];  // 账号来源   
+    required int64 role_id                    = 3[default=0];   // 角色id 
+    required string key                       = 4[default=""];  // 认证key
+	required int32 time                       = 5[default=0];   // 生成key时间
+	required byte fcm                         = 6[default=1];   // 防沉迷标志  1 通过  0 未通过
+	required int16 server_id                  = 7[default=0];   // 游戏服id
+	optional string device_id                 = 8[default=""];  // 设备id,可为空
+}
+message m_auth_key_toc {     
+    optional int32 op_code                    = 1[default=0];    // 操作编码
+	optional int64 server_time                = 2[default=0];    // 服务器当前时间，单位为秒
+	optional bool is_create_role              = 3[default=false];// 是否需要创建角色
+	optional p_role role_info                 = 4[default=""];   // 角色详细信息
+	optional int16 map_id                     = 5[default=0];    // 玩家地图
+	repeated p_attr attr_list                 = 6[default=""];   // 系统配置信息
+	required string quick_key                 = 7[default=""];   // 快速验证key
+}
+// 重新快速连接接口
+message m_auth_quick_tos {
+    required string account_name              = 1[default=""];  // 账号名
+    required string account_via               = 2[default=""];  // 账号来源   
+    required int64 role_id                    = 3[default=0];   // 角色id 
+    required byte fcm                         = 6[default=1];   // 防沉迷标志  1 通过  0 未通过
+    required int16 server_id                  = 7[default=0];   // 游戏服id
+    required string quick_key                 = 8[default=""];  // 快速验证key
+    optional string device_id                 = 9[default=""];  // 设备id,可为空
+}
+message m_auth_quick_toc {
+    optional int32 op_code                    = 1[default=0];    // 操作编码
+    optional int64 server_time                = 2[default=0];    // 服务器当前时间，单位为秒
+    optional p_role role_info                 = 3[default=""];   // 角色详细信息
+    optional int16 map_id                     = 4[default=0];    // 玩家地图
+    repeated p_attr attr_list                 = 5[default=""];   // 系统配置信息
+    required string quick_key                 = 6[default=""];   // 快速验证key
+}
+// 创建角色
+message m_role_create_tos {
+    required string role_name                 = 1[default=""]; //角色名称
+    required string account_via               = 2[default=""]; //帐号来源
+    required int16 account_type               = 3[default=0];  //帐号类型
+    required byte sex                         = 4[default=0];  //性别：1男，2女
+    required int32 fashion_id                 = 5[default=0];  //形象id
+    required byte faction_id                  = 6[default=1];  //阵营id
+    required byte category                    = 7[default=0];  //角色职业
+    required int16 server_id                  = 8[default=0];  //游戏服id
+}
+
+message m_role_create_toc {
+    optional int32 op_code                    = 1[default=0];  //操作编码 
+    optional string op_reason                 = 2[default=""]; //操作原因
+}
+// 角色信息
+// 玩家上线进入地图之前服务端推送信息
+message m_role_online_info_toc{
+    repeated byte channel_list                = 1 [default=""]; //聊天频道
+}
+//玩家进入地图 
+message m_map_enter_tos {     
+    required int16 map_id                     = 1[default=0];
+}
+//进入游戏
+message m_map_enter_toc {
+    optional int32 op_code                    = 1[default=0];  // 操作编码  0个人操作成功返回 1广播返回
+    optional string op_reason                 = 2[default=""]; // 操作原因
+    optional p_pos pos                        = 3[default=""]; // 当前位置
+    optional int16 map_id                     = 4[default=0];  // 当前地图id
+}
+//前端确认加载完地图，之后返回9宫格信息[m_map_slice_enter_toc]
+message m_map_enter_confirm_tos{
+    
+}
+message m_map_slice_enter_toc {
+    repeated p_map_role roles                 = 1[default=""]; // slice进入的玩家列表
+	repeated int64 del_roles                  = 2[default=""]; // slice退出的玩家列表 id
+	repeated p_map_pet pets                   = 3[default=""]; // slice进入的宠物列表
+    repeated int64 del_pets                   = 4[default=""]; // slice退出的宠物列表 id
+    repeated p_map_monster monsters           = 5[default=""]; // slice进入的怪物列表
+    repeated int32 del_monsters               = 6[default=""]; // slice退出的怪物列表 id
+    repeated p_map_avatar avatars             = 7[default=""]; // 进入地图可见的avatars列表
+    repeated int32 del_avatars                = 8[default=""]; // 进入地图可见的avatars列表
+}
+
+message m_map_update_mapinfo_tos{
+	required int64 actor_id                   = 1[default=0];
+	required byte actor_type                  = 2[default=0];
+    required int16 map_id                     = 3[default=0];
+}
+//进入游戏
+message m_map_update_mapinfo_toc{
+    required int64 actor_id                   = 1[default=0];
+    required byte actor_type                  = 2[default=0];
+    optional p_map_role role_info             = 3;
+}
+// Actor 死亡广播
+message m_map_actor_dead_toc{
+    required int64 actor_id                   = 1[default=0]; // 死亡Id
+    required byte actor_type                  = 2[default=0]; // 死亡类型 1人物 2宠物 3怪物
+    required int64 killer_id                  = 3[default=0]; // 杀手Id
+    required byte killer_type                 = 4[default=0]; // 杀手类型
+}
+// 退出场景
+message m_map_slice_quit_toc {
+    required byte actor_type                  = 1[default=0]; // 死亡类型 1人物 2宠物 3怪物
+    repeated int64 del_ids                    = 2[default=""]; // slice退出的Actor列表 id
+}
+//某个玩家离开了地图
+message m_map_quit_toc {
+    required int64 role_id                    = 1[default=0];
+}
+//查询玩家当前坐标可视的地图元素
+message m_map_query_tos{
+	//1当前slice,2当前9 slice
+	required byte op_type                     = 1[default=0];//操作类型
+	//1玩家和宠物 3怪物
+	required byte actor_type                  = 2[default=0];//角色类型
+}
+message m_map_query_toc{
+	required byte op_type                     = 1[default=0];//操作类型
+	required byte actor_type                  = 2[default=0];//操作子类型
+	required int32 op_code                    = 3[default=0];//操作结果
+	repeated p_map_role roles                 = 4[default=""]; 
+	repeated p_map_pet pets                   = 5[default=""]; 
+	repeated p_map_monster monsters           = 6[default=""]; 
+}
+// 切换地图请求
+message m_map_change_map_tos {
+    required int16 map_id                     = 1[default=0];
+}
+message m_map_change_map_toc {
+    required int32 op_code                    = 1[default=0];  // 操作编码
+    optional int16 map_id                     = 2[default=0];
+    optional int32 x                          = 3[default=0];
+    optional int32 y                          = 4[default=0];
+}
+
+//走路
+message m_move_walk_path_tos {
+    required byte actor_type                  = 1;//目标类型 1角色 2宠物 3怪物
+    required p_pos pos                        = 2;//目标点
+}
+// 走路（一条路径），返回结果
+message m_move_walk_path_toc {
+    optional int32 op_code                    = 1[default=0];  // 操作编码
+    required int64 move_id                    = 2[default=0];//移动对象id
+    required p_pos pos                        = 3;//目标点
+}
+// 走路（每到达下一个格子时发送给服务器一次新格子坐标）
+message m_move_walk_tos {
+    required byte actor_type                  = 1;//目标类型 1角色 2宠物 3怪物
+    required byte op_type                     = 2;//0走路 1结束走路
+    required p_pos pos                        = 3;
+}
+// 广播同步某个玩家的位置
+message m_move_sync_toc {
+    required int64 move_id                    = 1[default=0];//移动对象id
+    required p_pos pos                        = 2;
+}
+// 同步位置信息
+message m_move_sync_tos{
+    required byte actor_type                  = 1[default=0];//目标类型 1角色 2宠物 3怪物
+    required int64 actor_id                   = 2[default=0];//移动对象id
+    required p_pos pos                        = 3[default=""];
+}
+
+// 系统操作模块接口
+//心跳包
+message m_system_heartbeat_tos {
+    required int64 time                      = 1[default=0];
+}
+
+message m_system_heartbeat_toc {
+    required int64 time                      = 1[default=0];//服务器时间
+    required int64 server_time               = 2[default=0];
+}
+// 用于提示各种系统错误，例如断线等等
+message m_system_error_toc {
+    required int32 error_no                   = 1[default=0];// 错误号
+    required string error_info                = 2;// 错误文本
+}
+// 提示信息用，例如某个系统关闭了
+message m_system_message_toc {
+    required int32 op_code                    = 1[default=0];
+    required string op_reason                 = 2[default=""];
+}
+
+//防沉迷
+message m_system_fcm_toc{
+    required string info                      = 1[default=""];//信息
+    required int32 remain_time                = 2[default=0];//还能在线的时间
+    required int32 total_time                 = 3[default=0];//累计在线时间
+}
+message m_system_need_fcm_toc {
+    required int32 remain_time                = 1[default=0];
+}
+message m_system_set_fcm_tos{
+    required string name                      = 1[default=""]; //姓名
+    required string card                      = 2[default=""]; //身份证
+}
+message m_system_set_fcm_toc{
+    required bool succ                        = 1;//结果
+    optional string reason                    = 2;//出错原因
+}
+
+//GM命令
+message m_system_gm_tos{
+	required string code					  = 1[default=""];//GM命令行
+}
+
+//系统配置
+message m_system_config_update_tos{
+    repeated p_key_value config_list          =1; 
+}
+message m_system_config_update_toc{
+    optional int32 err_code                   = 1[default=0];
+    repeated p_key_value config_list          = 2;
+}
+
+// 物品模块
+// 查询信息
+message m_goods_query_tos{
+    // 查询类型 1查询物品信息 2查询背包信息3查询别人物品信息
+    required byte op_type                     = 1[default=0];
+    optional int64 role_id                    = 2[default=0];
+    optional byte bag_id                      = 3[default=0];
+    optional int64 goods_id                   = 4[default=0];
+}
+message m_goods_query_toc{
+    required byte op_type                     = 1[default=0];
+    optional int64 role_id                    = 2[default=0];
+    optional byte bag_id                      = 3[default=0];
+    optional int64 goods_id                   = 4[default=0];
+    required int32 op_code                    = 5[default=0];
+    repeated p_goods goods_list               = 6[default=""];
+    optional int16 grid_number                = 7[default=0];//背包格子
+}
+//移动物品
+message m_goods_swap_tos{
+    required int64 goods_id                   = 1[default=0]; //物品id
+    required byte src_bag_id                  = 2[default=0]; //背包id
+    required int16 bag_position               = 3[default=0]; //目标背包位置
+    required byte bag_id                      = 4[default=0]; //目标背包id
+}
+message m_goods_swap_toc{
+    required int32 op_code                    = 1[default=0];
+    required int64 goods_id                   = 2[default=0]; //物品id
+    required byte src_bag_id                  = 3[default=0]; //背包id
+    required int16 bag_position               = 4[default=0]; //目标背包位置
+    required byte bag_id                      = 5[default=0]; //目标背包id
+    optional p_goods goods_1                  = 6; //移动物品信息 
+    optional p_goods goods_2                  = 7; //目标物品信息
+}
+// 整理背包
+message m_goods_tidy_tos{
+    required byte bag_id                      = 1[default=0];
+}
+message m_goods_tidy_toc{
+    required int32 op_code                    = 1[default=0];
+    required byte bag_id                      = 2[default=0];
+    repeated p_goods goods_list               = 3[default=""];
+}
+//拆分物品
+message m_goods_divide_tos{
+    required int64 goods_id                   = 1[default=0]; //物品id
+    required int16 number                     = 2[default=0]; //物品拆分出的个数
+    required int16 bag_position               = 3[default=0]; //目标背包位置
+    required byte bag_id                      = 4[default=0]; //目标背包id
+}
+message m_goods_divide_toc{
+    required int64 goods_id                   = 1[default=0]; //物品id
+    required int16 number                     = 2[default=0]; //物品拆分出的个数
+    required int16 bag_position               = 3[default=0]; //目标背包位置
+    required byte bag_id                      = 4[default=0]; //目标背包id
+    required int32 op_code                    = 5[default=0];
+    optional p_goods goods_1                  = 5; //拆分物品信息 
+    optional p_goods goods_2                  = 6; //目标物品信息
+}
+//销毁物品
+message m_goods_destroy_tos{
+    // 1销毁背包物品 
+    required byte op_type                     = 1[default=0]; //操作类型
+    repeated int64 goods_id                   = 2[default=""]; //物品id
+    optional byte bag_id                      = 3[default=0];
+}
+message m_goods_destroy_toc{
+    required byte op_type                     = 1[default=0]; //操作类型
+    required byte bag_id                      = 2[default=0];
+    repeated int64 goods_id                   = 3[default=""]; //物品id
+    required int32 op_code                    = 4[default=0];
+}
+//背包物品数据消息通知
+message m_goods_update_toc{
+    optional byte bag_id                      = 1[default=0]; //背包id
+    repeated p_goods goods_list               = 1;
+    repeated int64 del_id_list                = 2[default=""]; // 删除的物品id
+}
+// 屏示物品
+message m_goods_show_tos {
+    optional byte channel_type                = 1[default=0];  //频道标记
+    optional string to_role_name              = 2[default=""]; //发给哪位
+    optional byte show_type                   = 3[default=0];  //0频道 1密聊 2对话
+    required int64 goods_id                   = 4[default=0];
+    optional int64 to_role_id                 = 5[default=0];  //发给哪位id
+}
+message m_goods_show_toc {
+    required int32 op_code                    = 1[default=0];
+}
+// 使用物品
+message m_goods_use_tos{
+    required byte op_type                    = 1[default=0]; //操作类型
+    required int64 goods_id                  = 2[default=0]; //物品id
+    required int16 use_num                    = 3[default=1]; //使用物品数量
+    required int64 target_id                 = 4[default=0]; //作用目标id
+}
+message m_goods_use_toc{
+    required byte op_type                     = 1[default=0];
+    required int64 goods_id                   = 2[default=0];
+    required int16 use_num                    = 3[default=1];
+    required int64 target_id                  = 4[default=0]; //作用目标id
+    required int32 op_code                    = 5[default=0];
+    optional string op_reason                 = 6[default=""];
+    optional int16 goods_number               = 7[default=0]; //物品剩下的数量
+}
+
+// 扩展背包格子
+message m_goods_add_grid_tos{
+	//暂时没有使用
+	required byte op_type                     = 1[default=0]; //操作类型
+	required byte bag_id                      = 2[default=0];
+	//目前只能传送5个
+	required int16 add_grid                   = 3[default=0]; //增加的格子数
+	
+}
+message m_goods_add_grid_toc{
+	required byte op_type                     = 1[default=0]; //操作类型
+	required byte bag_id                      = 2[default=0]; //背包Id
+	required int16 add_grid                   = 3[default=0]; //增加的格子数
+	required int32 op_code                    = 4[default=0];
+	required int16 grid_number                = 5[default=0]; //背包格子数
+}
+
+//=========================================角色模块Begin
+// 属性变化通知
+message m_role_attr_change_toc{
+    //通知类型,0属性变化
+    required byte op_type                     = 1[default=0]; //通知类型
+    repeated p_attr attr_list                 = 2[default=""];                      
+}
+// 查询玩家信息
+message m_role_get_info_tos{
+	//前端使用
+	required byte op_type                     = 1[default=0]; //操作类型
+	required int64 id                         = 2[default=0]; //根据操作类型不同
+}
+message m_role_get_info_toc{
+	required byte op_type                     = 1[default=0]; //操作类型
+	required int64 id                         = 2[default=0]; //根据操作类型不同
+	optional int32 op_code                    = 3[default=0]; //返回码
+	optional p_role_info role_info            = 4; //玩家信息
+}
+// 获取玩家技能
+message m_role_get_skill_tos{
+}
+message m_role_get_skill_toc{
+	repeated p_role_skill role_skill		  = 1[default=""]; //玩家技能列表
+}
+// 玩家复活
+message m_role_relive_tos{
+	required byte type						  = 1[default=0]; //复活类型 0原地复活 1出生点复活
+}
+message m_role_relive_toc{
+    required int32 op_code                    = 1[default=0]; //操作类型
+	optional int64 role_id					  = 2[default=0]; //玩家Id
+	optional int32 hp                         = 3[default=0]; //玩家当前血量
+}
+// 设置玩家属性
+message m_role_set_tos{
+	//前端使用
+	required byte op_type                     = 1[default=0]; //操作类型
+	//目前可以修改玩家的head_id:#p_attr.attr_code=1009,新值为#p_attr.int_value
+	//目前可以修改玩家的faction_id:#p_attr.attr_code=1010,新值为#p_attr.int_value
+	repeated p_attr attr_list                 = 2[default=""]; //修改的属性列表
+}
+message m_role_set_toc{
+	required byte op_type                     = 1[default=0]; //操作类型
+	repeated p_attr attr_list                 = 2[default=""]; //修改的属性列表
+	optional int32 op_code                    = 3[default=0]; //返回码
+}
+// 玩家治疗接口
+message m_role_cure_tos{
+    required byte type                        = 1[default=0]; // 治疗类型，暂时无用
+}
+message m_role_cure_toc{
+    required int32 op_code                    = 1[default=0]; //操作类型
+}
+
+//=========================================角色模块End
+//=========================================宠物模块Begin
+// 查询宠物信息
+message m_pet_query_tos{
+    //1查询携带宠物信息 2查询宠物仓库信息 3查询宠物信息 4查询玩家宠物基础信息
+    required byte op_type                     = 1[default=0]; //操作类型
+    optional int64 pet_id                     = 2[default=0]; //宠物id
+}
+message m_pet_query_toc{
+    required byte op_type                     = 1[default=0]; //操作类型
+    required int32 op_code                    = 2[default=0]; //操作结果
+    repeated p_pet_tiny pets                  = 3[default=""]; //宠物列表
+    optional p_pet pet_info                   = 4[default=""]; //单个宠物基本信息
+    optional p_role_pet role_pet              = 5[default=""]; //玩家宠物基础信息
+}
+// 宠物出站
+message m_pet_battle_tos{
+    required int64 pet_id                     = 1[default=0]; //宠物ID
+}
+message m_pet_battle_toc{
+    required int32 op_code                    = 1[default=0]; //操作结果
+    optional int64 pet_id                     = 2[default=0]; //新-出战宠物ID
+    optional p_pet pet_info                   = 3[default=""]; //单个宠物基本信息
+}
+
+// 宠物收回
+message m_pet_back_tos{
+    
+}
+message m_pet_back_toc{
+    required int32 op_code                    = 2[default=0]; //操作类型
+}
+
+// 宠物放生
+message m_pet_free_tos{
+    required int64 pet_id                     = 1[default=0]; //宠物ID
+    required byte bag_type                    = 2[default=1]; //放生宠物所在的背包类型，1随身背包 2宠物仓库
+}
+message m_pet_free_toc{
+    required int32 op_code                    = 2[default=0]; //操作类型
+}
+//=========================================宠物模块End
+//=========================================战斗模块Begin
+// 攻击接口
+message m_fight_attack_tos { 
+    required int32 skill_id                   = 1 [default=0]; //技能ID
+	required byte step						  = 2 [default=0]; //技能阶段
+    required int64 src_id                     = 2 [default=0]; //攻击者id
+    required byte src_type                    = 3 [default=0]; //攻击者类型 1角色 2宠物 3怪物
+    required int64 target_id                  = 4 [default=0]; //攻击目标id
+    required byte target_type                 = 5 [default=0]; //被攻击者类型 1角色 2宠物 3怪物
+    required p_pos target_pos             	  = 6 [default=""];//攻击目标位置
+}
+// 攻击二段处理，每一段处理技能吟唱
+message m_fight_chant_toc {
+	required int64 actor_id 				  = 1 [default=0]; //玩家ID
+	required byte actor_type				  = 2 [default=0]; //攻击者类型 1角色 2宠物 3怪物
+	required int32 skill_id					  = 3 [default=0]; //技能ID
+	required byte state						  = 4 [default=0]; //0 结束吟唱 1 进入吟唱 2打断
+	repeated p_pos effect_pos                 = 5 [default=""]; // 效果点列表
+}
+// 攻击二段处理，每一段处理技能动作
+message m_fight_action_toc {
+    required int64 actor_id                   = 1 [default=0]; //玩家ID
+    required byte actor_type                  = 2 [default=0]; //攻击者类型 1角色 2宠物 3怪物
+    required int32 skill_id                   = 3 [default=0]; //技能ID
+    required p_pos target_pos                 = 4 [default=""];//攻击目标位置
+    required byte state                       = 5 [default=0]; // 0 结束动作 1开始动作 2前一个动作吟唱结束
+    repeated p_pos effect_pos                 = 6 [default=""]; // 效果点列表
+}
+// 攻击结果
+message m_fight_attack_toc {
+    required int32 op_code                    = 1 [default=0]; // 操作编码 0操作成功
+    required int32 skill_id                   = 2 [default=0]; //技能ID
+    required int16 level                      = 3 [default=0]; //技能等级
+	required byte step						  = 4 [default=0]; //技能阶段
+    required int64 src_id                     = 5 [default=0]; //攻击者id
+    required byte src_type                    = 6 [default=0]; //攻击者类型 1角色 2宠物 3怪物
+    required int64 target_id                  = 7 [default=0]; //攻击目标id
+    required byte target_type                 = 8 [default=0]; //被攻击者类型 1角色 2宠物 3怪物
+    optional p_pos target_pos                 = 9 [default=""];//攻击目标位置
+    required byte result_type                 = 10[default=0]; //结果类型 0默认，1直接显示伤害
+    repeated p_attack_result result           = 11[default=""];//攻击结果
+}
+// buff 战斗结果通知
+message m_fight_buff_toc {
+    required int64 actor_id                   = 1 [default=0]; //
+    optional byte actor_type                  = 2 [default=0]; //
+    optional int32 cur_hp                     = 3 [default=0]; //当前血量
+    repeated p_attack_result_buff result_buff = 4 [default=""];//攻击结果
+}
+//=========================================战斗模块End
+
+//=========================================Buff模块Begin
+message m_buff_add_toc{
+	required int64 object_id				  = 1 [default=0]; //对象ID
+	required byte object_type				  = 2 [default=0]; //对象类型
+	repeated p_actor_buff buffs				  = 3 [default=""]; //BUFF列表
+}
+
+message m_buff_update_toc{
+	required int64 object_id				  = 1 [default=0]; //对象ID
+	required byte object_type				  = 2 [default=0]; //对象类型
+	repeated p_actor_buff buffs				  = 3 [default=""]; //BUFF列表
+}
+
+message m_buff_del_toc{
+	required int64 object_id				  = 1 [default=0]; //对象ID
+	required byte object_type				  = 2 [default=0]; //对象类型
+	repeated int32 buff_ids					  = 3 [default=""]; //BUFF IDS
+}
+//=========================================Buff模块End
+
+//=========================================信件模块Begin
+//获取信件
+message m_letter_get_tos{
+}
+message m_letter_get_toc{
+    repeated p_letter_simple_info letters     = 1[default=""];//信件的简单信息列表
+}
+//打开信件
+message m_letter_open_tos{
+    required int32 letter_id                  = 1[default=0]; //要打开的信件id
+}
+message m_letter_open_toc{
+    optional int32 op_code                    = 1[default=0];  // 操作编码 
+    optional string op_reason                 = 2[default=""]; // 操作原因
+    optional p_letter_info result             = 3;   //如果打开发送成功，返回成功打开的信件
+}
+//发送普通信件
+message m_letter_p2p_send_tos{
+    required string receiver                  = 1[default=""]; //收件人姓名
+    required string text                      = 2[default=""]; //信件内容
+    repeated int64 goods_id_list              = 3[default=""]; //装备列表    
+}
+message m_letter_send_toc{
+    optional int32 op_code                    = 1[default=0];  // 操作编码 
+    optional string op_reason                 = 2[default=""]; // 操作原因
+    optional p_letter_simple_info letter      = 3;   //如果信件发送成功，返回成功发送的信件信息
+}
+//删除信件
+message m_letter_delete_tos{
+    repeated int32 letter_ids                 = 1[default=""]; //要被删除的信件列表
+}
+message m_letter_delete_toc{
+    optional int32 op_code                    = 1[default=0];  // 操作编码 
+    optional string op_reason                 = 2[default=""]; // 操作原因
+    repeated int32 letter_ids                 = 3[default=""];      
+}
+//物品提取
+message m_letter_accept_goods_tos{
+    required int32 letter_id                  = 1[default=0]; //附带装备的信件id
+    required int64 goods_id                   = 2[default=0]; //物品p_goods的id
+}
+//返回物品提取的结果
+message m_letter_accept_goods_toc{
+    optional int32 op_code                    = 1[default=0];  // 操作编码 
+    optional string op_reason                 = 2[default=""]; // 操作原因
+    required int32 letter_id                  = 3[default=0]; //信件id
+    required int64 goods_id                   = 4[default=0]; //提取的道具的id
+    required int16 goods_num                  = 6[default=0]; //附件剩下的物品数
+}
+//=========================================信件模块End
+
+
+//=========================================任务模块Begin
+// 任务列表
+message m_mission_query_tos{
+    // 1查询全部,2根据任务id列表查询
+    required byte op_type                     = 1[default=0];  //操作类型
+    repeated int32 id_list                    = 2[default=""]; //任务Id列表
+}
+message m_mission_query_toc{
+    required byte op_type                     = 1[default=0];  //操作类型
+    repeated int32 id_list                    = 2[default=""]; //任务Id列表
+    required int32 op_code                    = 3[default=0];  //操作结果
+    optional string op_reason                 = 4[default=""]; //操作原因
+    repeated p_mission_info mission_list      = 5[default=""]; //任务数据
+}
+// 做任务VO
+message m_mission_do_tos{
+    required byte op_type                     = 1[default=0]; //操作类型
+    required int32 id                         = 2[default=0]; //任务Id
+    required int32 npc_id                     = 3[default=0]; //NPC Id
+    repeated int32 prop_choose                = 4[default=""]; //选择的奖励Id列表
+}
+message m_mission_do_toc{
+    required byte op_type                     = 1[default=0]; //操作类型
+    required int32 id                         = 2[default=0]; //任务Id
+    required int32 npc_id                     = 3[default=0]; //NPC Id
+    repeated int32 prop_choose                = 4[default=""]; //选择的奖励Id列表
+    required int32 op_code                    = 5[default=0]; //操作结果
+    optional string op_reason                 = 6[default=""];//操作原因
+    optional int32 current_status             = 7[default=0]; //2已接 3可完成
+    optional int32 current_model_status       = 8[default=0]; //当前状态
+    optional p_mission_reward mission_reward  = 9;           //任务奖励
+}
+// 立即完成任务
+message m_mission_do_complete_tos{
+    required int32 id                         = 1[default=0];//任务Id
+}
+message m_mission_do_complete_toc{
+    required int32 id                         = 1[default=0];//立即完成的任务id
+    required int32 op_code                    = 2[default=0];//操作返回码
+    //费用类型 ,11银两,21金币 
+    optional int32 op_fee_type                = 3[default=0];//操作费用类型
+    optional int32 op_fee                     = 4[default=0];//操作费用
+}
+// 完成并提交任务
+message m_mission_do_submit_tos{
+    required int32 big_group                  = 1[default=0];//任务id
+    required int16 do_times                   = 2[default=0];//次数
+}
+message m_mission_do_submit_toc{
+    required int32 big_group                  = 1[default=0];//任务id
+    required int16 do_times                   = 2[default=0];//次数
+    required int32 op_code                    = 3[default=0];//操作返回码
+    //费用类型 ,11银两,21金币
+    optional byte op_fee_type                 = 4[default=0];//操作费用类型
+    optional int32 op_fee                     = 5[default=0];//操作费用
+}
+// 取消任务
+message m_mission_cancel_tos{
+    required int32 id                         = 1[default=0];//任务Id
+}
+message m_mission_cancel_toc{
+    required int32 id                         = 1[default=0];//任务Id
+    required int32 op_code                    = 4[default=0];//操作返回码
+    optional string op_reason                 = 5[default=""];//操作原因
+}
+// 更新任务
+message m_mission_update_toc{
+    repeated int32 del_list                   = 1[default=""];//删除的任务列表
+    repeated p_mission_info update_list       = 2[default=""];//更新
+}
+// 任务刷新颜色
+message m_mission_recolor_tos{
+    //1查询,2铜钱刷新,3金币刷新,4一键金币刷新
+    required byte op_type                     = 1[default=0];//操作类型
+    required int32 mission_id                 = 2[default=0];//任务
+    optional byte to_color                    = 3[default=0];//一键刷新到的任务颜色
+}
+message m_mission_recolor_toc{
+    required byte op_type                     = 1[default=0]; //操作类型
+    required int32 mission_id                 = 2[default=0]; //任务id
+    optional byte to_color                    = 3[default=0]; //一键刷新到的任务颜色
+    optional int32 op_code                    = 4[default=0]; //操作返回码
+    optional byte new_color                   = 5[default=0]; //任务最新颜色
+    optional int32 coin_tims                  = 6[default=0]; //铜钱刷新次数
+    optional int32 last_coin_time             = 7[default=0]; //上次铜钱刷新时间
+    optional int32 op_fee                     = 8[default=0]; //本次刷新费用
+}
+// 任务委托
+message m_mission_auto_tos{
+    //1查询,2委托,3加速,4委托完成通知
+    required byte op_type                     = 1[default=0];//操作类型
+    optional int32 big_group                  = 2[default=0];//委托id
+    optional int16 loop_times                 = 3[default=0];//委托任务循环次数
+}
+message m_mission_auto_toc{
+    required byte op_type                     = 1[default=0]; //操作类型
+    optional int32 big_group                  = 2[default=0]; //委托id
+    optional int16 loop_times                 = 3[default=0]; //委托任务循环次数
+    optional int32 op_code                    = 4[default=0]; //操作返回码
+    repeated p_mission_auto auto_list         = 5[default=""];//任务委托信息列表
+    optional p_mission_auto auto_info         = 6;            //任务委托信息
+    optional p_mission_reward mission_reward  = 7;            //任务奖励
+}
+//=========================================任务模块End
+
+// 获得经验通知
+message m_role_add_exp_toc{
+    optional int32 op_code                    = 1[default=0]; //操作返回码
+    optional int64 role_id                    = 2[default=0]; //玩家Id
+    optional byte add_exp_type                = 3[default=0]; //增加经验类型
+    optional int64 add_exp                    = 4[default=0]; //增加的经验
+    optional int16 old_level                  = 5[default=0]; //旧的级别
+    optional int16 new_level                  = 6[default=0]; //新的级别
+}
+// 玩家升级通知
+message m_role_level_up_toc{
+    optional int32 op_code                    = 1[default=0]; //操作返回码
+    optional int64 role_id                    = 2[default=0]; //玩家Id
+    optional byte add_exp_type                = 3[default=0]; //增加经验类型
+    optional int64 add_exp                    = 4[default=0]; //增加的经验
+    optional int16 old_level                  = 5[default=0]; //旧的级别
+    optional int16 new_level                  = 6[default=0]; //新的级别
+}
+
+
+
+//=========================================客服系统Begin
+// 查询
+message m_customer_service_query_tos{
+    //1查询列表,2主题id查询
+    required byte op_type                     =1 [default=0];//操作类型
+    required int32 id                         =2 [default=0];//主题id
+}
+message m_customer_service_query_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    required int32 id                         =2 [default=0]; //主题id
+    optional int32 op_code                    =3 [default=0]; //操作返回码
+    repeated p_customer_service data_list     =4 [default=""];//数据 
+}
+// 提建议
+message m_customer_service_do_tos{
+    //1提交新内容,2回复,3设置已读
+    required byte op_type                     =1 [default=0]; //操作类型
+    //类型,1:Bug,2:投诉,3:建议,4:其它
+    optional byte type                        =2 [default=0]; //类型
+    optional string title                     =3 [default=""];//标题
+    optional string content                   =4 [default=""];//内容
+    optional int32 id                         =5 [default=0]; //主题id
+}
+message m_customer_service_do_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    //类型,1:Bug,2:投诉,3:建议,4:其它
+    required byte type                        =2 [default=0]; //类型
+    optional int32 id                         =3 [default=0]; //主题id
+    optional int32 op_code                    =4 [default=0]; //操作返回码
+    optional int32 new_id                     =5 [default=0]; //提交新内容,回复信息时,都会返回新信息id
+}
+// 通知
+message m_customer_service_update_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    required p_customer_service info          =1;             //回复内容通知
+}
+// 删除
+message m_customer_service_del_tos{
+    // 1删除主题,2删除回复
+    required byte op_type                     =1 [default=0]; //操作类型
+    optional int32 id                         =2 [default=0]; //主题id
+    repeated int32 del_ids                    =3 [default=""]; //主题id列表
+}
+message m_customer_service_del_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    optional int32 id                         =2 [default=0]; //主题id
+    repeated int32 del_ids                    =3 [default=""]; //主题id列表
+    optional int32 op_code                    =4 [default=0]; //操作返回码
+}
+//=========================================客服系统End
+
+//=========================================帮派系统Begin
+//查询帮派列表信息
+message m_family_query_tos{
+    //1获取全部列表,2按帮派名称搜索,3按帮派团长名称搜索
+    required byte op_type                     =1 [default=0]; //操作类型
+    required byte op_from                     =2 [default=0]; //前端使用
+    required int16 page_id                    =3 [default=0]; //第几页的数据
+    required int16 page_number                =4 [default=0]; //一页显示多少条数据
+    optional byte faction_id                  =5 [default=0]; //目前不需要使用，默认会使用玩家的国家id
+    optional string content                   =6 [default=""];//搜索条件
+}
+message m_family_query_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    required byte op_from                     =2 [default=0]; //前端使用
+    required int16 page_id                    =3 [default=0]; //第几页的数据
+    optional int16 total_page                 =4 [default=0]; //总共多少页
+    optional byte faction_id                  =5 [default=0]; //当前数据的国家,0表所不分国家
+    optional int32 op_code                    =6 [default=0]; //操作返回码
+    repeated p_family_list family_list        =7 [default=""];//帮派信息列表
+}
+//获取帮派信息
+message m_family_get_tos{
+	//1查询自己帮派信息
+	required byte op_type                     =1 [default=0]; //操作类型
+	optional int64 family_id                  =2 [default=0]; //帮派id
+}
+message m_family_get_toc{
+	required byte op_type                     =1 [default=0]; //操作类型
+	optional int64 family_id                  =2 [default=0]; //帮派id
+    optional int32 op_code                    =3 [default=0]; //操作返回码
+    optional p_family family_info             =4;             //帮派信息
+}
+
+//创建帮派信息
+message m_family_create_tos{
+    //1金币创建,2银两创建
+    required byte op_type                     =1 [default=0]; //操作类型
+    required string family_name               =2 [default=""];//帮派名称
+    required byte is_friend_invite            =3 [default=0]; //是否同时邀请好友入帮派,0不邀请,1邀请
+}
+message m_family_create_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    required string family_name               =2 [default=""];//帮派名称
+    required byte is_friend_invite            =3 [default=0]; //是否同时邀请好友入帮派
+    optional int32 op_code                    =4 [default=0]; //操作返回码
+    optional p_family family_info             =5;             //帮派信息
+}
+//申请加入帮派
+message m_family_request_tos{
+    required int64 family_id                  =1 [default=0]; //帮派Id
+}
+message m_family_request_toc{
+    required int64 family_id                  =1 [default=0]; //帮派Id
+    optional int32 op_code                    =2 [default=0]; //操作返回码 
+    optional int64 role_id                    =3 [default=0]; //申请人id
+    optional p_family_request request_info    =4 [default=""];//增加申请信息
+    repeated int64 del_ids                    =5 [default=""];//删除申请玩家id列表
+}
+//邀请加入帮派
+message m_family_invite_tos{
+    //1邀请玩家加入帮派,2玩家同意邀请,3玩家拒绝邀请
+    required byte op_type                     =1 [default=0]; //操作类型
+    required int64 invited_role_id            =2 [default=0]; //被邀请玩家id
+    optional int64 src_role_id                =3 [default=0]; //邀请玩家id
+    optional int64 family_id                  =4 [default=0]; //帮派id
+}
+message m_family_invite_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    required int64 invited_role_id            =2 [default=0]; //被邀请玩家id
+    optional int64 family_id                  =3 [default=0]; //帮派id
+    optional int32 op_code                    =4 [default=0]; //操作返回码 
+    optional string family_name               =5 [default=""];//帮派名称
+    optional int64 src_role_id                =6 [default=0]; //邀请玩家id
+    optional string src_role_name             =7 [default=""];//邀请玩家名称
+}
+//同意申请帮派
+message m_family_accept_tos{
+    //1同意单个玩家,2同意全部申请列表,3加入帮派通知
+    required byte op_type                     =1 [default=0]; //操作类型
+    required int64 role_id                    =2 [default=0]; //玩家id
+}
+message m_family_accept_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    required int64 role_id                    =2 [default=0]; //玩家id
+    optional int32 op_code                    =3 [default=0]; //操作返回码 
+    optional int64 family_id                  =4 [default=0];
+    repeated p_family_member member_list      =5 ;            //帮派成员信息
+    repeated p_attr attr_list                 =6 [default=""];//帮派属性变化信息列表
+    repeated int64 del_ids                    =7 [default=""];//删除申请玩家id列表
+}
+//拒绝申请帮派
+message m_family_refuse_tos{
+    //1拒绝单个玩家,2拒绝全部申请列表,3拒绝帮派通知
+    required byte op_type                     =1 [default=0]; //操作类型
+    optional int64 role_id                    =2 [default=0]; //玩家id
+}
+message m_family_refuse_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    optional int64 role_id                    =2 [default=0]; //玩家id
+    optional int32 op_code                    =3 [default=0]; //操作返回码
+    repeated int64 del_ids                    =4 [default=""];//删除申请玩家id列表
+}
+//解散帮派
+message m_family_disband_tos{
+    
+}
+message m_family_disband_toc{
+    optional int32 op_code                    =1 [default=0]; //操作返回码
+}
+//开除出帮派
+message m_family_fire_tos{
+    required int64 role_id                    =1 [default=0]; //玩家id
+}
+message m_family_fire_toc{
+    required int64 role_id                    =1 [default=0]; //玩家id
+    required int32 op_code                    =2 [default=0]; //操作返回码
+    optional string role_name                 =3 [default=""];//玩家名称
+    repeated p_attr attr_list                 =4 [default=""];//帮派属性变化信息列表
+}
+//退出帮派
+message m_family_leave_tos{
+
+}
+message m_family_leave_toc{
+    required int32 op_code                    =1 [default=0]; //操作返回码
+    optional int64 role_id                    =2 [default=0]; //玩家id
+    optional string role_name                 =3 [default=""];//玩家名称
+    repeated p_attr attr_list                 =4 [default=""];//帮派属性变化信息列表
+}
+//帮派属性变化
+message m_family_attr_change_toc{
+    //0默认通知,1弹劾帮派团长通知,2捐献通知
+    required byte op_type                     = 1[default=0]; //通知类型
+    required int64 family_id                  = 1[default=0];
+    required int64 role_id                    = 2[default=0]; 
+    // 帮派属性 attr_code表示属性类型,其它表示值
+    // 帮派成员属性 attr_code表示属性类型,sub_code表示成员RoleId,其它表示值
+    repeated p_attr attr_list                 = 3[default=""];
+}
+//设置帮派信息
+message m_family_set_tos{
+    //1设置帮派公告
+    required byte op_type                     =1 [default=0]; //操作类型
+    optional int64 family_id                  =2 [default=0]; //帮派id
+    optional int64 role_id                    =3 [default=0]; //玩家id
+    optional string value                     =4 [default=""];//修改值
+}
+message m_family_set_toc{
+    required byte op_type                     =1 [default=0]; //操作类型
+    optional int64 family_id                  =2 [default=0]; //帮派id
+    optional int64 role_id                    =3 [default=0]; //玩家id
+    required int32 op_code                    =4 [default=0]; //操作返回码
+}
+//转让帮派团长
+message m_family_turn_tos{
+    required int64 role_id                    =1 [default=0]; //新团长玩家id
+}
+message m_family_turn_toc{
+    required int64 role_id                    =1 [default=0]; //新团长玩家id
+    required int32 op_code                    =2 [default=0]; //操作返回码
+    optional string role_name                 =3 [default=""];//新团长玩家名称
+    repeated p_attr attr_list                 =4 [default=""];//帮派属性变化信息列表
+}
+//=========================================帮派系统End
+
+// ======================================== 排行榜Start
+message m_ranking_get_tos{
+    required int32 rank_id                     = 1[default=0]; // 排行榜ID
+}
+message m_ranking_get_toc{
+    required int32 rank_id                     = 1[default=0];
+    repeated p_rank_row rows                   = 2[default=""]; //每一行的排行榜数据 
+}
+// ======================================== 排行榜End
+
+// ======================================== 副本 FB Begin
+// 副本进入接口
+message m_fb_enter_tos{
+    required int16 fb_id                       =1 [default=0]; //副本id
+}
+message m_fb_enter_toc{
+    required int32 op_code                     =1 [default=0]; //操作返回码
+    optional int16 fb_id                       =2 [default=0]; //地图id
+    optional int16 fb_times                    =3 [default=0]; //副本次数
+}
+// 副本退出接口
+message m_fb_quit_tos{
+    required int16 fb_id                       =1 [default=0]; //副本id
+}
+message m_fb_quit_toc{
+    required int32 op_code                     =1 [default=0]; //操作返回码
+}
+// 副本完成通知
+message m_fb_done_toc{
+    required int16 fb_id                       =1 [default=0]; //副本id
+    optional byte status                       =2 [default=0]; //副本状态 0表示副本已经完成
+    optional byte countdown                    =3 [default=0]; //倒计时，单位：秒
+}
+// 查询副本信息
+message m_fb_query_tos{
+    required int16 fb_id                       =1 [default=0]; //副本id 0即表示查询玩家所有副本信息
+}
+message m_fb_query_toc{
+    required int32 op_code                     =1 [default=0];  //操作返回码
+    repeated p_fb fbs                          =2 [default=""]; //副本信息
+}
+// 更新副本信息
+message m_fb_update_tos{
+    
+}
+message m_fb_update_toc{
+    repeated p_fb fbs                          =2 [default=""]; //副本信息
+}
+// 副本怪物信息查询
+message m_fb_monster_tos{
+
+}
+message m_fb_monster_toc{
+    required int32 op_code                     =1 [default=0];  //操作返回码
+    optional byte status                       =2 [default=0];  //当前状态，即表示当前副本怪物状态 0正常 1副本已经结束
+    repeated p_pos pos_list                    =3 [default=""]; //怪物位置信息列表 
+}
+// ======================================== 副本 FB End
+
+//==========================================聊天广播 Begin
+// 获取炫耀物品
+message m_chat_get_goods_tos {
+    required int64 goods_id                    = 1 [default=0]; //物品id
+}
+message m_chat_get_goods_toc {
+    required int32 op_code                     = 1 [default=0];
+    optional p_goods goods                     = 3 [default=""];
+}
+
+// 进入频道
+message m_chat_join_channel_toc{
+    // 0:系统 1:世界 2:门派 3:帮派 4:组队 5:当前
+    required byte channel_type                 = 1 [default=0]; //频道信息
+}
+// 离开频道
+message m_chat_leave_channel_toc{
+    // 0:系统 1:世界 2:门派 3:帮派 4:组队 5:当前
+    required byte channel_type                 = 1 [default=0]; //类型
+}
+
+// 频道聊天
+message m_chat_in_channel_tos{
+    optional byte channel_type                 = 1 [default=0]; //频道标记
+    optional string msg                        = 2 [default=""];//聊天内容
+    optional int32 msg_code                    = 3 [default=0]; //聊天内容替代码
+    optional byte msg_type                     = 4 [default=0]; //信息类型 0常规 1前端自定义格式
+}
+message m_chat_in_channel_toc{
+    optional byte channel_type                 = 1 [default=0]; //频道标记
+    optional string msg                        = 2 [default=""];//聊天内容
+    optional int32 msg_code                    = 3 [default=0]; //聊天内容替代码
+    optional p_chat_role role_info             = 4 [default=""];//信息发送者角色信息
+    optional int32 ts                          = 5 [default=0]; // 时间戳
+    optional int32 err_code                    = 6 [default=0]; // 错误码
+    optional byte msg_type                     = 7 [default=0]; // 信息类型 0:正常 1.json
+}
+//广播通知消息：一般通知消息，通知客户端数据结构
+message m_broadcast_general_toc{
+    // 消息类型 1:广播消息 2:聊天频道
+    required byte type                         = 1 [default=0]; //消息类型 
+    // 如果 type = 2 即 sub_type 表示 channel_type 聊天频道类型
+    required byte sub_type                     = 2 [default=0]; //消息子类型 
+    required string msg                        = 3 [default=""];//消息内容
+}
+//=========================================聊天广播 End
+
+
+//=========================================组队 Begin
+// 创建队伍
+message m_team_create_tos{
+    
+}
+message m_team_create_toc{
+    required int32 op_code                     = 1 [default=0];  //操作结果
+    optional int32 team_id                     = 2 [default=0];  //队伍id
+    optional int16 auto_id                     = 3 [default=0];  //自动组队匹配id，一般使用副本id
+}
+// 邀请加入队伍
+message m_team_invite_tos{
+    required int64 role_id                     = 1 [default=0];  //被邀请角色id
+}
+message m_team_invite_toc{
+    required int32 op_code                     = 1 [default=0];  //操作结果
+}
+// 申请加入队伍
+message m_team_apply_tos{
+    required int64 role_id                     = 1 [default=0];  //要申请角色id
+    required int32 team_id                     = 2 [default=0];  //要申请的队伍id
+}
+message m_team_apply_toc{
+    required int32 op_code                     = 1 [default=0];  //操作结果
+}
+// 同意加入队伍
+message m_team_accept_tos{
+    required int64 role_id                     = 1 [default=0];  //加入队伍角色id
+}
+message m_team_accept_toc{
+    required int32 op_code                     = 1 [default=0];  //操作结果
+}
+// 拒绝加入队伍
+message m_team_refuse_tos{
+    required int64 role_id                     = 1 [default=0];  //拒绝加入队伍角色id
+}
+message m_team_refuse_tos{
+    required int32 op_code                     = 1 [default=0];  //操作结果
+}
+// 离开队伍
+message m_team_leave_tos{
+    
+}
+message m_team_leave_toc{
+    required int32 op_code                     = 1 [default=0];  //操作结果
+}
+// 踢人离队伍
+message m_team_kick_tos{
+    required int64 role_id                     = 1 [default=0];  //被踢角色id
+}
+message m_team_kick_toc{
+    required int32 op_code                     = 1 [default=0];  //操作结果
+}
+// 解散队伍
+message m_team_disband_tos{
+
+}
+message m_team_disband_toc{
+    required int32 op_code                     = 1 [default=0];  //操作结果
+}
+// 任命队长
+message m_team_appoint_tos{
+    required int64 role_id                     = 1 [default=0];  //要任命角色id
+}
+message m_team_appoint_toc{
+    required int32 op_code                     = 1 [default=0];  //操作结果
+}
+// 队伍信息同步通知
+message m_team_sync_toc{
+    required byte type                         = 1 [default=0];  //通知类型 1
+    repeated p_team_member team_list           = 2 [default=""]; //队伍成员信息
+    optional int16 auto_id                     = 3 [default=0];  //自动组队匹配id，一般使用副本id
+}
+//=========================================组队 End
+
+
+

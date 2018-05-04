@@ -1,0 +1,144 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<modules>
+	<module name="AUTH" id="1">
+		<method name="AUTH_KEY" id="101"></method>
+		<method name="AUTH_QUICK" id="102"></method>
+	</module>
+	<module name="MAP" id="2">
+		<method name="MAP_ENTER" id="201"></method>
+		<method name="MAP_QUIT" id="202"></method>
+		<method name="MAP_UPDATE_MAPINFO" id="203"></method>
+		<method name="MAP_CHANGE_MAP" id="204"></method>
+		<method name="MAP_SLICE_ENTER" id="205"></method>
+		<method name="MAP_QUERY" id="206"></method>
+		<method name="MAP_ENTER_CONFIRM" id="207"></method>
+		<method name="MAP_ACTOR_DEAD" id="208"></method>
+		<method name="MAP_SLICE_QUIT" id="209"></method>
+	</module>
+	<module name="MOVE" id="3">
+		<method name="MOVE_WALK_PATH" id="301"></method>
+		<method name="MOVE_WALK" id="302"></method>
+		<method name="MOVE_SYNC" id="303"></method>
+	</module>
+	<module name="SYSTEM" id="4">
+		<method name="SYSTEM_HEARTBEAT" id="401"></method>
+		<method name="SYSTEM_MESSAGE" id="402"></method>
+		<method name="SYSTEM_ERROR" id="403"></method>
+		<method name="SYSTEM_FCM" id="404"></method>
+		<method name="SYSTEM_SET_FCM" id="405"></method>
+		<method name="SYSTEM_NEED_FCM" id="406"></method>
+		<method name="SYSTEM_CONFIG_UPDATE" id="407"></method>
+        <method name="SYSTEM_GM" id="408"></method>
+	</module>
+	<module name="CHAT" id="5">
+		<method name="CHAT_IN_CHANNEL" id="501"></method>
+		<method name="CHAT_LEAVE_CHANNEL" id="502"></method>
+		<method name="CHAT_JOIN_CHANNEL" id="503"></method>
+		<method name="CHAT_GET_GOODS" id="504"></method>
+	</module>
+	<module name="BROADCAST" id="6">
+		<method name="BROADCAST_GENERAL" id="601"></method>
+	</module>
+	<module name="GOODS" id="7">
+		<method name="GOODS_QUERY" id="701"></method>
+		<method name="GOODS_SWAP" id="702"></method>
+		<method name="GOODS_DESTROY" id="703"></method>
+		<method name="GOODS_DIVIDE" id="704"></method>
+		<method name="GOODS_UPDATE" id="705"></method>
+		<method name="GOODS_TIDY" id="706"></method>
+		<method name="GOODS_SHOW" id="707"></method>
+		<method name="GOODS_USE" id="708"></method>
+		<method name="GOODS_ADD_GRID" id="709"></method>
+	</module>
+	<module name="ROLE" id="8">
+		<method name="ROLE_CREATE" id="801"></method>
+		<method name="ROLE_ONLINE_INFO" id="802"></method>
+		<method name="ROLE_ATTR_CHANGE" id="803"></method>
+		<method name="ROLE_ADD_EXP" id="804"></method>
+		<method name="ROLE_LEVEL_UP" id="805"></method>
+		<method name="ROLE_GET_INFO" id="806"></method>
+		<method name="ROLE_SET" id="807"></method>
+        <method name="ROLE_GET_SKILL" id="809"></method>
+        <method name="ROLE_RELIVE" id="810"></method>
+        <method name="ROLE_CURE" id="811"></method>
+	</module>
+	<module name="LETTER" id="9">
+		<method name="LETTER_P2P_SEND" id="901"></method>
+		<method name="LETTER_GET" id="902"></method>
+		<method name="LETTER_OPEN" id="903"></method>
+		<method name="LETTER_DELETE" id="904"></method>
+		<method name="LETTER_ACCEPT_GOODS" id="905"></method>
+		<method name="LETTER_SEND" id="906"></method>
+	</module>
+	<module name="MISSION" id="10">
+		<method name="MISSION_QUERY" id="1001"></method>
+		<method name="MISSION_DO" id="1002"></method>
+		<method name="MISSION_CANCEL" id="1003"></method>
+		<method name="MISSION_UPDATE" id="1004"></method>
+		<method name="MISSION_DO_COMPLETE" id="1005"></method>
+		<method name="MISSION_DO_SUBMIT" id="1006"></method>
+		<method name="MISSION_RECOLOR" id="1007"></method>
+		<method name="MISSION_AUTO" id="1008"></method>
+	</module>
+	<module name="CUSTOMER_SERVICE" id="11">
+		<method name="CUSTOMER_SERVICE_QUERY" id="1101"></method>
+		<method name="CUSTOMER_SERVICE_DO" id="1102"></method>
+		<method name="CUSTOMER_SERVICE_UPDATE" id="1103"></method>
+		<method name="CUSTOMER_SERVICE_DEL" id="1104"></method>
+	</module>
+	<module name="FAMILY" id="12">
+		<method name="FAMILY_QUERY" id="1201"></method>
+		<method name="FAMILY_CREATE" id="1202"></method>
+		<method name="FAMILY_REQUEST" id="1203"></method>
+		<method name="FAMILY_INVITE" id="1204"></method>
+		<method name="FAMILY_ACCEPT" id="1205"></method>
+		<method name="FAMILY_REFUSE" id="1206"></method>
+		<method name="FAMILY_DISBAND" id="1207"></method>
+		<method name="FAMILY_FIRE" id="1208"></method>
+		<method name="FAMILY_LEAVE" id="1209"></method>
+		<method name="FAMILY_ATTR_CHANGE" id="1210"></method>
+		<method name="FAMILY_SET" id="1211"></method>
+		<method name="FAMILY_TURN" id="1212"></method>
+		<method name="FAMILY_GET" id="1213"></method>
+	</module>
+	<module name="RANKING" id="13">
+		<method name="RANKING_GET" id="1301"></method>
+	</module>
+	<module name="FIGHT" id="14">
+        <method name="FIGHT_ATTACK" id="1401"></method>
+        <method name="FIGHT_CHANT" id="1402"></method>
+        <method name="FIGHT_ACTION" id="1403"></method>
+        <method name="FIGHT_BUFF" id="1404"></method>
+    </module>
+    <module name="PET" id="15">
+        <method name="PET_QUERY" id="1501"></method>
+        <method name="PET_BATTLE" id="1502"></method>
+        <method name="PET_BACK" id="1503"></method>
+        <method name="PET_FREE" id="1504"></method>
+    </module>
+    <module name="FB" id="16">
+        <method name="FB_ENTER" id="1601"></method>
+        <method name="FB_QUIT" id="1602"></method>
+        <method name="FB_QUERY" id="1603"></method>
+        <method name="FB_UPDATE" id="1604"></method>
+        <method name="FB_MONSTER" id="1605"></method>
+        <method name="FB_DONE" id="1606"></method>
+    </module>
+    <module name="BUFF" id="17">
+        <method name="BUFF_ADD" id="1701"></method>
+        <method name="BUFF_UPDATE" id="1702"></method>
+        <method name="BUFF_DEL" id="1703"></method>
+    </module>
+    <module name="TEAM" id="18">
+        <method name="TEAM_CREATE" id="1801"></method>
+        <method name="TEAM_INVITE" id="1802"></method>
+        <method name="TEAM_APPLY" id="1803"></method>
+        <method name="TEAM_ACCEPT" id="1804"></method>
+        <method name="TEAM_REFUSE" id="1805"></method>
+        <method name="TEAM_LEAVE" id="1806"></method>
+        <method name="TEAM_KICK" id="1807"></method>
+        <method name="TEAM_DISBAND" id="1808"></method>
+        <method name="TEAM_APPOINT" id="1809"></method>
+        <method name="TEAM_SYNC" id="1810"></method>
+    </module>
+</modules>

@@ -1,0 +1,573 @@
+//通用的数据结构 bool int64 int32 int16 byte double string
+option java_package = "proto.common";
+
+// 公共的key value结构
+message p_key_value{
+    optional int32 key                           =1[default=0];
+    repeated int32 value                         =2[default=""];
+}
+
+// 结构
+message p_key_value2{
+    optional int32 key                           =1[default=0];
+    optional int32 value                         =2[default=0];             
+}
+
+//聊天数据
+message p_chat_role {
+	required int64 role_id					     = 1[default=0];  //角色id
+	required string role_name				     = 2[default=""]; //角色名
+	optional byte category                       = 3[default=0];  //职业
+	optional int16 tag                           = 4[default=0];  //聊天玩家标签 0表示无
+}
+
+//聊天称号
+message p_chat_title {
+	required string name					     = 1[default=""]; //称号名称
+	optional string color					     = 2[default="#ffffff"]; //称号颜色
+}
+
+
+//玩家称号详细信息
+message p_title {
+	required int32 code   					     = 1[default=0];
+}
+
+// 位置
+message p_pos{
+    required int32 x                             = 1[default=0];
+    required int32 y                             = 2[default=0];
+}
+// 地图上的某一个格子
+message p_map_tile {
+    required int32 tx                            = 1[default=0];//格子坐标
+    required int32 ty                            = 2[default=0];
+    required byte dir                            = 3[default=0];//方向
+}
+// 地图位置对应
+message p_map_pos {
+    required int32 tx                            = 1[default=0];//格子坐标
+    required int32 ty                            = 2[default=0];
+    required int32 x                             = 3[default=0];//原始坐标
+    required int32 y                             = 4[default=0];
+}
+
+// 属性结构
+message p_attr {
+    required int64 uid                           = 1[default=0]; //0表示自己的属性性变化，其它值表示，role_id,pet_id
+    required int16 attr_code                     = 2[default=0];
+    optional int64 int_value                     = 3[default=0];
+    optional string string_value                 = 4[default=""];
+}
+// 角色信息,用于查看玩家信息接口返回
+message p_role_info{
+	required int64 role_id                       = 1  [default=0];
+	required string role_name			         = 2  [default=""]; //角色名称
+	required byte sex					         = 3  [default=2];  //性别：1男，2女
+	required p_skin skin                         = 4  [default=""]; //形象
+	required byte faction_id				     = 5  [default=0];  //阵营id
+	required byte category                       = 6  [default=0];  //角色职业
+	required int16 level                         = 7  [default=0];  //角色等级
+	required int64 family_id                     = 8  [default=0];  //帮派id
+	required string family_name                  = 9  [default=""]; //帮派名称
+}
+//角色基本属性
+message p_role_base {
+    required int64 role_id                       = 1  [default=0];
+    required int16  server_id                    = 2  [default=0];  //玩家所属服Id
+	required string role_name			         = 3  [default=""]; //角色名称
+	required string account_via                  = 4  [default=""]; //帐号来源
+	required string account_name		         = 5  [default=""]; //帐号名称
+	required byte  account_type                  = 6  [default=0];  //帐号类型 :0正常,1GM帐号,2后台模拟帐号,3内部帐号,4游客帐号 
+	required byte  account_status                = 7  [default=0];  //帐号状态 0正常,1禁止登录
+	required int32  create_time                  = 8  [default=0];  //角色创建时间
+	required byte  sex					         = 9  [default=2];  //性别：1男，2女
+	required p_skin skin                         = 10 [default=""]; //形象
+	required byte  faction_id				     = 11 [default=0];  //阵营id
+	required byte  category                      = 12 [default=0];  //角色职业,即门派
+	required int64 exp                           = 13 [default=0];  //经验值
+	required int64 next_level_exp                = 14 [default=0];  //升级经验
+	required int16 level                         = 15 [default=0];  //角色等级
+	required int64 family_id                     = 16 [default=0];  //帮派id
+	required string family_name                  = 17 [default=""]; //帮派名称
+	required int64 couple_id                     = 18 [default=0];  //配偶id
+    required string couple_name                  = 19 [default=""]; //配偶名称
+    required int32  team_id                      = 20 [default=0];  //组队id
+    required byte  is_pay                        = 21 [default=0];  //是否充值过 0未充值 1充值
+    required int64 total_gold                    = 22 [default=0];  //总元宝
+    required int64 gold                          = 23 [default=0];  //元宝
+    required int64 silver                        = 24 [default=0];  //金币
+    required int64 coin                          = 25 [default=0];  //银币
+    required int32 activity                      = 26 [default=0];  //活跃度
+    required int32 gongxun                       = 27 [default=0];  //功勋值
+    required string device_id                    = 28 [default=""]; //设备Id,可为空
+    required string last_device_id               = 29 [default=""]; //最后登录备Id,可为空
+    required string last_login_ip                = 30 [default=""]; //最后一次登陆的IP
+    required int32 last_login_time               = 31 [default=0];  //最后一次登录时间
+    required int32 last_offline_time             = 32 [default=0];  //上次下线时间
+    required int32 total_online_time             = 33 [default=0];  //总在线时间
+    required int32 energy                        = 34 [default=0];  //玩家活力值
+}
+//角色属性
+message p_role_attr {
+    required int64 role_id                       = 1  [default=0];
+    required int32 b_power                       = 2  [default=0];  //基本的力量,增加物理攻击
+    required int32 b_magic                       = 3  [default=0];  //基本的魔力,增加魔法攻击
+    required int32 b_body                        = 4  [default=0];  //基本的体质,增加血上限、物理防御
+    required int32 b_spirit                      = 5  [default=0];  //基本的念力,增加魔法上限、魔法防御、坚韧
+    required int32 b_agile                       = 6  [default=0];  //基本的敏捷,增加闪避
+    required int32 add_attr_dot                  = 7  [default=0];  //剩余可分配的属性点 升级可获取属性点
+    required int32 power                         = 8  [default=0];  //总的力量 
+    required int32 magic                         = 9  [default=0];  //总的魔力
+    required int32 body                          = 10 [default=0];  //总的体质
+    required int32 spirit                        = 11 [default=0];  //总的念力
+    required int32 agile                         = 12 [default=0];  //总的敏捷
+    required p_fight_attr attr                   = 13 [default=""]; //角色属性
+}
+
+
+//角色战斗属性
+message p_fight_attr{
+    required int32 max_hp                        = 3  [default=0];  //满血
+    required int32 hp                            = 4  [default=0];
+    required int32 max_mp                        = 5  [default=0];  //满魔
+    required int32 mp                            = 6  [default=0];
+    required int32 max_anger                     = 7  [default=0];  //满怒
+    required int32 anger                         = 8  [default=0];  
+    required int32 phy_attack                    = 9  [default=0];  //物理攻击力
+    required int32 magic_attack                  = 10 [default=0];  //魔法攻击力
+    required int32 phy_defence                   = 11 [default=0];  //物理防御
+    required int32 magic_defence                 = 12 [default=0];  //魔法防御
+    required int32 hit                           = 13 [default=0];  //命中
+    required int32 miss                          = 14 [default=0];  //闪避
+    required int32 double_attack                 = 15 [default=0];  //暴击
+    required int32 tough                         = 16 [default=0];  //坚韧
+    required int32 seal                          = 17 [default=0];  //封印
+    required int32 anti_seal                     = 18 [default=0];  //抗封
+    required int32 cure_effect                   = 19 [default=0];  //治疗强度
+    required int32 attack_skill                  = 20 [default=0];  //物法修炼，功击修炼
+    required int32 phy_defence_skill             = 21 [default=0];  //物防修炼
+    required int32 magic_defence_skill           = 22 [default=0];  //魔防修炼
+    required int32 seal_skill                    = 23 [default=0];  //抗封修炼
+    required int32 move_speed                    = 24 [default=0];  //移动速度
+}
+
+//角色扩展属性 
+message p_role_ext {
+    required int64 role_id                       = 1  [default=0];
+    required string real_name                    = 2  [default=""]; //真名
+    required byte  sex                           = 3  [default=0];  //性别：1男，2女
+    optional string signature                    = 4  [default=""]; //个性签名
+    optional int32  birthday                     = 5  [default=0];  //生日
+    optional int32  constellation                = 6  [default=0];  //星座
+    optional int32  country                      = 7  [default=0];  //阵营
+    optional int32  province                     = 8  [default=0];  //省份
+    optional int32  city                         = 9  [default=0];  //城市
+    optional string blog                         = 10 [default=""]; //博客
+    optional string qq                           = 11 [default=""]; //QQ号码
+    optional string weixin                       = 12 [default=""]; //微信
+    optional string weibo                        = 13 [default=""]; //微博
+}
+//角色完整属性
+message p_role {
+    required p_role_base base                    = 1[default=""];
+    required p_role_attr attr                    = 2[default=""];
+    required byte group_id                       = 3[default=0];  //分组id,0无分组【用于区分敌方和友方】
+    repeated int16 buffs                         = 4[default=""];  //玩家当前所命中的buff id列表
+}
+//角色背包信息
+message p_bag_content {
+    required byte bag_id                         = 1[default=0];
+    repeated p_goods goods_list                  = 2[default=""];
+    required int16 grid_number                   = 3[default=0];
+}
+// 玩家外形
+message p_skin {
+    required int32 fashion_id                    = 1 [default=0];   //时装id
+    required int32 arms_id                       = 2 [default=0];   //武器id
+    required int32 wing_id                       = 3 [default=0];   //翅膀id
+}
+//在一个地图中的玩家信息
+message p_map_role {
+    required int64 role_id                       = 1 [default=0];
+    required string role_name                    = 2 [default=""];
+    required p_skin skin                         = 3 [default=""];  //形象
+    required byte faction_id                     = 4 [default=0];   //阵营id
+    required int16 level                         = 5 [default=0];   //当前等级
+    optional byte sex                            = 6 [default=0];   //玩家性别
+    optional byte category                       = 7 [default=0];   //玩家职业
+    required int64 family_id                     = 8 [default=0];   //帮派id
+    required string family_name                  = 9 [default=""];  //帮派名称
+    required int32 team_id                       = 10 [default=0];  //所在队伍的ID
+    required p_pos pos                           = 11 [default=""]; //当前所在位置
+    required p_pos walk_pos                      = 12 [default=""]; //目标位置
+    required byte status                         = 13 [default=0];  //玩家状态 0正常，1死亡
+    required int32 max_hp                        = 14 [default=0];  //满血
+    required int32 hp                            = 15 [default=0];
+    required int32 move_speed                    = 16 [default=0];
+    required byte group_id                       = 17 [default=0];  //分组id,0无分组【用于区分敌方和友方】
+    repeated int16 buffs                         = 18 [default=""];  //玩家当前所命中的buff id列表
+    required p_actor_skill_state skill_state     = 19 [default=""];  //当前技能状态
+}
+
+// 攻击结果描述
+message p_attack_result {
+    required int64 dest_id                    = 1 [default=0]; //被攻击者id
+    optional byte dest_type                   = 2 [default=0]; //被攻击方类型
+	optional int32 cur_hp					  = 3 [default=0]; //当前血量
+	optional int32 cur_mp					  = 4 [default=0]; //当前蓝亮
+	optional int32 cur_angle				  = 5 [default=0]; //当前怒气
+	repeated p_attack_result_unit unit_list   = 6 [default=""];//详细攻击信息
+}
+
+// 详细伤害信息
+message p_attack_result_unit {
+	optional int32 result_type                = 1 [default=0]; //作用效果类型(如瞬间加血,减血)
+	optional int32 result_value               = 2 [default=0]; //作用效果值
+	optional byte hurt_type                   = 3 [default=0]; //攻击类型（0 普通 1闪避 2 暴击）
+}
+// 时间间隔触发伤害信息
+message p_attack_result_buff {
+    optional int32 result_type                = 1 [default=0]; //作用效果类型(如瞬间加血,减血)
+    optional int32 result_value               = 2 [default=0]; //作用效果值
+    optional int16 buff_id                    = 3 [default=0]; //buff
+}
+
+//战斗信息，技能 buff
+// 角色技能
+message p_actor_skill{
+    required int32 skill_id                      = 1 [default=0];  //技能id
+    required int16 level                         = 2 [default=0];  //等级
+}
+
+// 角色buff
+message p_actor_buff {
+    required int16 buff_id                       = 1 [default=0];
+	required int32 remain_life                   = 2 [default=0]; //buff剩余生命周期（时间／次数／数值／无）单位：毫秒毫秒毫秒
+}
+
+// 玩家宠物信息
+message p_role_pet{
+    required int64 role_id                       = 1  [default=0];  //玩家id
+    required int32 attack_skill                  = 2  [default=0];  //物法修炼，功击修炼
+    required int32 phy_defence_skill             = 3  [default=0];  //物防修炼
+    required int32 magic_defence_skill           = 4  [default=0];  //魔防修炼
+    required int32 seal_skill                    = 5  [default=0];  //抗封修炼
+}
+// 宠物背包信息
+message p_pet_tiny{
+    required int64 pet_id                        = 1  [default=0];  //宠物id
+    required string pet_name                     = 2  [default=""]; //宠物名称
+    required int32 type_id                       = 3  [default=0];  //宠物类型id
+    required byte bind                           = 4  [default=0];  //是否绑定 0未绑定 1绑定
+}
+
+// 宠物基本信息
+message p_pet{
+    required int64 pet_id                        = 1  [default=0];  //宠物id
+    required int64 role_id                       = 2  [default=0];  //宠物属于玩家id
+    required string pet_name                     = 3  [default=""]; //宠物名称
+    required int32 type_id                       = 4  [default=0];  //宠物类型id
+    required byte status                         = 5  [default=0];  //宠物状态 0正常 1出战
+    required byte bind                           = 6  [default=0];  //是否绑定 0未绑定 1绑定
+    required int32 life                          = 7  [default=0];  //宠物寿命，影响宠物是否能出战
+    required int32 inborn                        = 8  [default=0];  //天赋影响宠物的成长，即影响宠物的所有属性
+    required int64 exp                           = 9  [default=0];  //经验值
+    required int64 next_level_exp                = 10 [default=0];  //升级经验
+    required int16 level                         = 11 [default=0];  //宠物等级
+    required int32 hp_aptitude                   = 12 [default=0];  //血资质
+    required int32 mp_aptitude                   = 13 [default=0];  //魔资质
+    required int32 phy_attack_aptitude           = 14 [default=0];  //物攻资质
+    required int32 magic_attack_aptitude         = 15 [default=0];  //魔攻资质
+    required int32 phy_defence_aptitude          = 16 [default=0];  //物防资质
+    required int32 magic_defence_aptitude        = 17 [default=0];  //魔防资质
+    required int32 miss_aptitude                 = 18 [default=0];  //闪避资质
+    required int32 i_power                       = 19 [default=0];  //初始力量
+    required int32 i_magic                       = 20 [default=0];  //初始魔力
+    required int32 i_body                        = 21 [default=0];  //初始体质
+    required int32 i_spirit                      = 22 [default=0];  //初始念力
+    required int32 i_agile                       = 23 [default=0];  //初始敏捷
+    required int32 b_power                       = 24 [default=0];  //基本的力量,增加物理攻击
+    required int32 b_magic                       = 25 [default=0];  //基本的魔力,增加魔法攻击
+    required int32 b_body                        = 26 [default=0];  //基本的体质,增加生命上限、物理防御
+    required int32 b_spirit                      = 27 [default=0];  //基本的念力,增加魔法上限、魔法防御、坚韧
+    required int32 b_agile                       = 28 [default=0];  //基本的敏捷,增加闪避
+    required int32 add_attr_dot                  = 29 [default=0];  //剩余可分配的属性点,升级可获得属性点
+    required int32 power                         = 30 [default=0];  //总的力量 
+    required int32 magic                         = 31 [default=0];  //总的魔力
+    required int32 body                          = 32 [default=0];  //总的体质
+    required int32 spirit                        = 33 [default=0];  //总的念力
+    required int32 agile                         = 34 [default=0];  //总的敏捷
+    required p_fight_attr attr                   = 35 [default=""];  //宠物属性
+    repeated p_actor_skill skills                = 36 [default=""];  //宠物技能
+    required byte group_id                       = 37 [default=0];  //分组id,0无分组【用于区分敌方和友方】
+    repeated int16 buffs                         = 38 [default=""];  //玩家当前所命中的buff id列表
+}
+// 地图宠物信息
+message p_map_pet{
+    required int64 pet_id                        = 1  [default=0];   //宠物id
+    required string pet_name                     = 2  [default=""];  //宠物名称
+    required int64 role_id                       = 3  [default=0];   //宠物属于玩家id
+    required int32 type_id                       = 4  [default=0];   //宠物类型id
+    required int16 level                         = 5  [default=0];   //宠物等级
+    required p_pos pos                           = 6  [default=""];  //当前所在位置
+    required p_pos walk_pos                      = 7  [default=""];  //目标位置
+    required byte status                         = 8  [default=0];   //玩家状态 0正常，1死亡
+    required int32 max_hp                        = 9  [default=0];   //满血
+    required int32 hp                            = 10 [default=0];
+    required int32 move_speed                    = 11 [default=0];   //移动速度
+    required byte group_id                       = 12 [default=0];   //分组id,0无分组【用于区分敌方和友方】
+    repeated int16 buffs                         = 13 [default=""];  //玩家当前所命中的buff id列表
+    required p_actor_skill_state skill_state     = 14 [default=""];  //当前技能状态
+}
+// 地图怪物属性
+message p_map_monster{
+    required int64 monster_id                    = 1  [default=0];
+    required string monster_name                 = 2  [default=""];  //怪物名称
+    required int32 type_id                       = 3  [default=0];   //怪物类型id
+    required int16 map_id                        = 4  [default=0];   //怪物所在地图id
+    required byte status                         = 5  [default=0];   //怪物状态
+    required p_pos pos                           = 6  [default=""];  //当前所在位置
+    required byte dir                            = 7  [default=0];   //怪物出生方向
+    required p_pos walk_pos                      = 8  [default=""];  //目标位置
+    required int32 move_speed                    = 9  [default=0];   //移动速度
+    required int32 max_hp                        = 10 [default=0];   //满血
+    required int32 hp                            = 11 [default=0];   //当前血量
+    required byte group_id                       = 12 [default=0];   //分组id,0无分组【用于区分敌方和友方】
+    repeated int16 buffs                         = 13 [default=""];  //玩家当前所命中的buff id列表
+    required p_actor_skill_state skill_state     = 14 [default=""];  //当前技能状态
+}
+// 角色技能状态
+message p_actor_skill_state{
+    required int32 skill_id                      = 1 [default=0];    //技能id
+    required int16 level                         = 2 [default=0];    //技能等级
+    required int64 start_time                    = 3 [default=0];    //开始时间
+    required byte state                          = 4 [default=0];    //技能状态,如，吟唱开发，吟唱结束，动作开始，动作结束
+    repeated p_pos effect_pos                    = 5 [default=""];   // 效果点列表
+}
+// 地图avatar结构 在地图显示一个人物形象
+message p_map_avatar{
+    required int64 avatar_id                     = 1  [default=0];
+    required int64 role_id                       = 2  [default=0];   //对应玩家id
+    required string role_name                    = 3  [default=""];
+    required int64 family_id                     = 4  [default=0];   //帮派id
+    required string family_name                  = 5  [default=""];  //帮派名称
+    required p_pos pos                           = 6  [default=""];  //当前所在位置
+    required p_skin skin                         = 7  [default=""];  //形象
+}
+//物品小结构
+message p_tiny_goods{
+	required int64 id                            = 1[default=0];  //物品id
+	required byte via                            = 2[default=0];  //物品来源 0一般来源 1任务...
+	required byte type                           = 3[default=0];  //物品类型1道具,2宝石,3装备
+    required int32 type_id                       = 4[default=0];  //道具类型id
+    required int16 number                        = 6[default=0];  //道具数量
+}
+
+//物品结构
+message p_goods{
+    required int64 id                            = 1[default=0];  //物品id
+    required byte via                            = 2[default=0];  //物品来源 0一般来源 1任务...
+    required byte type                           = 3[default=0];  //物品类型1道具,2宝石,3装备
+    required int32 type_id                       = 4[default=0];  //详细类型id
+    required int64 target_id                     = 5[default=0];  //目标id,如果玩家id,宠物id
+    optional int16 load_position                 = 6[default=0];  //装备穿在身上的位置
+    required byte bag_id                         = 7[default=0];  //背包id
+    required int16 bag_position                  = 8[default=0];  //在背包中存放位置
+    required int16 number                        = 9[default=0];  //当前个数
+    optional byte status                         = 10[default=0]; //道具状态 0正常,1上锁状态
+    optional int32 start_time                    = 11[default=0]; //开始时间
+    optional int32 end_time                      = 12[default=0]; //结束时间
+    optional int32 cur_endurance                 = 13[default=0]; //当前耐久度
+    optional int32 sum_endurance                 = 14[default=0]; //总耐久度
+    optional byte punch_num                      = 15[default=0]; //开孔数
+    repeated p_equip_stone equip_stone           = 16[default=""];//镶嵌宝石信息
+    optional int32 power                         = 17[default=0]; //装备战力
+    optional byte level                          = 18[default=0]; //道具等级
+    repeated p_attribute attributes              = 19[default=""];//装备属性,只有装备有数据
+}
+// 装备属性
+message p_attribute{
+     required byte id                            = 1[default=0];  //属性id
+     required int32 val                          = 2[default=0];  //属性值
+}
+
+// 装备镶嵌宝石信息
+message p_equip_stone{
+    required int32 type_id                       = 1[default=0];
+    required byte in_pos                         = 3[default=0]; //镶嵌位置
+}
+
+
+// 信件模块
+//信件信息
+message p_letter_info{
+    required int32 id                            = 1[default=0];   //信件id
+    required string sender                       = 2[default=""];  //发件人名字   
+    required string receiver                     = 3[default=""];  //收件人名字
+    required string title                        = 4[default=""];  //信件标题
+    required int32 send_time                     = 5[default=0];   //发送时间 
+    required byte type                           = 6[default=0];   //信件类型    0.私人 1.宗族 2.系统  4.gm
+    repeated p_goods goods_list                  = 7[default=""];  //没有提取的装备列表 
+    required byte state                          = 8[default=1];   //信件状态,1表示未读，2表示已读，3表示已回复   
+    optional string letter_content               = 9[default=""];  //信件内容
+    optional bool is_send                        = 10[default=false]; //是否自己发送的   
+}
+//信件的简单信息
+message p_letter_simple_info{                                                             
+    required int32 id                            = 1[default=0];  //信件id
+    required string sender                       = 2[default=""]; //发件人
+    optional string receiver                     = 3[default=""]; //收件人
+    optional string title                        = 4[default=""]; //信件标题
+    required int32 send_time                     = 5[default=0];  //发送时间    
+    required int32 type                          = 6[default=0];  //信件类型 
+    required int32 state                         = 7[default=0];  //信件是否读取  
+    required bool is_have_goods                  = 8[default=false];  //是否有物品
+    optional bool is_send                        = 9[default=false]; //是否自己发送的   
+}
+
+// 任务信息
+message p_mission_info{
+    required int32 id                            = 1[default=0];  //任务id
+    required byte current_status                 = 2[default=0];  //1未接 2已接 3可完成
+    required byte current_model_status           = 3[default=0];  //当前模型状态
+    required int16 commit_times                  = 4[default=0];  //执行次数
+    required int16 succ_times                    = 5[default=0];  //成功次数
+    required byte color                          = 6[default=1];  //任务颜色
+    repeated p_mission_listener listener_list    = 7[default=""]; //侦听器数据
+}
+// 任务侦听信息
+message p_mission_listener{
+    //1怪物,2道具,3特殊事件,4赠送使用道具,5收集道具
+    required byte type                           = 1[default=0]; //侦听类型,
+    required int16 sub_type                      = 2[default=0]; //侦听子类型
+    required int32 value                         = 3[default=0]; //侦听值
+    required int32 need_num                      = 4[default=0]; //所需数量
+    required int32 current_num                   = 5[default=0]; //当前数量
+}
+// 任务奖励信息
+message p_mission_reward{
+    optional int64 exp                           = 1[default=0];  //经验
+    optional int64 silver                        = 2[default=0];  //金币
+    optional int64 coin                          = 3[default=0];  //银币
+    repeated p_goods goods_list                  = 4[default=""];//道具奖励
+}
+// 委托任务的信息
+message p_mission_auto{
+    required int32 big_group                     = 1[default=0];  //任务分组
+    required int32 mission_id                    = 2[default=0];  //任务id
+    required int16 role_level                    = 3[default=0];  //委托时玩家等级
+    required int16 rollback_times                = 4[default=0];  //委托任务奖励双倍次数
+    required int16 cur_times                     = 5[default=0];  //委托的循环任务当前完成次数
+    required byte  status                        = 6[default=0];  //委托任务的状态:0=未委托,1=开始委托
+    required int32 start_time                    = 7[default=0];  //开始时间戳
+    required int32 end_time                      = 8[default=0];  //结束时间戳
+    required byte max_loop_times                 = 9[default=0];  //委托的最大次数
+    required byte loop_times                     = 10[default=0]; //委托次数
+    required byte color                          = 11[default=1]; //任务颜色
+}
+
+// 客服系统
+message p_customer_service{
+    optional int32 id                            =1 [default=0]; //主题唯一Id
+    optional int32 reply_id                      =2 [default=0]; //回复主题Id,0表示属性主题
+    optional byte type                           =3 [default=0]; //类型,1:Bug,2:投诉,3:建议,4:其它
+    optional string title                        =4 [default=""];//标题
+    optional string content                      =5 [default=""];//内容
+    optional int32 op_time                       =6 [default=0]; //操作时间戳
+    optional byte status                         =7 [default=0]; //状态,1未读,2已读
+}
+
+//帮派系统
+message p_family{
+    required int64 family_id                     =1 [default=0];  //帮派id
+    required string family_name                  =2 [default=""]; //帮派名称
+    required int64 owner_role_id                 =3 [default=0];  //帮派团长id
+    required string owner_role_name              =4 [default=""]; //帮派团长名称
+    required byte faction_id                     =5 [default=0];  //国家id
+    required int16 level                         =6 [default=0];  //帮派等级
+    required int32 create_time                   =7 [default=0];  //帮派创建时间
+    required int16 cur_pop                       =8 [default=0];  //当前帮派人数
+    required int16 max_pop                       =9 [default=0];  //最大人数
+    required byte icon_level                     =10[default=0];  //军微等级
+    required int64 total_contribute             =11[default=0];  //总贡献度
+    required string public_notice                =12[default=""]; //对外公告
+    required string private_notice               =13[default=""]; //对内公告
+    required string qq                           =14[default=""]; //帮派群QQ号码
+    repeated p_family_member member_list         =15[default=""]; //成员列表信息
+    repeated p_family_request request_list       =16[default=""]; //申请入帮派列表
+}
+//帮派成员
+message p_family_member{
+    required int64 role_id                       =1 [default=0];  //玩家id
+    required string role_name                    =2 [default=""]; //玩家名称
+    required byte sex                            =3 [default=0];  //玩家性别
+    required int16 level                         =5 [default=0];  //玩家等级
+    required int32 last_login_time               =6 [default=0];  //最后登录 时间
+    required byte is_online                      =7 [default=0];  //是否在线,0不在线,1在线
+    required int32 office_code                   =8 [default=0];  //官职编码
+    required int64 cur_contribute               =9 [default=0];  //当前贡献度
+    required int64 total_contribute             =10[default=0];  //总贡献度
+    required string qq                           =11[default=""];  //QQ号码
+}
+//帮派申请信息
+message p_family_request{
+    required int64 role_id                       =1 [default=0];  //玩家id
+    required string role_name                    =2 [default=""]; //玩家名称
+    required int16 level                         =3 [default=0];  //玩家等级
+    required int32 op_time                       =4 [default=0];  //申请时间
+}
+//帮派列表信息结构
+message p_family_list{
+    required int64 family_id                     =1 [default=0];  //帮派id
+    required string family_name                  =2 [default=""]; //帮派名称
+    required int64 owner_role_id                 =3 [default=0];  //帮派团长id
+    required string owner_role_name              =4 [default=""]; //帮派团长名称
+    required byte faction_id                     =5 [default=0];  //国家id
+    required int16 level                         =6 [default=0];  //帮派等级
+    required int16 cur_pop                       =7 [default=0];  //当前帮派人数
+    required int16 max_pop                       =8 [default=0];  //最大人数
+    required int64 total_contribute              =9 [default=0];  //总贡献度
+    required string public_notice                =10[default=""]; //对外公告
+}
+
+// 排行榜信息
+message p_rank_row{
+    required int32 row_id                        =1 [default=0];  // 排名
+    required int64 role_id                       =2 [default=0];  // 玩家ID
+    required string role_name                    =3 [default=""]; // 玩家名
+    repeated string str_list                     =4 [default=""]; // 官职名.将领名等
+    repeated int32  int_list                     =5 [default=""]; // 积分.战等
+}
+
+// 玩家技能
+message p_role_skill{
+	required int32 skill_id                      =1 [default=0]; // 技能ID
+	required int32 level                         =2 [default=0]; // 等级
+}
+
+// 副本信息
+message p_fb{
+    required int16 fb_id                       =1 [default=0]; //副本id
+    optional int16 fb_times                    =2 [default=0]; //副本次数
+}
+
+// 组队模块
+message p_team_member{
+    required int64 role_id                     =1 [default=0];  //角色Id
+    required string role_name                  =2 [default=""]; //角色名称
+    required byte sex                          =3 [default=0];  //性别
+    required byte category                     =4 [default=0];  //职业
+    required byte faction_id                   =5 [default=0];  //国家id
+    required int16 level                       =6 [default=0];  //玩家等级
+    required int64 family_id                   =7 [default=0];  //帮派id
+    required byte is_leader                    =8 [default=0];  //是否队长,0不是,1是
+    required byte is_follow                    =9 [default=0];  //是否跟随
+    required int32 offline_time                =10[default=0];  //下线时间，0在线
+    required int32 hp                          =11[default=0];  //当前血量
+    required int32 max_hp                      =12[default=0];  //最大血量
+    required int16 map_id                      =13[default=0];  //地图id
+    required int32 tx                          =14[default=0];  //X 坐标
+    required int32 ty                          =15[default=0];  //Y 坐标
+    required p_skin skin                       =16[default=""]; //形象
+}

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+配置文件说明
+mssion.xml 任务配置
+mission_loop_reward.xml 循环任务奖励配置
+ -->
+ 
+ 
+<!-- 
+mission_loop_reward.xml 循环任务奖励配置说明
+ 
+group 任务分组配置(一个任务分组只可配置一个,且必须配置)
+group.id 任务分组id
+
+reward 任务基本奖励配置 (每一级玩家等级只可配置一个,且必须配置)
+reward.level 玩家等级
+reward.exp 玩家经验
+reward.silver 金币
+reward.coin 银币
+
+
+reward_items 循环任务第几次道具奖励配置(可无,也可一个,或者多个)
+reward_items.do_times 循环任务次数
+
+reward_item (可一个,或者多个)
+reward_item.item_type_id 道具类型id
+reward_item.item_type 道具类型
+reward_item.item_num 道具数量
+
+-->
+  
+<groups>
+    <group id="1001">
+        <reward level="1" exp="10" gold="0"  silver="0"  coin="0" >
+            <reward_items do_times="1">
+                <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+                <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+            </reward_items>
+            <reward_items do_times="2">
+                <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+            </reward_items>
+            <reward_items do_times="100">
+                <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+            </reward_items>
+        </reward>
+    </group>
+</groups>
+    
+ 
+ 
+ 
+ 
+ <!-- 
+ mission.xml 配置说明
+  -->
+ 
+ 
+<!-- 
+mission 基本属性配置
+
+mission.id 任务id
+mission.name 任务名称
+mission.pre_mission_id 前置任务id
+
+desc 任务描述 (只可配置一个,且必须配置)
+
+base_info 任务属性配置(只可配置一个,且必须配置)
+base_info.type 任务类型,1主线,2支线,3循环
+base_info.show_type 任务显示类型,0正常任务显示,1不在可接任务显示
+base_info.model 任务模型
+base_info.big_group 任务分组
+base_info.group_desc 任务分组描述
+base_info.color 任务颜色
+base_info.min_level 可接任务最小等级
+base_info.max_level 可接任务最大等级
+base_info.max_do_times 任务最大可做次数
+base_info.star_level 任务星级
+base_info.sort_id 任务排序id
+
+
+need_item 接任务需要的道具配置(可无,也可一个,或者多个)
+
+need_item.item_type_id 道具类型id
+need_item.item_num 道具数量
+
+
+listener 任务侦听器配置(可无,也可一个,或者多个)
+
+listener.type 侦听类型,1怪物,2道具,3特殊事件侦听器,4赠送使用道具,5收集道具
+listener.sub_type 侦听子类型,
+listener.value 侦听值
+listener.need_num 需要数量
+
+
+model_status 任务模型数据配置,任务模型状态数据根据不同的任务模型有不同的说明，需要严重关注
+
+reward 任务奖励配置(只可配置一个,且必须配置)
+
+reward.rollback_times 翻倍次数
+reward.is_category 是否按玩家职业分配,0否,1是
+reward.formula_base 基本奖励规则,0没有奖励,1按配置的奖励,2所有基本基础奖励按照次数累计计算,3经验按照次数累计计算,4军功按照次数累计计算
+reward.formula_item 道具奖励规则,0没有奖励,1多个选一个,2随机赠送一个,3全部
+reward.exp 玩家经验
+reward.gold 元宝
+reward.silver 金币
+reward.coin 银两
+
+reward_item 道具奖励配置(可无,也可一个,或者多个)
+reward_item.item_type_id 道具类型id
+reward_item.item_type 道具类型
+reward_item.item_num 道具数量
+
+
+
+NPC 对话
+id 对话顺序
+type 说话类型：0 NPC说, 1 玩家说
+<content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+
+ -->
+<mission id="11010001" name="任务名称" pre_mission_id="">
+    <desc> <![CDATA[任务描述]]></desc>
+    <base_info type="1" show_type="0" model="1" big_group="0" group_desc="" color="0" min_level="1" max_level="160" max_do_times="1" star_level="1" sort_id="0" />
+    <need_item item_type_id="" item_num="" />
+    <listener type="1" sub_type="11100102" value="11000" need_num="1" />
+    <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+            </dialog>
+        </npc>
+    </model_status>
+    <reward rollback_times="1" is_category="0" formula_base="1" formula_item="0" exp="10" silver="0" coin="0" />
+    <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+</mission>
+
+
+<!-- 
+-define(MISSION_MODEL_1,1). %% 对话模型,选择题
+配置说明：
+ -->
+<!-- 一般话配置 -->
+<mission id="11010001" name="任务名称" pre_mission_id="">
+    <desc> <![CDATA[任务描述]]> </desc>
+    <base_info type="1" show_type="0" model="1" big_group="0" group_desc="" color="0" min_level="1" max_level="160" max_do_times="1" star_level="1" sort_id="0" />
+    <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+            </dialog>
+        </npc>
+    </model_status>
+    <reward rollback_times="1" is_category="0" formula_base="1" formula_item="0" exp="10"  gold="0" silver="0" coin="0" />
+    <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+</mission>
+<!-- 选择题对话配置 -->
+<mission id="11010001" name="任务名称" pre_mission_id="">
+    <desc> <![CDATA[任务描述]]>
+    </desc>
+    <base_info type="1" show_type="0" model="1" big_group="0" group_desc="" color="0" min_level="1" max_level="160" max_do_times="1" star_level="1" sort_id="0" />
+    <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+                <question option="1" answer="true" tips=""><![CDATA[选项1描述]]></question>
+                <question option="2" tips=""><![CDATA[选项2描述]]></question>
+                <question option="3" tips=""><![CDATA[选项3描述]]></question>
+                <question option="4" tips=""><![CDATA[选项4描述]]></question>
+            </dialog>
+        </npc>
+    </model_status>
+    <reward rollback_times="1" is_category="0" formula_base="1" formula_item="0" exp="10" silver="0"  coin="0" />
+    <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+</mission>
+
+<!-- 
+-define(MISSION_MODEL_2,2). %% 打怪
+配置说明：
+需要三个 model_status 状态
+第二个 model_status 必须且是 </model_status />
+
+必须有打怪任务侦听配置
+<listener type="1" sub_type="11100501" value="11000" need_num="1" />
+ -->
+<mission id="11010001" name="任务名称 " pre_mission_id="">
+    <desc> <![CDATA[任务描述]]> </desc>
+    <base_info type="1" show_type="0" model="2" big_group="0" group_desc="" color="0" min_level="1" max_level="160" max_do_times="1" star_level="1" sort_id="0" />
+    <listener type="1" sub_type="11100501" value="11000" need_num="1" />
+    <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+            </dialog>
+        </npc>
+    </model_status>
+    <model_status />
+        <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+            </dialog>
+        </npc>
+    </model_status>
+    <reward rollback_times="1" is_category="0" formula_base="1" formula_item="0" exp="10"  gold="0"  silver="0"  coin="0" />
+    <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+</mission>
+<!-- 
+-define(MISSION_MODEL_3,3). %% 打怪收集道具
+配置说明：
+需要三个 model_status 状态
+第二个 model_status 必须且是 </model_status />
+
+必须有以下侦听
+怪物侦听说明need_num 必须配置为0
+<listener type="1" sub_type="11100501" value="11000" need_num="0" />
+道具侦听说明：value打怪掉落道具概率 万分比
+<listener type="2" sub_type="11100501" value="10000" need_num="10" />
+ -->
+ 
+<mission id="11010001" name="任务名称 " pre_mission_id="">
+    <desc> <![CDATA[任务描述]]>
+    </desc>
+    <base_info type="1" show_type="0" model="3" big_group="0" group_desc="" color="0" min_level="1" max_level="160" max_do_times="1" star_level="1" sort_id="0" />
+    <listener type="1" sub_type="11104001" value="10204" need_num="0" />
+    <listener type="2" sub_type="10900012" value="5000" need_num="50" />
+    <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+            </dialog>
+        </npc>
+    </model_status>
+    <model_status />
+    <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+            </dialog>
+        </npc>
+    </model_status>
+    <reward rollback_times="1" is_category="0" formula_base="1" formula_item="0" exp="10" silver="0"  coin="0" />
+    <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+</mission>
+ 
+ <!-- 
+-define(MISSION_MODEL_4,4). %% 特殊事件的侦听器 - 3次对话 - 中间状态去完成事件
+配置说明：
+
+需要三个 model_status 状态
+第二个 model_status 必须且是 </model_status />
+
+特殊任务侦听
+sub_type 表示特殊事件编码,need_num 需要完成的次数
+<listener type="3" sub_type="1000" value="0" need_num="1" />
+ -->
+<mission id="11010001" name="任务名称 " pre_mission_id="">
+    <desc> <![CDATA[任务描述]]> </desc>
+    <base_info type="1" show_type="0" model="4" big_group="0" group_desc="" color="0" min_level="1" max_level="160" max_do_times="1" star_level="1" sort_id="0" />
+    <listener type="3" sub_type="1000" value="0" need_num="2" />
+    <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+            </dialog>
+        </npc>
+    </model_status>
+    <model_status />
+        <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+            </dialog>
+        </npc>
+    </model_status>
+    <reward rollback_times="1" is_category="0" formula_base="1" formula_item="0" exp="10"  gold="0"  silver="0"   coin="0" />
+    <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+</mission>
+
+<!-- 
+-define(MISSION_MODEL_5,5). %% 指定接下来连接的任务id
+配置说明：
+需要二个 model_status 状态
+不需要任务侦听配置
+第二个 model_status 需要特殊配置
+
+require_id 为0,即根据玩家选择，自动接受任务
+require_id 为1,根据玩家faction_id自动接受任务
+ -->
+<mission id="11010001" name="任务名称 " pre_mission_id="">
+    <desc> <![CDATA[任务描述]]></desc>
+    <base_info type="1" show_type="0" model="5" big_group="0" group_desc="" color="0" min_level="1" max_level="160" max_do_times="1" star_level="1" sort_id="0" />
+    <model_status>
+        <npc npc_id="11000101">
+            <dialog>
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+            </dialog>
+        </npc>
+    </model_status>
+    <model_status>
+        <npc npc_id="11000101">
+            <dialog require_id="1">
+                <content id="1" say_type="0"> <![CDATA[NPC对话]]></content>
+                <option id="1" next_mission_id="11010001" tips=""><![CDATA[选择任务]]></option>
+                <option id="2" next_mission_id="11010002" tips=""><![CDATA[选择任务]]></option>
+                <option id="3" next_mission_id="11010003" tips=""><![CDATA[选择任务]]></option>
+            </dialog>
+        </npc>
+    </model_status>
+    <reward rollback_times="1" is_category="0" formula_base="1" formula_item="0" exp="10" silver="0"  coin="0" />
+    <reward_item item_type_id="30101101" item_type="3" item_num="1"/>
+</mission>
+

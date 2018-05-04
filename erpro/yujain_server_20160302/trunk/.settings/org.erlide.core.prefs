@@ -1,0 +1,7 @@
+backend_version=17.0
+eclipse.preferences.version=1
+external_includes=
+external_modules=
+include_dirs=hrl;config/include;app/game/behavior/include;app/game/chat/include;app/game/gateway/include;app/game/common/include;app/game/db/include;app/game/map/include;app/game/world/include;app/game/merge/include;app/game/manager/include;app/game/mgeeweb/include;
+output_dir=output
+source_dirs=app/game/behavior/src;app/game/common/src;app/game/common/src/mod;app/game/common/src/library;app/game/common/src/library/json;app/game/common/src/library/php;app/game/common/src/library/mysql;app/game/chat/src;app/game/db/src;app/game/gateway/src;app/game/manager/src;app/game/map/src;app/game/map/src/mod;app/game/map/src/hook;app/game/map/src/monster;app/game/map/src/fb;app/game/map/src/fight;app/game/merge/src;app/game/mgeeweb/src;app/game/mgeeweb/src/mod;app/game/world/src;app/game/world/src/mod;app/game/world/src/ranking;app/game/world/src/hook;app/game/world/src/server;app/game/world/src/mission;app/game/world/src/family;config/src;config/src/map;config/src/proto;confg/src/world;config/scr/monster;app/game/world/src/team;

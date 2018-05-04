@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Module role</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module role</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+<p><b>Behaviours:</b> <a href="gen_server.html"><tt>gen_server</tt></a>.</p>
+<p><b>Authors:</b> <a href="mailto:yeahoo2000@gmail.com"><tt>yeahoo2000@gmail.com</tt></a>.</p>
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#apply-3">apply/3</a></td><td>对指定角色应用MFA(异步方式)
+  <div>注意:F的返回值格式要求: F([State | A]) -&gt; {ok} | {ok, NewState}</div></td></tr>
+<tr><td valign="top"><a href="#code_change-3">code_change/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#convert-2">convert/2</a></td><td>将角色转换为指定的数据类型
+  <div>此接口在跨节点访问时可以节省大量的数据传输</div></td></tr>
+<tr><td valign="top"><a href="#create-4">create/4</a></td><td>创建一个角色进程.</td></tr>
+<tr><td valign="top"><a href="#disconnect-1">disconnect/1</a></td><td>连接器断开通知.</td></tr>
+<tr><td valign="top"><a href="#element-2">element/2</a></td><td>获取指定角色的某一个或多个属性
+  <div>示例:Event = role:prop(RolePid, #role.event)</div>
+  <div>示例:[Event, Status] = role:element(RolePid, [#role.event, #role.status])</div></td></tr>
+<tr><td valign="top"><a href="#erase_dict-1">erase_dict/1</a></td><td>清除当前角色的进程字典数据.</td></tr>
+<tr><td valign="top"><a href="#erase_dict-2">erase_dict/2</a></td><td>清除指定角色的进程字典数据.</td></tr>
+<tr><td valign="top"><a href="#get_dict-1">get_dict/1</a></td><td>获取当前角色的进程字典数据.</td></tr>
+<tr><td valign="top"><a href="#get_dict-2">get_dict/2</a></td><td>获取当前角色的进程字典数据.</td></tr>
+<tr><td valign="top"><a href="#handle_call-3">handle_call/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_cast-2">handle_cast/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_info-2">handle_info/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#init-1">init/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#pack_send-3">pack_send/3</a></td><td>打包并发送消息到角色进程(由角色进程转发到连接器进程)
+  <div>出于性能考虑，只能用于无法直接获取连接器Pid时使用</div></td></tr>
+<tr><td valign="top"><a href="#put_dict-2">put_dict/2</a></td><td>写入数据到当前角色的进程字典.</td></tr>
+<tr><td valign="top"><a href="#put_dict-3">put_dict/3</a></td><td>写入数据到指定角色的进程字典.</td></tr>
+<tr><td valign="top"><a href="#rpc-4">rpc/4</a></td><td>客户端调用接口(socket事件处理).</td></tr>
+<tr><td valign="top"><a href="#send_buff_begin-0">send_buff_begin/0</a></td><td>开启发送缓冲区(需要进行事务性处理时使用)
+  <div>注意:send_buff_begin/0必须跟send_buff_flush/0或send_buff_clean/0配对使用</div>
+  <div>否则将会导致数据一直发送到缓冲区，因此客户端会一直收不到数据</div>
+  <div>此函数支持嵌套使用，只是必须保证成对出现</div></td></tr>
+<tr><td valign="top"><a href="#send_buff_clean-0">send_buff_clean/0</a></td><td>清空发送缓冲区并关闭缓冲区(只会关闭一层).</td></tr>
+<tr><td valign="top"><a href="#send_buff_flush-0">send_buff_flush/0</a></td><td>立即发送缓冲区中的数据并关闭缓冲区(只会关闭一层).</td></tr>
+<tr><td valign="top"><a href="#stop-3">stop/3</a></td><td>强制终止角色进程的运行，可选择同步或异步方式
+  <div>注意:如果Msg为非空则需要等Msg发送完成后才有返回，当玩家网络不好时，这个时间可能会比较长</div></td></tr>
+<tr><td valign="top"><a href="#terminate-2">terminate/2</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="apply-3">apply/3</a></h3>
+<div class="spec">
+<p><tt>apply(X1::async, RolePid, Mfa) -&gt; ok</tt>
+<ul class="definitions"><li><tt>RolePid = pid()</tt></li><li><tt>Mfa = {F} | {F, A} | {M, F, A}</tt></li></ul></p>
+</div><p>对指定角色应用MFA(异步方式)
+  <div>注意:F的返回值格式要求: F([State | A]) -&gt; {ok} | {ok, NewState}</div></p>
+
+<h3 class="function"><a name="code_change-3">code_change/3</a></h3>
+<div class="spec">
+<p><tt>code_change(OldVsn, State, Extra) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="convert-2">convert/2</a></h3>
+<div class="spec">
+<p><tt>convert(Type, RolePid) -&gt; {ok, <a href="#type-record">record()</a>} | {error, term()}</tt>
+<ul class="definitions"><li><tt>Type = atom()</tt></li><li><tt>RolePid = pid()</tt></li></ul></p>
+</div><p>将角色转换为指定的数据类型
+  <div>此接口在跨节点访问时可以节省大量的数据传输</div></p>
+
+<h3 class="function"><a name="create-4">create/4</a></h3>
+<div class="spec">
+<p><tt>create(Rid, SrvId, Account, Link) -&gt; {ok, pid()} | ignore | {error, Error}</tt>
+<ul class="definitions"><li><tt>Rid = integer()</tt></li><li><tt>SrvId = binary()</tt></li><li><tt>Account = binary()</tt></li><li><tt>Link = #link{}</tt></li><li><tt>Error = term()</tt></li></ul></p>
+</div><p>创建一个角色进程</p>
+
+<h3 class="function"><a name="disconnect-1">disconnect/1</a></h3>
+<div class="spec">
+<p><tt>disconnect(RolePid::pid()) -&gt; ok</tt><br></p>
+</div><p>连接器断开通知</p>
+
+<h3 class="function"><a name="element-2">element/2</a></h3>
+<div class="spec">
+<p><tt>element(RolePid, ElemPos) -&gt; {error, self_call} | [term()] | term()</tt>
+<ul class="definitions"><li><tt>RolePid = pid()</tt></li><li><tt>ElemPos = integer() | [integer()]</tt></li></ul></p>
+</div><p>获取指定角色的某一个或多个属性
+  <div>示例:Event = role:prop(RolePid, #role.event)</div>
+  <div>示例:[Event, Status] = role:element(RolePid, [#role.event, #role.status])</div></p>
+
+<h3 class="function"><a name="erase_dict-1">erase_dict/1</a></h3>
+<div class="spec">
+<p><tt>erase_dict(Key) -&gt; {ok, Data} | {error, Reason}</tt>
+<ul class="definitions"><li><tt>Key = term()</tt></li><li><tt>Data = term()</tt></li><li><tt>Reason = atom()</tt></li></ul></p>
+</div><p>清除当前角色的进程字典数据</p>
+
+<h3 class="function"><a name="erase_dict-2">erase_dict/2</a></h3>
+<div class="spec">
+<p><tt>erase_dict(RolePid, Key) -&gt; {ok, Data} | {error, Reason}</tt>
+<ul class="definitions"><li><tt>Key = term()</tt></li><li><tt>Data = term()</tt></li><li><tt>Reason = atom()</tt></li></ul></p>
+</div><p>清除指定角色的进程字典数据</p>
+
+<h3 class="function"><a name="get_dict-1">get_dict/1</a></h3>
+<div class="spec">
+<p><tt>get_dict(Key) -&gt; {ok, Data} | {error, Reason}</tt>
+<ul class="definitions"><li><tt>Key = term()</tt></li><li><tt>Data = term()</tt></li><li><tt>Reason = atom()</tt></li></ul></p>
+</div><p>获取当前角色的进程字典数据</p>
+
+<h3 class="function"><a name="get_dict-2">get_dict/2</a></h3>
+<div class="spec">
+<p><tt>get_dict(RolePid, Key) -&gt; {ok, Data} | {error, Reason}</tt>
+<ul class="definitions"><li><tt>Key = term()</tt></li><li><tt>Data = term()</tt></li><li><tt>Reason = atom()</tt></li></ul></p>
+</div><p>获取当前角色的进程字典数据</p>
+
+<h3 class="function"><a name="handle_call-3">handle_call/3</a></h3>
+<div class="spec">
+<p><tt>handle_call(Request, From, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_cast-2">handle_cast/2</a></h3>
+<div class="spec">
+<p><tt>handle_cast(Msg, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_info-2">handle_info/2</a></h3>
+<div class="spec">
+<p><tt>handle_info(Info, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="init-1">init/1</a></h3>
+<div class="spec">
+<p><tt>init(X1) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="pack_send-3">pack_send/3</a></h3>
+<div class="spec">
+<p><tt>pack_send(RolePid, Cmd, Data) -&gt; ok</tt>
+<ul class="definitions"><li><tt>RolePid = pid()</tt></li><li><tt>Cmd = <a href="#type-int">int()</a></tt></li><li><tt>Data = tuple()</tt></li></ul></p>
+</div><p>打包并发送消息到角色进程(由角色进程转发到连接器进程)
+  <div>出于性能考虑，只能用于无法直接获取连接器Pid时使用</div></p>
+
+<h3 class="function"><a name="put_dict-2">put_dict/2</a></h3>
+<div class="spec">
+<p><tt>put_dict(Key::RKey, Val) -&gt; {ok, LastData} | {error, Reason}</tt>
+<ul class="definitions"><li><tt>Key = term()</tt></li><li><tt>Val = term()</tt></li><li><tt>LastData = term()</tt></li><li><tt>Reason = atom()</tt></li></ul></p>
+</div><p>写入数据到当前角色的进程字典</p>
+
+<h3 class="function"><a name="put_dict-3">put_dict/3</a></h3>
+<div class="spec">
+<p><tt>put_dict(RolePid, Key, Val) -&gt; {ok, LastData} | {error, Reason}</tt>
+<ul class="definitions"><li><tt>Key = term()</tt></li><li><tt>Val = term()</tt></li><li><tt>LastData = term()</tt></li><li><tt>Reason = atom()</tt></li></ul></p>
+</div><p>写入数据到指定角色的进程字典</p>
+
+<h3 class="function"><a name="rpc-4">rpc/4</a></h3>
+<div class="spec">
+<p><tt>rpc(RolePid, Mod, Cmd, Data) -&gt; ok</tt>
+<ul class="definitions"><li><tt>RolePid = pid()</tt></li><li><tt>Mod = atom()</tt></li><li><tt>Cmd = <a href="#type-int">int()</a></tt></li><li><tt>Data = tuple()</tt></li></ul></p>
+</div><p>客户端调用接口(socket事件处理)</p>
+
+<h3 class="function"><a name="send_buff_begin-0">send_buff_begin/0</a></h3>
+<div class="spec">
+<p><tt>send_buff_begin() -&gt; ok</tt><br></p>
+</div><p>开启发送缓冲区(需要进行事务性处理时使用)
+  <div>注意:send_buff_begin/0必须跟send_buff_flush/0或send_buff_clean/0配对使用</div>
+  <div>否则将会导致数据一直发送到缓冲区，因此客户端会一直收不到数据</div>
+  <div>此函数支持嵌套使用，只是必须保证成对出现</div></p>
+
+<h3 class="function"><a name="send_buff_clean-0">send_buff_clean/0</a></h3>
+<div class="spec">
+<p><tt>send_buff_clean() -&gt; ok</tt><br></p>
+</div><p>清空发送缓冲区并关闭缓冲区(只会关闭一层)</p>
+
+<h3 class="function"><a name="send_buff_flush-0">send_buff_flush/0</a></h3>
+<div class="spec">
+<p><tt>send_buff_flush() -&gt; ok</tt><br></p>
+</div><p>立即发送缓冲区中的数据并关闭缓冲区(只会关闭一层)</p>
+
+<h3 class="function"><a name="stop-3">stop/3</a></h3>
+<div class="spec">
+<p><tt>stop(X1::Type, RolePid, Msg) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Type = sync | async</tt></li><li><tt>RolePid = pid()</tt></li><li><tt>Msg = bitstring()</tt></li></ul></p>
+</div><p>强制终止角色进程的运行，可选择同步或异步方式
+  <div>注意:如果Msg为非空则需要等Msg发送完成后才有返回，当玩家网络不好时，这个时间可能会比较长</div></p>
+
+<h3 class="function"><a name="terminate-2">terminate/2</a></h3>
+<div class="spec">
+<p><tt>terminate(Reason, State) -&gt; any()</tt></p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Nov 29 2011, 16:27:46.</i></p>
+</body>
+</html>

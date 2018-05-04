@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Module tester</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module tester</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+<p><b>Behaviours:</b> <a href="gen_server.html"><tt>gen_server</tt></a>.</p>
+<p><b>Authors:</b> <a href="mailto:yeahoo2000@gmail.com"><tt>yeahoo2000@gmail.com</tt></a>.</p>
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#cmd-2">cmd/2</a></td><td>执行模块命令(当前进程，且不带命令参数).</td></tr>
+<tr><td valign="top"><a href="#cmd-3">cmd/3</a></td><td>调用模块命令(不带命令参数).</td></tr>
+<tr><td valign="top"><a href="#cmd-4">cmd/4</a></td><td>调用本地命令.</td></tr>
+<tr><td valign="top"><a href="#code_change-3">code_change/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_call-3">handle_call/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_cast-2">handle_cast/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_info-2">handle_info/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#init-1">init/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#pack_send-2">pack_send/2</a></td><td>打包并发送消息到服务器.</td></tr>
+<tr><td valign="top"><a href="#rand-2">rand/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#start-3">start/3</a></td><td>创建测试进程.</td></tr>
+<tr><td valign="top"><a href="#stop-1">stop/1</a></td><td>退出.</td></tr>
+<tr><td valign="top"><a href="#terminate-2">terminate/2</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="cmd-2">cmd/2</a></h3>
+<div class="spec">
+<p><tt>cmd(Mod, Fun) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Mod = atom()</tt></li><li><tt>Fun = atom()</tt></li></ul></p>
+</div><p>执行模块命令(当前进程，且不带命令参数)</p>
+
+<h3 class="function"><a name="cmd-3">cmd/3</a></h3>
+<div class="spec">
+<p><tt>cmd(Pid, Mod, Fun) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Pid = pid() | integer()</tt></li><li><tt>Mod = atom()</tt></li><li><tt>Fun = atom()</tt></li></ul></p>
+</div><p>调用模块命令(不带命令参数)</p>
+
+<h3 class="function"><a name="cmd-4">cmd/4</a></h3>
+<div class="spec">
+<p><tt>cmd(Rid::Pid, Mod, Fun, Args) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Pid = pid() | integer()</tt></li><li><tt>Mod = atom()</tt></li><li><tt>Fun = atom()</tt></li><li><tt>Args = tuple()</tt></li></ul></p>
+</div><p>调用本地命令</p>
+
+<h3 class="function"><a name="code_change-3">code_change/3</a></h3>
+<div class="spec">
+<p><tt>code_change(OldVsn, State, Extra) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_call-3">handle_call/3</a></h3>
+<div class="spec">
+<p><tt>handle_call(Request, From, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_cast-2">handle_cast/2</a></h3>
+<div class="spec">
+<p><tt>handle_cast(Msg, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_info-2">handle_info/2</a></h3>
+<div class="spec">
+<p><tt>handle_info(Info, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="init-1">init/1</a></h3>
+<div class="spec">
+<p><tt>init(X1) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="pack_send-2">pack_send/2</a></h3>
+<div class="spec">
+<p><tt>pack_send(Cmd, Data) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Cmd = integer()</tt></li><li><tt>Data = tuple()</tt></li></ul></p>
+</div><p>打包并发送消息到服务器</p>
+
+<h3 class="function"><a name="rand-2">rand/2</a></h3>
+<div class="spec">
+<p><tt>rand(Min, Max) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="start-3">start/3</a></h3>
+<div class="spec">
+<p><tt>start(Account, Host, Port) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Account = string() | iolist()</tt></li><li><tt>Host = string()</tt></li><li><tt>Port = integer()</tt></li></ul></p>
+</div><p>创建测试进程</p>
+
+<h3 class="function"><a name="stop-1">stop/1</a></h3>
+<div class="spec">
+<p><tt>stop(Rid::Pid) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Pid = pid() | integer()</tt></li></ul></p>
+</div><p>退出</p>
+
+<h3 class="function"><a name="terminate-2">terminate/2</a></h3>
+<div class="spec">
+<p><tt>terminate(Reason, State) -&gt; any()</tt></p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Nov 29 2011, 16:27:47.</i></p>
+</body>
+</html>

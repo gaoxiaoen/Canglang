@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups>
+	<group id="1003">
+		<reward level="35" exp="500" silver="0" coin="0" >
+			<reward_items do_times="5">
+				<reward_item item_type_id="10201007" item_type="1" item_num="25"/>
+			</reward_items>
+		</reward>
+	</group>
+</groups>

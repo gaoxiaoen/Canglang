@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Module combat</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module combat</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+<p><b>Behaviours:</b> <a href="gen_fsm.html"><tt>gen_fsm</tt></a>.</p>
+<p><b>Authors:</b> <a href="mailto:yeahoo2000@gmail.com"><tt>yeahoo2000@gmail.com</tt></a>.</p>
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#action_event-4">action_event/4</a></td><td>出招事件.</td></tr>
+<tr><td valign="top"><a href="#code_change-4">code_change/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#escape_event-2">escape_event/2</a></td><td>逃跑事件.</td></tr>
+<tr><td valign="top"><a href="#handle_event-3">handle_event/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_info-3">handle_info/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_sync_event-4">handle_sync_event/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#idel-2">idel/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#init-1">init/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#launch-2">launch/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#load_event-3">load_event/3</a></td><td>加载进度事件.</td></tr>
+<tr><td valign="top"><a href="#loading-2">loading/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#over-2">over/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#play-2">play/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#play_event-2">play_event/2</a></td><td>客户端动画播放事件.</td></tr>
+<tr><td valign="top"><a href="#round-2">round/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#start-1">start/1</a></td><td>启动战斗进程.</td></tr>
+<tr><td valign="top"><a href="#terminate-3">terminate/3</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="action_event-4">action_event/4</a></h3>
+<div class="spec">
+<p><tt>action_event(CombatPid, Pid, SkillId, TargetId) -&gt; any()</tt></p>
+</div><p>出招事件</p>
+
+<h3 class="function"><a name="code_change-4">code_change/4</a></h3>
+<div class="spec">
+<p><tt>code_change(OldVsn, StateName, State, Extra) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="escape_event-2">escape_event/2</a></h3>
+<div class="spec">
+<p><tt>escape_event(CombatPid, Pid) -&gt; any()</tt></p>
+</div><p>逃跑事件</p>
+
+<h3 class="function"><a name="handle_event-3">handle_event/3</a></h3>
+<div class="spec">
+<p><tt>handle_event(Event, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_info-3">handle_info/3</a></h3>
+<div class="spec">
+<p><tt>handle_info(Info, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_sync_event-4">handle_sync_event/4</a></h3>
+<div class="spec">
+<p><tt>handle_sync_event(Event, From, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="idel-2">idel/2</a></h3>
+<div class="spec">
+<p><tt>idel(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="init-1">init/1</a></h3>
+<div class="spec">
+<p><tt>init(X1) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="launch-2">launch/2</a></h3>
+<div class="spec">
+<p><tt>launch(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="load_event-3">load_event/3</a></h3>
+<div class="spec">
+<p><tt>load_event(CombatPid, Pid, Progress) -&gt; any()</tt></p>
+</div><p>加载进度事件</p>
+
+<h3 class="function"><a name="loading-2">loading/2</a></h3>
+<div class="spec">
+<p><tt>loading(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="over-2">over/2</a></h3>
+<div class="spec">
+<p><tt>over(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="play-2">play/2</a></h3>
+<div class="spec">
+<p><tt>play(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="play_event-2">play_event/2</a></h3>
+<div class="spec">
+<p><tt>play_event(CombatPid, Pid) -&gt; any()</tt></p>
+</div><p>客户端动画播放事件</p>
+
+<h3 class="function"><a name="round-2">round/2</a></h3>
+<div class="spec">
+<p><tt>round(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="start-1">start/1</a></h3>
+<div class="spec">
+<p><tt>start(X1) -&gt; any()</tt></p>
+</div><p>启动战斗进程</p>
+
+<h3 class="function"><a name="terminate-3">terminate/3</a></h3>
+<div class="spec">
+<p><tt>terminate(Reason, StateName, State) -&gt; any()</tt></p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Sep 3 2011, 10:17:25.</i></p>
+</body>
+</html>

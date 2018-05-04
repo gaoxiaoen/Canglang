@@ -1,0 +1,21 @@
+{
+	[
+		'src/sys/change'
+		,'src/*'
+		,'src/*/*'
+		,'src/*/*/*'
+		,'src/*/*/*/*'
+		,'src/*/*/*/*/*'
+		,'src/*/*/*/*/*/*'
+		,'src/*/*/*/*/*/*/*'
+	]
+	,[
+		debug_info
+		,{hipe, [o3]}
+		%% ,{debug_info_key, "abc"}
+		%% ,encrypt_debug_info
+		,{i, "inc"}
+		%%,{outdir, "ebin"}
+        %%,warnings_as_errors
+	]
+}.

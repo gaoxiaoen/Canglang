@@ -1,0 +1,10 @@
+基于原来飞仙的源码，已经删除掉的功能模块
+
+陨石系统                mod/meteorolite/
+猜灯迷                  mod/puzzle/
+飞仙基金、飞仙投资计划  mod/fund/
+珍宝阁                  mod/treasure_store/
+温泉                    mod/spring/
+命格、天命              mod/divine/
+触碰小游戏              mod/touch_game/
+运势                    mod/activity_luck/

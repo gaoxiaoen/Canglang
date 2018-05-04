@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<missions>
+	<mission id="10001010" name="河边洗衣" pre_mission_id="">
+		<desc><![CDATA[自从穿越之后一直被小梦照顾，今天找一下她吧]]></desc>
+		<base_info type="1" show_type="0" model="1" big_group="0" group_desc="" color="0" min_level="1" max_level="160" max_do_times="1" star_level="1" sort_id="0"/>
+		<model_status>
+			<npc npc_id="1000101">
+				<dialog>
+					<content id="1" say_type="1"><![CDATA[小梦！怎么今天又要洗衣服吗？昨天不是刚洗完吗？]]></content>
+					<content id="2" say_type="0"><![CDATA[哎，昨天老板说我洗得慢，罚我节假日加班呢。]]></content>
+					<content id="3" say_type="1"><![CDATA[这不坑爹么？走着，我帮你一起洗。]]></content>
+					<content id="4" say_type="0"><![CDATA[这么好啊，那就去前面小屋附近吧。]]></content>
+				</dialog>
+			</npc>
+		</model_status>
+		<model_status>
+			<npc npc_id="1000102">
+				<dialog>
+					<content id="1" say_type="1"><![CDATA[小梦，你走快点，不然工资就归我了。]]></content>
+				</dialog>
+			</npc>
+		</model_status>
+		<reward rollback_times="1" is_category="0" formula_base="1" formula_item="0" exp="750" silver="0" coin="100" />
+	</mission>
+</missions>

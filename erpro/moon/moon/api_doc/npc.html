@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Module npc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module npc</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+<p><b>Behaviours:</b> <a href="gen_fsm.html"><tt>gen_fsm</tt></a>.</p>
+<p><b>Authors:</b> <a href="mailto:yeahoo2000@gmail.com"><tt>yeahoo2000@gmail.com</tt></a>.</p>
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#code_change-4">code_change/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#combat-2">combat/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#enter_map-4">enter_map/4</a></td><td>进入指定地点.</td></tr>
+<tr><td valign="top"><a href="#fight-2">fight/2</a></td><td>对指定NPC发起战斗，必须保证AtkList中的第一个为战斗发起者.</td></tr>
+<tr><td valign="top"><a href="#fight_info-2">fight_info/2</a></td><td>将战斗变化信息发送给指定的NPC
+  例如:NPC战斗组中的成员挂了、战斗结束、对手逃跑等.</td></tr>
+<tr><td valign="top"><a href="#freeze-2">freeze/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_event-3">handle_event/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_info-3">handle_info/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_sync_event-4">handle_sync_event/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#idel-2">idel/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#init-1">init/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#patrol-2">patrol/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#pause-1">pause/1</a></td><td>暂停活动.</td></tr>
+<tr><td valign="top"><a href="#reload-1">reload/1</a></td><td>重载NPC，重新加载属性.</td></tr>
+<tr><td valign="top"><a href="#resume-1">resume/1</a></td><td>恢复活动.</td></tr>
+<tr><td valign="top"><a href="#start_link-1">start_link/1</a></td><td>创建怪物进程.</td></tr>
+<tr><td valign="top"><a href="#terminate-3">terminate/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#trace-2">trace/2</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="code_change-4">code_change/4</a></h3>
+<div class="spec">
+<p><tt>code_change(OldVsn, StateName, State, Extra) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="combat-2">combat/2</a></h3>
+<div class="spec">
+<p><tt>combat(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="enter_map-4">enter_map/4</a></h3>
+<div class="spec">
+<p><tt>enter_map(NpcPid, MapId, X, Y) -&gt; ok</tt>
+<ul class="definitions"><li><tt>NpcPid = pid()</tt></li><li><tt>MapId = integer()</tt></li><li><tt>X = integer()</tt></li><li><tt>Y = integer()</tt></li></ul></p>
+</div><p>进入指定地点</p>
+
+<h3 class="function"><a name="fight-2">fight/2</a></h3>
+<div class="spec">
+<p><tt>fight(NpcId, AtkList) -&gt; ok</tt>
+<ul class="definitions"><li><tt>NpcId = pid() | integer()</tt></li><li><tt>AtkList = [#fighter{}]</tt></li></ul></p>
+</div><p>对指定NPC发起战斗，必须保证AtkList中的第一个为战斗发起者</p>
+
+<h3 class="function"><a name="fight_info-2">fight_info/2</a></h3>
+<div class="spec">
+<p><tt>fight_info(NpcPid, Info) -&gt; ok</tt>
+<ul class="definitions"><li><tt>NpcPid = pid()</tt></li><li><tt>Info = tuple()</tt></li></ul></p>
+</div><p>将战斗变化信息发送给指定的NPC
+  例如:NPC战斗组中的成员挂了、战斗结束、对手逃跑等</p>
+
+<h3 class="function"><a name="freeze-2">freeze/2</a></h3>
+<div class="spec">
+<p><tt>freeze(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_event-3">handle_event/3</a></h3>
+<div class="spec">
+<p><tt>handle_event(Event, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_info-3">handle_info/3</a></h3>
+<div class="spec">
+<p><tt>handle_info(Info, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_sync_event-4">handle_sync_event/4</a></h3>
+<div class="spec">
+<p><tt>handle_sync_event(Event, From, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="idel-2">idel/2</a></h3>
+<div class="spec">
+<p><tt>idel(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="init-1">init/1</a></h3>
+<div class="spec">
+<p><tt>init(X1) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="patrol-2">patrol/2</a></h3>
+<div class="spec">
+<p><tt>patrol(Any, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="pause-1">pause/1</a></h3>
+<div class="spec">
+<p><tt>pause(NpcPid) -&gt; ok</tt>
+<ul class="definitions"><li><tt>NpcPid = pid()</tt></li></ul></p>
+</div><p>暂停活动</p>
+
+<h3 class="function"><a name="reload-1">reload/1</a></h3>
+<div class="spec">
+<p><tt>reload(NpcPid) -&gt; ok</tt>
+<ul class="definitions"><li><tt>NpcPid = pid()</tt></li></ul></p>
+</div><p>重载NPC，重新加载属性</p>
+
+<h3 class="function"><a name="resume-1">resume/1</a></h3>
+<div class="spec">
+<p><tt>resume(NpcPid) -&gt; ok</tt>
+<ul class="definitions"><li><tt>NpcPid = pid()</tt></li></ul></p>
+</div><p>恢复活动</p>
+
+<h3 class="function"><a name="start_link-1">start_link/1</a></h3>
+<div class="spec">
+<p><tt>start_link(Npc) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Npc = #npc{}</tt></li></ul></p>
+</div><p>创建怪物进程</p>
+
+<h3 class="function"><a name="terminate-3">terminate/3</a></h3>
+<div class="spec">
+<p><tt>terminate(Reason, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="trace-2">trace/2</a></h3>
+<div class="spec">
+<p><tt>trace(Any, State) -&gt; any()</tt></p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Oct 14 2011, 04:16:16.</i></p>
+</body>
+</html>

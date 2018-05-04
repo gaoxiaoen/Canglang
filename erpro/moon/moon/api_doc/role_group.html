@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Module role_group</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module role_group</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+<p><b>Behaviours:</b> <a href="gen_server.html"><tt>gen_server</tt></a>.</p>
+<p><b>Authors:</b> <a href="mailto:yeahoo2000@gmail.com"><tt>yeahoo2000@gmail.com</tt></a>.</p>
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#apply-2">apply/2</a></td><td>对所有节点的所有角色执行MFA.</td></tr>
+<tr><td valign="top"><a href="#apply-3">apply/3</a></td><td>对所有节点中指定地图的所有角色执行MFA.</td></tr>
+<tr><td valign="top"><a href="#broadcast-2">broadcast/2</a></td><td>广播数据到所有节点的所有玩家.</td></tr>
+<tr><td valign="top"><a href="#code_change-3">code_change/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_call-3">handle_call/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_cast-2">handle_cast/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_info-2">handle_info/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#init-1">init/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#join-2">join/2</a></td><td>加入所有分组.</td></tr>
+<tr><td valign="top"><a href="#join-3">join/3</a></td><td>加入世界组.</td></tr>
+<tr><td valign="top"><a href="#join-4">join/4</a></td><td>加入角色名称索引组.</td></tr>
+<tr><td valign="top"><a href="#leave-2">leave/2</a></td><td>离开所有分组.</td></tr>
+<tr><td valign="top"><a href="#leave-4">leave/4</a></td><td>离开地图组.</td></tr>
+<tr><td valign="top"><a href="#local_apply-2">local_apply/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#local_apply-3">local_apply/3</a></td><td>对当前节点中指定地图的所有角色执行MFA.</td></tr>
+<tr><td valign="top"><a href="#local_broadcast-2">local_broadcast/2</a></td><td>广播数据到当前节点的世界组.</td></tr>
+<tr><td valign="top"><a href="#pack_cast-3">pack_cast/3</a></td><td>打包并广播到世界组(所有玩家).</td></tr>
+<tr><td valign="top"><a href="#pack_cast-4">pack_cast/4</a></td><td>打包并广播到指定分组.</td></tr>
+<tr><td valign="top"><a href="#pack_cast_local-4">pack_cast_local/4</a></td><td>打包并广播到本地节点的指定分组.</td></tr>
+<tr><td valign="top"><a href="#pack_send-3">pack_send/3</a></td><td>打包并发送消息(如果角色不在当前节点，则会到所有节点中查找).</td></tr>
+<tr><td valign="top"><a href="#start_link-0">start_link/0</a></td><td>启动角色分组管理器.</td></tr>
+<tr><td valign="top"><a href="#terminate-2">terminate/2</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="apply-2">apply/2</a></h3>
+<div class="spec">
+<p><tt>apply(X1::all, Mfa) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Mfa = mfa()</tt></li></ul></p>
+</div><p>对所有节点的所有角色执行MFA</p>
+
+<h3 class="function"><a name="apply-3">apply/3</a></h3>
+<div class="spec">
+<p><tt>apply(X1::map, MapId, Mfa) -&gt; ok</tt>
+<ul class="definitions"><li><tt>MapId = integer()</tt></li><li><tt>Mfa = mfa()</tt></li></ul></p>
+</div><p>对所有节点中指定地图的所有角色执行MFA</p>
+
+<h3 class="function"><a name="broadcast-2">broadcast/2</a></h3>
+<div class="spec">
+<p><tt>broadcast(X1::world, Bin) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Bin = binary()</tt></li></ul></p>
+</div><p>广播数据到所有节点的所有玩家</p>
+
+<h3 class="function"><a name="code_change-3">code_change/3</a></h3>
+<div class="spec">
+<p><tt>code_change(OldVsn, State, Extra) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_call-3">handle_call/3</a></h3>
+<div class="spec">
+<p><tt>handle_call(Request, From, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_cast-2">handle_cast/2</a></h3>
+<div class="spec">
+<p><tt>handle_cast(Msg, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_info-2">handle_info/2</a></h3>
+<div class="spec">
+<p><tt>handle_info(Info, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="init-1">init/1</a></h3>
+<div class="spec">
+<p><tt>init(X1) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="join-2">join/2</a></h3>
+<div class="spec">
+<p><tt>join(X1::all, Role) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Role = #role{}</tt></li></ul></p>
+</div><p>加入所有分组</p>
+
+<h3 class="function"><a name="join-3">join/3</a></h3>
+<div class="spec">
+<p><tt>join(X1::world, RolePid, ConnPid) -&gt; ok</tt>
+<ul class="definitions"><li><tt>RolePid = pid()</tt></li><li><tt>ConnPid = pid()</tt></li></ul></p>
+</div><p>加入世界组</p>
+
+<h3 class="function"><a name="join-4">join/4</a></h3>
+<div class="spec">
+<p><tt>join(X1::name, RoleName, RolePid, ConnPid) -&gt; ok</tt>
+<ul class="definitions"><li><tt>RoleName = binary()</tt></li><li><tt>RolePid = pid()</tt></li><li><tt>ConnPid = pid()</tt></li></ul></p>
+</div><p>加入角色名称索引组</p>
+
+<h3 class="function"><a name="leave-2">leave/2</a></h3>
+<div class="spec">
+<p><tt>leave(X1::all, Role) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Role = #role{}</tt></li></ul></p>
+</div><p>离开所有分组</p>
+
+<h3 class="function"><a name="leave-4">leave/4</a></h3>
+<div class="spec">
+<p><tt>leave(X1::map, MapId, RolePid, ConnPid) -&gt; ok</tt>
+<ul class="definitions"><li><tt>MapId = integer()</tt></li><li><tt>RolePid = pid()</tt></li><li><tt>ConnPid = pid()</tt></li></ul></p>
+</div><p>离开地图组</p>
+
+<h3 class="function"><a name="local_apply-2">local_apply/2</a></h3>
+<div class="spec">
+<p><tt>local_apply(X1::all, Mfa) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Mfa = mfa()</tt></li></ul></p>
+</div>
+
+<h3 class="function"><a name="local_apply-3">local_apply/3</a></h3>
+<div class="spec">
+<p><tt>local_apply(X1::map, MapId, Mfa) -&gt; ok</tt>
+<ul class="definitions"><li><tt>MapId = integer()</tt></li><li><tt>Mfa = mfa()</tt></li></ul></p>
+</div><p>对当前节点中指定地图的所有角色执行MFA</p>
+
+<h3 class="function"><a name="local_broadcast-2">local_broadcast/2</a></h3>
+<div class="spec">
+<p><tt>local_broadcast(X1::Type, Bin) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Bin = binary()</tt></li></ul></p>
+</div><p>广播数据到当前节点的世界组</p>
+
+<h3 class="function"><a name="pack_cast-3">pack_cast/3</a></h3>
+<div class="spec">
+<p><tt>pack_cast(X1::world, Cmd, Data) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Cmd = integer()</tt></li><li><tt>Data = tuple()</tt></li></ul></p>
+</div><p>打包并广播到世界组(所有玩家)</p>
+
+<h3 class="function"><a name="pack_cast-4">pack_cast/4</a></h3>
+<div class="spec">
+<p><tt>pack_cast(To, Id, Cmd, Data) -&gt; ok</tt>
+<ul class="definitions"><li><tt>To = map | world</tt></li><li><tt>Id = integer()</tt></li><li><tt>Cmd = integer()</tt></li><li><tt>Data = tuple()</tt></li></ul></p>
+</div><p>打包并广播到指定分组</p>
+
+<h3 class="function"><a name="pack_cast_local-4">pack_cast_local/4</a></h3>
+<div class="spec">
+<p><tt>pack_cast_local(To, Id, Cmd, Data) -&gt; ok</tt>
+<ul class="definitions"><li><tt>To = map | world</tt></li><li><tt>Id = integer()</tt></li><li><tt>Cmd = integer()</tt></li><li><tt>Data = tuple()</tt></li></ul></p>
+</div><p>打包并广播到本地节点的指定分组</p>
+
+<h3 class="function"><a name="pack_send-3">pack_send/3</a></h3>
+<div class="spec">
+<p><tt>pack_send(RoleName::Rid, Cmd, Data) -&gt; ok | {error, not_found}</tt>
+<ul class="definitions"><li><tt>Rid = integer()</tt></li><li><tt>SrvId = string()</tt></li><li><tt>Cmd = integer()</tt></li><li><tt>Data = tuple()</tt></li></ul></p>
+</div><p>打包并发送消息(如果角色不在当前节点，则会到所有节点中查找)</p>
+
+<h3 class="function"><a name="start_link-0">start_link/0</a></h3>
+<div class="spec">
+<p><tt>start_link() -&gt; ok</tt><br></p>
+</div><p>启动角色分组管理器</p>
+
+<h3 class="function"><a name="terminate-2">terminate/2</a></h3>
+<div class="spec">
+<p><tt>terminate(Reason, State) -&gt; any()</tt></p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Nov 29 2011, 16:27:47.</i></p>
+</body>
+</html>

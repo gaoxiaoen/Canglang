@@ -1,0 +1,160 @@
+#/bin/bash
+# ---------------------------------------------------------
+# 安装程序
+# @author qingxuan
+# ---------------------------------------------------------
+
+source `dirname $0`/conf/env.sh
+
+NODE_MASTER=${TAG}@${IP}
+NODE_STOP=${TAG}_stop@${IP}
+NODE_CTRL=${TAG}_ctrl@${IP}
+NODE_HOT=${TAG}_hotswap@${IP}
+NODE_REPORT=${TAG}_report@${IP}
+
+## 命令行帮助
+fun_help(){
+    echo "start         启动服务器"
+    echo "stop          关闭服务器"
+    echo "restart       重启服务器"
+    echo "control       启动控制节点"
+    echo "hot"          执行命令
+    echo "report"       生成服务器状态报告
+    echo "log"          查看日志
+    # echo "up_cfg    更新配置文件"
+}
+
+## yes/no提示
+fun_confirm() {
+    tips="$1 (yes/no): "
+    read -p "$tips" confirm_key
+    if [ "${confirm_key}" != "y" ]; then
+        echo ">> 操作取消"
+        exit 1
+    fi
+}
+
+## 启动主节点
+fun_start(){
+    # 复制配置文件
+    \cp -fr ${DIR_ROOT}/conf/main.app ${DIR_ROOT}/ebin/
+    # 生成screerc
+    mkdir -p ${DIR_ROOT}/var/logs
+    screenrc=${DIR_ROOT}/var/logs/screenrc_${NODE_MASTER}
+    screen_args="-L -c ${screenrc}"
+    \cp -f ${DIR_ROOT}/screenrc ${screenrc}
+    sed -i -e "s#@logfile@#${DIR_ROOT}/var/logs/${NODE_MASTER}_"`date +"%Y-%m-%d_%H-%M-%S"`'.log#' ${screenrc}
+    echo "正在启动节点(日志模式) ${NODE_MASTER} ..."
+    # 生成启动脚本 
+    start_sh=${DIR_ROOT}/${NODE_MASTER}.sh
+    CMD="${ERL} -hidden -kernel inet_dist_listen_min ${ERL_PORT_MIN} -kernel inet_dist_listen_max ${ERL_PORT_MAX} +P 204800 +K true -smp enable -name ${NODE_MASTER} -setcookie ${ERL_COOKIE} -config elog -s main start -extra master ${IP} ${PORT}"
+    cat > ${start_sh} <<EOF
+#!/bin/bash
+cd ${DIR_ROOT}/ebin
+ulimit -SHn 102400
+${CMD}
+EOF
+    chmod +x ${start_sh}
+    screen -dmSL ${NODE_MASTER} -s ${start_sh} ${screen_args}
+    usleep 200000 
+    chk=`screen -ls | grep ${NODE_MASTER}`
+    test -z "$chk" && echo "启动失败!!!!!"
+}
+
+## 强行关闭服务器
+fun_stop_force(){
+    cd ${DIR_ROOT}/ebin
+    ${ERL} -kernel inet_dist_listen_min ${ERL_PORT_MIN} -kernel inet_dist_listen_max ${ERL_PORT_MAX} -name ${NODE_STOP} -setcookie ${ERL_COOKIE} -config elog -s main stop_from_shell -extra ${NODE_MASTER}
+    usleep 200000
+    chk=`screen -ls | grep ${NODE_MASTER}`
+    test -n "$chk" && echo "关闭失败!!!!!"
+}
+## 关闭服务器
+fun_stop(){
+	fun_confirm "确认关闭服务器？$NODE_MASTER"
+	fun_stop_force
+}
+
+# 强行重启服务器
+fun_restart_force(){
+    fun_stop_force
+    # TODO 加检测，是否关闭成功
+    echo "5秒后重启..."
+    sleep 1
+    echo "4秒后重启..."
+    sleep 1
+    echo "3秒后重启..."
+    sleep 1
+    echo "2秒后重启..."
+    sleep 1
+    echo "1秒后重启..."
+    sleep 1
+    fun_start
+}
+## 重启服务器
+fun_restart(){
+	fun_confirm "确认重启服务器？$NODE_MASTER"
+	fun_restart_force
+}
+
+# 控制器
+fun_control(){
+    # 生成启动脚本 
+    start_sh=${DIR_ROOT}/${NODE_CTRL}.sh
+    CMD="${ERL} -hidden -kernel inet_dist_listen_min ${ERL_PORT_MIN} -kernel inet_dist_listen_max ${ERL_PORT_MAX} +P 204800 +K true -smp enable -name ${NODE_CTRL} -setcookie ${ERL_COOKIE} -config elog -s main start -extra control ${NODE_MASTER}"
+    cat > ${start_sh} <<EOF
+#!/bin/bash
+cd ${DIR_ROOT}/ebin
+ulimit -SHn 102400
+${CMD}
+EOF
+    chmod +x ${start_sh}
+    screen -dmSL ${NODE_CTRL} -s ${start_sh}
+    usleep 200000 
+    chk=`screen -ls | grep ${NODE_CTRL}`
+    test -z "$chk" && echo "启动失败!!!!!" || screen -r ${NODE_CTRL}
+}
+
+# 热更
+fun_hot(){
+    cd ${DIR_ROOT}/ebin	
+    ${ERL} -hidden -kernel inet_dist_listen_min ${ERL_PORT_MIN} -kernel inet_dist_listen_max ${ERL_PORT_MAX} -smp disable -name ${NODE_HOT} -setcookie ${ERL_COOKIE} -noshell -s u hotswap ${NODE_MASTER} -s erlang halt
+}
+
+# 生成状态报告
+fun_report(){
+    cd ${DIR_ROOT}/ebin	
+    ${ERL} -hidden -kernel inet_dist_listen_min ${ERL_PORT_MIN} -kernel inet_dist_listen_max ${ERL_PORT_MAX} -smp disable -name ${NODE_REPORT} -setcookie ${ERL_COOKIE} -noshell -s sys_stat report ${NODE_MASTER} -s erlang halt	
+}
+
+#查看日志
+fun_log(){
+    cd ${DIR_ROOT}/var/logs
+    log=`ls | grep ^$NODE_MASTER | grep .log$ | tail -n1`
+    if [ -z "$log" ]; then
+        echo ">> 找不到日志文件"
+        exit 1
+    fi
+    #tail -fn100 $log
+    vim $log
+}
+
+## 执行入口
+case $1 in
+    start) fun_start;;
+    stop) fun_stop;;
+    stop_force) fun_stop_force;;    
+    restart) fun_restart;;
+    restart_force) fun_restart_force;;
+    control) fun_control;;
+    hot) fun_hot;;
+    report) fun_report;;
+    log) fun_log;;
+    *)
+        echo "未知指令，请使用以下有效指令"
+        echo "-------------------------------------------"
+        fun_help
+        exit 1
+        ;;
+esac
+exit 0

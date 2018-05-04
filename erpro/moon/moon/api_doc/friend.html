@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Module friend</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module friend</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#add_friend-4">add_friend/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#agree_add_friend-3">agree_add_friend/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#delete_friend_group-2">delete_friend_group/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#do_add_friend_sync-2">do_add_friend_sync/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#do_agree_add_friend_sync-2">do_agree_add_friend_sync/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#do_login_notify_async-4">do_login_notify_async/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#do_logout_notify_async-4">do_logout_notify_async/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#do_update_friend_type_sync-4">do_update_friend_type_sync/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_friend_info-4">get_friend_info/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_friend_list-0">get_friend_list/0</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_self_info-1">get_self_info/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#login-1">login/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#logout-1">logout/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#rpc_delete_friend-3">rpc_delete_friend/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#rpc_delete_friend_async-3">rpc_delete_friend_async/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#send_add_friend-2">send_add_friend/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#send_decline_friend-2">send_decline_friend/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#send_del_friend-2">send_del_friend/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#send_upd_friend-2">send_upd_friend/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#send_upd_friend_group-2">send_upd_friend_group/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#update_friend_group-3">update_friend_group/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#update_friend_type-4">update_friend_type/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#update_signature-2">update_signature/2</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="add_friend-4">add_friend/4</a></h3>
+<div class="spec">
+<p><tt>add_friend(Role, Type, FrRoleId, FrSrvId) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="agree_add_friend-3">agree_add_friend/3</a></h3>
+<div class="spec">
+<p><tt>agree_add_friend(Role, FrRoleId, FrSrvId) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="delete_friend_group-2">delete_friend_group/2</a></h3>
+<div class="spec">
+<p><tt>delete_friend_group(Role, FrGroupId) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="do_add_friend_sync-2">do_add_friend_sync/2</a></h3>
+<div class="spec">
+<p><tt>do_add_friend_sync(Role, Friend) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="do_agree_add_friend_sync-2">do_agree_add_friend_sync/2</a></h3>
+<div class="spec">
+<p><tt>do_agree_add_friend_sync(Role, Friend) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="do_login_notify_async-4">do_login_notify_async/4</a></h3>
+<div class="spec">
+<p><tt>do_login_notify_async(Role, FrRoleId, FrSrvId, Friend) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="do_logout_notify_async-4">do_logout_notify_async/4</a></h3>
+<div class="spec">
+<p><tt>do_logout_notify_async(Role, FrRoleId, FrSrvId, Friend) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="do_update_friend_type_sync-4">do_update_friend_type_sync/4</a></h3>
+<div class="spec">
+<p><tt>do_update_friend_type_sync(Role, FrRoleId, FrSrvId, Type) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get_friend_info-4">get_friend_info/4</a></h3>
+<div class="spec">
+<p><tt>get_friend_info(X1, Role, FrRoleId, FrSrvId) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get_friend_list-0">get_friend_list/0</a></h3>
+<div class="spec">
+<p><tt>get_friend_list() -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get_self_info-1">get_self_info/1</a></h3>
+<div class="spec">
+<p><tt>get_self_info(Role) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="login-1">login/1</a></h3>
+<div class="spec">
+<p><tt>login(Role) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="logout-1">logout/1</a></h3>
+<div class="spec">
+<p><tt>logout(Role) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="rpc_delete_friend-3">rpc_delete_friend/3</a></h3>
+<div class="spec">
+<p><tt>rpc_delete_friend(Role, FrRoleId, FrSrvId) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="rpc_delete_friend_async-3">rpc_delete_friend_async/3</a></h3>
+<div class="spec">
+<p><tt>rpc_delete_friend_async(Role, FrRoleId, FrSrvId) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="send_add_friend-2">send_add_friend/2</a></h3>
+<div class="spec">
+<p><tt>send_add_friend(X1, X2) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="send_decline_friend-2">send_decline_friend/2</a></h3>
+<div class="spec">
+<p><tt>send_decline_friend(X1, X2) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="send_del_friend-2">send_del_friend/2</a></h3>
+<div class="spec">
+<p><tt>send_del_friend(X1, X2) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="send_upd_friend-2">send_upd_friend/2</a></h3>
+<div class="spec">
+<p><tt>send_upd_friend(X1, X2) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="send_upd_friend_group-2">send_upd_friend_group/2</a></h3>
+<div class="spec">
+<p><tt>send_upd_friend_group(ConnPid, FrGroupList) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="update_friend_group-3">update_friend_group/3</a></h3>
+<div class="spec">
+<p><tt>update_friend_group(Role, FrGroupId, FriendsTuples) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="update_friend_type-4">update_friend_type/4</a></h3>
+<div class="spec">
+<p><tt>update_friend_type(Role, FrRoleId, FrSrvId, Type) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="update_signature-2">update_signature/2</a></h3>
+<div class="spec">
+<p><tt>update_signature(Role, Signature) -&gt; any()</tt></p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Oct 14 2011, 04:16:16.</i></p>
+</body>
+</html>

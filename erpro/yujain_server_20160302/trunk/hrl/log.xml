@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keys>
+<!-- 
+ 元宝获得日志,以 LOG_GAIN_GOLD_为前缀,编码范围[110000,119999]
+ 例子：-define(LOG_GAIN_GOLD_XXXX,110000).  
+-->
+    <key name="LOG_GAIN_GOLD_PAY" value="110000" desc="充值获得" />
+    <key name="LOG_GAIN_GOLD_ADMIN_PAY" value="110001" desc="后台充值获得" />
+    <key name="LOG_GAIN_GOLD_MISSION" value="110002" desc="后台充值获得" />
+    <key name="LOG_GAIN_GOLD_GOODS_USE" value="110003" desc="使用物品获得" />
+<!-- 
+ 元宝失去日志,以 LOG_CONSUME_GOLD_为前缀,编码范围[120000,129999]
+ 例子：-define(LOG_CONSUME_GOLD_XXXX,120000).  
+-->
+    <key name="LOG_CONSUME_GOLD_SHOP_BUY" value="120000" desc="商店购买失去" />
+    <key name="LOG_CONSUME_GOLD_MISSION_DO_COMPLETE" value="120001" desc="立即完成任务失去" />
+    <key name="LOG_CONSUME_GOLD_MISSION_DO_SUBMIT" value="120002" desc="完成并提交任务失去" />
+    <key name="LOG_CONSUME_GOLD_MISSION_RECOLOR" value="120003" desc="刷新任务品质失去" />
+    <key name="LOG_CONSUME_GOLD_MISSION_AUTO" value="120004" desc="委托任务失去" />
+    <key name="LOG_CONSUME_GOLD_MISSION_AUTO_SPEED_UP" value="120005" desc="委托加速失去" />
+    <key name="LOG_CONSUME_GOLD_GOODS_OPEN_GIFT" value="120006" desc="打开礼包失去" />
+    <key name="LOG_CONSUME_GOLD_GOODS_ADD_GRID" value="120007" desc="扩展仓库格子失去" />
+    <key name="LOG_CONSUME_GOLD_SEND_LETTER" value="120008" desc="发送信件失去" />
+    <key name="LOG_CONSUME_GOLD_FAMILY_CREATE" value="120009" desc="创建军团失去" />
+    
+<!-- 
+ 银子获得日志,以 LOG_GAIN_SILVER_为前缀,编码范围[210000,219999]
+ 例子：-define(LOG_GAIN_SILVER_XXXX,210000).  
+ -->
+    <key name="LOG_GAIN_SILVER_ADMIN_PAY" value="210001" desc="后台充值获得" />
+    <key name="LOG_GAIN_SILVER_GOODS_USE" value="210002" desc="使用物品获得" />
+    <key name="LOG_GAIN_SILVER_MISSION" value="210003" desc="完成任务获得" />
+<!-- 
+ 银子失去日志,以 LOG_CONSUME_SILVER_为前缀,编码范围[220000,229999]
+ 例子：-define(LOG_CONSUME_SILVER_XXXX,220000).  
+-->
+    <key name="LOG_CONSUME_SILVER_SHOP_BUY" value="220000" desc="商店购买失去" />
+    <key name="LOG_CONSUME_SILVER_MISSION_DO_COMPLETE" value="220001" desc="立即完成任务失去" />
+    <key name="LOG_CONSUME_SILVER_MISSION_DO_SUBMIT" value="220002" desc="完成并提交任务失去" />
+    <key name="LOG_CONSUME_SILVER_FAMILY_CREATE" value="220003" desc="创建帮派失去" />
+<!-- 
+ 物品获得日志 ,以 LOG_GAIN_GOODS_为前缀,编码范围[310000,319999]
+ 例子：-define(LOG_GAIN_GOODS_XXXX,310000). 
+-->
+    <key name="LOG_GAIN_GOODS_SHOP_BUY" value="310000" desc="商店购买获得" />
+    <key name="LOG_GAIN_GOODS_LETTER_ACCEPT_GOODS" value="310001" desc="信件附件获得" />
+    <key name="LOG_GAIN_GOODS_DO_MISSION" value="310002" desc="任务获得" />
+    <key name="LOG_GAIN_GOODS_OPEN_GIFT" value="310003" desc="开礼包获得" />
+ 
+ <!--
+ 物品失去日志 ,以LOG_CONSUME_GOODS_为前缀,编码范围[320000,329999]
+ 例子-define(LOG_CONSUME_GOODS_XXXX,320000). 
+-->
+    <key name="LOG_CONSUME_GOODS_BAG_DESTROY" value="320000" desc="仓库销毁物品失去" />
+    <key name="LOG_CONSUME_GOODS_SALE_SHOP" value="320001" desc="出售系统物品失去" />
+    <key name="LOG_CONSUME_GOODS_LETTER_DELETE" value="320002" desc="删除信件失去" />
+    <key name="LOG_CONSUME_GOODS_LETTER_P2P_SEND" value="320003" desc="发送信件失去" />
+    <key name="LOG_CONSUME_GOODS_USE" value="320004" desc="使用物品失去" />
+<!-- 
+ 铜钱获得日志 ,以 LOG_GAIN_COIN_为前缀,编码范围[410000,419999]
+ 例子：-define(LOG_GAIN_COIN_XXXX,410000). 
+-->
+    <key name="LOG_GAIN_COIN_SHOP_SALE" value="410000" desc="出售物品获得" />
+    <key name="LOG_GAIN_COIN_ADMIN_PAY" value="410001" desc="后台充值获得" />
+    <key name="LOG_GAIN_COIN_MISSION" value="410002" desc="任务奖励获得" />
+    <key name="LOG_GAIN_COIN_GOODS_USE" value="410003" desc="使用物品获得" />
+<!--
+ 铜钱失去日志 ,以LOG_CONSUME_COIN_为前缀,编码范围[420000,429999]
+ 例子-define(LOG_CONSUME_COIN_XXXX,420000). 
+-->
+    <key name="LOG_CONSUME_COIN_SHOP_BUY_BACK" value="420000" desc="道具回购失去" />
+    <key name="LOG_CONSUME_COIN_MISSION_RECOLOR" value="420001" desc="任务刷新品质失去" />
+    
+<!-- 
+ 通用获得日志 ,以LOG_GAIN_COMMON_为前缀,编码范围[510000,519999]
+ 例子-define(LOG_GAIN_COMMON__XXXX,500000). 
+-->
+     <key name="LOG_GAIN_COMMON_GOODS_USE_CODE_REPUTE" value="510004" desc="使用道具获得军功" />
+     <key name="LOG_GAIN_COMMON_MISSION_USE_CODE_REPUTE" value="510008" desc="任务奖励获得军功" />
+     <key name="LOG_GAIN_COMMON_ONLINE_AWARD_REPUTE" value="510018" desc="在线奖励获得军功" />
+     <key name="LOG_GAIN_COMMON_JOB_ACTIVE" value="510022" desc="活跃度励获得军功" />
+     <key name="LOG_GAIN_COMMON_GOODS_USE_FRAG" value="510027" desc="使用道具获得武将碎片" />
+     <key name="LOG_GAIN_COMMON_ENLIST_HERO_FRAG" value="510028" desc="招募将领获得武将碎片" />
+ <!-- 
+ 通用失去日志 ,以LOG_CONSUME_COMMON_为前缀,编码范围[520000,529999]
+ 例子-define(LOG_CONSUME_COMMON__XXXX,520000). 
+ -->
+    <key name="LOG_CONSUME_COMMON_CHAT_ENERGY" value="520000" desc="聊天消耗活力值" />
+    <key name="LOG_CONSUME_COMMON_EXCHANGE_SHOP_REPUTE" value="520004" desc="兑换消耗军功" />
+    <key name="LOG_CONSUME_COMMON_EXCHANGE_SHOP_GONGXUN" value="520005" desc="兑换消耗功勋" />
+    <key name="LOG_CONSUME_COMMON_EXCHANGE_HERO_FRAG" value="520013" desc="交换将领消耗武将碎片" />
+</keys>

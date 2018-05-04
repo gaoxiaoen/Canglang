@@ -1,0 +1,656 @@
+<h1>
+    <span style="font-family:Microsoft YaHei;">梦幻飞仙 海外工作说明</span> 
+</h1>
+<blockquote>
+    <span style="font-family:Microsoft YaHei;">@author liuweihua</span></br>
+    <span style="font-family:Microsoft YaHei;">@version 2013-03-14</span> 
+</blockquote>
+<h2>
+    <span style="font-family:Microsoft YaHei;"><a name="topic">本文档讨论到的问题如下</a></span> 
+</h2>
+<ul>
+    <li>
+    <span style="font-family:Microsoft YaHei;"><a href="#about_servers">关于所有测试服</a></span> 
+    </li>
+    <li>
+    <span style="font-family:Microsoft YaHei;"><a href="#about_module">关于功能屏蔽开放模式</a></span> 
+    </li>
+    <li>
+    <span style="font-family:Microsoft YaHei;"><a href="#about_git">关于服务端版本库维护</a></span> 
+    </li>
+    <li>
+    <span style="font-family:Microsoft YaHei;"><a href="#about_translation">关于服务端翻译工作</a></span> 
+    </li>
+</ul>
+<h3>
+    <span style="font-family:Microsoft YaHei;"><a name="about_servers", href="#topic">关于所有测试服</a></span> 
+</h3>
+<blockquote>
+    <ul>
+        <li>
+        <span style="font-family:Microsoft YaHei;">涉及的测试服务器:</span> 
+        </li>
+        <blockquote>
+            <span style="font-family:Microsoft YaHei;">源码只放飞仙服务器，台湾，泰国，韩国的服务器只放可执行文件, 其中越南测试服部署在飞仙服务器上，韩国/泰国测试服部署在平台方服务器上，台湾测试服双方都有部署(因为GFW的原因)</span></br>
+            <table border="1", cellpadding="5">
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">飞仙服务器</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">121.10.118.185</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">台湾服务器</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">210.242.120.76</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">tw</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">韩国服务器</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">220.181.83.42</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">kr</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">泰国服务器</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">209.177.84.25</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">th</span>
+                    </td>
+                </tr>
+            </table>
+        </blockquote>
+        <li>
+        <span style="font-family:Microsoft YaHei;">各个测试服分布:</span> 
+        </li>
+        <blockquote>
+            <table border="1", cellpadding="5">
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">台湾 0 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/tw_mhfx0/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">tw:/data/cmwebgame_mhfx0/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                            http://fc0.cmwebgame.com/api/t.html
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">台湾 next 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/tw_mhfx_next/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;"></span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                            http://twn0.cmwebgame.com/api/t.html
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">台湾 center 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/tw_mhfx_center/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">tw:/data/tw_mhfx_center/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                        </span>
+                    </td>
+                </tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">韩国 0 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/korea_mhfx0/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">kr:/data/korea_mhfx0/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                            http://s0.mhfx.koramgame.co.kr/api/t.html
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">韩国 next 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/korea_mhfx_next/</span></br>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">kr:/data/korea_mhfx_next/</span></br>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                            http://n0cn.mhfx.koramgame.co.kr/t.html
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">韩国 center 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;"></span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">kr:/data/kr_mhfx_center/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                        </span>
+                    </td>
+                </tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">泰国 0 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/Thmh_t0/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">th:/data/Thmh_t0/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                            http://t0.pd.koramgame.in.th/api/t.html
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">泰国 next 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/Thmh_t0cn_next/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">th:/data/Thmh_t0cn_next/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                            http://t0next.pd.koramgame.in.th/t.html
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">泰国 center 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;"></span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">th:/data/thai_cross/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                        </span>
+                    </td>
+                </tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">越南 0 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/mhfx.phitien.com/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;"></span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                            http://t0.phitien.com/api/t.html
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">越南 next 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/next_phitien.com/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;"></span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                            http://n0.phitien.com/t.html
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">越南 center 服</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">fx:/data/ph_mhfx_center/</span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;"></span>
+                    </td>
+                    <td>
+                        <span style="font-family:Microsoft YaHei;">
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </blockquote>
+    </ul>
+</blockquote>
+<h3>
+    <span style="font-family:Microsoft YaHei;"><a name="about_module", href="#topic">关于功能屏蔽开放模式</a></span> 
+</h3>
+<blockquote>
+    <p>
+    <span style="font-family:Microsoft YaHei;">台湾不采用该模式</span> 
+    </p>
+</blockquote>
+<blockquote>
+    <p>
+    <span style="font-family:Microsoft YaHei;">针对海外（韩国，越南，泰国）平台采用功能屏蔽开放模式，针对某个版本，运营的负责人与策划方进行商讨，合理划分功能块，</span> 
+    </p>
+    <p>
+    <span style="font-family:Microsoft YaHei;">进行分“期”处理。此后根据平台需求逐步更新（开放）对应的“期"的功能块。为了有效的进行屏蔽开放工作，应根据分“期”情况，</span> 
+    </p>
+    <p>
+    <span style="font-family:Microsoft YaHei;">从最后一期开始逐期进行屏蔽，在版本库中，每期屏蔽完成应进行一次commit，并做好详细的注释。后续功能开放时，反向操作即可。</span> 
+    </p>
+</blockquote>
+<h3>
+    <span style="font-family:Microsoft YaHei;"><a name="about_git", href="#topic">关于服务端版本库维护</a></span> 
+</h3>
+<h4>
+    <ul>
+        <li>
+        <span style="font-family:Microsoft YaHei;"><a href="#git_tw">台湾</a></span> 
+        </li>
+        <li>
+        <span style="font-family:Microsoft YaHei;"><a href="#git_haiwai">韩国/越南/泰国</a></span> 
+        </li>
+    </ul>
+</h4>
+<blockquote>
+    <h4>
+        <span style="font-family:Microsoft YaHei;"><a name="git_tw", href="#about_git">版本维护  ——  台湾</a></span> 
+    </h4>
+</blockquote>
+<ul>
+    <p>
+    <span style="font-family:Microsoft YaHei;">台湾采用了4个分支，分别是,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">master_track_tw</span></strong><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">tw_next_develop</span><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">tw_master</span><span style="line-height:1.5;">,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">tw_develop</span></strong> 
+    </p>
+    <li>
+    <strong><span style="font-family:'Microsoft YaHei';">master_track_tw</span></strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">该分支提供三个功能，第一：从国服 master 上去版本, merge 相应的tag；第二：针对台湾版本做一些持久化修改，比如去掉敏感词库, 开启跨服聊天, 屏蔽强化祝福等；第三：作为 tw_next_develop 分支的来源</span> 
+    </blockquote>
+    <li>
+    <strong><span style="font-family:'Microsoft YaHei';">tw_next_develop</span></strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">该分支立足于：预备当前规划的下一次的版本更新， 该分支需要从 master_track_tw 上取下一次需要更新的版本。且应该在该分支上做只针对当前版本需要做的特殊化处理，所以建议每次版本更新采用覆盖的方式, 即：每次版本更新先清空该分支下文件，再拷贝 master_track_tw 上的文件到该分支下。该分支对应测试服的NEXT服。</span> 
+    </blockquote>
+    <li>
+    <strong><span style="font-family:'Microsoft YaHei';">tw_develop</span></strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            该分支相当于国服的 develop，作为针对线上服的测试服。每次版本更新应该 merge 分支 tw_next_develop。该分支对应测试服的 0 服
+        </span>
+    </blockquote>
+    <li>
+    <strong><span style="font-family:'Microsoft YaHei';">tw_master</span></strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            该分支相当于国服的 master，直供台湾线上服，新开服。每次版本更新应该 merge 分支 tw_develop。
+        </span>
+    </blockquote>
+</ul>
+<blockquote>
+    <h4>
+        <span style="font-family:Microsoft YaHei;"><a name="git_haiwai", href="#about_git">版本维护  ——  韩国/越南/泰国</a></span> 
+    </h4>
+</blockquote>
+<ul>
+    <p>
+    <span style="font-family:Microsoft YaHei;">这些国家采用了5个分支，分别是,&nbsp;</span>
+    </p>
+    <p>
+    <span style="font-family:Microsoft YaHei;">韩国:&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">master_track_kr</span></strong><span style="line-height:1.5;">,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">kr_next_version</span></strong><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">kr_next_develop</span><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">kr_master</span><span style="line-height:1.5;">,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">kr_develop</span></strong> 
+    </p>
+    <p>
+    <span style="font-family:Microsoft YaHei;">越南:&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">master_track_vnm</span></strong><span style="line-height:1.5;">,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">vnm_next_version</span></strong><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">vnm_next_develop</span><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">vnm_master</span><span style="line-height:1.5;">,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">vnm_develop</span></strong> 
+    </p>
+    <p>
+    <span style="font-family:Microsoft YaHei;">泰国:&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">master_track_th</span></strong><span style="line-height:1.5;">,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">thai_next_version</span></strong><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">thai_next_develop</span><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">thai_master</span><span style="line-height:1.5;">,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">thai_develop</span></strong> 
+    </p>
+    <p>
+    <span style="font-family:Microsoft YaHei;">下面采用了后面5个通用分支名来说明,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">master_track_xx</span></strong><span style="line-height:1.5;">,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">xx_next_version</span></strong><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">xx_next_develop</span><span style="line-height:1.5;">,&nbsp;</span><span style="line-height:1.5;font-weight:bold;font-family:'Microsoft YaHei';">xx_master</span><span style="line-height:1.5;">,&nbsp;</span><strong><span style="font-family:Microsoft YaHei;">xx_develop</span></strong> 
+    </p>
+    <p>
+    <li>
+    <strong><span style="font-family:'Microsoft YaHei';">master_track_xx</span></strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">该分支提供三个功能，第一：从国服 master 上去版本, merge 相应的 tag；第二：针对给平台版本做一些持久化修改，比如去掉敏感词库, 关闭答题系统，开启跨服聊天, 注册字符限制，屏蔽强化祝福等；第三：作为 xx_next_version 分支的来源</span> 
+    </blockquote>
+    <li>
+    <strong><span style="font-family:'Microsoft YaHei';">xx_next_version</span></strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">该分支立足于：预备当前规划的下一次的版本更新, 非采用屏蔽模式的分期更新， 该分支需要从 master_track_xx 上取下一次需要更新的版本。且应该在该分支上做只针对当前版本需要做的特殊化处理，所以建议每次版本更新采用覆盖的方式, 即：每次版本更新先清空该分支下文件，再拷贝 master_track_xx 上的文件到该分支下。鉴于翻译的时间消耗，应尽早规划下一次的版本更新，同时也体现该分支的必要性。</span> 
+    </blockquote>
+    <li>
+    <strong><span style="font-family:'Microsoft YaHei';">xx_next_develop</span></strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">该分支立足于：预备当前规划的下一次的采用屏蔽模式的分期更新， 该分支需要根据分期规划开放相应的功能模块等。同时每个版本的分期性屏蔽处理应该在该分支上进行。如果是版本更新，应该 merge 分支 xx_next_version。该分支对应测试服的NEXT服。</span> 
+    </blockquote>
+    <li>
+    <strong><span style="font-family:'Microsoft YaHei';">xx_develop</span></strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            该分支相当于国服的 develop，作为针对线上服的测试服。每次版本(分期)更新应该 merge 分支 xx_next_develop。该分支对应测试服的 0 服
+        </span>
+    </blockquote>
+    <li>
+    <strong><span style="font-family:'Microsoft YaHei';">xx_master</span></strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            该分支相当于国服的 master，直供线上服，新开服。每次版本(分期)更新应该 merge 分支 xx_develop。
+        </span>
+    </blockquote>
+</ul>
+<h3>
+    <span style="font-family:Microsoft YaHei;"><a name="about_translation", href="#topic">关于服务端翻译工作</a></span> 
+</h3>
+<h4>
+    <ul>
+        <li>
+        <span style="font-family:Microsoft YaHei;"><a href="#tr_tw">台湾</a></span> 
+        </li>
+        <li>
+        <span style="font-family:Microsoft YaHei;"><a href="#tr_haiwai">韩国/越南/泰国</a></span> 
+        </li>
+    </ul>
+</h4>
+<blockquote>
+    <h4>
+        <span style="font-family:Microsoft YaHei;"><a name="tr_tw", href="#about_translation">翻译工作  ——  台湾</a></span> 
+    </h4>
+</blockquote>
+<ul>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            1:更新ldata.hrl文件
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 ldata:find/0 会更新 ldata.hrl 文件,
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            2:更新源码中数据文件(文件名包括data)
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            确认 ldata.hrl 文件没有问题后，通过 ldata:replace/0 将数据文件中的简体中文上加上 多语言函数头 language:get/1 
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            3:进行一次编译
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            将一些明显的问题处理了
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            4:导入现有繁化好了的数据到 dets 文件
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 lserver:import/1 导入现有繁化好了的翻译数据(server_done.xml)
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            5:重置翻译数据版本号
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 lserver:set_ver/1, 这里传入参数为 0 
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            6:重新抽取简体
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 lserver:ext/0 重新抽取语言包
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            7:导出新增未繁化语言包
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 lserver:export/1 这里参数是 undone, 导出的文件是 server_undone.xml
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            8:繁化新增语言包
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 office 简转繁，将 cn 列的简体拷贝到 tr 列，在单独将 tr 列的进行简转繁
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            9:修改特殊翻译内容
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            用 vim 打开 server_undone.xml， 通过正则将 繁体中的 夢幻飛仙 改成 萌飛仙，充值 改成 儲值，首充 改成首儲，如下:
+            <blockquote>
+                %s/夢幻飛仙/萌飛仙/g</br>
+                %s/\(.*\)&lt;tr&gt;\(.*\)充值\(.*\)/\1&lt;tr&gt;\2儲值\3/g</br>
+                %s/\(.*\)&lt;tr&gt;\(.*\)首充\(.*\)/\1&lt;tr&gt;\2首儲\3/g
+            </blockquote>
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            10:导入繁化好了的新增语言包
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 lserver:import/1 导入新增繁化好了的翻译数据(server_undone.xml)
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            11:生成新的erl语言包
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 lserver:gen/0 会生成新的 language.erl 文件
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            12:导出新的语言包
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 lserver:export/1 这里参数是 done, 导出的文件是 server_done.xml
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            13:检测language.erl 文件
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            根据错误，并修正相应的文件
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            14:提交语言包
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            server_done.xml , language.erl 等
+        </span>
+    </blockquote>
+</ul>
+<blockquote>
+    <h4>
+        <span style="font-family:Microsoft YaHei;"><a name="tr_haiwai", href="#about_translation">翻译工作  ——  韩国/越南/泰国</a></span> 
+    </h4>
+</blockquote>
+<ul>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            1:更新ldata.hrl文件
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            通过 ldata:find/0 会更新 ldata.hrl 文件,
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            2:更新源码中数据文件(文件名包括data)
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            确认 ldata.hrl 文件没有问题后，通过 ldata:replace/0 将数据文件中的简体中文上加上 多语言函数头 language:get/1 
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            3:进行一次编译
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            将一些明显的问题处理了
+        </span>
+    </blockquote>
+    <li>
+    <strong>
+        <span style="font-family:'Microsoft YaHei';">
+            待续
+        </span>
+    </strong> 
+    </li>
+    <blockquote>
+        <span style="font-family:'Microsoft YaHei';">
+            待续
+        </span>
+    </blockquote>
+</ul>
