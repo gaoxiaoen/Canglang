@@ -28,10 +28,13 @@ get_range(Rid, SrvId, Career) ->
     %% ?DEBUG("Rid:~w, SrvId:~w",[Rid, SrvId]),
     RangeRole = do_get_range(Rid, SrvId, Career),
     %%to_show(RangeRole),
-    RangeRole.
+  RangeRole.
 
 %% 获取英雄榜
 get_cross_hero() ->
+
+
+
     RankMs = [{
             #c_arena_career_role{rank = '$1', _ = '_'},
             [{'andalso', {'>=', '$1', 1}, {'=<', '$1', 100}}],
@@ -44,7 +47,7 @@ get_cross_hero() ->
 sign(Data) ->
     case do_sign(Data) of
         ok -> ok;
-        _X -> 
+        _X ->
             ?ERR("_X:~w",[_X]),
             false
     end.
@@ -198,7 +201,7 @@ do_get_range(Rid, SrvId, Career) ->
                     ['$_']
                 }],
             ets:select(c_arena_career_rank, RankMs);
-        _X -> 
+        _X ->
             ?ERR("无法查询该角色排名,Reason:~w",[_X]),
             []
     end.

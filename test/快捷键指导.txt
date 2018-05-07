@@ -1,0 +1,6 @@
+1.快速查找文件 Ctrl+Shift+R
+2.快速查找类 Ctrl+Shift+T
+3.文件内搜索 Ctrl+F
+
+1.1 如何修改代码缩进
+    File->Settings->Code Style->Erlang (TabSize :2 Indent:4)即可设置缩进为4.

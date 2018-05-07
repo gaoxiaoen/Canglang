@@ -1,5 +1,5 @@
 -module(lib_misc).
--export([qsort/1,pythag/1,perms/1,odds_and_evensl/1,odds_and_evens2/1,count_characters/1]).
+-export([qsort/1,pythag/1,perms/1,odds_and_evensl/1,odds_and_evens2/1,count_characters/1,sqrt/1]).
 
 % 快排算法
 qsort([])->[];
@@ -51,12 +51,17 @@ count_characters(Str) ->
 	
 count_characters([H|T],X) ->
 	count_characters(T,X#{H=>1});
-	
-count_characters([H|T],#{H :=N}=X) ->
-	count_characters(T,X#{H:=N+1});
 
 count_characters([],X) ->
-	X.
+  X.
+
+sqrt(X) when X<0 ->
+    error({squareRootNegativeArgument,X});
+sqrt(X) ->
+
+    math:sqrt(X).
+
+
 
 
 
