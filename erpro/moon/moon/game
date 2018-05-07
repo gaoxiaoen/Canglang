@@ -101,7 +101,7 @@ fun_restart(){
 fun_control(){
     # 生成启动脚本 
     start_sh=${DIR_ROOT}/${NODE_CTRL}.sh
-    CMD="${ERL} -hidden -kernel inet_dist_listen_min ${ERL_PORT_MIN} -kernel inet_dist_listen_max ${ERL_PORT_MAX} +P 204800 +K true -smp enable -name ${NODE_CTRL} -setcookie ${ERL_COOKIE} -config elog -s main start -extra control ${NODE_MASTER}"
+    CMD="${ERL} -hidden -kernel inet_dist_listen_min ${ERL_PORT_MIN} -kernel inet_dist_listen_max ${ERL_PORT_MAX} +P 204800 +K true -smp enable -name ${NODE_CTRL} -setcookie ${ERL_COOKIE} -config elog -s PPp start -extra control ${NODE_MASTER}"
     cat > ${start_sh} <<EOF
 #!/bin/bash
 cd ${DIR_ROOT}/ebin
