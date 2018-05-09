@@ -2,6 +2,10 @@
 2.快速查找类 Ctrl+Shift+T
 3.文件内搜索 Ctrl+F
 4.打开终端命令行 Alt+F12
+5.查找任何地方的 连续按两次Shift键
+6.全局所有关键字 Ctrl + H
+7.在一个编辑器中，同时导入多个项目 File->Project Structure->Modules-> + 即可
+8.函数定义跳转 F12
 
 
 1.1 如何修改代码缩进

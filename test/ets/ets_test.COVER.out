@@ -1,0 +1,33 @@
+File generated from g:/Canglang/test/ets/ets_test.erl by COVER 2018-05-09 at 11:06:41
+
+****************************************************************************
+
+        |  %%%-------------------------------------------------------------------
+        |  %%% @author Administrator
+        |  %%% @copyright (C) 2018, <COMPANY>
+        |  %%% @doc
+        |  %%%
+        |  %%% @end
+        |  %%% Created : 09. 五月 2018 9:50
+        |  %%%-------------------------------------------------------------------
+        |  -module(ets_test).
+        |  -author("Administrator").
+        |  
+        |  %% API
+        |  -export([start/0]).
+        |  
+        |  start() ->
+     1..|      lists:foreach(fun test_ets/1,
+        |          [set,ordered_set,bag,duplicate_bag]).
+        |  
+        |  test_ets(Mode) ->
+     4..|      TableId = ets:new(test,[Mode]),
+     4..|      ets:insert(TableId,{a,1}),
+     4..|      ets:insert(TableId,{b,2}),
+     4..|      ets:insert(TableId,{a,1}),
+     4..|      ets:insert(TableId,{b,3}),
+     4..|      List = ets:tab2list(TableId),
+     4..|      io:format("~-13w => ~p~n",[Mode,List]),
+     4..|      ets:delete(TableId).
+        |  
+        |  
