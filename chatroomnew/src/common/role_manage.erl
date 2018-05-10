@@ -15,7 +15,6 @@
 -export([handle_info/2,handle_cast/2,handle_call/3,terminate/2,code_change/3]).
 
 -record(clientinfo,{pid,socket}).
-
 -record(roleid,{id=0}).
 
 start_link()->
@@ -56,15 +55,12 @@ sendMsg(Key,Msg) ->
             Pid=Record#clientinfo.pid,
             Socket = Record#clientinfo.socket,
             io:format("send smg to role_socket ~p,~p~n",[Pid,Socket]),
-%%            Pid!{bind,Socket},
-            Pid!{sendmsg,Msg,Socket},
+            Pid!{sendmsg,Msg},
             Next=ets:next(clientinfo, Key),
             sendMsg(Next,Msg);
         []->
-            io:format("no msg send eng! ~n")
+            io:format("msg send end! ~n")
     end.
-
-
 
 %%process messages
 handle_info(Request,State)->
@@ -88,7 +84,7 @@ bindsocket(Socket) ->
             io:format("binding socket...error~n");
         ok ->
             NewRec =#clientinfo{socket=Socket,pid=Pid},
-            io:format("chat_room:insert record ~p~n",[NewRec]),
+            io:format("role_manage:insert record ~p~n",[NewRec]),
             ets:insert(clientinfo,NewRec),
             Pid!{bind,Socket},
             io:format("clientBinded~n")

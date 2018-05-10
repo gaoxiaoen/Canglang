@@ -14,74 +14,34 @@
     <option name="CLEAR_OUTPUT_DIRECTORY" value="false" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5978584">
+    <splitter split-orientation="horizontal" split-proportion="0.45712522">
       <split-first>
         <leaf>
-          <file leaf-file-name="client.erl" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/client.erl">
+          <file leaf-file-name="chatroom.erl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/chatroom/chatroom.erl">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="141">
-                  <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+                <state relative-caret-position="413">
+                  <caret line="109" column="15" lean-forward="true" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="快捷键指导.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../test/快捷键指导.txt">
+          <file leaf-file-name="role_manage.erl" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/common/role_manage.erl">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="294">
-                  <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="49" />
+                <state relative-caret-position="252">
+                  <caret line="45" column="15" lean-forward="false" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="send_msg.erl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/client/send_msg.erl">
+          <file leaf-file-name="role_socket.erl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/common/role_socket.erl">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="378">
-                  <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="rec_msg.erl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/client/rec_msg.erl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="309">
-                  <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="chat_room.erl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../chatroom/src/server/chat_room.erl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="264">
-                  <caret line="115" column="33" lean-forward="false" selection-start-line="115" selection-start-column="23" selection-end-line="115" selection-end-column="33" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="client_session.erl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../chatroom/src/server/client_session.erl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="220">
-                  <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="chat_acceptor.erl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../chatroom/src/server/chat_acceptor.erl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+                <state relative-caret-position="98">
+                  <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
@@ -91,51 +51,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="tcp_link.erl" pinned="false" current-in-tab="false">
+          <file leaf-file-name="tcp_link.erl" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/common/tcp_link.erl">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="441">
-                  <caret line="51" column="28" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="server.erl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/server.erl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="168">
-                  <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="role_socket.erl" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/common/role_socket.erl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="464">
-                  <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="role_manage.erl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/common/role_manage.erl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="246">
-                  <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ets.erl" pinned="false" current-in-tab="false">
-            <entry file="file://C:/Program Files/erl7.3/lib/stdlib-2.8/src/ets.erl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="706">
-                  <caret line="269" column="20" lean-forward="true" selection-start-line="269" selection-start-column="20" selection-end-line="269" selection-end-column="20" />
+                  <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -159,8 +79,8 @@
       <find>clientinfo</find>
       <find>handle_info</find>
       <find>broadcastmsg</find>
-      <find>sendmsg</find>
       <find>broadCastMsg</find>
+      <find>sendmsg</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -176,12 +96,13 @@
         <option value="$PROJECT_DIR$/src/common/tcp_link.erl" />
         <option value="$PROJECT_DIR$/../chatroom/src/server/client_session.erl" />
         <option value="$PROJECT_DIR$/../chatroom/src/server/chat_room.erl" />
-        <option value="$PROJECT_DIR$/src/common/role_manage.erl" />
-        <option value="$PROJECT_DIR$/src/common/role_socket.erl" />
         <option value="$PROJECT_DIR$/src/login_start.erl" />
         <option value="$PROJECT_DIR$/src/client/send_msg.erl" />
         <option value="$PROJECT_DIR$/src/client/rec_msg.erl" />
         <option value="$PROJECT_DIR$/src/client.erl" />
+        <option value="$PROJECT_DIR$/src/common/role_socket.erl" />
+        <option value="$PROJECT_DIR$/src/chatroom/chatroom.erl" />
+        <option value="$PROJECT_DIR$/src/common/role_manage.erl" />
       </list>
     </option>
   </component>
@@ -213,21 +134,6 @@
           <expand>
             <path>
               <item name="chatroomnew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatroomnew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatroomnew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatroomnew" type="b2602c69:ProjectViewProjectNode" />
               <item name="chatroomnew" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -244,7 +150,7 @@
               <item name="chatroomnew" type="b2602c69:ProjectViewProjectNode" />
               <item name="chatroomnew" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatroomnew" type="b2602c69:ProjectViewProjectNode" />
@@ -587,58 +493,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/role_manage.erl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../chatroom/src/server/chat_room.erl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="115" column="33" lean-forward="false" selection-start-line="115" selection-start-column="23" selection-end-line="115" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/tcp_link.erl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="51" column="28" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server.erl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/role_socket.erl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/rec_msg.erl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/send_msg.erl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -651,10 +509,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/send_msg.erl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client.erl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        <state relative-caret-position="288">
+          <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/rec_msg.erl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server.erl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chatroom/chatroom.erl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="109" column="15" lean-forward="true" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/role_socket.erl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/tcp_link.erl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/role_manage.erl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="45" column="15" lean-forward="false" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
           <folding />
         </state>
       </provider>

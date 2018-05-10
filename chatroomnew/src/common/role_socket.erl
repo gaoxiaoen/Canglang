@@ -58,12 +58,15 @@ loop(Socket) ->
     receive
         {tcp,Socket,Bin} ->
             Str = binary_to_term(Bin),
-            io:format("Server login: ~p ~n",[Str]),
-            role_manage:broadcastmsg(Str);
-        {sendmsg,Msg,Socket} ->
-            io:format("Server_loop sendmsg: ~p ~p ~n",[Socket,Msg]),
-            CStr =io_lib:format("[~p]welcome:~p",[Socket,Msg]),
-            gen_tcp:send(Socket,term_to_binary(CStr))
+            io:format("[~p]say: ~p ~n",[Socket,Str]),
+            CStr =io_lib:format("[~p]say: ~p ",[Socket,Str]),
+            role_manage:broadcastmsg(CStr);
+        {sendmsg,Msg} ->
+%%            io:format("Server_loop sendmsg: ~p ~p ~n",[Socket,Msg]),
+%%            CStr =io_lib:format("[~p]welcome:~p",[Socket,Msg]),
+            gen_tcp:send(Socket,term_to_binary(Msg));
+        {tcp_closed,Socket} ->
+            io:format("client close")
     end,
     loop(Socket).
 
