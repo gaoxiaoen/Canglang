@@ -11,10 +11,12 @@
 
 -behaviour(gen_server).
 %% API
--export([start_link/0,init/1,bindsocket/1]).
+-export([start_link/0,init/1,bindsocket/1,broadcastmsg/1]).
 -export([handle_info/2,handle_cast/2,handle_call/3,terminate/2,code_change/3]).
 
 -record(clientinfo,{pid,socket}).
+
+-record(roleid,{id=0}).
 
 start_link()->
     gen_server:start_link({local,?MODULE}, ?MODULE, [],[]).
@@ -22,20 +24,47 @@ start_link()->
 %% 创建一个ets,保存所有登录玩家的数据
 init([])->
 %%    创建一个ets表保存进入房间的信息
-%%    {ok,ets:new(roleinfo,[set,protected])}.
     {ok,ets:new(clientinfo,[set,public,named_table,{keypos,#clientinfo.pid}])}.
 
 
 %% 根据Id开启一个客户端的进程信息，此ID可以标识为房间号id
 handle_call({getpid},From,State)->
-    {ok,Pid}= role_socket:start_link(),
+    Id = #roleid.id,
+    io:format(" Id = ~p ~n",[Id]),
+    {ok,Pid}= role_socket:start_link(Id),
+    NewId = Id+1,
+    io:format(" new Id = ~p ~n",[Id]),
+    #roleid{id=NewId},
     io:format("new pid is create,~p~n",[Pid]),
     {reply,Pid,State};
 
 %% 根据pid来删除数据
 handle_call({remove_clientinfo,Ref},From,State)->
     Key=Ref#clientinfo.pid,
-    ets:delete(clientinfo, Key).
+    ets:delete(clientinfo, Key);
+
+handle_call({brocastmsg,Msg},From,State) ->
+    Key = ets:first(clientinfo),
+    io:format("feching talbe key is ~p~n",[Key]),
+    sendMsg(Key,Msg),
+    {reply,ok,State}.
+
+sendMsg(Key,Msg) ->
+    case ets:lookup(clientinfo,Key) of
+        [Record] ->
+            io:format("Record found ~p~n",[Record]),
+            Pid=Record#clientinfo.pid,
+            Socket = Record#clientinfo.socket,
+            io:format("send smg to role_socket ~p,~p~n",[Pid,Socket]),
+%%            Pid!{bind,Socket},
+            Pid!{sendmsg,Msg,Socket},
+            Next=ets:next(clientinfo, Key),
+            sendMsg(Next,Msg);
+        []->
+            io:format("no msg send eng! ~n")
+    end.
+
+
 
 %%process messages
 handle_info(Request,State)->
@@ -64,3 +93,7 @@ bindsocket(Socket) ->
             Pid!{bind,Socket},
             io:format("clientBinded~n")
     end.
+
+%% 先把这个当作一个房间来处理，所有登录的玩家都是在一个房间里，发送消息
+broadcastmsg(Msg) ->
+    gen_server:call(?MODULE,{brocastmsg,Msg}).

@@ -23,7 +23,8 @@ send_chat(Socket) ->
     receive
         {tcp,Socket,Bin} ->
             Bin2 = binary_to_term(Bin),
-            io:format("Client received binary = ~p ~n",[Bin2])
+            Bin3 = binary_to_list(list_to_binary(Bin2)),
+            io:format("Client received binary = ~p ~n",[Bin3])
     end,
     send_chat(Socket).
 
