@@ -6,7 +6,7 @@
 %%% @end
 %%% Created : 10. 五月 2018 15:05
 %%%-------------------------------------------------------------------
--module(start_server).
+-module(server).
 -author("Administrator").
 
 %% API
