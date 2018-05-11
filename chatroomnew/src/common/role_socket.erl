@@ -26,19 +26,17 @@ init(Id) ->
 handle_call(Request,From,State)->
     {reply,ok,State}.
 
-handle_info({bind,Socket},State) ->
+handle_info({bind,Socket,Id},State) ->
     io:format("client socket link server ok~n"),
-    NewRole = #clientinfo{socket=Socket},
+    NewRole = #clientinfo{socket=Socket,id = Id},
     io:format("NewRole info ~p~n",[NewRole]),
-    loop(Socket),
+    loop(Socket,Id),
     {noreply,NewRole};
 
 %% 发送全房间消息到各个房间内的客户端
-handle_info({sendmsg,Msg,Socket},State) ->
-    Str = binary_to_term(Msg),
-    io:format("Server sendmsg: ~p ~p ~n",[Str,Socket]),
-    CStr = Socket ++ ":welcome：" ++ [Str],
-    gen_tcp:send(Socket,term_to_binary(CStr));
+handle_info({stop},State) ->
+    {stop,normal,State};
+
 
 handle_info(Request,State)->
     {noreply,State}.
@@ -47,6 +45,7 @@ handle_cast(Request,State)->
     {noreply,State}.
 
 terminate(_Reason,State)->
+
     ok.
 
 code_change(_OldVersion,State,Ext)->
@@ -54,20 +53,41 @@ code_change(_OldVersion,State,Ext)->
 
 
 %% 接受客户端发送的消息，试试看
-loop(Socket) ->
+loop(Socket,Id) ->
     receive
         {tcp,Socket,Bin} ->
-            Str = binary_to_term(Bin),
-            io:format("[~p]say: ~p ~n",[Socket,Str]),
-            CStr =io_lib:format("[~p]say: ~p ",[Socket,Str]),
-            role_manage:broadcastmsg(CStr);
+            packmsg(Bin,Id);
         {sendmsg,Msg} ->
-%%            io:format("Server_loop sendmsg: ~p ~p ~n",[Socket,Msg]),
-%%            CStr =io_lib:format("[~p]welcome:~p",[Socket,Msg]),
+            gen_tcp:send(Socket,term_to_binary(Msg));
+%%        登录成功
+        {loginok,Msg} ->
             gen_tcp:send(Socket,term_to_binary(Msg));
         {tcp_closed,Socket} ->
-            io:format("client close")
+            io:format("client close"),
+            role_manage:delete_role(Id)
+
     end,
-    loop(Socket).
+    loop(Socket,Id).
+
+%% 处理消息包处理
+packmsg(Bin,Id) ->
+    [CType, Arg] = binary_to_term(Bin),
+    if CType == "login" ->
+            role_manage:check_name(Id,Arg);
+        CType == "msg" ->
+            io:format("pack,msg Id=~p~n",[Id]),
+            role_manage:send_roommsg(Id,Arg);
+        CType == "room" ->  %% 开启一个房间
+%%            IntId = list_to_integer(Id),
+            io:format("[role_socket] create room Id=~p,roomId=~p~n",[Id,Arg]),
+            role_manage:enter_room(Arg,Id);
+        CType == "adm" ->
+            io:format("[role_socket] change adm start  ... srID=~p,DId=~p~n",[Id,Arg]),
+%%            DId = list_to_integer(Arg),
+            role_manage:change_adm(Id,Arg);
+        true ->
+            io:format("Can't not parse msg...Arg=~p,CType=~p~n",CType,Arg)
+    end.
+
 
 

@@ -21,9 +21,60 @@ login() ->
     send_chat(Socket).
 
 send_chat(Socket) ->
-    Account = io:get_line('Input you account:'),
-    ok = gen_tcp:send(Socket,term_to_binary(Account)),
-    send_chat(Socket).
+    Type = io:get_line("type:"),
+    Ntype =string:tokens(Type,"\n"),
+    [CType|_] = Ntype,
+    io:format("type=~p~n",[CType]),
+    if CType == "login" ->   %% 登录
+            Arg = io:get_line("Account:"),
+            send_socket(Socket,CType,Arg);
+        CType == "msg" ->     %% 发消息
+            Arg = io:get_line("Say:"),
+            send_socket(Socket,CType,Arg);
+        CType == "room" ->     %% 进入房间（如果不存在，则创建一个房间）
+            Arg = io:get_line("Id:"),
+            send_socket(Socket,CType,Arg);
+        CType == "adm" ->   %% 转让管理员
+            Arg = io:get_line("Name:"),
+            send_socket(Socket,CType,Arg);
+        true ->
+            io:format("input..."),
+            send_chat(Socket)
+    end.
+
+
+send_socket(Socket,Type,Arg) ->
+    NArg =string:tokens(Arg,"\n"),
+    [CArg|_] = NArg,
+    if
+        Type== "room" ->
+            io:format("arg=~p~n",[CArg]),
+            IArg = list_to_integer(CArg),
+            if
+                is_integer(IArg) ->
+                    ok = gen_tcp:send(Socket,term_to_binary([Type,IArg])),
+                    send_chat(Socket);
+                true ->
+                    io:format("input int..."),
+                    send_chat(Socket)
+            end;
+        Type== "adm" ->
+            io:format("arg=~p~n",[CArg]),
+            IArg = list_to_integer(CArg),
+            if
+                is_integer(IArg) ->
+                    ok = gen_tcp:send(Socket,term_to_binary([Type,IArg])),
+                    send_chat(Socket);
+                true ->
+                    io:format("input int..."),
+                    send_chat(Socket)
+            end;
+        true ->
+            ok = gen_tcp:send(Socket,term_to_binary([Type,CArg])),
+            send_chat(Socket)
+    end.
+
+
 
 receive_chat() ->
     receive

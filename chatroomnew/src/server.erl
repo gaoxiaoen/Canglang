@@ -14,4 +14,5 @@
 
 start() ->
     role_manage:start_link(),
+    chatroommng:start_link(),
     tcp_link:start(3321).
