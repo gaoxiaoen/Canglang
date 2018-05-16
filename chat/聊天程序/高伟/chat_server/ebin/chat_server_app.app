@@ -1,0 +1,12 @@
+{application,chat_server_app,
+             [{description,[]},
+              {vsn,"1"},
+              {registered,[]},
+              {applications,[kernel,stdlib]},
+              {mod,{chat_server_app,[]}},
+              {env,[]},
+              {modules,[chat_server_app,chat_server_sup,lib_account,lib_send,
+                        mod_login,mod_player,pp_account,pp_chat,pt,pt_10,
+                        pt_11,server,server_sup,tcp_acceptor,tcp_acceptor_sup,
+                        tcp_listener,tcp_listener_sup,tcp_reader,
+                        tcp_reader_sup,util]}]}.

@@ -1,0 +1,137 @@
+%%%---------------------------------------
+	%%% @Author  : 苍狼工作室
+	%%% @Module  : data_feixian_skill
+	%%% @Created : 2018-05-03 16:44:06
+	%%% @Description:  自动生成
+	%%%---------------------------------------
+-module(data_feixian_skill).
+-export([get_skillId_by_subtype_lv/2]).
+-export([get_attr_by_subtype_lv/2]).
+-export([get_cost_by_subtype_lv/2]).
+-include("xian.hrl").
+get_skillId_by_subtype_lv(641, 1) -> 8001001;
+get_skillId_by_subtype_lv(641, 2) -> 8001002;
+get_skillId_by_subtype_lv(641, 3) -> 8001003;
+get_skillId_by_subtype_lv(641, 4) -> 8001004;
+get_skillId_by_subtype_lv(641, 5) -> 8001005;
+get_skillId_by_subtype_lv(641, 6) -> 8001006;
+get_skillId_by_subtype_lv(641, 7) -> 8001007;
+get_skillId_by_subtype_lv(641, 8) -> 8001008;
+get_skillId_by_subtype_lv(641, 9) -> 8001009;
+get_skillId_by_subtype_lv(641, 10) -> 8001010;
+get_skillId_by_subtype_lv(642, 1) -> 8003001;
+get_skillId_by_subtype_lv(642, 2) -> 8003002;
+get_skillId_by_subtype_lv(642, 3) -> 8003003;
+get_skillId_by_subtype_lv(642, 4) -> 8003004;
+get_skillId_by_subtype_lv(642, 5) -> 8003005;
+get_skillId_by_subtype_lv(642, 6) -> 8003006;
+get_skillId_by_subtype_lv(642, 7) -> 8003007;
+get_skillId_by_subtype_lv(642, 8) -> 8003008;
+get_skillId_by_subtype_lv(642, 9) -> 8003009;
+get_skillId_by_subtype_lv(642, 10) -> 8003010;
+get_skillId_by_subtype_lv(643, 1) -> 8002001;
+get_skillId_by_subtype_lv(643, 2) -> 8002002;
+get_skillId_by_subtype_lv(643, 3) -> 8002003;
+get_skillId_by_subtype_lv(643, 4) -> 8002004;
+get_skillId_by_subtype_lv(643, 5) -> 8002005;
+get_skillId_by_subtype_lv(643, 6) -> 8002006;
+get_skillId_by_subtype_lv(643, 7) -> 8002007;
+get_skillId_by_subtype_lv(643, 8) -> 8002008;
+get_skillId_by_subtype_lv(643, 9) -> 8002009;
+get_skillId_by_subtype_lv(643, 10) -> 8002010;
+get_skillId_by_subtype_lv(644, 1) -> 8004001;
+get_skillId_by_subtype_lv(644, 2) -> 8004002;
+get_skillId_by_subtype_lv(644, 3) -> 8004003;
+get_skillId_by_subtype_lv(644, 4) -> 8004004;
+get_skillId_by_subtype_lv(644, 5) -> 8004005;
+get_skillId_by_subtype_lv(644, 6) -> 8004006;
+get_skillId_by_subtype_lv(644, 7) -> 8004007;
+get_skillId_by_subtype_lv(644, 8) -> 8004008;
+get_skillId_by_subtype_lv(644, 9) -> 8004009;
+get_skillId_by_subtype_lv(644, 10) -> 8004010;
+get_skillId_by_subtype_lv(_subtype, _lv) -> [].
+
+get_attr_by_subtype_lv(641, 1) -> [{att,2500},{crit,500}];
+get_attr_by_subtype_lv(641, 2) -> [{att,5000},{crit,1000}];
+get_attr_by_subtype_lv(641, 3) -> [{att,9375},{crit,1875}];
+get_attr_by_subtype_lv(641, 4) -> [{att,15000},{crit,3000}];
+get_attr_by_subtype_lv(641, 5) -> [{att,21875},{crit,4375}];
+get_attr_by_subtype_lv(641, 6) -> [{att,30000},{crit,6000}];
+get_attr_by_subtype_lv(641, 7) -> [{att,39063},{crit,7813}];
+get_attr_by_subtype_lv(641, 8) -> [{att,48750},{crit,9750}];
+get_attr_by_subtype_lv(641, 9) -> [{att,58750},{crit,11750}];
+get_attr_by_subtype_lv(641, 10) -> [{att,68750},{crit,13750}];
+get_attr_by_subtype_lv(642, 1) -> [{att,2500},{hit,500}];
+get_attr_by_subtype_lv(642, 2) -> [{att,5000},{hit,1000}];
+get_attr_by_subtype_lv(642, 3) -> [{att,9375},{hit,1875}];
+get_attr_by_subtype_lv(642, 4) -> [{att,15000},{hit,3000}];
+get_attr_by_subtype_lv(642, 5) -> [{att,21875},{hit,4375}];
+get_attr_by_subtype_lv(642, 6) -> [{att,30000},{hit,6000}];
+get_attr_by_subtype_lv(642, 7) -> [{att,39063},{hit,7813}];
+get_attr_by_subtype_lv(642, 8) -> [{att,48750},{hit,9750}];
+get_attr_by_subtype_lv(642, 9) -> [{att,58750},{hit,11750}];
+get_attr_by_subtype_lv(642, 10) -> [{att,68750},{hit,13750}];
+get_attr_by_subtype_lv(643, 1) -> [{hp_lim,25000},{ten,500}];
+get_attr_by_subtype_lv(643, 2) -> [{hp_lim,50000},{ten,1000}];
+get_attr_by_subtype_lv(643, 3) -> [{hp_lim,93750},{ten,1875}];
+get_attr_by_subtype_lv(643, 4) -> [{hp_lim,150000},{ten,3000}];
+get_attr_by_subtype_lv(643, 5) -> [{hp_lim,218750},{ten,4375}];
+get_attr_by_subtype_lv(643, 6) -> [{hp_lim,300000},{ten,6000}];
+get_attr_by_subtype_lv(643, 7) -> [{hp_lim,390625},{ten,7813}];
+get_attr_by_subtype_lv(643, 8) -> [{hp_lim,487500},{ten,9750}];
+get_attr_by_subtype_lv(643, 9) -> [{hp_lim,587500},{ten,11750}];
+get_attr_by_subtype_lv(643, 10) -> [{hp_lim,687500},{ten,13750}];
+get_attr_by_subtype_lv(644, 1) -> [{def,2500},{dodge,500}];
+get_attr_by_subtype_lv(644, 2) -> [{def,5000},{dodge,1000}];
+get_attr_by_subtype_lv(644, 3) -> [{def,9375},{dodge,1875}];
+get_attr_by_subtype_lv(644, 4) -> [{def,15000},{dodge,3000}];
+get_attr_by_subtype_lv(644, 5) -> [{def,21875},{dodge,4375}];
+get_attr_by_subtype_lv(644, 6) -> [{def,30000},{dodge,6000}];
+get_attr_by_subtype_lv(644, 7) -> [{def,39063},{dodge,7813}];
+get_attr_by_subtype_lv(644, 8) -> [{def,48750},{dodge,9750}];
+get_attr_by_subtype_lv(644, 9) -> [{def,58750},{dodge,11750}];
+get_attr_by_subtype_lv(644, 10) -> [{def,68750},{dodge,13750}];
+get_attr_by_subtype_lv(_subtype, _lv) -> [].
+
+get_cost_by_subtype_lv(641, 1) -> [{7415006,1}];
+get_cost_by_subtype_lv(641, 2) -> [{7415006,2}];
+get_cost_by_subtype_lv(641, 3) -> [{7415006,3}];
+get_cost_by_subtype_lv(641, 4) -> [{7415006,4}];
+get_cost_by_subtype_lv(641, 5) -> [{7415006,5}];
+get_cost_by_subtype_lv(641, 6) -> [{7415006,6}];
+get_cost_by_subtype_lv(641, 7) -> [{7415006,7}];
+get_cost_by_subtype_lv(641, 8) -> [{7415006,8}];
+get_cost_by_subtype_lv(641, 9) -> [{7415006,9}];
+get_cost_by_subtype_lv(641, 10) -> [];
+get_cost_by_subtype_lv(642, 1) -> [{7415007,1}];
+get_cost_by_subtype_lv(642, 2) -> [{7415007,2}];
+get_cost_by_subtype_lv(642, 3) -> [{7415007,3}];
+get_cost_by_subtype_lv(642, 4) -> [{7415007,4}];
+get_cost_by_subtype_lv(642, 5) -> [{7415007,5}];
+get_cost_by_subtype_lv(642, 6) -> [{7415007,6}];
+get_cost_by_subtype_lv(642, 7) -> [{7415007,7}];
+get_cost_by_subtype_lv(642, 8) -> [{7415007,8}];
+get_cost_by_subtype_lv(642, 9) -> [{7415007,9}];
+get_cost_by_subtype_lv(642, 10) -> [];
+get_cost_by_subtype_lv(643, 1) -> [{7415008,1}];
+get_cost_by_subtype_lv(643, 2) -> [{7415008,2}];
+get_cost_by_subtype_lv(643, 3) -> [{7415008,3}];
+get_cost_by_subtype_lv(643, 4) -> [{7415008,4}];
+get_cost_by_subtype_lv(643, 5) -> [{7415008,5}];
+get_cost_by_subtype_lv(643, 6) -> [{7415008,6}];
+get_cost_by_subtype_lv(643, 7) -> [{7415008,7}];
+get_cost_by_subtype_lv(643, 8) -> [{7415008,8}];
+get_cost_by_subtype_lv(643, 9) -> [{7415008,9}];
+get_cost_by_subtype_lv(643, 10) -> [];
+get_cost_by_subtype_lv(644, 1) -> [{7415009,1}];
+get_cost_by_subtype_lv(644, 2) -> [{7415009,2}];
+get_cost_by_subtype_lv(644, 3) -> [{7415009,3}];
+get_cost_by_subtype_lv(644, 4) -> [{7415009,4}];
+get_cost_by_subtype_lv(644, 5) -> [{7415009,5}];
+get_cost_by_subtype_lv(644, 6) -> [{7415009,6}];
+get_cost_by_subtype_lv(644, 7) -> [{7415009,7}];
+get_cost_by_subtype_lv(644, 8) -> [{7415009,8}];
+get_cost_by_subtype_lv(644, 9) -> [{7415009,9}];
+get_cost_by_subtype_lv(644, 10) -> [];
+get_cost_by_subtype_lv(_subtype, _lv) -> [].
+

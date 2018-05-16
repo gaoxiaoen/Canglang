@@ -1,0 +1,10 @@
+{application,chat_server,
+             [{description,[]},
+              {vsn,"1"},
+              {registered,[]},
+              {applications,[kernel,stdlib]},
+              {mod,{chat_server_app,[]}},
+              {env,[]},
+              {modules,[chat_room,chat_server_app,chat_server_sup,client,
+                        client_acceptor,client_handler,map_op,mod_db,
+                        mod_room]}]}.

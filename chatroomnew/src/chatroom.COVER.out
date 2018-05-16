@@ -1,0 +1,155 @@
+File generated from g:/Canglang/chatroomnew/src/chatroom/chatroom.erl by COVER 2018-05-14 at 16:07:37
+
+****************************************************************************
+
+        |  %%%-------------------------------------------------------------------
+        |  %%% @author Administrator
+        |  %%% @copyright (C) 2018, <COMPANY>
+        |  %%% @doc
+        |  %%% 房间信息，第一个进入的就是管理员
+        |  %%% @end
+        |  %%% Created : 10. 五月 2018 20:20
+        |  %%%-------------------------------------------------------------------
+        |  -module(chatroom).
+        |  -author("Administrator").
+        |  -behaviour(gen_server).
+        |  
+        |  %% 房间信息
+        |  -record(roominfo,{id=0,admid=none,rolelist=[]}).
+        |  -record(clientinfo,{id,pid,socket,account,roomid}).
+        |  %% API
+        |  -export([start_link/1,init/1]).
+        |  -export([handle_info/2,handle_cast/2,handle_call/3,terminate/2,code_change/3]).
+        |  
+        |  start_link(Id)->
+     1..|      gen_server:start_link(?MODULE, [Id],[]).
+        |  
+        |  init(Id)->
+        |  %%    创建一个ets表保存进入房间的信息,保存房号
+     1..|      State = #roominfo{id=Id},
+     1..|      io:format("[chat_room] create room pro.Id=~p,State=~p~n",[Id,State]),
+     1..|      {ok,State}.
+        |  
+        |  handle_call(Request,From,State) ->
+     0..|      {reply,From,State}.
+        |  
+        |  dismissrole(X) ->
+     0..|      ets:update_element(clientinfo,X,{#clientinfo.roomid,none}).
+        |  
+        |  %% close room
+        |  handle_info({closeroom,Id},State) ->
+     0..|      io:format("[chat_room]close room .id=~p~n",[Id]),
+     0..|      Msg = "Note:adm have level,room dismiss",
+     0..|      handle_info({brocastmsg,Msg},State),
+     0..|      RoleList = State#roominfo.rolelist,
+     0..|      lists:foreach(fun(X)->dismissrole(X) end,RoleList),
+     0..|      {stop,normal,State};
+        |  
+        |  %% 根据Id开启一个客户端的进程信息，此ID可以标识为房间号id
+        |  %% Dic 是该房间创建的字典
+        |  handle_info({enter,RoleId,RoomId},State)->
+     0..|      if
+        |          State#roominfo.rolelist == [] ->
+     0..|              NewStat = State#roominfo{admid =RoleId,id = RoomId};
+        |          true ->
+     0..|              NewStat = State
+        |      end,
+     0..|      OldList = NewStat#roominfo.rolelist,
+     0..|      NewList = [RoleId|OldList],
+     0..|      NNewStat = NewStat#roominfo{rolelist =NewList},
+     0..|      Msg = "new role comming!!",
+     0..|      ets:update_element(clientinfo,RoleId,{#clientinfo.roomid,RoomId}),
+     0..|      handle_info({brocastmsg,Msg},NNewStat),
+     0..|      io:format("[chat_room]role enter ok ... roomid=~p,roleid=~p,newrolelist=~p,State=~p ~n",[RoomId,RoleId,NewList,NNewStat]),
+     0..|      {noreply,NewStat#roominfo{rolelist =NewList}};
+        |  
+        |  
+        |  %% 管理员转让管理员权限给其他玩家
+        |  handle_info({changeadm,SId,DId},State) ->
+     0..|      AdmId = State#roominfo.admid,
+     0..|      if
+        |          SId == AdmId ->
+     0..|              io:format("[chat_room]change adm begin..SID=~p,DID=~p~n",[SId,DId]),
+     0..|              RoleList = State#roominfo.rolelist,
+     0..|              IsMem = lists:member(DId,RoleList),
+     0..|              if
+        |                  IsMem ==true ->
+     0..|                      NewStat = State#roominfo{admid = DId},
+     0..|                      Msg = "Admin change",
+     0..|                      handle_info({brocastmsg,Msg},NewStat),
+     0..|                      RoomId = NewStat#roominfo.id,
+     0..|                      AmdId = NewStat#roominfo.admid,
+     0..|                      io:format("[chat_room]change adm success,roomid=~p,newAdm=~p~n",[RoomId,AmdId]);
+        |                  true ->
+     0..|                      NewStat = State,
+     0..|                      io:format("[chat_room]drId is not a room role,drId=~p~n",[DId])
+        |              end;
+        |          true ->
+     0..|              NewStat = State,
+     0..|              io:format("[chat_room]sid is not a admin,srId=~p~n",[SId])
+        |      end,
+     0..|      {noreply,NewStat};
+        |  
+        |  
+        |  %% 根据pid来删除房间内的玩家
+        |  handle_info({exit,RoleId},State)->
+     0..|      RoleList = State#roominfo.rolelist,
+     0..|      IsMem = lists:member(RoleId,RoleList),
+        |  %%            from list to match DId
+     0..|      if
+        |          IsMem ==true ->
+     0..|              NewRoleList = lists:delete(RoleId,RoleList),
+     0..|              NewStat = State#roominfo{rolelist =NewRoleList },
+     0..|              ets:update_element(clientinfo,RoleId,{#clientinfo.roomid,none}),
+     0..|              Msg = "Have role leavel",
+     0..|              handle_info({brocastmsg,Msg},NewStat);
+        |          true ->
+     0..|              NewStat = State
+        |      end,
+     0..|      NRoleList = NewStat#roominfo.rolelist,
+     0..|      io:format("[chat_room] role level ok,roleid=~p,rolelist=~p~n",[RoleId,NRoleList]),
+     0..|      RoomId =NewStat#roominfo.id,
+     0..|      AdmId = NewStat#roominfo.admid,
+     0..|      if
+        |          NRoleList==[] ->
+     0..|              chatroommng:close_room(RoomId);
+        |          AdmId == RoleId ->  %% 管理员离开，则整个房间关闭
+     0..|              chatroommng:close_room(RoomId);
+        |          true ->
+     0..|              io:format("")
+        |      end,
+     0..|      {noreply,NewStat};
+        |  
+        |  
+        |  
+        |  %% 广播玩家信息，给这个房间里的玩家
+        |  handle_info({brocastmsg,Msg},State) ->
+     0..|      RoleList = State#roominfo.rolelist,
+     0..|      lists:foreach(fun(X)->sendMsg(X,Msg) end,RoleList),
+     0..|      {noreply,State};
+        |  
+        |  %%process messages
+        |  handle_info(Request,State)->
+     0..|      {noreply,State}.
+        |  
+        |  %% 给房间内的人发消息通知
+        |  sendMsg(Key,Msg) ->
+     0..|      case ets:lookup(clientinfo,Key) of
+        |          [Record] ->
+     0..|              io:format("[chat_room] send msg to key=~p~n",[Key]),
+     0..|              Pid=Record#clientinfo.pid,
+     0..|              Pid!{sendmsg,Msg};
+        |          []->
+     0..|              io:format("not match id=~p! ~n",[Key])
+        |      end.
+        |  
+        |  handle_cast(_From,State)->
+     0..|      {noreply,State}.
+        |  
+        |  terminate(_Reason,_State)->
+     0..|      ok.
+        |  
+        |  code_change(_OldVersion,State,Ext)->
+     0..|      {ok,State}.
+        |  
+        |  

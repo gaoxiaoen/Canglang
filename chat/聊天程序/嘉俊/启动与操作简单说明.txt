@@ -1,0 +1,9 @@
+程序使用了第三方的mysql库,正常启动需要连接mysql.
+程序中mysql的连接配置在
+chat_room.erl line 21 22.
+
+启动步骤.
+1. 进入ebin目录,输入erl命令.
+2. application:start(chat_server),即可启动聊天服务器.
+3. 在新的命令行环境,进入ebin目录,启动erl交互,输入client:start()即可启动客户端.
+4. 首先进行注册,然后可以按照提示进行相关操作.

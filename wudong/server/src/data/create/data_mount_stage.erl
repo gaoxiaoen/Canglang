@@ -1,0 +1,26 @@
+%%%---------------------------------------
+	%%% @Author  : 苍狼工作室
+	%%% @Module  : data_mount_stage
+	%%% @Created : 2018-04-28 12:18:25
+	%%% @Description:  自动生成
+	%%%---------------------------------------
+-module(data_mount_stage).
+-export([max_stage/0]).
+-export([get/1]).
+-include("mount.hrl").
+-include("common.hrl").
+
+    max_stage() ->12.
+get(1) -> #base_mount_stage{stage = 1 ,exp = 100 ,exp_full = 125 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 1 ,cd = 0 ,attrs = [{att,130},{def,65},{hp_lim,1300},{crit,29},{ten,27},{hit,26},{dodge,25}],image = 100001 ,sword_image = 1 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3104000,1},{10106,50}}};
+get(2) -> #base_mount_stage{stage = 2 ,exp = 200 ,exp_full = 250 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 2 ,cd = 0 ,attrs = [{att,455},{def,228},{hp_lim,4550},{crit,100},{ten,96},{hit,91},{dodge,86}],image = 100002 ,sword_image = 2 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3105000,2},{10106,70}}};
+get(3) -> #base_mount_stage{stage = 3 ,exp = 220 ,exp_full = 275 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 3 ,cd = 0 ,attrs = [{att,1105},{def,553},{hp_lim,11050},{crit,243},{ten,232},{hit,221},{dodge,210}],image = 100003 ,sword_image = 3 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3104000,1},{3105000,1}}};
+get(4) -> #base_mount_stage{stage = 4 ,exp = 300 ,exp_full = 375 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 4 ,cd = 0 ,attrs = [{att,1950},{def,975},{hp_lim,19500},{crit,429},{ten,410},{hit,390},{dodge,371}],image = 100004 ,sword_image = 4 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3105000,1},{3121125,1}}};
+get(5) -> #base_mount_stage{stage = 5 ,exp = 400 ,exp_full = 500 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 5 ,cd = 86400 ,attrs = [{att,2990},{def,1495},{hp_lim,29900},{crit,658},{ten,628},{hit,598},{dodge,568}],image = 100005 ,sword_image = 5 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3106000,1},{3122155,1}}};
+get(6) -> #base_mount_stage{stage = 6 ,exp = 850 ,exp_full = 1063 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 6 ,cd = 86400 ,attrs = [{att,4290},{def,2145},{hp_lim,42900},{crit,944},{ten,901},{hit,858},{dodge,815}],image = 100006 ,sword_image = 6 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3102000,1},{3103000,3}}};
+get(7) -> #base_mount_stage{stage = 7 ,exp = 1000 ,exp_full = 1250 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 7 ,cd = 86400 ,attrs = [{att,7540},{def,3770},{hp_lim,75400},{crit,1659},{ten,1583},{hit,1508},{dodge,1433}],image = 100007 ,sword_image = 7 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3102000,2},{3103000,5}}};
+get(8) -> #base_mount_stage{stage = 8 ,exp = 1500 ,exp_full = 1875 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 8 ,cd = 86400 ,attrs = [{att,11050},{def,5525},{hp_lim,110500},{crit,2431},{ten,2321},{hit,2210},{dodge,2100}],image = 100008 ,sword_image = 8 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3102000,2},{3103000,8}}};
+get(9) -> #base_mount_stage{stage = 9 ,exp = 2000 ,exp_full = 2500 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 9 ,cd = 86400 ,attrs = [{att,15600},{def,7800},{hp_lim,156000},{crit,3432},{ten,3276},{hit,3120},{dodge,2964}],image = 100009 ,sword_image = 9 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3102000,3},{3103000,10}}};
+get(10) -> #base_mount_stage{stage = 10 ,exp = 2500 ,exp_full = 3125 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 10 ,cd = 86400 ,attrs = [{att,20800},{def,10400},{hp_lim,208000},{crit,4576},{ten,4368},{hit,4160},{dodge,3952}],image = 100010 ,sword_image = 10 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3102000,3},{3105000,20}}};
+get(11) -> #base_mount_stage{stage = 11 ,exp = 2500 ,exp_full = 3125 ,exp_min = 9 ,exp_max = 11 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 11 ,cd = 86400 ,attrs = [{att,27950},{def,13975},{hp_lim,279500},{crit,6149},{ten,5870},{hit,5590},{dodge,5311}],image = 100011 ,sword_image = 11 ,bless_attrs = [{att,2},{def,1},{hp_lim,20},{crit,0},{ten,0},{hit,0},{dodge,0}],award = {{3102000,3},{3104000,20}}};
+get(12) -> #base_mount_stage{stage = 12 ,exp = 0 ,exp_full = 0 ,exp_min = 0 ,exp_max = 0 ,goods_ids = {3101000} ,gid_auto = 3101000 ,num = 0 ,cd = 86400 ,attrs = [{att,33800},{def,16900},{hp_lim,338000},{crit,7436},{ten,7098},{hit,6760},{dodge,6422}],image = 100012 ,sword_image = 12 ,bless_attrs = [],award = {}};
+get(_Data) -> [].

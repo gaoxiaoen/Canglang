@@ -41,7 +41,7 @@ handle_info({stop},State) ->
 handle_info(Request,State)->
     {noreply,State}.
 
-handle_cast(Request,State)->
+handle_cast({tcp,Socket,Bin},State)->
     {noreply,State}.
 
 terminate(_Reason,State)->
@@ -50,6 +50,7 @@ terminate(_Reason,State)->
 
 code_change(_OldVersion,State,Ext)->
     {ok,State}.
+
 
 
 %% 接受客户端发送的消息，试试看

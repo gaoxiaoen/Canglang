@@ -1,0 +1,19 @@
+%%%-------------------------------------------------------------------
+%%% @author Administrator
+%%% @copyright (C) 2018, <COMPANY>
+%%% @doc
+%%%
+%%% @end
+%%% Created : 08. 五月 2018 15:24
+%%%-------------------------------------------------------------------
+{application, chat_server_app, [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {mod, {chat_server_app, []}},
+  {env, []}
+]}.

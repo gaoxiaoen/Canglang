@@ -1,0 +1,9 @@
+D:\chat\chat_client\chat_client\bin\Debug\chat_client.exe.config
+D:\chat\chat_client\chat_client\bin\Debug\chat_client.exe
+D:\chat\chat_client\chat_client\bin\Debug\chat_client.pdb
+D:\chat\chat_client\chat_client\obj\Debug\chat_client.csprojResolveAssemblyReference.cache
+D:\chat\chat_client\chat_client\obj\Debug\chat_client.Form1.resources
+D:\chat\chat_client\chat_client\obj\Debug\chat_client.Properties.Resources.resources
+D:\chat\chat_client\chat_client\obj\Debug\chat_client.csproj.GenerateResource.Cache
+D:\chat\chat_client\chat_client\obj\Debug\chat_client.exe
+D:\chat\chat_client\chat_client\obj\Debug\chat_client.pdb

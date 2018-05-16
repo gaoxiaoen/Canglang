@@ -1,0 +1,13 @@
+{
+["src/*", "src/**/*","src/***/**/*"],
+[
+                {['gen_server2.erl'],[]},
+				                {['gen_server3.erl'],[]},
+								                {i, "include"},
+												                {outdir, "./ebin"},
+																                inline,
+																				                {inline_size,30}
+																								        
+]
+
+}.

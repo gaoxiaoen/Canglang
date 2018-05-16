@@ -1,0 +1,10 @@
+
+dialyzer: {dialyzer_error,"The HOME environment variable needs to be set so that Dialyzer knows where to find the default PLT"}
+[{dialyzer_plt,plt_error,1,[{file,"dialyzer_plt.erl"},{line,588}]},
+ {dialyzer_options,build,1,[{file,"dialyzer_options.erl"},{line,56}]},
+ {dialyzer_cl_parse,cl,1,[{file,"dialyzer_cl_parse.erl"},{line,229}]},
+ {dialyzer_cl_parse,start,0,[{file,"dialyzer_cl_parse.erl"},{line,47}]},
+ {dialyzer,plain_cl,0,[{file,"dialyzer.erl"},{line,61}]},
+ {init,start_it,1,[{file,"init.erl"},{line,1055}]},
+ {init,start_em,1,[{file,"init.erl"},{line,1035}]}]
+

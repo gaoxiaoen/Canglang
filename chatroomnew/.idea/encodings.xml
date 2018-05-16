@@ -2,5 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/../erpro/moon/moon/dev.bat" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/../wudong/server/script/dev.bat" charset="GBK" />
   </component>
 </project>

@@ -1,0 +1,110 @@
+%%%---------------------------------------
+	%%% @Author  : 苍狼工作室
+	%%% @Module  : data_smelt
+	%%% @Created : 2017-05-03 15:02:48
+	%%% @Description:  自动生成
+	%%%---------------------------------------
+-module(data_smelt).
+-export([get/1]).
+-include("smelt.hrl").
+get(1) -> #base_smelt{stage = 1 ,exp = 100 ,attrs = [{att,30},{def,15},{hp_lim,300},{crit,6},{ten,6},{hit,6},{dodge,6}]};
+get(2) -> #base_smelt{stage = 2 ,exp = 200 ,attrs = [{att,60},{def,30},{hp_lim,600},{crit,12},{ten,12},{hit,12},{dodge,12}]};
+get(3) -> #base_smelt{stage = 3 ,exp = 300 ,attrs = [{att,90},{def,45},{hp_lim,900},{crit,18},{ten,18},{hit,18},{dodge,18}]};
+get(4) -> #base_smelt{stage = 4 ,exp = 400 ,attrs = [{att,120},{def,60},{hp_lim,1200},{crit,24},{ten,24},{hit,24},{dodge,24}]};
+get(5) -> #base_smelt{stage = 5 ,exp = 500 ,attrs = [{att,150},{def,75},{hp_lim,1500},{crit,30},{ten,30},{hit,30},{dodge,30}]};
+get(6) -> #base_smelt{stage = 6 ,exp = 600 ,attrs = [{att,180},{def,90},{hp_lim,1800},{crit,36},{ten,36},{hit,36},{dodge,36}]};
+get(7) -> #base_smelt{stage = 7 ,exp = 700 ,attrs = [{att,210},{def,105},{hp_lim,2100},{crit,42},{ten,42},{hit,42},{dodge,42}]};
+get(8) -> #base_smelt{stage = 8 ,exp = 800 ,attrs = [{att,240},{def,120},{hp_lim,2400},{crit,48},{ten,48},{hit,48},{dodge,48}]};
+get(9) -> #base_smelt{stage = 9 ,exp = 900 ,attrs = [{att,270},{def,135},{hp_lim,2700},{crit,54},{ten,54},{hit,54},{dodge,54}]};
+get(10) -> #base_smelt{stage = 10 ,exp = 1000 ,attrs = [{att,300},{def,150},{hp_lim,3000},{crit,60},{ten,60},{hit,60},{dodge,60}]};
+get(11) -> #base_smelt{stage = 11 ,exp = 1100 ,attrs = [{att,330},{def,165},{hp_lim,3300},{crit,66},{ten,66},{hit,66},{dodge,66}]};
+get(12) -> #base_smelt{stage = 12 ,exp = 1200 ,attrs = [{att,360},{def,180},{hp_lim,3600},{crit,72},{ten,72},{hit,72},{dodge,72}]};
+get(13) -> #base_smelt{stage = 13 ,exp = 1300 ,attrs = [{att,390},{def,195},{hp_lim,3900},{crit,78},{ten,78},{hit,78},{dodge,78}]};
+get(14) -> #base_smelt{stage = 14 ,exp = 1400 ,attrs = [{att,420},{def,210},{hp_lim,4200},{crit,84},{ten,84},{hit,84},{dodge,84}]};
+get(15) -> #base_smelt{stage = 15 ,exp = 1500 ,attrs = [{att,450},{def,225},{hp_lim,4500},{crit,90},{ten,90},{hit,90},{dodge,90}]};
+get(16) -> #base_smelt{stage = 16 ,exp = 1600 ,attrs = [{att,480},{def,240},{hp_lim,4800},{crit,96},{ten,96},{hit,96},{dodge,96}]};
+get(17) -> #base_smelt{stage = 17 ,exp = 1700 ,attrs = [{att,510},{def,255},{hp_lim,5100},{crit,102},{ten,102},{hit,102},{dodge,102}]};
+get(18) -> #base_smelt{stage = 18 ,exp = 1800 ,attrs = [{att,540},{def,270},{hp_lim,5400},{crit,108},{ten,108},{hit,108},{dodge,108}]};
+get(19) -> #base_smelt{stage = 19 ,exp = 1900 ,attrs = [{att,570},{def,285},{hp_lim,5700},{crit,114},{ten,114},{hit,114},{dodge,114}]};
+get(20) -> #base_smelt{stage = 20 ,exp = 2000 ,attrs = [{att,600},{def,300},{hp_lim,6000},{crit,120},{ten,120},{hit,120},{dodge,120}]};
+get(21) -> #base_smelt{stage = 21 ,exp = 2100 ,attrs = [{att,630},{def,315},{hp_lim,6300},{crit,126},{ten,126},{hit,126},{dodge,126}]};
+get(22) -> #base_smelt{stage = 22 ,exp = 2200 ,attrs = [{att,660},{def,330},{hp_lim,6600},{crit,132},{ten,132},{hit,132},{dodge,132}]};
+get(23) -> #base_smelt{stage = 23 ,exp = 2300 ,attrs = [{att,690},{def,345},{hp_lim,6900},{crit,138},{ten,138},{hit,138},{dodge,138}]};
+get(24) -> #base_smelt{stage = 24 ,exp = 2400 ,attrs = [{att,720},{def,360},{hp_lim,7200},{crit,144},{ten,144},{hit,144},{dodge,144}]};
+get(25) -> #base_smelt{stage = 25 ,exp = 2500 ,attrs = [{att,750},{def,375},{hp_lim,7500},{crit,150},{ten,150},{hit,150},{dodge,150}]};
+get(26) -> #base_smelt{stage = 26 ,exp = 2600 ,attrs = [{att,780},{def,390},{hp_lim,7800},{crit,156},{ten,156},{hit,156},{dodge,156}]};
+get(27) -> #base_smelt{stage = 27 ,exp = 2700 ,attrs = [{att,810},{def,405},{hp_lim,8100},{crit,162},{ten,162},{hit,162},{dodge,162}]};
+get(28) -> #base_smelt{stage = 28 ,exp = 2800 ,attrs = [{att,840},{def,420},{hp_lim,8400},{crit,168},{ten,168},{hit,168},{dodge,168}]};
+get(29) -> #base_smelt{stage = 29 ,exp = 2900 ,attrs = [{att,870},{def,435},{hp_lim,8700},{crit,174},{ten,174},{hit,174},{dodge,174}]};
+get(30) -> #base_smelt{stage = 30 ,exp = 3000 ,attrs = [{att,900},{def,450},{hp_lim,9000},{crit,180},{ten,180},{hit,180},{dodge,180}]};
+get(31) -> #base_smelt{stage = 31 ,exp = 3100 ,attrs = [{att,930},{def,465},{hp_lim,9300},{crit,186},{ten,186},{hit,186},{dodge,186}]};
+get(32) -> #base_smelt{stage = 32 ,exp = 3200 ,attrs = [{att,960},{def,480},{hp_lim,9600},{crit,192},{ten,192},{hit,192},{dodge,192}]};
+get(33) -> #base_smelt{stage = 33 ,exp = 3300 ,attrs = [{att,990},{def,495},{hp_lim,9900},{crit,198},{ten,198},{hit,198},{dodge,198}]};
+get(34) -> #base_smelt{stage = 34 ,exp = 3400 ,attrs = [{att,1020},{def,510},{hp_lim,10200},{crit,204},{ten,204},{hit,204},{dodge,204}]};
+get(35) -> #base_smelt{stage = 35 ,exp = 3500 ,attrs = [{att,1050},{def,525},{hp_lim,10500},{crit,210},{ten,210},{hit,210},{dodge,210}]};
+get(36) -> #base_smelt{stage = 36 ,exp = 3600 ,attrs = [{att,1080},{def,540},{hp_lim,10800},{crit,216},{ten,216},{hit,216},{dodge,216}]};
+get(37) -> #base_smelt{stage = 37 ,exp = 3700 ,attrs = [{att,1110},{def,555},{hp_lim,11100},{crit,222},{ten,222},{hit,222},{dodge,222}]};
+get(38) -> #base_smelt{stage = 38 ,exp = 3800 ,attrs = [{att,1140},{def,570},{hp_lim,11400},{crit,228},{ten,228},{hit,228},{dodge,228}]};
+get(39) -> #base_smelt{stage = 39 ,exp = 3900 ,attrs = [{att,1170},{def,585},{hp_lim,11700},{crit,234},{ten,234},{hit,234},{dodge,234}]};
+get(40) -> #base_smelt{stage = 40 ,exp = 4000 ,attrs = [{att,1200},{def,600},{hp_lim,12000},{crit,240},{ten,240},{hit,240},{dodge,240}]};
+get(41) -> #base_smelt{stage = 41 ,exp = 4100 ,attrs = [{att,1230},{def,615},{hp_lim,12300},{crit,246},{ten,246},{hit,246},{dodge,246}]};
+get(42) -> #base_smelt{stage = 42 ,exp = 4200 ,attrs = [{att,1260},{def,630},{hp_lim,12600},{crit,252},{ten,252},{hit,252},{dodge,252}]};
+get(43) -> #base_smelt{stage = 43 ,exp = 4300 ,attrs = [{att,1290},{def,645},{hp_lim,12900},{crit,258},{ten,258},{hit,258},{dodge,258}]};
+get(44) -> #base_smelt{stage = 44 ,exp = 4400 ,attrs = [{att,1320},{def,660},{hp_lim,13200},{crit,264},{ten,264},{hit,264},{dodge,264}]};
+get(45) -> #base_smelt{stage = 45 ,exp = 4500 ,attrs = [{att,1350},{def,675},{hp_lim,13500},{crit,270},{ten,270},{hit,270},{dodge,270}]};
+get(46) -> #base_smelt{stage = 46 ,exp = 4600 ,attrs = [{att,1380},{def,690},{hp_lim,13800},{crit,276},{ten,276},{hit,276},{dodge,276}]};
+get(47) -> #base_smelt{stage = 47 ,exp = 4700 ,attrs = [{att,1410},{def,705},{hp_lim,14100},{crit,282},{ten,282},{hit,282},{dodge,282}]};
+get(48) -> #base_smelt{stage = 48 ,exp = 4800 ,attrs = [{att,1440},{def,720},{hp_lim,14400},{crit,288},{ten,288},{hit,288},{dodge,288}]};
+get(49) -> #base_smelt{stage = 49 ,exp = 4900 ,attrs = [{att,1470},{def,735},{hp_lim,14700},{crit,294},{ten,294},{hit,294},{dodge,294}]};
+get(50) -> #base_smelt{stage = 50 ,exp = 5000 ,attrs = [{att,1500},{def,750},{hp_lim,15000},{crit,300},{ten,300},{hit,300},{dodge,300}]};
+get(51) -> #base_smelt{stage = 51 ,exp = 5100 ,attrs = [{att,1530},{def,765},{hp_lim,15300},{crit,306},{ten,306},{hit,306},{dodge,306}]};
+get(52) -> #base_smelt{stage = 52 ,exp = 5200 ,attrs = [{att,1560},{def,780},{hp_lim,15600},{crit,312},{ten,312},{hit,312},{dodge,312}]};
+get(53) -> #base_smelt{stage = 53 ,exp = 5300 ,attrs = [{att,1590},{def,795},{hp_lim,15900},{crit,318},{ten,318},{hit,318},{dodge,318}]};
+get(54) -> #base_smelt{stage = 54 ,exp = 5400 ,attrs = [{att,1620},{def,810},{hp_lim,16200},{crit,324},{ten,324},{hit,324},{dodge,324}]};
+get(55) -> #base_smelt{stage = 55 ,exp = 5500 ,attrs = [{att,1650},{def,825},{hp_lim,16500},{crit,330},{ten,330},{hit,330},{dodge,330}]};
+get(56) -> #base_smelt{stage = 56 ,exp = 5600 ,attrs = [{att,1680},{def,840},{hp_lim,16800},{crit,336},{ten,336},{hit,336},{dodge,336}]};
+get(57) -> #base_smelt{stage = 57 ,exp = 5700 ,attrs = [{att,1710},{def,855},{hp_lim,17100},{crit,342},{ten,342},{hit,342},{dodge,342}]};
+get(58) -> #base_smelt{stage = 58 ,exp = 5800 ,attrs = [{att,1740},{def,870},{hp_lim,17400},{crit,348},{ten,348},{hit,348},{dodge,348}]};
+get(59) -> #base_smelt{stage = 59 ,exp = 5900 ,attrs = [{att,1770},{def,885},{hp_lim,17700},{crit,354},{ten,354},{hit,354},{dodge,354}]};
+get(60) -> #base_smelt{stage = 60 ,exp = 6000 ,attrs = [{att,1800},{def,900},{hp_lim,18000},{crit,360},{ten,360},{hit,360},{dodge,360}]};
+get(61) -> #base_smelt{stage = 61 ,exp = 6100 ,attrs = [{att,1830},{def,915},{hp_lim,18300},{crit,366},{ten,366},{hit,366},{dodge,366}]};
+get(62) -> #base_smelt{stage = 62 ,exp = 6200 ,attrs = [{att,1860},{def,930},{hp_lim,18600},{crit,372},{ten,372},{hit,372},{dodge,372}]};
+get(63) -> #base_smelt{stage = 63 ,exp = 6300 ,attrs = [{att,1890},{def,945},{hp_lim,18900},{crit,378},{ten,378},{hit,378},{dodge,378}]};
+get(64) -> #base_smelt{stage = 64 ,exp = 6400 ,attrs = [{att,1920},{def,960},{hp_lim,19200},{crit,384},{ten,384},{hit,384},{dodge,384}]};
+get(65) -> #base_smelt{stage = 65 ,exp = 6500 ,attrs = [{att,1950},{def,975},{hp_lim,19500},{crit,390},{ten,390},{hit,390},{dodge,390}]};
+get(66) -> #base_smelt{stage = 66 ,exp = 6600 ,attrs = [{att,1980},{def,990},{hp_lim,19800},{crit,396},{ten,396},{hit,396},{dodge,396}]};
+get(67) -> #base_smelt{stage = 67 ,exp = 6700 ,attrs = [{att,2010},{def,1005},{hp_lim,20100},{crit,402},{ten,402},{hit,402},{dodge,402}]};
+get(68) -> #base_smelt{stage = 68 ,exp = 6800 ,attrs = [{att,2040},{def,1020},{hp_lim,20400},{crit,408},{ten,408},{hit,408},{dodge,408}]};
+get(69) -> #base_smelt{stage = 69 ,exp = 6900 ,attrs = [{att,2070},{def,1035},{hp_lim,20700},{crit,414},{ten,414},{hit,414},{dodge,414}]};
+get(70) -> #base_smelt{stage = 70 ,exp = 7000 ,attrs = [{att,2100},{def,1050},{hp_lim,21000},{crit,420},{ten,420},{hit,420},{dodge,420}]};
+get(71) -> #base_smelt{stage = 71 ,exp = 7100 ,attrs = [{att,2130},{def,1065},{hp_lim,21300},{crit,426},{ten,426},{hit,426},{dodge,426}]};
+get(72) -> #base_smelt{stage = 72 ,exp = 7200 ,attrs = [{att,2160},{def,1080},{hp_lim,21600},{crit,432},{ten,432},{hit,432},{dodge,432}]};
+get(73) -> #base_smelt{stage = 73 ,exp = 7300 ,attrs = [{att,2190},{def,1095},{hp_lim,21900},{crit,438},{ten,438},{hit,438},{dodge,438}]};
+get(74) -> #base_smelt{stage = 74 ,exp = 7400 ,attrs = [{att,2220},{def,1110},{hp_lim,22200},{crit,444},{ten,444},{hit,444},{dodge,444}]};
+get(75) -> #base_smelt{stage = 75 ,exp = 7500 ,attrs = [{att,2250},{def,1125},{hp_lim,22500},{crit,450},{ten,450},{hit,450},{dodge,450}]};
+get(76) -> #base_smelt{stage = 76 ,exp = 7600 ,attrs = [{att,2280},{def,1140},{hp_lim,22800},{crit,456},{ten,456},{hit,456},{dodge,456}]};
+get(77) -> #base_smelt{stage = 77 ,exp = 7700 ,attrs = [{att,2310},{def,1155},{hp_lim,23100},{crit,462},{ten,462},{hit,462},{dodge,462}]};
+get(78) -> #base_smelt{stage = 78 ,exp = 7800 ,attrs = [{att,2340},{def,1170},{hp_lim,23400},{crit,468},{ten,468},{hit,468},{dodge,468}]};
+get(79) -> #base_smelt{stage = 79 ,exp = 7900 ,attrs = [{att,2370},{def,1185},{hp_lim,23700},{crit,474},{ten,474},{hit,474},{dodge,474}]};
+get(80) -> #base_smelt{stage = 80 ,exp = 8000 ,attrs = [{att,2400},{def,1200},{hp_lim,24000},{crit,480},{ten,480},{hit,480},{dodge,480}]};
+get(81) -> #base_smelt{stage = 81 ,exp = 8100 ,attrs = [{att,2430},{def,1215},{hp_lim,24300},{crit,486},{ten,486},{hit,486},{dodge,486}]};
+get(82) -> #base_smelt{stage = 82 ,exp = 8200 ,attrs = [{att,2460},{def,1230},{hp_lim,24600},{crit,492},{ten,492},{hit,492},{dodge,492}]};
+get(83) -> #base_smelt{stage = 83 ,exp = 8300 ,attrs = [{att,2490},{def,1245},{hp_lim,24900},{crit,498},{ten,498},{hit,498},{dodge,498}]};
+get(84) -> #base_smelt{stage = 84 ,exp = 8400 ,attrs = [{att,2520},{def,1260},{hp_lim,25200},{crit,504},{ten,504},{hit,504},{dodge,504}]};
+get(85) -> #base_smelt{stage = 85 ,exp = 8500 ,attrs = [{att,2550},{def,1275},{hp_lim,25500},{crit,510},{ten,510},{hit,510},{dodge,510}]};
+get(86) -> #base_smelt{stage = 86 ,exp = 8600 ,attrs = [{att,2580},{def,1290},{hp_lim,25800},{crit,516},{ten,516},{hit,516},{dodge,516}]};
+get(87) -> #base_smelt{stage = 87 ,exp = 8700 ,attrs = [{att,2610},{def,1305},{hp_lim,26100},{crit,522},{ten,522},{hit,522},{dodge,522}]};
+get(88) -> #base_smelt{stage = 88 ,exp = 8800 ,attrs = [{att,2640},{def,1320},{hp_lim,26400},{crit,528},{ten,528},{hit,528},{dodge,528}]};
+get(89) -> #base_smelt{stage = 89 ,exp = 8900 ,attrs = [{att,2670},{def,1335},{hp_lim,26700},{crit,534},{ten,534},{hit,534},{dodge,534}]};
+get(90) -> #base_smelt{stage = 90 ,exp = 9000 ,attrs = [{att,2700},{def,1350},{hp_lim,27000},{crit,540},{ten,540},{hit,540},{dodge,540}]};
+get(91) -> #base_smelt{stage = 91 ,exp = 9100 ,attrs = [{att,2730},{def,1365},{hp_lim,27300},{crit,546},{ten,546},{hit,546},{dodge,546}]};
+get(92) -> #base_smelt{stage = 92 ,exp = 9200 ,attrs = [{att,2760},{def,1380},{hp_lim,27600},{crit,552},{ten,552},{hit,552},{dodge,552}]};
+get(93) -> #base_smelt{stage = 93 ,exp = 9300 ,attrs = [{att,2790},{def,1395},{hp_lim,27900},{crit,558},{ten,558},{hit,558},{dodge,558}]};
+get(94) -> #base_smelt{stage = 94 ,exp = 9400 ,attrs = [{att,2820},{def,1410},{hp_lim,28200},{crit,564},{ten,564},{hit,564},{dodge,564}]};
+get(95) -> #base_smelt{stage = 95 ,exp = 9500 ,attrs = [{att,2850},{def,1425},{hp_lim,28500},{crit,570},{ten,570},{hit,570},{dodge,570}]};
+get(96) -> #base_smelt{stage = 96 ,exp = 9600 ,attrs = [{att,2880},{def,1440},{hp_lim,28800},{crit,576},{ten,576},{hit,576},{dodge,576}]};
+get(97) -> #base_smelt{stage = 97 ,exp = 9700 ,attrs = [{att,2910},{def,1455},{hp_lim,29100},{crit,582},{ten,582},{hit,582},{dodge,582}]};
+get(98) -> #base_smelt{stage = 98 ,exp = 9800 ,attrs = [{att,2940},{def,1470},{hp_lim,29400},{crit,588},{ten,588},{hit,588},{dodge,588}]};
+get(99) -> #base_smelt{stage = 99 ,exp = 9900 ,attrs = [{att,2970},{def,1485},{hp_lim,29700},{crit,594},{ten,594},{hit,594},{dodge,594}]};
+get(100) -> #base_smelt{stage = 100 ,exp = 0 ,attrs = [{att,3000},{def,1500},{hp_lim,30000},{crit,600},{ten,600},{hit,600},{dodge,600}]};
+get(_Data) -> [].
